@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;400;633;789&display=swap'); */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer utilities {
+  .text-15xl {
+    font-size: 14rem;
+  }
+  .text-10xl {
+    font-size: 9rem;
+  }
+  .text-12xl {
+    font-size: 11rem;
+  }
+} */
+
+@layer base {
+  @font-face {
+    font-family: 'Sail';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('~assets/fonts/Sail-Regular.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Yanone Kaffeesatz';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('~assets/fonts/YanoneKaffeesatz-VariableFont_wght.ttf')
+      format('truetype');
+  }
+  @font-face {
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('~assets/fonts/RobotoSlab-VariableFont_wght.ttf')
+      format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Bernadette';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('~assets/fonts/BernadetteRegular-DOVj0.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'QuickKiss';
+    font-style: normal;
+    font-display: swap;
+    src: url('~assets/fonts/QuickKissPersonalUse-PxlZ.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Recoleta';
+    font-style: normal;
+    font-display: swap;
+    src: url('~assets/fonts/Recoleta-RegularDEMO.otf');
+  }
+}
+@font-face {
+  font-family: 'Estedad';
+  src: url('~assets/fonts/Estedad-Bold.ttf');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+/* * {
+  border: 1px solid red;
+} */
+
+html {
+  height: 100%;
+}
+
+#main {
+  font-family: 'Estedad';
+
+  animation: 30s ease-in-out infinite alternate-reverse color-change;
+  height: 100%;
+}
+@-webkit-keyframes color-change {
+  0% {
+    background-color: #ade7e7;
+  }
+
+  45% {
+    background-color: #a6a6db;
+  }
+
+  100% {
+    background-color: #d8bbff;
+  }
+}
+
+@keyframes color-change {
+  0% {
+    background-color: #83f1f1;
+  }
+
+  50% {
+    background-color: #55dd8e;
+  }
+
+  100% {
+    background-color: #595bee;
+  }
+}
+* {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #e28b0a #00ffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+@media only screen and (max-width: 767px) {
+  *::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #ff4d65;
+  border: 0px none #ffffff;
+  border-radius: 86px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5f1d28;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #ff7a90;
+}
+::-webkit-scrollbar-track {
+  background: #8be8f9;
+  border: 0px none #ffffff;
+  border-radius: 100px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #b1f2fb;
+}
+::-webkit-scrollbar-track:active {
+  background: #3b3b3b;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
