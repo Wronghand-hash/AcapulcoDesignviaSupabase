@@ -1,7 +1,16 @@
 <template>
+  <v-app>
     <div id="main" class="w-screen">
-      <LazyHydrate when-visible>
-        <TheNavbar id="navbar" class="navbar" />
+      <LazyHydrate when-idle>
+        <Navbar
+          v-gsap.to="{
+            opacity: 1,
+            duration: 1.5,
+            delay: 1,
+            ease: 'circ.out',
+          }"
+          class="navbar"
+        />
       </LazyHydrate>
 
       <div class="w-screen overflow-hidden">
@@ -57,87 +66,30 @@
             />
           </div>
           <div
-            class="
-              mt-44
-              lg:mt-36
-              acapulco-div
-              lg:h-screen
-              px-5
-              lg:px-0
-              w-screen
-              h-dialog
-              flex flex-col
-              lg:flex-row
-              align-center
-              justify-between
-              relative
-            "
+            class="mt-44 lg:mt-36 acapulco-div lg:h-screen px-5 lg:px-0 w-screen h-dialog flex flex-col lg:flex-row align-center justify-between relative"
           >
             <div
-              class="
-                peace
-                z-10
-                lg:max-w-xl
-                h-2/5
-                w-full
-                transform
-                lg:-translate-x-24
-              "
+              class="peace z-10 lg:max-w-xl h-2/5 w-full transform lg:-translate-x-24"
             >
               <img
-                class="
-                  object-contain
-                  w-full
-                  h-full
-                  drop-shadow-2xl
-                  transform
-                  lg:-rotate-90
-                "
+                class="object-contain w-full h-full drop-shadow-2xl transform lg:-rotate-90"
                 src="~/assets/images/sketch-162443588438sdfs.png"
                 alt=""
               />
             </div>
 
             <div
-              class="
-                w-full
-                h-full
-                flex
-                align-center
-                justify-center
-                md:align-start
-                absolute
-                m-auto
-              "
+              class="w-full h-full flex align-center justify-center md:align-start absolute m-auto"
             >
               <h1
-                class="
-                  NavbarTrigger
-                  acapulco
-                  tracking-wider
-                  text-7xl
-                  md:text-9xl
-                  lg:text-10xl
-                  text-center
-                  leading-none
-                  text-gray-100
-                "
+                class="NavbarTrigger acapulco tracking-wider text-7xl md:text-9xl lg:text-10xl text-center leading-none text-gray-100"
               >
-               acapulco design
+                acapulco design
               </h1>
             </div>
             <div class="lg:max-w-xl z-10 h-2/5 w-full">
               <img
-                class="
-                  object-contain
-                  w-full
-                  h-full
-                  drop-shadow-2xl
-                  rotate-180
-                  lg:rotate-90
-                  transform
-                  lg:translate-x-24
-                "
+                class="object-contain w-full h-full drop-shadow-2xl rotate-180 lg:rotate-90 transform lg:translate-x-24"
                 src="~/assets/images/sketch-162443588438sdfs.png"
                 alt=""
               />
@@ -162,29 +114,10 @@
             <img src="~/assets/images/arrow.png" class="h-28 w-16 object-contain" alt="" />
           </div> -->
           <div
-            class="
-              flex
-              h-screen
-              w-screen
-              justify-center
-              align-center
-              firstContainer
-              content
-              relative
-            "
+            class="flex h-screen w-screen justify-center align-center firstContainer content relative"
           >
             <div
-              class="
-                transform
-                -translate-x-32
-                lg:-translate-x-0
-                inset-y-0
-                left-0
-                absolute
-                z-10
-                max-w-xs
-                lg:max-w-xl
-              "
+              class="transform -translate-x-32 lg:-translate-x-0 inset-y-0 left-0 absolute z-10 max-w-xs lg:max-w-xl"
             >
               <img
                 class="object-cover"
@@ -193,50 +126,19 @@
               />
             </div>
             <div
-              class="
-                absolute
-                p-16
-                inset-0
-                lg:h-full
-                h-3/4
-                flex
-                justify-start
-                align-center
-                lg:p-96
-              "
+              class="absolute p-16 inset-0 lg:h-full h-3/4 flex justify-start align-center lg:p-96"
             >
               <h2
-                class="
-                  sm:w-96
-                  h2-home
-                  text-center
-                  capitalize
-                  font-bold
-                  text-4xl
-                  md:text-7xl
-                  lg:text-9xl
-                  transform
-                  sm:m-auto
-                "
+                class="sm:w-96 h2-home text-center capitalize font-bold text-4xl md:text-7xl lg:text-9xl transform sm:m-auto"
               >
-                <span class="text-mainRed animatedSpans">
-                  limited </span
-                >, <span class="animatedSpans">custom</span>,
+                <span class="text-mainRed animatedSpans"> limited </span>,
+                <span class="animatedSpans">custom</span>,
                 <i class="animatedSpans">handmade </i>
                 <span class="animatedSpans"> merchendise</span>
               </h2>
             </div>
             <div
-              class="
-                transform
-                translate-x-24
-                lg:-translate-x-0 lg:max-w-xl
-                inset-y-0
-                right-0
-                absolute
-                z-10
-                max-w-xs
-              "
+              class="transform translate-x-24 lg:-translate-x-0 lg:max-w-xl inset-y-0 right-0 absolute z-10 max-w-xs"
             >
               <img
                 class="object-cover"
@@ -247,21 +149,7 @@
           </div>
 
           <div
-            class="
-              lg:mt-28
-              h-screen
-              w-screen
-              flex flex-col
-              lg:flex-row
-              align-center
-              justify-center
-              space-y-9
-              p-14
-              lg:p-48
-              justify-self-stretch
-              forthContainer
-              content
-            "
+            class="lg:mt-28 h-screen w-screen flex flex-col lg:flex-row align-center justify-center space-y-9 p-14 lg:p-48 justify-self-stretch forthContainer content"
           >
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
@@ -278,46 +166,18 @@
 
             <div class=""></div>
             <div
-              class="
-                pictureDiv
-                lg:order-last
-                cursor-pointer
-                bg-red-200
-                shadow-2xl
-              "
+              class="pictureDiv lg:order-last cursor-pointer bg-red-200 shadow-2xl"
             >
               <img
                 src="~/assets/images/lighter.svg"
-                class="
-                  object-fill
-                  w-full
-                  h-full
-                  lg:max-w-2xl
-                  md:max-w-2xl
-                  drop-shadow-2xl
-                  m-auto
-                  pictureDivImages
-                "
+                class="object-fill w-full h-full lg:max-w-2xl md:max-w-2xl drop-shadow-2xl m-auto pictureDivImages"
                 alt=""
               />
             </div>
           </div>
 
           <div
-            class="
-              h-screen
-              w-screen
-              flex flex-col
-              lg:flex-row
-              align-center
-              justify-center
-              space-y-6
-              p-20
-              lg:p-48
-              justify-self-stretch
-              thirdContainer
-              content
-            "
+            class="h-screen w-screen flex flex-col lg:flex-row align-center justify-center space-y-6 p-20 lg:p-48 justify-self-stretch thirdContainer content"
           >
             <div class="pictureDiv lg:order-first cursor-pointer shadow-2xl">
               <!-- <h1
@@ -339,24 +199,17 @@
               <img
                 src="~/assets/images/acapulcoShirt.svg"
                 alt=""
-                class="
-                  pictureDivImages
-                  max-w-lg
-                  h-full
-                  object-fill
-                  drop-shadow-2xl
-                  m-auto
-                  sm:max-h-80
-                  lg:max-w-xl
-                  md:max-w-xl
-                  w-full
-                "
+                class="pictureDivImages max-w-lg h-full object-fill drop-shadow-2xl m-auto sm:max-h-80 lg:max-w-xl md:max-w-xl w-full"
               />
             </div>
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
                 <h3 class="text-6xl p-5 text-center">Acapulco Shirts</h3>
-                <img class="transform scale-75" src="~/assets/images/fsdf.png" alt="" />
+                <img
+                  class="transform scale-75"
+                  src="~/assets/images/fsdf.png"
+                  alt=""
+                />
               </div>
               <div class="self-center">
                 <NuxtLink to="/productList">
@@ -369,20 +222,7 @@
           </div>
 
           <div
-            class="
-              h-screen
-              w-screen
-              flex flex-col
-              lg:flex-row
-              align-center
-              justify-center
-              space-y-6
-              p-20
-              lg:p-48
-              justify-self-stretch
-              forthContainer
-              content
-            "
+            class="h-screen w-screen flex flex-col lg:flex-row align-center justify-center space-y-6 p-20 lg:p-48 justify-self-stretch forthContainer content"
           >
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
@@ -399,67 +239,17 @@
               </div>
             </div>
             <div
-              class="
-                pictureDiv
-                lg:order-last
-                max-w-lg
-                cursor-pointer
-                bg-red-200
-                h-full
-                lg:max-w-2xl
-                md:max-w-2xl
-                shadow-2xl
-                w-full
-              "
+              class="pictureDiv lg:order-last max-w-lg cursor-pointer bg-red-200 h-full lg:max-w-2xl md:max-w-2xl shadow-2xl w-full"
             ></div>
           </div>
           <div
-            class="
-              h-screen
-              w-screen
-              flex flex-col
-              lg:flex-row
-              align-center
-              justify-center
-              space-y-6
-              p-20
-              lg:p-48
-              justify-self-stretch
-              thirdContainer
-              content
-            "
+            class="h-screen w-screen flex flex-col lg:flex-row align-center justify-center space-y-6 p-20 lg:p-48 justify-self-stretch thirdContainer content"
           >
             <div
-              class="
-                pictureDiv
-                lg:order-first
-                max-w-lg
-                cursor-pointer
-                bg-red-200
-                h-full
-                lg:max-w-xl
-                md:max-w-xl
-                shadow-2xl
-                w-full
-                flex flex-col-reverse
-                justify-start
-                align-end
-                space-x-2
-              "
+              class="pictureDiv lg:order-first max-w-lg cursor-pointer bg-red-200 h-full lg:max-w-xl md:max-w-xl shadow-2xl w-full flex flex-col-reverse justify-start align-end space-x-2"
             >
               <h1
-                class="
-                  m-3
-                  font-mainFont
-                  rounded-full
-                  py-2
-                  px-8
-                  text-mainBlue
-                  bg-goldie
-                  text-2xl
-                  lg:text-3xl
-                  font-bold
-                "
+                class="m-3 font-mainFont rounded-full py-2 px-8 text-mainBlue bg-goldie text-2xl lg:text-3xl font-bold"
               >
                 Coming Soon...
               </h1>
@@ -481,48 +271,13 @@
           </div>
 
           <div
-            class="
-              h-screen
-              w-screen
-              flex flex-col
-              align-center
-              justify-center
-              space-y-6
-              p-20
-              justify-self-stretch
-              thirdContainer
-              content
-            "
+            class="h-screen w-screen flex flex-col align-center justify-center space-y-6 p-20 justify-self-stretch thirdContainer content"
           >
             <div
-              class="
-                pictureDiv
-                max-w-lg
-                cursor-pointer
-                bg-red-200
-                h-full
-                lg:max-w-6xl
-                md:max-w-2xl
-                shadow-2xl
-                w-full
-                flex flex-col-reverse
-                justify-start
-                align-end
-              "
+              class="pictureDiv max-w-lg cursor-pointer bg-red-200 h-full lg:max-w-6xl md:max-w-2xl shadow-2xl w-full flex flex-col-reverse justify-start align-end"
             >
               <h1
-                class="
-                  m-3
-                  font-mainFont
-                  rounded-full
-                  py-2
-                  px-8
-                  text-mainBlue
-                  bg-goldie
-                  text-2xl
-                  lg:text-3xl
-                  font-bold
-                "
+                class="m-3 font-mainFont rounded-full py-2 px-8 text-mainBlue bg-goldie text-2xl lg:text-3xl font-bold"
               >
                 Coming Soon...
               </h1>
@@ -548,31 +303,10 @@
           </div>
 
           <div
-            class="
-              h-screen
-              fifthContainer
-              flex flex-col
-              align-center
-              justify-center
-              space-y-6
-              content
-              p-20
-              justify-self-stretch
-            "
+            class="h-screen fifthContainer flex flex-col align-center justify-center space-y-6 content p-20 justify-self-stretch"
           >
             <div
-              class="
-                pictureDiv
-                collections
-                x-w-lg
-                cursor-pointer
-                bg-red-200
-                h-full
-                lg:max-w-6xl
-                md:max-w-2xl
-                shadow-2xl
-                w-full
-              "
+              class="pictureDiv collections x-w-lg cursor-pointer bg-red-200 h-full lg:max-w-6xl md:max-w-2xl shadow-2xl w-full"
             ></div>
 
             <div class="textDiv">
@@ -587,45 +321,18 @@
           </div>
 
           <div
-            class="
-              w-screen
-              lg:p-44
-              flex
-              align-center
-              h-screen
-              lg:h-screen
-              grid-row-2
-              justify-center
-              sixthContainer
-              content
-            "
+            class="w-screen lg:p-44 flex align-center h-screen lg:h-screen grid-row-2 justify-center sixthContainer content"
           >
             <div class="flex flex-row flex-wrap w-5/6 h-2/6 justify-center">
               <h1
-                class="
-                  introText
-                  capitalize
-                  text-5xl
-                  lg:text-7xl
-                  text-center
-                  bg-goldie
-                  p-2
-                "
+                class="introText capitalize text-5xl lg:text-7xl text-center bg-goldie p-2"
               >
                 We are a
                 <span class="text-Rose-700"> Creative Team </span>
                 based in Iran
               </h1>
               <h3
-                class="
-                  px-2
-                  learnMore
-                  font-bold
-                  text-4xl
-                  lg:text-6xl
-                  py-5
-                  text-center
-                "
+                class="px-2 learnMore font-bold text-4xl lg:text-6xl py-5 text-center"
               >
                 If you want to know us more, maybe get a cup of coffee, you can!
               </h3>
@@ -638,6 +345,7 @@
         </div>
       </div>
     </div>
+  </v-app>
 </template>
 <!-- <div class="flex align-center justify-center">
               <video
@@ -663,10 +371,10 @@
 import LazyHydrate from 'vue-lazy-hydration'
 
 export default {
-  name:'IndexPage',
+  name: 'IndexPage',
   components: {
     LazyHydrate,
-    TheNavbar: () => import('../layouts/TheNavbar.vue'),
+    Navbar: () => import('../layouts/TheNavbar.vue'),
   },
   transition: {
     mode: 'out-in',

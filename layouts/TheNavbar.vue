@@ -6,6 +6,7 @@
     <div class="hidden lg:flex">
       <nuxt-link to="/aboutUs">
         <v-btn class="Btn" dark depressed rounded x-large color="transparent">
+          <v-icon class="" large>mdi-meditation</v-icon>
           <span class="aboutUs text-xl"> about us </span>
         </v-btn>
       </nuxt-link>
@@ -15,21 +16,24 @@
       <div class="hidden lg:flex">
         <nuxt-link to="/">
           <v-btn class="Btn" dark depressed rounded x-large color="transparent">
-            <span class="aboutUs text-xl"> home </span>
+            <span class="aboutUs text-xl"> home</span>
+            <v-icon class="" large>mdi-home</v-icon>
           </v-btn>
         </nuxt-link>
       </div>
       <div class="hidden lg:flex">
         <nuxt-link to="/productList">
           <v-btn depressed x-large color="transparent" class="">
-            <span class="white--text text-xl"> shop</span>
+            <span class="white--text text-xl"> shop </span>
+            <v-icon medium class="white--text">mdi-shopping</v-icon>
           </v-btn>
         </nuxt-link>
       </div>
       <div class="hidden lg:flex">
         <NuxtLink id="admin-link" class="flex" to="/adminPage">
           <v-btn depressed dark x-large color="transparent" class="">
-            <span class="white--text text-xl"> admin </span>
+            <span class="white--text text-xl"> admin</span>
+            <v-icon class="cowboy">mdi-cryengine</v-icon>
           </v-btn>
         </NuxtLink>
       </div>
@@ -49,6 +53,7 @@
                   @click="dialog = true"
                   v-on="{ ...tooltip, ...menu }"
                 >
+                  <v-icon class="white--text">mdi-account-key</v-icon>
                 </v-btn>
               </template>
               <span
@@ -67,6 +72,7 @@
             </v-list-item>
             <v-list-item>
               <v-btn color="transparent" depressed class="" @click="signOut">
+                <v-icon>mdi-logout-variant</v-icon>
                 <span class="text-xl ml-1"> Logout </span>
               </v-btn>
             </v-list-item>
@@ -110,8 +116,16 @@
       > -->
 
 <script>
+import LazyHydrate from 'vue-lazy-hydration'
+import ShoppingCartDrawer from '../components/ShoppingCartDrawer.vue'
 export default {
-  components: {},
+  components: {
+    LazyHydrate,
+    MenuBarDrawer: () => import('../components/MenuBarDrawer.vue'),
+    ProfilePageDialog: () => import('../components/ProfilePageDialog.vue'),
+    LoginDialog: () => import('../components/LoginDialog.vue'),
+    ShoppingCartDrawer,
+  },
   data() {
     return {
       categories: [
@@ -133,12 +147,15 @@ export default {
   },
 
   computed: {
-    cartTotalAmount() {
-      return this.$store.getters.cartItemCount()
+    user() {
+      return this.$store.state.user
     },
   },
 
   mounted() {
+    this.$supabase.auth.onAuthStateChange(() => {
+      this.$store.dispatch('setUser', this.$supabase.auth.user())
+    })
     this.animateNavbar()
   },
   methods: {
@@ -156,11 +173,14 @@ export default {
         },
       })
     },
-    signOut() {
-      this.$store.dispatch('signOut').then((data) => {
-        this.$router.go() // Refreshes page
-        this.$router.push('/')
-      })
+    async signOut() {
+      try {
+        const { error } = await this.$supabase.auth.signOut()
+        if (error) throw error
+        alert('signed out')
+      } catch (error) {
+        alert(error.message)
+      }
     },
   },
   // created() {

@@ -1,0 +1,137 @@
+<template>
+  <div>
+    <div
+      class="
+        seventhContainer
+        w-screen
+        h-dialog
+        lg:h-screen
+        bg-mainBlue
+        flex flex-col
+      "
+    >
+      <div class="h-3/6 flex align-center justify-center p-6 self-center">
+        <div class="self-center flex">
+          <div class="text-center space-x-3 lg:space-x-12 lg:space-y-8">
+            <h1
+              class="
+                font-mainFont font-extrabold
+                capitalize
+                text-5xl
+                p-4
+                lg:text-7xl
+                text-mainRed
+              "
+            >
+              find us on social media!
+            </h1>
+            <v-icon x-large class="icon-3d transform lg:scale-150"
+              >mdi-facebook</v-icon
+            >
+            <v-icon x-large class="icon-3d transform lg:scale-150"
+              >mdi-google</v-icon
+            >
+            <v-icon x-large class="icon-3d transform lg:scale-150"
+              >mdi-instagram</v-icon
+            >
+            <v-icon x-large class="icon-3d transform lg:scale-150"
+              >mdi-whatsapp</v-icon
+            >
+          </div>
+          <div class="w-40 h-48 self-end justify-self-end">
+            <a href="https://www.instagram.com/payamone/?hl=en">
+              <img
+                class="object-contain icon-3d"
+                src="~/assets/images/ppp.png"
+                alt=""
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+      <h1
+        class="
+          self-center
+          lg:ml-4 lg:self-start
+          font-mainFont font-bold
+          capitalize
+          text-3xl
+          p-2
+          lg:text-5xl
+          text-mainRed
+        "
+      >
+        Made with ❤️ from Iran
+      </h1>
+      <h1
+        class="
+          self-center
+          lg:self-start lg:ml-4
+          font-mainFont font-thin
+          capitalize
+          text-3xl
+          p-1
+          lg:text-4xl
+          text-mainRed
+        "
+      >
+        Art by
+        <a href="https://www.instagram.com/payamone/?hl=en">PayamOne🌴</a>
+      </h1>
+      <div class="flex z-30 justify-end align-end h-3/6 lg:h-full">
+        <img
+          class="lg:object-cover object-contain h-full w-full"
+          src="~/assets/images/fsdfsdf.png"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name:'theFooter'
+}
+</script>
+
+<style lang="scss" scoped>
+$redColor: rgba(244, 67, 54, 1);
+$blueColor: rgba(33, 150, 243, 1);
+.icon-3d {
+  cursor: pointer;
+  -webkit-animation: icon3d 200ms 10;
+  animation: icon3d 200ms 10;
+  color: #f6f6f6;
+  padding-bottom: 5px;
+  border-bottom: 5px solid #120129;
+  border-radius: 25px;
+  // border-right: 5px solid #120129;
+  &:hover {
+    border-bottom: 5px solid #ff4a68;
+    // border-right: 5px solid #ff4a68;
+
+    transition: ease-in-out 0.7s;
+    -webkit-animation: icon3d 200ms infinite;
+    animation: icon3d 200ms infinite;
+  }
+}
+
+@keyframes icon3d {
+  0% {
+    text-shadow: 5px 4px $redColor, -5px -6px $blueColor;
+  }
+  25% {
+    text-shadow: -5px -6px $redColor, 5px 4px $blueColor;
+  }
+  50% {
+    text-shadow: 5px -4px $redColor, -8px 4px $blueColor;
+  }
+  75% {
+    text-shadow: -8px -4px $redColor, -5px -4px $blueColor;
+  }
+  100% {
+    text-shadow: -5px 0 $redColor, 5px -4px $blueColor;
+  }
+}
+</style>
