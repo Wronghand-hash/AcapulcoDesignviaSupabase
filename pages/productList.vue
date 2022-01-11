@@ -36,15 +36,7 @@
         </div>
         <div class="w-3/4 lg:w-4/6 z-10 mt-14 NavbarTrigger">
           <h1
-            class="
-              text-8xl
-              lg:text-9xl
-              text-center text-mainBlue
-              capitalize
-              firstText
-              opacity-0
-              NavbarTrigger
-            "
+            class="text-8xl lg:text-9xl text-center text-mainBlue capitalize firstText opacity-0 NavbarTrigger"
           >
             take a trip with us
             <br />
@@ -56,26 +48,10 @@
           </h1>
         </div>
         <div
-          class="
-            lg:w-11/12
-            w-full
-            h-full
-            grid grid-cols-8
-            mt-24
-            background
-            opacity-0
-          "
+          class="lg:w-11/12 w-full h-full grid grid-cols-8 mt-24 background opacity-0"
         >
           <div
-            class="
-              menuNavbar
-              sticky
-              flex
-              align-center
-              py-6
-              divide-x-2 divide-black
-              col-span-8
-            "
+            class="menuNavbar sticky flex align-center py-6 divide-x-2 divide-black col-span-8"
           >
             <NuxtLink to="/">
               <span class="p-9"
@@ -96,71 +72,30 @@
             </NuxtLink>
           </div>
           <div
-            class="
-              p-3
-              col-span-8
-              lg:col-span-2
-              self-start
-              justify-self-end
-              sidebar
-              opacity-0
-              space-y-4
-              sticky
-              h-auto
-              flex flex-col
-              justify-between
-              align-center
-            "
+            class="p-3 col-span-8 lg:col-span-2 self-start justify-self-end sidebar opacity-0 space-y-4 sticky h-auto flex flex-col justify-between align-center"
           >
             <!-- <div class="flex flex-col p-10 self-center"> -->
             <!-- <h1 class="text-7xl mt-10 text-center text-gray-700 font-bold">
                 Shop
               </h1> -->
             <h3
-              class="
-                p-3
-                text-mainBlue text-5xl
-                lg:text-6xl
-                border-red-600
-                font-black
-              "
+              class="p-3 text-mainBlue text-5xl lg:text-6xl border-red-600 font-black"
             >
               Discover!
             </h3>
             <div
-              class="
-                space-x-3 space-y-2
-                px-4
-                text-center
-                lg:text-left
-                flex flex-wrap
-                align-center
-                lg:justify-start
-                justify-center
-              "
+              class="space-x-3 space-y-2 px-4 text-center lg:text-left flex flex-wrap align-center lg:justify-start justify-center"
             >
               <span class="cursor-pointer" @click="changeCatagory('Lighters')">
                 <h1
-                  class="
-                    lg:text-3xl
-                    text-2xl
-                    border-mainBlue border-b-2
-                    p-4
-                    sidebarText
-                  "
+                  class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText"
                 >
                   Lighters🔥
                 </h1>
               </span>
               <span class="cursor-pointer" @click="changeCatagory('Shirts')">
                 <h1
-                  class="
-                    lg:text-3xl
-                    text-2xl text-mainBlue
-                    p-4
-                    border-mainBlue border-b-2
-                    sidebarText
-                  "
+                  class="lg:text-3xl text-2xl text-mainBlue p-4 border-mainBlue border-b-2 sidebarText"
                 >
                   Acapulco Shirts🌴
                 </h1>
@@ -170,39 +105,21 @@
                 @click="changeCatagory('Custom Matchboxes')"
               >
                 <h1
-                  class="
-                    lg:text-3xl
-                    text-2xl text-mainBlue
-                    p-4
-                    border-mainBlue border-b-2
-                    sidebarText
-                  "
+                  class="lg:text-3xl text-2xl text-mainBlue p-4 border-mainBlue border-b-2 sidebarText"
                 >
                   Custom Matchboxes💥
                 </h1>
               </span>
               <span class="cursor-pointer" @click="changeCatagory('Lighters')">
                 <h1
-                  class="
-                    lg:text-3xl
-                    text-2xl
-                    border-mainBlue border-b-2
-                    p-4
-                    sidebarText
-                  "
+                  class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText"
                 >
                   Acapulco Shorts
                 </h1>
               </span>
               <span class="cursor-pointer" @click="changeCatagory('Lighters')">
                 <h1
-                  class="
-                    lg:text-3xl
-                    text-2xl
-                    border-mainBlue border-b-2
-                    p-4
-                    sidebarText
-                  "
+                  class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText"
                 >
                   Acapulco Hoodies
                 </h1>
@@ -212,14 +129,7 @@
                 @click="changeCatagory('Collections')"
               >
                 <h1
-                  class="
-                    lg:text-3xl
-                    text-2xl
-                    border-mainBlue border-b-2
-                    text-mainBlue
-                    p-4
-                    sidebarText
-                  "
+                  class="lg:text-3xl text-2xl border-mainBlue border-b-2 text-mainBlue p-4 sidebarText"
                 >
                   Collections🗿
                 </h1>
@@ -228,29 +138,13 @@
             <!-- </div> -->
           </div>
           <div
-            class="
-              lg:col-span-6
-              col-span-8
-              rounded-lg
-              self-center
-              justify-self-center
-            "
+            class="lg:col-span-6 col-span-8 rounded-lg self-center justify-self-center"
           >
             <!-- <div class="grid w-full divide-y-4"> -->
 
             <!-- <div class="row-span-5 col-span-2 place-items-center"> -->
             <div
-              class="
-                grid
-                lg:grid-cols-2
-                grid-cols-1
-                gap-6
-                p-4
-                mt-6
-                place-items-center
-                self-center
-                justify-self-center
-              "
+              class="grid lg:grid-cols-2 grid-cols-1 gap-6 p-4 mt-6 place-items-center self-center justify-self-center"
             >
               <ProductCard
                 v-for="product in products"
@@ -285,27 +179,6 @@ export default {
     ProductCard: () => import('../components/ProductCard.vue'),
   },
 
-  data() {
-    return {
-      products: [],
-    }
-  },
-  computed: {
-    // products() {
-    //   return this.$store.state.products
-    // },
-    catagory() {
-      return this.$store.state.catagory
-    },
-  },
-
- 
-  mounted() {
-    // this.animateSurfingBoard()
-    this.animateBackground()
-    this.animateProductCards()
-  },
-
   transition: {
     mode: 'out-in',
     css: false,
@@ -323,10 +196,43 @@ export default {
     },
   },
 
+  data() {
+    return {
+      products: [],
+    }
+  },
+  computed: {
+    // products() {
+    //   return this.$store.state.products
+    // },
+    catagory() {
+      return this.$store.state.catagory
+    },
+  },
+
+  mounted() {
+    // this.animateSurfingBoard()
+    this.animateBackground()
+    this.animateProductCards()
+    this.getProducts()
+  },
+
   methods: {
     changeCatagory(selected) {
       this.$store.dispatch('changeCatagory', selected)
     },
+    async getProducts() {
+      try {
+        const { data, error } = await this.$supabase.from('products').select()
+        if (error) throw error
+        if (data) {
+          this.products = data
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    },
+
     // animateSurfingBoard() {
     //   const gsap = this.$gsap
 

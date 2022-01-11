@@ -21,7 +21,7 @@
           required
           label="Name"
         /> -->
-          <v-text-field
+          <!-- <v-text-field
             v-model="displayName"
             light
             label="Display Name"
@@ -29,7 +29,7 @@
             autocomplete="username"
             required
             class=""
-          />
+          /> -->
           <v-text-field
             v-model="email"
             :rules="emailRules"
