@@ -1,7 +1,7 @@
 <template>
   <div class="mainDiv w-screen h-screen overflow-hidden">
     <div class="w-full">
-      <TheNavbar />
+      <Navbar />
     </div>
     <div class="flex w-full h-full justify-center items-center">
       <div
@@ -10,14 +10,14 @@
         <div class="flex items-center justify-center w-full h-24">
           <button
             class="px-5 font-bold py-3 bg-Amber-500 rounded shadow-2xl m-1"
-            :class="{ disabled: comp === 'Login'}"
+            :class="{ disabled: comp === 'Login' }"
             @click="toggleComp('Login')"
           >
             Login
           </button>
           <button
             class="px-5 font-bold m-1 py-3 bg-Amber-500 rounded shadow-2xl"
-             :class="{ 'bg-Rose-500': comp === 'SignUp'}"
+            :class="{ 'bg-Rose-500': comp === 'SignUp' }"
             @click="toggleComp('SignUp')"
           >
             SignUp
@@ -27,7 +27,7 @@
           <component :is="comp" v-bind="currentProps" class="w-full h-full" />
           <div>
             <button
-            v-show="comp === 'Login'"
+              v-show="comp === 'Login'"
               class="px-3 font-bold py-3 bg-Amber-500 rounded shadow-2xl m-1"
               @click="toggleComp('RequestPasswordReset')"
             >
@@ -41,13 +41,13 @@
 </template>
 
 <script>
-import TheNavbar from '../layouts/TheNavbar.vue'
+import Navbar from '../layouts/TheNavbar.vue'
 import RequestPasswordReset from '../components/RequestPasswordReset.vue'
 import passwordReset from '../components/passwordReset.vue'
 
 export default {
   components: {
-    TheNavbar,
+    Navbar,
     passwordReset,
     RequestPasswordReset,
   },

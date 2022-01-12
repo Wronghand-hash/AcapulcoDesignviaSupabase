@@ -30,52 +30,16 @@
 
       <div class="w-screen h-screen mt-15 grid align-center grid-rows-4">
         <div
-          class="
-            flex
-            justify-center
-            align-center
-            w-full
-            h-full
-            container
-            row-span-3
-          "
+          class="flex justify-center align-center w-full h-full container row-span-3"
         >
           <div
-            class="
-              admin
-              shadow-2xl
-              px-4
-              py-8
-              flex flex-row
-              justify-center
-              self-center
-              w-full
-              rounded
-              h-full
-            "
+            class="admin shadow-2xl px-4 py-8 flex flex-row justify-center self-center w-full rounded h-full"
           >
             <div
-              class="
-                tab-content
-                h-full
-                w-full
-                place-items-center
-                content-center
-                justify-center
-                flex
-                self-center
-                tab-space
-              "
+              class="tab-content h-full w-full place-items-center content-center justify-center flex self-center tab-space"
             >
               <div
-                class="
-                  flex flex-col
-                  place-items-center
-                  justify-center
-                  h-full
-                  w-full
-                  text-gray-200
-                "
+                class="flex flex-col place-items-center justify-center h-full w-full text-gray-200"
                 :class="{
                   hidden: openTab !== 1,
                   block: openTab === 1,
@@ -83,25 +47,11 @@
               >
                 <div class="w-full h-full grid grid-rows-1 grid-cols-3">
                   <div
-                    class="
-                      totalProducts
-                      w-full
-                      h-full
-                      flex flex-col
-                      justify-center
-                      align-center
-                    "
+                    class="totalProducts w-full h-full flex flex-col justify-center align-center"
                   >
                     <h2 class="text-center">total</h2>
                     <h2
-                      class="
-                        ProductLength
-                        border-t-2
-                        w-1/3
-                        text-center
-                        rounded
-                        border-b-2
-                      "
+                      class="ProductLength border-t-2 w-1/3 text-center rounded border-b-2"
                     >
                       {{ Products.length }}
                     </h2>
@@ -109,25 +59,11 @@
                   </div>
 
                   <div
-                    class="
-                      sellsRecord
-                      flex flex-col
-                      justify-center
-                      align-center
-                      border-r-2 border-l-2
-                      rounded
-                    "
+                    class="sellsRecord flex flex-col justify-center align-center border-r-2 border-l-2 rounded"
                   >
                     <h2 class="text-center">Total</h2>
                     <h2
-                      class="
-                        SellsLength
-                        border-t-2
-                        w-1/3
-                        text-center
-                        rounded
-                        border-b-2
-                      "
+                      class="SellsLength border-t-2 w-1/3 text-center rounded border-b-2"
                     >
                       {{ orders.length }}
                     </h2>
@@ -135,23 +71,11 @@
                   </div>
 
                   <div
-                    class="
-                      totalShipment
-                      flex flex-col
-                      justify-center
-                      align-center
-                    "
+                    class="totalShipment flex flex-col justify-center align-center"
                   >
                     <h2 class="text-center">Shipment</h2>
                     <h2
-                      class="
-                        ShipmentLength
-                        border-t-2
-                        w-1/3
-                        text-center
-                        rounded
-                        border-b-2
-                      "
+                      class="ShipmentLength border-t-2 w-1/3 text-center rounded border-b-2"
                     >
                       25
                     </h2>
@@ -165,18 +89,7 @@
               >
                 <div class="h-full grid grid-cols-2 gap-x-3 grid-rows-2">
                   <div
-                    class="
-                      catagories
-                      container
-                      col-span-2
-                      flex flex-wrap flex-row
-                      justify-around
-                      align-start
-                      h-full
-                      w-full
-                      m-3
-                      p-5
-                    "
+                    class="catagories container col-span-2 flex flex-wrap flex-row justify-around align-start h-full w-full m-3 p-5"
                   >
                     <v-btn
                       depressed
@@ -218,63 +131,27 @@
                   </div>
 
                   <div
-                    class="
-                      addSomthing
-                      flex flex-col
-                      w-full
-                      h-full
-                      self-center
-                      align-center
-                    "
+                    class="addSomthing flex flex-col w-full h-full self-center align-center"
                   >
                     <h2 class="text-3xl">SOMETHING TO ADD?</h2>
                     <button
-                      class="
-                        focus:outline-none
-                        addButton
-                        self-center
-                        text-center
-                        align-center
-                        h-1/2
-                        w-1/2
-                      "
+                      class="focus:outline-none addButton self-center text-center align-center h-1/2 w-1/2"
                       @click="showModal"
                     >
                       +
                     </button>
                   </div>
                   <div
-                    class="
-                      w-full
-                      products
-                      p-5
-                      rounded-lg
-                      shadow-2xl
-                      overflow-y-scroll
-                      h-full
-                      text-gray-200
-                    "
+                    class="w-full products p-5 rounded-lg shadow-2xl overflow-y-scroll h-full text-gray-200"
                   >
                     <div v-for="product in Products" :key="product.id" class="">
                       <div
                         v-show="product.catagory === catagory"
                         id="products"
-                        class="
-                          flex flex-row
-                          divide-y
-                          border-black
-                          text-black
-                          place-content-around
-                        "
+                        class="flex flex-row divide-y border-black text-black place-content-around"
                       >
                         <div
-                          class="
-                            bottomBorder
-                            flex flex-row
-                            place-content-between
-                            border-b-2
-                            w-full
-                          "
+                          class="bottomBorder flex flex-row place-content-between border-b-2 w-full"
                         >
                           <h3 class="">{{ product.title }}</h3>
                           <button class="" @click="deleteProduct(product.id)">
@@ -306,14 +183,7 @@
                       <div class="w-full h-full grid grid-rows-7">
                         <div class="">
                           <div
-                            class="
-                              List
-                              h-1/2
-                              w-full
-                              flex flex-row
-                              justify-around
-                              align-center
-                            "
+                            class="List h-1/2 w-full flex flex-row justify-around align-center"
                           >
                             <button
                               class="p-2 rounded px-3"
@@ -339,81 +209,31 @@
                           </div>
                         </div>
                         <div
-                          class="
-                            orderBar
-                            w-full
-                            flex flex-row
-                            place-content-around
-                            align-center
-                            row-span-1
-                          "
+                          class="orderBar w-full flex flex-row place-content-around align-center row-span-1"
                         >
                           <h1
-                            class="
-                              headers
-                              text-2xl
-                              px-3
-                              p-2
-                              lg:text-3xl lg:px-12
-                              border-2 border-blueGray-400
-                              rounded-full
-                              shadow-xl
-                            "
+                            class="headers text-2xl px-3 p-2 lg:text-3xl lg:px-12 border-2 border-blueGray-400 rounded-full shadow-xl"
                           >
                             Name
                           </h1>
                           <h1
-                            class="
-                              headers
-                              text-2xl
-                              px-3
-                              p-2
-                              lg:text-3xl lg:px-12
-                              border-2 border-blueGray-400
-                              rounded-full
-                              shadow-xl
-                            "
+                            class="headers text-2xl px-3 p-2 lg:text-3xl lg:px-12 border-2 border-blueGray-400 rounded-full shadow-xl"
                           >
                             Date
                           </h1>
                           <h1
-                            class="
-                              headers
-                              text-2xl
-                              px-3
-                              p-2
-                              lg:text-3xl lg:px-12
-                              border-2 border-blueGray-400
-                              rounded-full
-                              shadow-xl
-                            "
+                            class="headers text-2xl px-3 p-2 lg:text-3xl lg:px-12 border-2 border-blueGray-400 rounded-full shadow-xl"
                           >
                             Status
                           </h1>
                         </div>
                         <div
-                          class="
-                            ordersList
-                            rounded
-                            border-r-2 border-b-2 border-l-2 border-Cyan-600
-                            h-full
-                            row-span-5
-                            overflow-y-scroll overflow-x-hidden
-                          "
+                          class="ordersList rounded border-r-2 border-b-2 border-l-2 border-Cyan-600 h-full row-span-5 overflow-y-scroll overflow-x-hidden"
                         >
                           <div
                             v-for="order in orders"
                             :key="order.id"
-                            class="
-                              listCard
-                              w-full
-                              shadow-xl
-                              flex flex-row
-                              rounded-full
-                              my-3
-                              p-4
-                              place-content-around
-                            "
+                            class="listCard w-full shadow-xl flex flex-row rounded-full my-3 p-4 place-content-around"
                           >
                             <h1 class="m-1 text-xl lg:text-3xl">
                               {{ order.order.FullName }}
@@ -435,15 +255,7 @@
                     >
                       <div class="grid grid-rows-7 w-full h-full">
                         <div
-                          class="
-                            List
-                            h-1/2
-                            row-span-1
-                            w-full
-                            flex flex-row
-                            justify-around
-                            align-center
-                          "
+                          class="List h-1/2 row-span-1 w-full flex flex-row justify-around align-center"
                         >
                           <button
                             class="p-2 rounded px-3"
@@ -468,46 +280,18 @@
                           </button>
                         </div>
                         <div
-                          class="
-                            overflow-hidden
-                            w-full
-                            row-span-6
-                            h-full
-                            p-2
-                            border-r-2 border-b-2 border-l-2 border-Cyan-600
-                            rounded
-                          "
+                          class="overflow-hidden w-full row-span-6 h-full p-2 border-r-2 border-b-2 border-l-2 border-Cyan-600 rounded"
                         >
                           <div
-                            class="
-                              orderDetail
-                              container
-                              grid grid-cols-1
-                              lg:grid-cols-2
-                              overflow-y-scroll
-                              p-2
-                            "
+                            class="orderDetail container grid grid-cols-1 lg:grid-cols-2 overflow-y-scroll p-2"
                           >
                             <div
                               v-for="order in orders"
                               :key="order.id"
-                              class="
-                                detailCards
-                                shadow-2xl
-                                border-2
-                                p-8
-                                my-1
-                                mx-1
-                                rounded-lg
-                              "
+                              class="detailCards shadow-2xl border-2 p-8 my-1 mx-1 rounded-lg"
                             >
                               <div
-                                class="
-                                  w-full
-                                  flex flex-col-reverse
-                                  lg:flex-row
-                                  justify-between
-                                "
+                                class="w-full flex flex-col-reverse lg:flex-row justify-between"
                               >
                                 <h1 class="self-center">Status: processing</h1>
                                 <button class="" @click="deleteOrder(order.id)">
@@ -536,24 +320,12 @@
 
                               <h1 class="text-xl p-1">Items:</h1>
                               <div
-                                class="
-                                  grid grid-cols-1
-                                  p-5
-                                  lg:bg-Amber-500
-                                  border-l-2 border-Amber-500
-                                  lg:shadow-2xl
-                                  rounded-xl
-                                "
+                                class="grid grid-cols-1 p-5 lg:bg-Amber-500 border-l-2 border-Amber-500 lg:shadow-2xl rounded-xl"
                               >
                                 <div
                                   v-for="item in order.orderProduct"
                                   :key="item.id"
-                                  class="
-                                    flex flex-shirnk flex-col
-                                    border-b-2
-                                    p-2
-                                    justify-center
-                                  "
+                                  class="flex flex-shirnk flex-col border-b-2 p-2 justify-center"
                                 >
                                   <h1 class="text-xl">
                                     Title: {{ item.item.title }}
@@ -579,52 +351,17 @@
         </div>
 
         <div
-          class="
-            flex
-            align-center
-            mb-10
-            justify-center
-            w-full
-            h-full
-            row-span-1
-          "
+          class="flex align-center mb-10 justify-center w-full h-full row-span-1"
         >
           <div
-            class="
-              buttonContainer
-              mx-2
-              absolute
-              flex
-              justify-center justify-around
-              flex-row
-              bottom-0
-              content-center
-              w-full
-              lg:w-1/2 lg:h-48
-              h-36
-              rounded-2xl
-              border-r-8
-              border-l-8
-              border-Indigo-600
-            "
+            class="buttonContainer mx-2 absolute flex justify-center justify-around flex-row bottom-0 content-center w-full lg:w-1/2 lg:h-48 h-36 rounded-2xl border-r-8 border-l-8 border-Indigo-600"
           >
             <div
               :class="{
                 'bg-Lime-500': openTab === 1,
                 'border-4 border-Lime-500': openTab !== 1,
               }"
-              class="
-                lis
-                m-3
-                flex flex-col
-                justify-center
-                align-center
-                rounded-2xl
-                h-32
-                w-32
-                lg:h-36 lg:w-44
-                shadow-2xl
-              "
+              class="lis m-3 flex flex-col justify-center align-center rounded-2xl h-32 w-32 lg:h-36 lg:w-44 shadow-2xl"
               @click="tab1() & toggleTabs(1)"
             >
               <img
@@ -638,42 +375,28 @@
                 'bg-Lime-500': openTab === 2,
                 'border-4 border-Lime-500': openTab !== 2,
               }"
-              class="
-                lis
-                m-3
-                flex flex-col
-                justify-center
-                align-center
-                rounded-2xl
-                h-32
-                w-32
-                lg:h-36 lg:w-44
-                shadow-2xl
-              "
+              class="lis m-3 flex flex-col justify-center align-center rounded-2xl h-32 w-32 lg:h-36 lg:w-44 shadow-2xl"
               @click="tab2() & toggleTabs(2)"
             >
-              <img class="lg:p-4 kiskisImg object-contain" src="/kiskis.svg" alt="" />
+              <img
+                class="lg:p-4 kiskisImg object-contain"
+                src="/kiskis.svg"
+                alt=""
+              />
             </div>
             <div
               :class="{
                 'bg-Lime-500': openTab === 3,
                 'border-4 border-Lime-500': openTab !== 3,
               }"
-              class="
-                lis
-                m-3
-                flex flex-col
-                justify-center
-                align-center
-                rounded-2xl
-                h-32
-                w-32
-                lg:h-36 lg:w-44
-                shadow-2xl
-              "
+              class="lis m-3 flex flex-col justify-center align-center rounded-2xl h-32 w-32 lg:h-36 lg:w-44 shadow-2xl"
               @click="tab3() & toggleTabs(3)"
             >
-              <img class="lg:p-4 gisgisImg object-contain" src="/gisgis.svg" alt="" />
+              <img
+                class="lg:p-4 gisgisImg object-contain"
+                src="/gisgis.svg"
+                alt=""
+              />
             </div>
           </div>
         </div>
@@ -692,35 +415,6 @@ export default {
     LazyHydrate,
     Adminastration,
     Navbar: () => import('../layouts/TheNavbar.vue'),
-  },
-  data() {
-    return {
-      catagory: 'Shirts',
-
-      Products: [],
-      openTab: 1,
-      orders: [],
-      orderProduct: [],
-      ordersTab: 'List',
-    }
-  },
-
-  computed: {
-    user() {
-      return this.$store.state.user
-    },
-  },
-
-  watch: {
-    isOpen: {
-      immediate: true,
-      handler(isOpen) {
-        if (process.client) {
-          if (isOpen) document.body.style.setProperty('overflow', 'hidden')
-          else document.body.style.removeProperty('overflow')
-        }
-      },
-    },
   },
   // created() {
   //   const ref = this.$fire.firestore.collection('Products')
@@ -756,11 +450,37 @@ export default {
       done()
     },
   },
+  data() {
+    return {
+      catagory: 'Shirts',
 
+      Products: [],
+      openTab: 1,
+      orders: [],
+      orderProduct: [],
+      ordersTab: 'List',
+    }
+  },
 
+  computed: {
+    user() {
+      return this.$store.state.user
+    },
+  },
+
+  watch: {
+    isOpen: {
+      immediate: true,
+      handler(isOpen) {
+        if (process.client) {
+          if (isOpen) document.body.style.setProperty('overflow', 'hidden')
+          else document.body.style.removeProperty('overflow')
+        }
+      },
+    },
+  },
 
   mounted() {
-   
     // const orders = this.$fire.firestore
     //   .collection('orders')
     //   .get()

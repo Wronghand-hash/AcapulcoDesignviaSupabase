@@ -1,29 +1,28 @@
+<i18n lang="yaml">
+en:
+  findUS: 'Find Us One Social Media!'
+  made: 'Made With'
+  iran: 'From Iran'
+  art: 'Art By'
+
+fa:
+  findUS: 'ما رو تو شبکه های اجتماعی پیدا کنین'
+  made: 'ساخته شده با'
+  iran: 'از ایران'
+  art: 'هنر از'
+</i18n>
 <template>
   <div>
     <div
-      class="
-        seventhContainer
-        w-screen
-        h-dialog
-        lg:h-screen
-        bg-mainBlue
-        flex flex-col
-      "
+      class="seventhContainer w-screen h-dialog lg:h-screen bg-mainBlue flex flex-col"
     >
       <div class="h-3/6 flex align-center justify-center p-6 self-center">
         <div class="self-center flex">
           <div class="text-center space-x-3 lg:space-x-12 lg:space-y-8">
             <h1
-              class="
-                font-mainFont font-extrabold
-                capitalize
-                text-5xl
-                p-4
-                lg:text-7xl
-                text-mainRed
-              "
+              class="font-mainFont font-extrabold capitalize text-5xl p-4 lg:text-7xl text-mainRed"
             >
-              find us on social media!
+              {{ $t('findUS') }}
             </h1>
             <v-icon x-large class="icon-3d transform lg:scale-150"
               >mdi-facebook</v-icon
@@ -50,32 +49,14 @@
         </div>
       </div>
       <h1
-        class="
-          self-center
-          lg:ml-4 lg:self-start
-          font-mainFont font-bold
-          capitalize
-          text-3xl
-          p-2
-          lg:text-5xl
-          text-mainRed
-        "
+        class="self-center lg:ml-4 lg:self-start font-mainFont font-bold capitalize text-3xl p-2 lg:text-5xl text-mainRed"
       >
-        Made with ❤️ from Iran
+        {{ $t('made') }} ❤️ {{ $t('iran') }}
       </h1>
       <h1
-        class="
-          self-center
-          lg:self-start lg:ml-4
-          font-mainFont font-thin
-          capitalize
-          text-3xl
-          p-1
-          lg:text-4xl
-          text-mainRed
-        "
+        class="self-center lg:self-start lg:ml-4 font-mainFont font-thin capitalize text-3xl p-1 lg:text-4xl text-mainRed"
       >
-        Art by
+        {{ $t('art') }}
         <a href="https://www.instagram.com/payamone/?hl=en">PayamOne🌴</a>
       </h1>
       <div class="flex z-30 justify-end align-end h-3/6 lg:h-full">
@@ -90,11 +71,13 @@
 </template>
 
 <script>
-export default {
-  name:'theFooter'
-}
+export default {}
 </script>
-
+<style scoped>
+* {
+  font-family: 'Yanone Kaffeesatz', 'Rezvan';
+}
+</style>
 <style lang="scss" scoped>
 $redColor: rgba(244, 67, 54, 1);
 $blueColor: rgba(33, 150, 243, 1);

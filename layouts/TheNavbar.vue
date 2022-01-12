@@ -1,22 +1,43 @@
+<i18n lang="yaml">
+en:
+  aboutus: 'About Us'
+  home: 'Home'
+  shop: 'Shop'
+  admin: 'Admin'
+  welcome: 'Welcome Back!'
+  logout: 'Logout'
+fa:
+  aboutus: 'درباره ی ما'
+  home: 'خانه'
+  shop: 'خرید'
+  admin: 'ادمین'
+  welcome: 'خوش برگشتی'
+  logout: 'لاگ آوت'
+</i18n>
 <template>
   <!-- <v-app> -->
   <div
     class="mb-8 fixed w-screen h-20 lg:h-24 bg-transparent Navbar opacity-100 z-50 flex align-center justify-center lg:px-9"
   >
     <div class="hidden lg:flex">
+      <v-btn class="Btn" dark depressed rounded x-large color="transparent">
+        <v-icon class="" large>mdi-volume-high</v-icon>
+      </v-btn>
+    </div>
+    <div class="hidden lg:flex">
       <nuxt-link to="/aboutUs">
         <v-btn class="Btn" dark depressed rounded x-large color="transparent">
           <v-icon class="" large>mdi-meditation</v-icon>
-          <span class="aboutUs text-xl"> about us </span>
+          <span class="aboutUs text-xl lg:text-2xl"> {{ $t('aboutus') }} </span>
         </v-btn>
       </nuxt-link>
     </div>
 
     <div class="flex align-center justify-end px-2">
       <div class="hidden lg:flex">
-        <nuxt-link to="/">
+        <nuxt-link to="/indexPage">
           <v-btn class="Btn" dark depressed rounded x-large color="transparent">
-            <span class="aboutUs text-xl"> home</span>
+            <span class="aboutUs text-xl lg:text-2xl"> {{ $t('home') }} </span>
             <v-icon class="" large>mdi-home</v-icon>
           </v-btn>
         </nuxt-link>
@@ -24,7 +45,9 @@
       <div class="hidden lg:flex">
         <nuxt-link to="/productList">
           <v-btn depressed x-large color="transparent" class="">
-            <span class="white--text text-xl"> shop </span>
+            <span class="white--text text-xl lg:text-2xl">
+              {{ $t('shop') }}
+            </span>
             <v-icon medium class="white--text">mdi-shopping</v-icon>
           </v-btn>
         </nuxt-link>
@@ -32,16 +55,18 @@
       <div class="hidden lg:flex">
         <NuxtLink id="admin-link" class="flex" to="/adminPage">
           <v-btn depressed dark x-large color="transparent" class="">
-            <span class="white--text text-xl"> admin</span>
+            <span class="white--text text-xl lg:text-2xl">
+              {{ $t('admin') }}
+            </span>
             <v-icon class="cowboy">mdi-cryengine</v-icon>
           </v-btn>
         </NuxtLink>
       </div>
       <div v-show="user" class="">
         <v-menu light transition="slide-y-transition" bottom>
-          <template v-slot:activator="{ on: menu, attrs }">
+          <template #activator="{ on: menu, attrs }">
             <v-tooltip bottom>
-              <template v-slot:activator="{ on: tooltip }">
+              <template #activator="{ on: tooltip }">
                 <v-btn
                   color="transparent"
                   class="profilePageBtn align-center"
@@ -58,7 +83,7 @@
               </template>
               <span
                 class="font-mainFont font-extrabold text-xl text-LightBlue-50"
-                >Welcome back!</span
+                >{{ $t('welcome') }}</span
               >
             </v-tooltip>
           </template>
@@ -73,7 +98,9 @@
             <v-list-item>
               <v-btn color="transparent" depressed class="" @click="signOut">
                 <v-icon>mdi-logout-variant</v-icon>
-                <span class="text-xl ml-1"> Logout </span>
+                <span class="text-xl ml-1 lg:text-2xl">
+                  {{ $t('logout') }}
+                </span>
               </v-btn>
             </v-list-item>
           </v-list>
@@ -90,6 +117,22 @@
         </LazyHydrate>
       </div>
 
+      <v-spacer></v-spacer>
+      <nuxt-link
+        v-if="$route.path.toString().includes('fa')"
+        :to="switchLocalePath('en')"
+      >
+        <v-btn class="Btn" dark depressed rounded x-large color="transparent">
+          <v-icon class="" large>mdi-web</v-icon>
+          <span class="aboutUs text-lg lg:text-x"> EN </span>
+        </v-btn></nuxt-link
+      >
+      <nuxt-link v-else :to="switchLocalePath('fa')">
+        <v-btn class="Btn" dark depressed rounded x-large color="transparent">
+          <v-icon class="" large>mdi-web</v-icon>
+          <span class="aboutUs text-lg lg:text-xl"> FA </span>
+        </v-btn></nuxt-link
+      >
       <ShoppingCartDrawer />
     </div>
   </div>
@@ -145,7 +188,6 @@ export default {
       drawer: false,
     }
   },
-
   computed: {
     user() {
       return this.$store.state.user
@@ -195,7 +237,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 
 span {
-  font-family: 'Acme', sans-serif;
+  font-family: 'Acme', 'Estedad';
   text-align: center;
   display: flex;
   justify-self: center;

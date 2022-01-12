@@ -1,3 +1,30 @@
+<i18n lang="yaml">
+en:
+  takeATrip: 'Take a trip with us'
+  stayFree: 'Stay Free'
+  home: 'Home'
+  shop: 'Shop'
+  discover: 'Discover'
+  lighters: 'Lighters'
+  acapulcoShirt: 'Acapulco Shirt'
+  acapulcoMatchboxes: 'Custom Matchboxes'
+  acapulcoShorts: 'Acapulco Shorts'
+  acapulcoHoodies: 'Acapulco Hoodies'
+  collections: 'Collections'
+fa:
+  takeATrip: 'یه سفر با ما برو'
+  stayFree: 'آزاد بمون'
+  home: 'خونه'
+  shop: 'خرید'
+  discover: '!کشف کن'
+  lighters: 'فندک ها'
+  acapulcoShirt: 'پیراهن آلکاپلکو'
+  acapulcoMatchboxes: 'کبریت های آکاپلکو'
+  acapulcoHoodies: 'هودی های اکاپلکو'
+  acapulcoShorts: 'شورت های آکاپلکو'
+  collections: 'کالکشن ها'
+</i18n>
+
 <template>
   <v-app>
     <!-- <link
@@ -38,12 +65,12 @@
           <h1
             class="text-8xl lg:text-9xl text-center text-mainBlue capitalize firstText opacity-0 NavbarTrigger"
           >
-            take a trip with us
+            {{ $t('takeATrip') }}
             <br />
             <span
               class="text-mainRed font-extrabold span text-8xl lg:text-10xl"
             >
-              stay free
+              {{ $t('stayFree') }}
             </span>
           </h1>
         </div>
@@ -62,12 +89,14 @@
             </NuxtLink>
             <NuxtLink to="/">
               <span class="menu px-5 text-4xl text-gray-100 font-semibold">
-                Home
+                {{ $t('home') }}
               </span>
             </NuxtLink>
             <NuxtLink to="/productList">
               <span>
-                <h1 class="px-5 text-4xl text-gray-100 font-semibold">Shop</h1>
+                <h1 class="px-5 text-4xl text-gray-100 font-semibold">
+                  {{ $t('shop') }}
+                </h1>
               </span>
             </NuxtLink>
           </div>
@@ -81,7 +110,7 @@
             <h3
               class="p-3 text-mainBlue text-5xl lg:text-6xl border-red-600 font-black"
             >
-              Discover!
+              {{ $t('discover') }}
             </h3>
             <div
               class="space-x-3 space-y-2 px-4 text-center lg:text-left flex flex-wrap align-center lg:justify-start justify-center"
@@ -90,14 +119,14 @@
                 <h1
                   class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText"
                 >
-                  Lighters🔥
+                  {{ $t('lighters') }}
                 </h1>
               </span>
               <span class="cursor-pointer" @click="changeCatagory('Shirts')">
                 <h1
                   class="lg:text-3xl text-2xl text-mainBlue p-4 border-mainBlue border-b-2 sidebarText"
                 >
-                  Acapulco Shirts🌴
+                  {{ $t('acapulcoShirt') }}
                 </h1>
               </span>
               <span
@@ -107,21 +136,21 @@
                 <h1
                   class="lg:text-3xl text-2xl text-mainBlue p-4 border-mainBlue border-b-2 sidebarText"
                 >
-                  Custom Matchboxes💥
+                  {{ $t('acapulcoMatchboxes') }}
                 </h1>
               </span>
               <span class="cursor-pointer" @click="changeCatagory('Lighters')">
                 <h1
                   class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText"
                 >
-                  Acapulco Shorts
+                  {{ $t('acapulcoShorts') }}
                 </h1>
               </span>
               <span class="cursor-pointer" @click="changeCatagory('Lighters')">
                 <h1
                   class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText"
                 >
-                  Acapulco Hoodies
+                  {{ $t('acapulcoHoodies') }}
                 </h1>
               </span>
               <span
@@ -131,7 +160,7 @@
                 <h1
                   class="lg:text-3xl text-2xl border-mainBlue border-b-2 text-mainBlue p-4 sidebarText"
                 >
-                  Collections🗿
+                  {{ $t('collections') }}
                 </h1>
               </span>
             </div>
@@ -174,7 +203,7 @@ export default {
   components: {
     LazyHydrate,
 
-    Footer: () => import('../layouts/Footer.vue'),
+    Footer: () => import('../layouts/TheFooter.vue'),
     Navbar: () => import('../layouts/TheNavbar.vue'),
     ProductCard: () => import('../components/ProductCard.vue'),
   },
@@ -330,7 +359,7 @@ export default {
 
 <style scoped>
 #main {
-  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-family: 'Yanone Kaffeesatz', 'Estedad';
 }
 
 .background {
@@ -349,7 +378,7 @@ export default {
 }
 
 .menuNavbar {
-  background-image: url('./assets/images/trippy.jpg');
+  background-image: url('~/assets/images/trippy.jpg');
   background-size: cover;
   background-position: 0px 0px;
   background-repeat: repeat-y;

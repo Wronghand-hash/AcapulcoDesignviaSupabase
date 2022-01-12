@@ -29,14 +29,6 @@
   }
 
   @font-face {
-    font-family: 'Yanone Kaffeesatz';
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url('~assets/fonts/YanoneKaffeesatz-VariableFont_wght.ttf')
-      format('truetype');
-  }
-  @font-face {
     font-family: 'Roboto Slab';
     font-style: normal;
     font-weight: 500;
@@ -72,7 +64,28 @@
   src: url('~assets/fonts/Estedad-Bold.ttf');
   font-style: normal;
   font-weight: 700;
+  unicode-range: U+0600-06FF;
+
   font-display: swap;
+}
+@font-face {
+  font-family: 'Rezvan';
+  src: url('~assets/fonts/Rezvan.ttf');
+  font-style: normal;
+  font-weight: 700;
+  unicode-range: U+0600-06FF;
+
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Yanone Kaffeesatz';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  unicode-range: U+0020-007F;
+
+  src: url('~assets/fonts/YanoneKaffeesatz-VariableFont_wght.ttf')
+    format('truetype');
 }
 /* * {
   border: 1px solid red;
@@ -83,8 +96,6 @@ html {
 }
 
 #main {
-  font-family: 'Estedad';
-
   animation: 30s ease-in-out infinite alternate-reverse color-change;
   height: 100%;
 }

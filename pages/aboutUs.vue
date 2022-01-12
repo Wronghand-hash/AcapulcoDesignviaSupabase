@@ -25,14 +25,7 @@
 
       <section class="panel1 w-screen h-screen mt-15">
         <div
-          class="
-            m-1
-            hippie1-text
-            text-center
-            p-8
-            text-5xl text-mainBlue
-            font-bold
-          "
+          class="m-1 hippie1-text text-center p-8 text-5xl text-mainBlue font-bold"
         >
           Hi. we are a bunch of guys From a less known city of a dystopian
           country
@@ -43,14 +36,7 @@
         class="panel2 grid content-start place-content-center w-screen h-screen"
       >
         <div
-          class="
-            m-1
-            hippie2-text
-            text-center
-            p-8
-            text-5xl text-mainBlue
-            font-bold
-          "
+          class="m-1 hippie2-text text-center p-8 text-5xl text-mainBlue font-bold"
         >
           While we're not lost and consumed by the sheer pressure of human
           survival We tend to smoke, and create stuff
@@ -62,54 +48,20 @@
         />
       </section>
       <section
-        class="
-          panel3
-          grid grid-rows-3
-          gap-3
-          content-center
-          place-content-end
-          w-screen
-          h-screen
-        "
+        class="panel3 grid grid-rows-3 gap-3 content-center place-content-end w-screen h-screen"
       >
         <div
-          class="
-            m-1
-            hippie3-text
-            text-center
-            p-8
-            text-5xl text-mainBlue
-            font-bold
-          "
+          class="m-1 hippie3-text text-center p-8 text-5xl text-mainBlue font-bold"
         >
           In the hope of finding the long lost peace that we all crave Along the
           way.
         </div>
         <img class="hippie3" src="~/assets/images/hippie3.png" alt="" />
         <div
-          class="
-            backButton
-            lg:w-1/2
-            self-end
-            flex
-            justify-center
-            p-2
-            rounded-xl
-            font-bold
-            text-5xl text-center
-            bg-Rose-600
-            transform
-            scale-75
-          "
+          class="backButton lg:w-1/2 self-end flex justify-center p-2 rounded-xl font-bold text-5xl text-center bg-Rose-600 transform scale-75"
         >
           <div
-            class="
-              flex flex-col
-              capitalize
-              font-extrabold
-              content-center
-              justify-center
-            "
+            class="flex flex-col capitalize font-extrabold content-center justify-center"
           >
             <NuxtLink to="/">
               <span class="text-mainBlue"> Back to our Shopping journey </span>
