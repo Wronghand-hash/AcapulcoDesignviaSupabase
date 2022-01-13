@@ -1,5 +1,5 @@
 <template>
-  <div  v-show="product.catagory === catagory">
+  <div  v-show="product.catagory_id === catagory">
     <div
       class="
         flex flex-col
