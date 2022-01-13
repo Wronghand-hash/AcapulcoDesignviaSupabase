@@ -115,14 +115,14 @@ fa:
             <div
               class="space-x-3 space-y-2 px-4 text-center lg:text-left flex flex-wrap align-center lg:justify-start justify-center"
             >
-              <span class="cursor-pointer" @click="changeCatagory('Lighters')">
+              <span class="cursor-pointer" @click="changeCatagory(2)">
                 <h1
                   class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText"
                 >
                   {{ $t('lighters') }}
                 </h1>
               </span>
-              <span class="cursor-pointer" @click="changeCatagory('Shirts')">
+              <span class="cursor-pointer" @click="changeCatagory(3)">
                 <h1
                   class="lg:text-3xl text-2xl text-mainBlue p-4 border-mainBlue border-b-2 sidebarText"
                 >
@@ -131,7 +131,7 @@ fa:
               </span>
               <span
                 class="cursor-pointer"
-                @click="changeCatagory('Custom Matchboxes')"
+                @click="changeCatagory(4)"
               >
                 <h1
                   class="lg:text-3xl text-2xl text-mainBlue p-4 border-mainBlue border-b-2 sidebarText"
@@ -139,14 +139,14 @@ fa:
                   {{ $t('acapulcoMatchboxes') }}
                 </h1>
               </span>
-              <span class="cursor-pointer" @click="changeCatagory('Lighters')">
+              <span class="cursor-pointer" @click="changeCatagory(1)">
                 <h1
                   class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText"
                 >
                   {{ $t('acapulcoShorts') }}
                 </h1>
               </span>
-              <span class="cursor-pointer" @click="changeCatagory('Lighters')">
+              <span class="cursor-pointer" @click="changeCatagory(2)">
                 <h1
                   class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText"
                 >
@@ -155,7 +155,7 @@ fa:
               </span>
               <span
                 class="cursor-pointer"
-                @click="changeCatagory('Collections')"
+                @click="changeCatagory(4)"
               >
                 <h1
                   class="lg:text-3xl text-2xl border-mainBlue border-b-2 text-mainBlue p-4 sidebarText"
@@ -234,9 +234,10 @@ export default {
     // products() {
     //   return this.$store.state.products
     // },
-    catagory() {
+
+    catagory(){
       return this.$store.state.catagory
-    },
+    }
   },
 
   mounted() {
@@ -244,18 +245,21 @@ export default {
     this.animateBackground()
     this.animateProductCards()
     this.getProducts()
+    this.$store.dispatch('getCatagories')
   },
 
   methods: {
     changeCatagory(selected) {
       this.$store.dispatch('changeCatagory', selected)
+      this.getProducts()
     },
     async getProducts() {
       try {
-        const { data, error } = await this.$supabase.from('products').select()
+        const { data, error } = await this.$supabase.from('products').select().eq('catagory_id', this.catagory)
         if (error) throw error
         if (data) {
           this.products = data
+          console.log(data)
         }
       } catch (error) {
         console.log(error)
