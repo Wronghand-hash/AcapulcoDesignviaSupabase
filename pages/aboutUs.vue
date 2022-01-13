@@ -89,7 +89,7 @@ import LazyHydrate from 'vue-lazy-hydration'
 export default {
   components: {
     LazyHydrate,
-    Navbar: () => import('../layouts/TheNavbar.vue'),
+    Navbar: () => import('~/layouts/TheNavbar.vue'),
   },
 
   mounted() {
