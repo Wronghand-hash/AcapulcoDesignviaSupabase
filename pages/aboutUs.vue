@@ -19,11 +19,31 @@
             delay: 1,
             ease: 'circ.out',
           }"
-          class="absolute z-50"
         />
       </LazyHydrate>
-
-      <section class="panel1 w-screen h-screen mt-15">
+      <div
+        class="p-6 h-full w-full flex align-center justify-center bg-mainRed"
+      >
+        <div
+          class="h-screen w-screen bg-blue-700 introText text-5xl flex flex-col flex-wrap align-center px-20 text-center space-y-3 justify-center"
+        >
+          <h1 class="p-4 text-mainBlue">Hi!</h1>
+          <h3 class="p-4 text-mainBlue">
+            We are <span class="bg-goldie p-2"> Acapulco! </span>
+          </h3>
+          <h3>We are a Creative Team Based in Iran</h3>
+          <h3>
+            Our team is consisted of Two
+            <span class="text-goldie p-2"> FullStack Developers </span> and a
+            <span class="text-goldie p-2"> Digital Artist </span>
+          </h3>
+        </div>
+      </div>
+      <!-- <LazyHydrate when-visible>
+        <Footer />
+      </LazyHydrate> -->
+    </div>
+    <!-- <section class="panel1 w-screen h-screen mt-15">
         <div
           class="m-1 hippie1-text text-center p-8 text-5xl text-mainBlue font-bold"
         >
@@ -74,7 +94,7 @@
           />
         </div>
       </section>
-    </div>
+    </div> -->
     <!-- <div class="panels"> Hi. we are a bunch of guys From a less known city of a dystopian
             country While we're not lost and consumed by the sheer pressure of
             human survival We tend to smoke, and create stuff In the hope of
@@ -90,6 +110,7 @@ export default {
   components: {
     LazyHydrate,
     Navbar: () => import('~/layouts/TheNavbar.vue'),
+    // Footer: () => import('~/layouts/TheFooter.vue'),
   },
 
   mounted() {
@@ -211,38 +232,8 @@ export default {
 </script>
 
 <style scoped>
-.panelContainer {
-  font-family: 'Yanone Kaffeesatz', sans-serif;
-  font-size: 25px;
+.introText {
+  font-family: 'Roboto Slab', 'Rezvan';
+  font-weight: 900;
 }
-.backButton {
-  transition: ease-in-out 0.3s;
-  color: black !important;
-}
-.backButton:hover {
-  transform: scale(1.1);
-  filter: brightness(1.3);
-}
-.backButton:active {
-  transform: scale(0.9);
-  filter: brightness(0.5);
-}
-/* .body{
-  min-height: 100vh;
-  margin: 0;
-}
-.panelContainer {
-  display: flex;
-  flex-wrap: nowrap;
-  
-}
-
-.panels {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-} */
 </style>

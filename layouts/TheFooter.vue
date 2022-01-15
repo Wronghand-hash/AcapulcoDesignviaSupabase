@@ -62,7 +62,7 @@ fa:
       <div class="flex z-30 justify-end align-end h-3/6 lg:h-full">
         <img
           class="lg:object-cover object-contain h-full w-full"
-          src="~/assets/images/fsdfsdf.png"
+          src="~/assets/images/footerpic.webp"
           alt=""
         />
       </div>

@@ -17,7 +17,7 @@ en:
   creativeTeam: 'Creative Team'
   based: 'Based in Iran'
   if: 'If you want to know more; maybe get a cup of coffee (Or tea!), you can!'
-
+  aboutUs: 'Learn more about Us'
 fa:
   acapulcodesign: 'آکاپلکو دیزاین'
   limited: 'اجناس'
@@ -36,6 +36,7 @@ fa:
   creativeTeam: 'تیم خلاق'
   based: 'از ایران هستیم'
   if: ' اگر میخواین ما رو بیشتر بشناسین؛ شاید یه فنجون قهوه (یا چای!) باهم بزنیم، میتونین'
+  aboutUs: 'بیشتر مارو بشناسین'
 </i18n>
 
 <template>
@@ -59,7 +60,7 @@ fa:
           >
             <img
               class="object-contain lg:object-cover w-full h-full drop-shadow-2xl transform md:-rotate-90 lg:-rotate-90 z-10"
-              src="~/assets/images/sketch-162443588438sdfs.png"
+              src="~/assets/images/tree.webp"
               alt=""
             />
 
@@ -466,6 +467,12 @@ fa:
                 class="px-2 learnMore font-bold text-4xl lg:text-6xl py-5 text-center"
               >
                 {{ $t('if') }}
+                <nuxt-link
+                  to="/aboutUs"
+                  class="font-bold cursor-pointer aboutUsText hover:underline hover:hue-rotate-60"
+                >
+                  {{ $t('aboutUs') }}
+                </nuxt-link>
               </h3>
               <!-- <div class="h-20 w-12 m-auto mt-12">
                 <img
@@ -761,10 +768,17 @@ export default {
 </script>
 
 <style scoped>
-/* Hide scrollbar for IE, Edge and Firefox */
-/* * {
-  font-family: 'Yanone Kaffeesatz', 'Estedad';
-} */
+.aboutUsText {
+  color: #32005c;
+  transition: ease-in-out 0.3s;
+}
+.aboutUsText:hover {
+  color: #ff4a68;
+}
+.aboutUsText:active {
+  color: #ff758c;
+  scale: 0.8;
+}
 .arrow {
   transition: ease-in-out 0.2s;
   cursor: pointer;
@@ -811,7 +825,7 @@ export default {
   color: #120129;
 }
 .comingSoon {
-  font-family: 'Roboto Slab', 'Rezvan';
+  font-family: 'Yanone Kaffeesatz', 'Rezvan';
 }
 
 .learnMoreBtn {

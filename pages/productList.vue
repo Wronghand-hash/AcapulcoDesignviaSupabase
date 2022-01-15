@@ -56,7 +56,7 @@ fa:
       >
         <div class="max-w-lg h-32 px-2 surfingBoardDiv">
           <img
-            src="~/assets/images/surfsUp.png"
+            src="~/assets/images/surfsUp.webp"
             class="filter drop-shadow-lg w-96 object-contain surfingBoard"
             alt=""
           />
@@ -129,10 +129,7 @@ fa:
                   {{ $t('acapulcoShirt') }}
                 </h1>
               </span>
-              <span
-                class="cursor-pointer"
-                @click="changeCatagory(4)"
-              >
+              <span class="cursor-pointer" @click="changeCatagory(4)">
                 <h1
                   class="lg:text-3xl text-2xl text-mainBlue p-4 border-mainBlue border-b-2 sidebarText"
                 >
@@ -153,10 +150,7 @@ fa:
                   {{ $t('acapulcoHoodies') }}
                 </h1>
               </span>
-              <span
-                class="cursor-pointer"
-                @click="changeCatagory(4)"
-              >
+              <span class="cursor-pointer" @click="changeCatagory(4)">
                 <h1
                   class="lg:text-3xl text-2xl border-mainBlue border-b-2 text-mainBlue p-4 sidebarText"
                 >
@@ -235,9 +229,9 @@ export default {
     //   return this.$store.state.products
     // },
 
-    catagory(){
+    catagory() {
       return this.$store.state.catagory
-    }
+    },
   },
 
   mounted() {
@@ -255,7 +249,10 @@ export default {
     },
     async getProducts() {
       try {
-        const { data, error } = await this.$supabase.from('products').select().eq('catagory_id', this.catagory)
+        const { data, error } = await this.$supabase
+          .from('products')
+          .select()
+          .eq('catagory_id', this.catagory)
         if (error) throw error
         if (data) {
           this.products = data

@@ -5,9 +5,9 @@
       max-width="600px"
       transition="dialog-bottom-transition"
     >
-      <template v-slot:activator="{ on: menu, attrs }">
+      <template #activator="{ on: menu, attrs }">
         <v-tooltip bottom>
-          <template v-slot:activator="{ on: tooltip }">
+          <template #activator="{ on: tooltip }">
             <v-btn
               v-bind="attrs"
               dark
@@ -148,7 +148,7 @@ export default {
         alert('you are logged in')
       } catch (error) {
         alert(error.error_description || error.message)
-      } finally { 
+      } finally {
         this.email = ''
         this.password = ''
       }

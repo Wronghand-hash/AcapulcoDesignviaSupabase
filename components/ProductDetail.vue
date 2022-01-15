@@ -9,16 +9,7 @@
     >
       <template v-slot:activator="{ on, attrs }">
         <button
-          class="
-            learnMore
-            flex
-            py-1
-            px-5
-            justify-center
-            align-center
-            bg-green-300
-            rounded-full
-          "
+          class="learnMore flex py-1 px-5 justify-center align-center bg-green-300 rounded-full"
           v-bind="attrs"
           @click="dialog = true"
           v-on="on"
@@ -34,21 +25,17 @@
 
       <div class="w-full h-dialog flex">
         <div class="w-2/5 h-full bg-mainRed">
-          <img
+          <!-- <img
             src="~/assets/images/davisuko-rhUU1pemhQ0-unsplash-removebg-preview.png"
             alt=""
             class=""
-          />
+          /> -->
         </div>
 
         <div class="w-3/5 p-9 p-7 bg-gray-100 flex-col flex justify-around">
           <div class="flex justify-between flex-grow-0">
             <h1
-              class="
-                lg:text-5xl
-                text-4xl text-blueGray-900
-                font-bold font-mainFont
-              "
+              class="lg:text-5xl text-4xl text-blueGray-900 font-bold font-mainFont"
             >
               {{ product.title }}
               <h3 class="text-gray-600 font-thin text-2xl font-mainFont">
@@ -56,11 +43,7 @@
               </h3>
             </h1>
             <h1
-              class="
-                lg:text-5xl
-                text-4xl text-blueGray-900
-                font-bold font-mainFont
-              "
+              class="lg:text-5xl text-4xl text-blueGray-900 font-bold font-mainFont"
             >
               {{ product.price }}$
             </h1>
@@ -107,13 +90,7 @@
           </div>
           <div class="flex justify-around h-1/5 space-x-5">
             <button
-              class="
-                learnMoreBtn
-                flex flex-col
-                align-center
-                justify-center
-                rounded-full
-              "
+              class="learnMoreBtn flex flex-col align-center justify-center rounded-full"
               @click.stop="addToCart"
             >
               <v-icon
@@ -124,14 +101,7 @@
               >
             </button>
             <button
-              class="
-                bg-mainBlue
-                text-mainRed
-                flex flex-col
-                align-center
-                justify-center
-                rounded-full
-              "
+              class="bg-mainBlue text-mainRed flex flex-col align-center justify-center rounded-full"
             >
               <v-icon
                 color="white

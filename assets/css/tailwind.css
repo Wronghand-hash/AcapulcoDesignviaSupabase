@@ -36,28 +36,6 @@
     src: url('~assets/fonts/RobotoSlab-VariableFont_wght.ttf')
       format('truetype');
   }
-
-  @font-face {
-    font-family: 'Bernadette';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('~assets/fonts/BernadetteRegular-DOVj0.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'QuickKiss';
-    font-style: normal;
-    font-display: swap;
-    src: url('~assets/fonts/QuickKissPersonalUse-PxlZ.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'Recoleta';
-    font-style: normal;
-    font-display: swap;
-    src: url('~assets/fonts/Recoleta-RegularDEMO.otf');
-  }
 }
 @font-face {
   font-family: 'Estedad';

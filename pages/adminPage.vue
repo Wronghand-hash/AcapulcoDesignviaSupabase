@@ -1,3 +1,53 @@
+<i18n lang="yaml">
+en:
+  total: 'Total'
+  products: 'Products'
+  delivered: 'Delivered'
+  shipment: 'Shipment'
+  orders: 'Orders'
+  something: 'Something to add?'
+  detail: 'Detail'
+  statusProcessing: 'Status: Processing'
+  list: 'List'
+  status: 'Status'
+  fullName: 'Full Name'
+  phoneNumber: 'Phone Number'
+  canceled: 'Canceled'
+  quantity: 'Quantity'
+  address: 'Address'
+  city: 'City'
+  province: 'Province'
+  price: 'Price'
+  title: 'Title'
+  items: 'Items'
+  name: 'Name'
+  date: 'Date'
+
+fa:
+  total: 'تمامی'
+  products: 'محصولات'
+  delivered: 'تحویل داده شده'
+  shipment: 'فرستاده شده'
+  orders: 'سفارشات'
+  something: 'میخواین چیزی اضافه کنید؟'
+  detail: 'جزئیات'
+  statusProcessing: 'وضعیت: درحال پردازش'
+  list: 'فهرست'
+  status: 'وضعیت'
+  fullName: 'نام و نام خانوادگی'
+  phoneNumber: 'شماره تلفن'
+  canceled: 'کنسل شده'
+  quantity: 'تعداد'
+  address: 'آدرس'
+  city: 'شهر'
+  province: 'استان'
+  price: 'قیمت'
+  title: 'نام محصول'
+  items: 'اجناس'
+  name: 'نام'
+  date: 'تاریخ'
+</i18n>
+
 <template>
   <v-app id="app">
     <div
@@ -49,37 +99,37 @@
                   <div
                     class="totalProducts w-full h-full flex flex-col justify-center align-center"
                   >
-                    <h2 class="text-center">total</h2>
+                    <h2 class="text-center">{{ $t('total') }}</h2>
                     <h2
                       class="ProductLength border-t-2 w-1/3 text-center rounded border-b-2"
                     >
                       {{ Products.length }}
                     </h2>
-                    <h2 class="text-center">Products</h2>
+                    <h2 class="text-center">{{ $t('products') }}</h2>
                   </div>
 
                   <div
                     class="sellsRecord flex flex-col justify-center align-center border-r-2 border-l-2 rounded"
                   >
-                    <h2 class="text-center">Total</h2>
+                    <h2 class="text-center">{{ $t('total') }}</h2>
                     <h2
                       class="SellsLength border-t-2 w-1/3 text-center rounded border-b-2"
                     >
                       {{ orders.length }}
                     </h2>
-                    <h2 class="text-center">Orders</h2>
+                    <h2 class="text-center">{{ $t('orders') }}</h2>
                   </div>
 
                   <div
                     class="totalShipment flex flex-col justify-center align-center"
                   >
-                    <h2 class="text-center">Shipment</h2>
+                    <h2 class="text-center">{{ $t('shipment') }}</h2>
                     <h2
                       class="ShipmentLength border-t-2 w-1/3 text-center rounded border-b-2"
                     >
                       25
                     </h2>
-                    <h2 class="text-center">Delivered</h2>
+                    <h2 class="text-center">{{ $t('delivered') }}</h2>
                   </div>
                 </div>
               </div>
@@ -133,7 +183,7 @@
                   <div
                     class="addSomthing flex flex-col w-full h-full self-center align-center"
                   >
-                    <h2 class="text-3xl">SOMETHING TO ADD?</h2>
+                    <h2 class="text-3xl">{{ $t('something') }}</h2>
                     <button
                       class="focus:outline-none addButton self-center text-center align-center h-1/2 w-1/2"
                       @click="showModal"
@@ -194,7 +244,7 @@
                               }"
                               @click="orderTab('List')"
                             >
-                              List
+                              {{ $t('list') }}
                             </button>
                             <button
                               class="p-2 rounded px-3"
@@ -204,7 +254,7 @@
                               }"
                               @click="detailAnime() & orderTab('Detail')"
                             >
-                              Detail
+                              {{ $t('detail') }}
                             </button>
                           </div>
                         </div>
@@ -214,17 +264,17 @@
                           <h1
                             class="headers text-2xl px-3 p-2 lg:text-3xl lg:px-12 border-2 border-blueGray-400 rounded-full shadow-xl"
                           >
-                            Name
+                            {{ $t('name') }}
                           </h1>
                           <h1
                             class="headers text-2xl px-3 p-2 lg:text-3xl lg:px-12 border-2 border-blueGray-400 rounded-full shadow-xl"
                           >
-                            Date
+                            {{ $t('date') }}
                           </h1>
                           <h1
                             class="headers text-2xl px-3 p-2 lg:text-3xl lg:px-12 border-2 border-blueGray-400 rounded-full shadow-xl"
                           >
-                            Status
+                            {{ $t('status') }}
                           </h1>
                         </div>
                         <div
@@ -241,7 +291,9 @@
                             <h1 class="m-1 text-xl lg:text-3xl">
                               {{ order.Date }}
                             </h1>
-                            <h1 class="m-1 text-xl lg:text-3xl">Canceled</h1>
+                            <h1 class="m-1 text-xl lg:text-3xl">
+                              {{ $t('canceled') }}
+                            </h1>
                           </div>
                         </div>
                       </div>
@@ -265,7 +317,7 @@
                             }"
                             @click="listAnime() & orderTab('List')"
                           >
-                            List
+                            {{ $t('list') }}
                           </button>
                           <button
                             class="p-2 rounded px-3"
@@ -276,7 +328,7 @@
                             }"
                             @click="orderTab('Detail')"
                           >
-                            Detail
+                            {{ $t('detail') }}
                           </button>
                         </div>
                         <div
@@ -293,7 +345,9 @@
                               <div
                                 class="w-full flex flex-col-reverse lg:flex-row justify-between"
                               >
-                                <h1 class="self-center">Status: processing</h1>
+                                <h1 class="self-center">
+                                  {{ $t('statusProcessing') }}
+                                </h1>
                                 <button class="" @click="deleteOrder(order.id)">
                                   <img
                                     class="p-1"
@@ -303,22 +357,23 @@
                                 </button>
                               </div>
                               <h1 class="text-xl border-b-2 p-1">
-                                Full Name: {{ order.order.FullName }}
+                                {{ $t('fullName') }}: {{ order.order.FullName }}
                               </h1>
                               <h1 class="text-xl border-b-2 p-1">
-                                Address: {{ order.order.Address }}
+                                {{ $t('address') }}: {{ order.order.Address }}
                               </h1>
                               <h1 class="text-xl border-b-2 p-1">
-                                Phone Number: {{ order.order.PhoneNumber }}
+                                {{ $t('phoneNumber') }}:
+                                {{ order.order.PhoneNumber }}
                               </h1>
                               <h1 class="text-xl border-b-2 p-1">
-                                City: {{ order.order.City }}
+                                {{ $t('city') }}: {{ order.order.City }}
                               </h1>
                               <h1 class="text-xl border-b-2 p-1">
-                                Province: {{ order.order.Province }}
+                                {{ $t('province') }}: {{ order.order.Province }}
                               </h1>
 
-                              <h1 class="text-xl p-1">Items:</h1>
+                              <h1 class="text-xl p-1">{{ $t('items') }}:</h1>
                               <div
                                 class="grid grid-cols-1 p-5 lg:bg-Amber-500 border-l-2 border-Amber-500 lg:shadow-2xl rounded-xl"
                               >
@@ -328,13 +383,13 @@
                                   class="flex flex-shirnk flex-col border-b-2 p-2 justify-center"
                                 >
                                   <h1 class="text-xl">
-                                    Title: {{ item.item.title }}
+                                    {{ $t('title') }}: {{ item.item.title }}
                                   </h1>
                                   <h1 class="text-xl">
-                                    Price: {{ item.item.price }}
+                                    {{ $t('price') }}: {{ item.item.price }}
                                   </h1>
                                   <h1 class="text-xl">
-                                    Quantity: {{ item.quantity }}
+                                    {{ $t('quantity') }}: {{ item.quantity }}
                                   </h1>
                                 </div>
                               </div>
@@ -354,7 +409,7 @@
           class="flex align-center mb-10 justify-center w-full h-full row-span-1"
         >
           <div
-            class="buttonContainer mx-2 absolute flex justify-center justify-around flex-row bottom-0 content-center w-full lg:w-1/2 lg:h-48 h-36 rounded-2xl border-r-8 border-l-8 border-Indigo-600"
+            class="buttonContainer mx-2 absolute flex justify-center flex-row bottom-0 content-center w-full lg:w-1/2 lg:h-48 h-36 rounded-2xl border-r-8 border-l-8 border-Indigo-600"
           >
             <div
               :class="{
@@ -414,7 +469,7 @@ export default {
   components: {
     LazyHydrate,
     Adminastration,
-    Navbar: () => import('../layouts/TheNavbar.vue'),
+    Navbar: () => import('~/layouts/TheNavbar.vue'),
   },
   // created() {
   //   const ref = this.$fire.firestore.collection('Products')
@@ -666,6 +721,9 @@ export default {
 
 <style scoped>
 /* Chrome, Safari, Edge, Opera */
+* {
+  font-family: 'Yanone Kaffeesatz', 'Estedad';
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -701,7 +759,7 @@ input[type='number'] {
   border-radius: 50px;
   transition: ease-in-out 0.3s;
   margin: 3px;
-  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-family: 'Yanone Kaffeesatz', 'Estedad';
 }
 
 .addButton:hover {
@@ -715,7 +773,7 @@ input[type='number'] {
   z-index: 2;
 }
 .middle {
-  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-family: 'Yanone Kaffeesatz', 'Estedad';
 }
 
 .admin {
@@ -737,7 +795,7 @@ input[type='number'] {
 }
 .addSomthing {
   color: #0a1931;
-  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-family: 'Yanone Kaffeesatz', 'Estedad';
 }
 
 .totalProducts {
