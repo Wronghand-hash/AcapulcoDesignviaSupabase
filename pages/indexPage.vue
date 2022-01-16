@@ -56,7 +56,7 @@ fa:
             />
           </div>
           <div
-            class="w-screen h-dialog flex flex-col align-center justify-between md:flex-row lg:flex-row lg:h-screen lg:justify-around bg-LightBlue-400"
+            class="w-screen h-dialog flex flex-col align-center justify-between md:flex-row lg:flex-row lg:h-screen lg:justify-around"
           >
             <img
               class="object-contain lg:object-cover w-full h-full drop-shadow-2xl transform md:-rotate-90 lg:-rotate-90 z-10"
@@ -65,7 +65,7 @@ fa:
             />
 
             <h1
-              class="bg-red-400 flex justify-center align-center NavbarTrigger acapulco tracking-wider text-7xl md:text-9xl lg:text-10xl text-center leading-none shrink text-gray-100"
+              class="flex justify-center align-center NavbarTrigger acapulco tracking-wider text-7xl md:text-9xl lg:text-10xl text-center leading-none shrink text-white"
             >
               {{ $t('acapulcodesign') }}
             </h1>
@@ -900,6 +900,8 @@ export default {
 
 @media only screen and (max-width: 414px) {
   .acapulco {
+    color: #310677;
+
     font-family: 'Sail', 'Estedad';
     text-shadow: 0.5px 0.5px 0px #f5e482, 1px 1px 0px #e6c824,
       1.5px 1.5px 0px #c0ae08, 2px 2px 0px #b4d812, 3px 3px 0px #78e43a,
@@ -909,6 +911,7 @@ export default {
 }
 @media (max-width: 1024px) {
   .acapulco {
+    color: #310677;
     font-family: 'Sail', 'Estedad';
     text-shadow: 0.5px 0.5px 0px #f5e482, 1px 1px 0px #e6c824,
       1.5px 1.5px 0px #c0ae08, 2px 2px 0px #b4d812, 3px 3px 0px #78e43a,
