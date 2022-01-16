@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <v-tooltip bottom>
-      <template v-slot:activator="{ on, attrs }">
+      <template #activator="{ on, attrs }">
         <v-btn
           v-bind="attrs"
           fab
@@ -112,26 +112,10 @@
       <v-spacer></v-spacer> -->
 
       <div
-        class="
-          p-4
-          w-full
-          h-2/3
-          flex flex-row
-          lg:flex-col
-          justify-around
-          align-center
-        "
+        class="p-4 w-full h-2/3 flex flex-row lg:flex-col justify-around align-center"
       >
         <div
-          class="
-            max-h-52
-            lg:max-h-full
-            w-5/6
-            h-4/5
-            space-y-3
-            flex flex-col
-            overflow-x-scroll
-          "
+          class="max-h-52 lg:max-h-full w-5/6 h-4/5 space-y-3 flex flex-col overflow-x-scroll"
         >
           <div v-for="item in cartItem" :key="item.id" class="w-full h-24 flex">
             <div
@@ -243,8 +227,7 @@ export default {
       drawer: false,
     }
   },
-  computed: {
-  },
+  computed: {},
   methods: {
     removeCartProduct(Product) {
       this.$store.dispatch('removeCartProduct', Product)

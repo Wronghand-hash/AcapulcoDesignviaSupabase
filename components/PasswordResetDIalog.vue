@@ -1,29 +1,25 @@
-y
+<i18n lang="yaml">
+en:
+  reset: 'Reset your Password'
+  enter: 'Please Enter your Email so we can send you a reset link'
+  send: 'Send'
+fa:
+  reset: 'بازیابی پسوورد فراموش شده'
+  enter: 'لطفا ایمیل خود را وارد کنید تا ما برایتان لینک بازیابی را ایمیل کنیم'
+  send: 'بفرست'
+</i18n>
 <template>
   <v-dialog v-model="dialog" max-width="900px" transition="dialog-transition">
-    <template v-slot:activator="{ on, attrs }">
+    <template #activator="{ on, attrs }">
       <button
-        class="
-          resetyourpasswordBtn
-          mt-5
-          px-4
-          py-2
-          rounded-full
-          border-b-4 border-mainBlue
-        "
+        class="resetyourpasswordBtn mt-5 px-4 py-2 rounded-full border-b-4 border-mainBlue"
         v-bind="attrs"
         v-on="on"
       >
         <span
-          class="
-            signup-text
-            px-3
-            capitalize
-            font-mainFont font-semibold
-            text-mainBlue
-          "
+          class="signup-text px-3 capitalize text-3xl font-mainFont font-semibold text-mainBlue"
         >
-          reset your password
+          {{ $t('reset') }}
         </span>
       </button>
     </template>
@@ -40,48 +36,21 @@ y
       </v-btn>
       <div class="w-full h-full p-6 flex align-center flex-col">
         <h1
-          class="
-            font-mainFont font-extrabold
-            text-4xl text-mainBlue text-center
-            my-6
-          "
+          class="font-mainFont font-extrabold text-4xl text-mainBlue text-center my-6 text-5xl"
         >
-          Please Enter your Email so we can send you a reset link
+          {{ $t('enter') }}
         </h1>
         <input
           v-model="email"
-          class="
-            mb-6
-            shadow-2xl
-            bg-white
-            w-full
-            border-8
-            rounded-full
-            border-mainBlue
-            py-2
-            px-4
-            focus:border-mainRed focus:border-8
-          "
+          class="mb-6 shadow-2xl bg-white w-full border-8 rounded-full border-mainBlue py-2 px-4 focus:border-mainRed focus:border-8"
           placeholder="forexample@example.com"
           type="text"
         />
         <button
-          class="
-            py-2
-            px-5
-            lg:px-13
-            text-mainRed
-            font-bold
-            text-3xl
-            rounded-full
-            font-mainFont
-            bg-mainBlue
-            hover:bg-mainRed hover:text-mainBlue
-            transition-all
-          "
+          class="py-2 px-5 lg:px-13 text-mainRed font-bold text-3xl rounded-full font-mainFont bg-mainBlue hover:bg-mainRed hover:text-mainBlue transition-all"
           @click="resetPassword"
         >
-          Send
+          {{ $t('send') }}
         </button>
       </div>
     </div>
@@ -113,7 +82,7 @@ export default {
 </script>
 
 <style scoped>
-.resetyourpasswordBtn {
-  font-size: 1.7em;
+* {
+  font-family: 'Yanone Kaffeesatz', 'Rezvan';
 }
 </style>

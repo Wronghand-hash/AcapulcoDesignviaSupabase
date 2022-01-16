@@ -1,3 +1,16 @@
+<i18n lang="yaml">
+en:
+  join: 'Join Us!'
+  login: 'Login'
+  google: 'Sign in with Google'
+  noAccount: 'Dont have an account?'
+fa:
+  join: 'به ما بپیوندید'
+  login: 'ورود'
+  google: 'ورود از طریق حساب گوگل'
+  noAccount: 'هنوز حسابی ندارید؟'
+</i18n>
+
 <template>
   <div class="main">
     <v-dialog
@@ -22,7 +35,7 @@
               <v-icon large>mdi-login-variant</v-icon>
             </v-btn>
           </template>
-          <span>Join Us!</span>
+          <span>{{ $t('join') }}</span>
         </v-tooltip>
       </template>
       <div>
@@ -66,7 +79,7 @@
               type="submit"
             >
               <span class="learnMoreText px-4 font-semibold py-2">
-                Login
+                {{ $t('login') }}
                 <v-icon color="white" class="">mdi-login-variant</v-icon>
               </span>
             </button>
@@ -80,14 +93,14 @@
             @click="googleSignIn"
           >
             <span class="learnMoreText px-4 font-semibold py-2">
-              Sign in with Google
+              {{ $t('google') }}
               <v-icon medium color="red" class="transform lg:scale-110"
                 >mdi-google</v-icon
               >
             </span>
           </button>
           <p class="signup py-4 mt-5 text-3xl font-semibold text-mainBlue">
-            Don't have an account?
+            {{ $t('noAccount') }}
           </p>
           <SignupDialog class="" />
           <PasswordResetDialog />
@@ -165,7 +178,7 @@ export default {
   border: 2px solid #120129;
   border-radius: 35px;
   transition: ease-in-out 0.3s;
-  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-family: 'Yanone Kaffeesatz', 'Rezvan';
 }
 .loginBtn {
   font-size: 25px;
@@ -173,7 +186,7 @@ export default {
   color: #120129;
   border-radius: 35px;
   transition: ease-in-out 0.3s;
-  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-family: 'Yanone Kaffeesatz', 'Rezvan';
 }
 
 .loginBtn:hover {
@@ -187,13 +200,13 @@ export default {
 
 .loginText,
 .googleText {
-  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-family: 'Yanone Kaffeesatz', 'Rezvan';
   text-transform: capitalize;
 }
 
 .signup,
 .title {
-  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-family: 'Yanone Kaffeesatz', 'Rezvan';
 }
 .loginForm {
   background: rgb(255, 255, 255);

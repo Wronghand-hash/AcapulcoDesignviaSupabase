@@ -59,18 +59,18 @@ fa:
             class="w-screen h-dialog flex flex-col align-center justify-between md:flex-row lg:flex-row lg:h-screen lg:justify-around"
           >
             <img
-              class="object-contain lg:object-cover w-full h-full drop-shadow-2xl transform md:-rotate-90 lg:-rotate-90 z-10"
-              src="~/assets/images/tree.webp"
+              class="object-contain lg:object-cover h-64 drop-shadow-2xl rotate-180 transform md:-rotate-90 lg:rotate-90 z-10"
+              src="~/assets/images/tree2.webp"
               alt=""
             />
 
             <h1
-              class="flex justify-center align-center NavbarTrigger acapulco tracking-wider text-7xl md:text-9xl lg:text-10xl text-center leading-none shrink text-white"
+              class="flex justify-center align-center NavbarTrigger acapulco tracking-wider text-7xl md:text-9xl lg:text-10xl text-center leading-none flex-shrink text-white"
             >
               {{ $t('acapulcodesign') }}
             </h1>
             <img
-              class="treePicture object-contain w-full h-full transform md:rotate-90 lg:rotate-90 drop-shadow-2xl"
+              class="treePicture object-contain h-64 transform md:rotate-90 lg:rotate-90 drop-shadow-2xl"
               src="~/assets/images/tree.webp"
               alt=""
             />
@@ -277,7 +277,7 @@ fa:
             >
               <img
                 src="~/assets/images/lighter-svg.webp"
-                class="object-fill sm:w-96 h-full lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto pictureDivImages"
+                class="object-fill sm:w-96 h-auto lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto pictureDivImages"
                 alt=""
               />
             </div>
@@ -348,7 +348,7 @@ fa:
             >
               <img
                 src="~/assets/images/matchbox.webp"
-                class="object-fill sm:w-96 h-full lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto pictureDivImages"
+                class="object-fill sm:w-96 h-auto lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto pictureDivImages"
                 alt=""
               />
             </div>
@@ -359,7 +359,7 @@ fa:
             <div class="pictureDiv lg:order-first cursor-pointer bg-red-200">
               <img
                 src="~/assets/images/short.webp"
-                class="object-fill sm:w-96 h-full lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto relative pictureDivImages"
+                class="object-fill sm:w-96 h-auto lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto relative pictureDivImages"
                 alt=""
               />
               <h1
@@ -393,7 +393,7 @@ fa:
             >
               <img
                 src="~/assets/images/Hoodie.webp"
-                class="object-fill sm:w-96 h-full lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto relative pictureDivImages"
+                class="object-fill sm:w-96 h-auto lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto relative pictureDivImages"
                 alt=""
               />
               <h1
@@ -429,7 +429,7 @@ fa:
             <div class="pictureDiv lg:order-first cursor-pointer bg-red-200">
               <img
                 src="~/assets/images/collection.webp"
-                class="object-fill sm:w-96 h-full lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto relative pictureDivImages"
+                class="object-fill sm:w-96 h-auto lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto relative pictureDivImages"
                 alt=""
               />
               <h1
@@ -900,8 +900,6 @@ export default {
 
 @media only screen and (max-width: 414px) {
   .acapulco {
-    color: #310677;
-
     font-family: 'Sail', 'Estedad';
     text-shadow: 0.5px 0.5px 0px #f5e482, 1px 1px 0px #e6c824,
       1.5px 1.5px 0px #c0ae08, 2px 2px 0px #b4d812, 3px 3px 0px #78e43a,
@@ -911,7 +909,6 @@ export default {
 }
 @media (max-width: 1024px) {
   .acapulco {
-    color: #310677;
     font-family: 'Sail', 'Estedad';
     text-shadow: 0.5px 0.5px 0px #f5e482, 1px 1px 0px #e6c824,
       1.5px 1.5px 0px #c0ae08, 2px 2px 0px #b4d812, 3px 3px 0px #78e43a,

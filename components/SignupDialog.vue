@@ -1,14 +1,24 @@
+<i18n lang="yaml">
+en:
+  signUp: 'Signup'
+  enter: 'Enter'
+
+fa:
+  signUp: 'حساب جدید'
+  enter: 'ورود'
+</i18n>
+
 <template>
   <div class="main">
     <v-dialog max-width="600px">
-      <template v-slot:activator="{ on, attrs }">
+      <template #activator="{ on, attrs }">
         <button
           class="flex hover:text-mainBlue align-center signUpBtn bg-transparent rounded-full py-2 font-mainFont font-bold text-3xl px-4"
           v-bind="attrs"
           v-on="on"
         >
           <v-icon large color="#120129">mdi-account-key</v-icon>
-          <span class="px-3"> Signup </span>
+          <span class="px-3"> {{ $t('signUp') }} </span>
         </button>
       </template>
       <div>
@@ -66,7 +76,7 @@
               type="submit"
             >
               <v-icon large color="#120129">mdi-account-key</v-icon>
-              <span class="px-3"> Signup </span>
+              <span class="px-3"> {{ $t('enter') }} </span>
             </button>
           </div>
 
@@ -121,7 +131,7 @@ export default {
           {
             data: {
               username: this.displayName,
-              email: this.email
+              email: this.email,
             },
           }
         )
@@ -142,8 +152,8 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 
-.main {
-  font-family: 'Yanone Kaffeesatz', sans-serif;
+* {
+  font-family: 'Yanone Kaffeesatz', 'Rezvan';
 }
 
 .signup-text {
