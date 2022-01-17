@@ -35,7 +35,7 @@ fa:
               <v-icon large>mdi-login-variant</v-icon>
             </v-btn>
           </template>
-          <span>{{ $t('join') }}</span>
+          <span class="text-3xl">{{ $t('join') }}</span>
         </v-tooltip>
       </template>
       <div>
@@ -151,14 +151,16 @@ export default {
         // eslint-disable-next-line no-console
         .catch((err) => console.log(err))
     },
-    async signInUser() {
+    signInUser() {
       try {
-        const { error } = await this.$supabase.auth.signIn({
-          email: this.email,
-          password: this.password,
-        })
-        if (error) throw error
-        alert('you are logged in')
+        setTimeout(async function () {
+          const { error } = await this.$supabase.auth.signIn({
+            email: this.email,
+            password: this.password,
+          })
+          if (error) throw error
+          alert('you are logged in')
+        }, 3000)
       } catch (error) {
         alert(error.error_description || error.message)
       } finally {
