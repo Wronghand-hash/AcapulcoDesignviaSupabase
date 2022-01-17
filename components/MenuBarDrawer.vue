@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <v-tooltip bottom class="sm:hidden">
-      <template v-slot:activator="{ on, attrs }">
+      <template #activator="{ on, attrs }">
         <v-btn
           v-bind="attrs"
           fab
@@ -24,7 +24,7 @@
       temporary
       app
       full-width
-      class="drawer red lighten-3"
+      class="drawer purple lighten-3"
     >
       <div class="w-full h-full p-6">
         <div class="align-center w-full h-3/6 flex flex-col">

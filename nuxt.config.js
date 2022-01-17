@@ -22,7 +22,7 @@ export default {
     ],
   },
   loading: '~/components/loading.vue',
-
+  target: 'static',
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
@@ -55,6 +55,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/pwa
     // '@nuxtjs/pwa',
+    'nuxt-speedkit',
     [
       'nuxt-supabase',
       {
@@ -130,6 +131,34 @@ export default {
           },
         })
       },
+    },
+  },
+  speedkit: {
+    detection: {
+      performance: true,
+      browserSupport: true,
+    },
+    performanceMetrics: {
+      device: {
+        hardwareConcurrency: { min: 2, max: 48 },
+        deviceMemory: { min: 2 },
+      },
+      timing: {
+        fcp: 800,
+        dcl: 1200,
+      },
+      lighthouseDetectionByUserAgent: false,
+    },
+
+    componentAutoImport: false,
+    componentPrefix: undefined,
+
+    /**
+     * IntersectionObserver rootMargin for Components and Assets
+     */
+    lazyOffset: {
+      component: '0%',
+      asset: '0%',
     },
   },
   // PWA module configuration: https://go.nuxtjs.dev/pwa
