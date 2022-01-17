@@ -59,7 +59,7 @@ fa:
             class="w-screen h-dialog flex flex-col align-center justify-between md:flex-row lg:flex-row lg:h-screen lg:justify-around"
           >
             <img
-              class="object-contain lg:object-cover h-64 drop-shadow-2xl rotate-180 transform md:-rotate-90 lg:rotate-90 z-10"
+              class="object-contain lg:object-cover h-64 drop-shadow-2xl rotate-180 transform lg:translate-x-20 md:-rotate-90 lg:rotate-90 z-10"
               src="~/assets/images/tree2.webp"
               alt=""
             />
@@ -70,7 +70,7 @@ fa:
               {{ $t('acapulcodesign') }}
             </h1>
             <img
-              class="treePicture object-contain h-64 transform md:rotate-90 lg:rotate-90 drop-shadow-2xl"
+              class="treePicture object-contain h-64 transform lg:-translate-x-20 md:rotate-90 lg:rotate-90 drop-shadow-2xl"
               src="~/assets/images/tree.webp"
               alt=""
             />
@@ -529,6 +529,7 @@ fa:
 import LazyHydrate from 'vue-lazy-hydration'
 
 export default {
+  name: 'IndexPage',
   components: {
     LazyHydrate,
 
@@ -564,9 +565,9 @@ export default {
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll)
-
     this.animatePictureDiv()
     this.animateOnScroll()
+
     // this.animateScrollDownBtn()
     // this.peaceSignAnimation()
     // this.animatePeaceSign()

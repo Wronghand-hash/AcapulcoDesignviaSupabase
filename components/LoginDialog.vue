@@ -173,6 +173,9 @@ export default {
 </script>
 
 <style scoped>
+* {
+  font-family: 'Yanone Kaffeesatz', 'Rezvan';
+}
 .learnMoreBtn {
   font-size: 25px;
   background-color: transparent;
