@@ -35,7 +35,7 @@ fa:
 
     <div class="flex align-center justify-end px-2">
       <div class="hidden lg:flex">
-        <nuxt-link to="/indexPage">
+        <nuxt-link to="/">
           <v-btn class="Btn" dark depressed rounded x-large color="transparent">
             <span class="aboutUs text-xl lg:text-2xl"> {{ $t('home') }} </span>
             <v-icon class="" large>mdi-home</v-icon>
