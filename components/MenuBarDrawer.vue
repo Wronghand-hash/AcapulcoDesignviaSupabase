@@ -24,7 +24,7 @@
       temporary
       app
       full-width
-      class="drawer purple darken-3"
+      class="drawer purple darken-5"
     >
       <div class="w-full h-full p-6">
         <div class="align-center w-full h-3/6 flex flex-col">
