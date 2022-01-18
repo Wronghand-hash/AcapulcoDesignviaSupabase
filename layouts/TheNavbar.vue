@@ -19,11 +19,18 @@ fa:
   <div
     class="mb-8 fixed w-screen h-20 lg:h-24 bg-transparent Navbar opacity-100 z-50 flex align-center justify-center lg:px-9"
   >
-    <div class="hidden lg:flex">
-      <v-btn class="Btn" dark depressed rounded x-large color="transparent">
+    <!-- <div class="hidden lg:flex">
+      <v-btn
+        class="Btn"
+        dark
+        depressed
+        rounded
+        x-large
+        color="transparent"
+      >
         <v-icon class="" large>mdi-volume-high</v-icon>
       </v-btn>
-    </div>
+    </div> -->
     <div class="hidden lg:flex">
       <nuxt-link to="/aboutUs">
         <v-btn class="Btn" dark depressed rounded x-large color="transparent">
@@ -199,8 +206,13 @@ export default {
       this.$store.dispatch('setUser', this.$supabase.auth.user())
     })
     this.animateNavbar()
+    // this.playSound()
   },
   methods: {
+    // playSound() {
+    //   const audio = new Audio(require('../assets/audio/hymn.mp3'))
+    //   audio.play()
+    // },
     animateNavbar() {
       this.$gsap.to('.Navbar', {
         backgroundColor: '#ff4a68',

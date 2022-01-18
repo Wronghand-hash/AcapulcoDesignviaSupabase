@@ -59,7 +59,7 @@ fa:
             class="w-screen h-dialog flex flex-col align-center justify-between md:flex-row lg:flex-row lg:h-screen lg:justify-around"
           >
             <img
-              class="object-contain lg:object-cover h-64 drop-shadow-2xl rotate-180 transform lg:translate-x-20 md:-rotate-90 lg:rotate-90 z-10"
+              class="treePicture2 object-contain lg:object-cover h-64 drop-shadow-2xl rotate-180 transform lg:translate-x-20 md:-rotate-90 lg:rotate-90 z-10"
               src="~/assets/images/tree2.webp"
               alt=""
             />
@@ -277,7 +277,7 @@ fa:
             >
               <img
                 src="~/assets/images/lighter-svg.webp"
-                class="object-fill sm:w-96 h-auto lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto pictureDivImages"
+                class="object-fill sm:w-96 sm:h-96 lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto pictureDivImages"
                 alt=""
               />
             </div>
@@ -348,7 +348,7 @@ fa:
             >
               <img
                 src="~/assets/images/matchbox.webp"
-                class="object-fill sm:w-96 h-auto lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto pictureDivImages"
+                class="object-fill sm:w-96 sm:h-96 lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto pictureDivImages"
                 alt=""
               />
             </div>
@@ -359,7 +359,7 @@ fa:
             <div class="pictureDiv lg:order-first cursor-pointer bg-red-200">
               <img
                 src="~/assets/images/short.webp"
-                class="object-fill sm:w-96 h-auto lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto relative pictureDivImages"
+                class="object-fill sm:w-96 sm:h-96 lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto relative pictureDivImages"
                 alt=""
               />
               <h1
@@ -393,7 +393,7 @@ fa:
             >
               <img
                 src="~/assets/images/Hoodie.webp"
-                class="object-fill sm:w-96 h-auto lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto relative pictureDivImages"
+                class="object-fill sm:w-96 sm:h-96 lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto relative pictureDivImages"
                 alt=""
               />
               <h1
@@ -403,7 +403,7 @@ fa:
               </h1>
             </div>
             <div class="textDiv flex flex-col order-last">
-              <div class="flex justify-end">
+              <div class="flex justify-center">
                 <h3 class="text-6xl p-5 text-center">
                   {{ $t('acapulcoHoodies') }}
                 </h3>
@@ -424,12 +424,12 @@ fa:
           </div>
 
           <div
-            class="h-screen fifthContainer flex flex-col align-center justify-center space-y-6 content p-20 justify-self-stretch"
+            class="h-screen fifthContainer flex flex-col lg:flex-row align-center justify-center space-y-6 content p-20 lg:p-48 justify-self-stretch"
           >
             <div class="pictureDiv lg:order-first cursor-pointer bg-red-200">
               <img
                 src="~/assets/images/collection.webp"
-                class="object-fill sm:w-96 h-auto lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto relative pictureDivImages"
+                class="object-fill sm:w-96 sm:h-96 lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto relative pictureDivImages"
                 alt=""
               />
               <h1
@@ -439,17 +439,21 @@ fa:
               </h1>
             </div>
 
-            <div class="textDiv">
-              <h3 class="text-6xl mt-3 text-center">
-                {{ $t('collections') }}
-              </h3>
+            <div class="textDiv flex flex-col order-last">
+              <div class="flex-row-reverse align-center justify-center">
+                <h3 class="text-6xl p-5 text-center">
+                  {{ $t('collections') }}
+                </h3>
+                <!-- <img class="transform scale-75" src="~/assets/images/fsdf.png" alt="" /> -->
+              </div>
+              <div class="self-center">
+                <NuxtLink to="/productList">
+                  <button class="learnMoreBtn">
+                    <span class="learnMoreText">{{ $t('showMe') }}</span>
+                  </button>
+                </NuxtLink>
+              </div>
             </div>
-            <NuxtLink to="/productList">
-              <button class="learnMoreBtn">
-                <span class="learnMoreText">{{ $t('showMe') }}</span>
-              </button>
-            </NuxtLink>
-            <div></div>
           </div>
 
           <div
@@ -594,7 +598,8 @@ export default {
       pictureDivs.forEach((pictureDiv) => {
         tl.from(pictureDiv, {
           opacity: 0,
-          scale: 0.5,
+          y: -90,
+          scale: 1.5,
           ease: 'Sine.easeOut',
           scrollTrigger: {
             trigger: pictureDiv,
@@ -680,25 +685,28 @@ export default {
     //   )
     // },
     animateOnScroll() {
-      const tl = this.$gsap.timeline()
+      // const tl = this.$gsap.timeline()
 
-      tl.fromTo(
-        '.acapulco-div',
-        {
-          opacity: 1,
-          y: 40,
-        },
-        {
-          opacity: 0,
-          y: 0,
-          scrollTrigger: {
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 0.5,
-            trigger: '.acapulco',
-          },
-        }
-      )
+      // tl.fromTo(
+      //   '.treePicture',
+      //   {
+      //     opacity: 0,
+      //     y: 40,
+      //     x: 60,
+      //   },
+      //   {
+      //     opacity: 0,
+      //     y: 0,
+      //     x: 0,
+
+      //     scrollTrigger: {
+      //       start: 'top top',
+      //       end: 'bottom top',
+      //       scrub: 0.5,
+      //       trigger: '.acapulco',
+      //     },
+      //   }
+      // )
       const spans = this.$gsap.utils.toArray('.animatedSpans')
       spans.forEach((span) => {
         this.$gsap.fromTo(
