@@ -240,6 +240,7 @@ export default {
     // this.animateSurfingBoard()
     this.animateProductCards()
     this.$store.dispatch('getProducts')
+     this.animateBackground()
   },
 
   methods: {
