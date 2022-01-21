@@ -38,7 +38,7 @@ fa:
             >
           </div>
           <div class="w-40 h-48 self-end justify-self-end">
-            <a href="https://www.instagram.com/payamone/?hl=en">
+            <a href="https://www.instagram.com/famouskesler/?hl=en">
               <img
                 class="object-contain icon-3d"
                 src="~/assets/images/ppp.png"
@@ -57,7 +57,9 @@ fa:
         class="self-center lg:self-start lg:ml-4 font-mainFont font-thin capitalize text-3xl p-1 lg:text-4xl text-mainRed"
       >
         {{ $t('art') }}
-        <a href="https://www.instagram.com/payamone/?hl=en">PayamOne🌴</a>
+        <a href="https://www.instagram.com/payamone/?hl=en" class="payamone"
+          >PayamOne🌴</a
+        >
       </h1>
       <div class="flex z-30 justify-end align-end h-3/6 lg:h-full">
         <img
@@ -74,6 +76,17 @@ fa:
 export default {}
 </script>
 <style scoped>
+.payamone {
+  color: #70fa00;
+  transition: ease-in-out 0.3s;
+}
+.payamone:hover {
+  color: #fbff00;
+}
+.payamone:active {
+  color: #ff758c;
+  scale: 0.8;
+}
 * {
   font-family: 'Yanone Kaffeesatz', 'Rezvan';
 }
