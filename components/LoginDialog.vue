@@ -151,21 +151,16 @@ export default {
         // eslint-disable-next-line no-console
         .catch((err) => console.log(err))
     },
-    signInUser() {
+    async signInUser() {
       try {
-        setTimeout(async function () {
-          const { error } = await this.$supabase.auth.signIn({
-            email: this.email,
-            password: this.password,
-          })
-          if (error) throw error
-          alert('you are logged in')
-        }, 3000)
+        const { error } = await this.$supabase.auth.signIn({
+          email: this.email,
+          password: this.password,
+        })
+        if (error) throw error
+        alert('you are logged in')
       } catch (error) {
         alert(error.error_description || error.message)
-      } finally {
-        this.email = ''
-        this.password = ''
       }
     },
   },

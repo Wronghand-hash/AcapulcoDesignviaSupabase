@@ -129,7 +129,10 @@ export default {
 
     ProductDetail: () => import('../components/ProductDetail.vue'),
   },
-  props: ['product'],
+  props: {
+    // eslint-disable-next-line vue/require-default-prop
+    product: String
+  },
 
   data() {
     return {
@@ -149,7 +152,6 @@ export default {
   methods: {
     catagorySelect(selected) {
       this.catagory = selected
-      console.log(this.catagory)
     },
     addToCart() {
       this.$store.commit('AddToCart', this.Product)

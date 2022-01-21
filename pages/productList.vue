@@ -221,7 +221,6 @@ export default {
 
   data() {
     return {
-      products: [],
     }
   },
   computed: {
@@ -232,36 +231,23 @@ export default {
     catagory() {
       return this.$store.state.catagory
     },
+    products(){
+      return this.$store.state.products
+    }
   },
 
   mounted() {
     // this.animateSurfingBoard()
     this.animateBackground()
     this.animateProductCards()
-    this.getProducts()
-    this.$store.dispatch('getCatagories')
+    this.$store.dispatch('getProducts')
   },
 
   methods: {
     changeCatagory(selected) {
       this.$store.dispatch('changeCatagory', selected)
-      this.getProducts()
     },
-    async getProducts() {
-      try {
-        const { data, error } = await this.$supabase
-          .from('products')
-          .select()
-          .eq('catagory_id', this.catagory)
-        if (error) throw error
-        if (data) {
-          this.products = data
-          console.log(data)
-        }
-      } catch (error) {
-        console.log(error)
-      }
-    },
+   
 
     // animateSurfingBoard() {
     //   const gsap = this.$gsap

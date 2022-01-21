@@ -1,183 +1,74 @@
 <template>
-  <form
-    v-if="showModal"
-    id="modal"
-    class="
-      modal
-      flex
-      justify-center
-      h-screen
-      items-center
-      rounded-lg
-      antialiased
-    "
-    @submit.prevent="addProduct"
-  >
-    <div
-      class="
-        topBar
-        flex flex-col
-        w-11/12
-        sm:w-5/6
-        lg:w-1/2
-        max-w-2xl
-        mx-auto
-        rounded-lg
-        border border-green-300
-        shadow-xl
-      "
-    >
-      <div
-        class="
-          flex flex-row
-          justify-between
-          p-6
-          border-b border-gray-200
-          rounded-tl-lg rounded-tr-lg
-        "
-      >
-        <p class="font-semibold text-gray-100 text-6xl">Add Product</p>
-        <svg
-          class="w-6 h-6 cursor-pointer text-white"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          @click="toggleModal"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"
-          ></path>
-        </svg>
-      </div>
-      <div class="flex flex-col px-6 py-5 background">
-        <p v-if="feedback" class="text-red-500 self-center">{{ feedback }}</p>
-        <label for="title" class="mb-2 font-semibold text-gray-100 text-3xl"
-          >Title</label
-        >
-        <input
-          id=""
-          v-model="title"
-          type="text"
-          name="title"
-          placeholder="Enter title"
-          class="
-            p-2
-            mb-3
-            text-black
-            bg-gray-100
-            border border-gray-200
-            rounded
-            shadow-sm
-            h-16
-            focus:outline-none
-          "
-        />
-
-        <label for="price" class="mb-2 font-semibold text-gray-100 text-3xl"
-          >Price</label
-        >
-        <input
-          id=""
-          v-model="price"
-          type="number"
-          name="price"
-          placeholder="Enter price"
-          class="
-            p-2
-            mb-3
-            text-black
-            bg-gray-100
-            border border-gray-200
-            rounded
-            shadow-sm
-            h-16
-            focus:outline-none
-          "
-        />
-        <label class="block mt-4 mb-2 font-semibold text-gray-100 text-3xl">
-          <span class="text-gray-100">Catagory</span>
-          <select
-            v-model="catagory"
-            placeholder="Catagory"
-            class="
-              shadow-sm
-              focus:outline-none
-              bg-white
-              h-16
-              text-black
-              rounded
-              text-base
-              form-select
-              mt-1
-              p-2
-              mb-3
-              w-full
-            "
-          >
-            <option>Lighters</option>
-            <option>Shirts</option>
-            <option>Custom Matchboxes</option>
-            <option>Collections</option>
-          </select>
-        </label>
-
-        <div class="flex place-content-center mt-5 space-x-4">
-          <input type="file" @change="uploadImage" />
-          <input
-            id="check1"
-            v-model="inStock"
-            class="inline-flex rounded-full"
-            type="checkbox"
-            name="check1"
-          />
-          <label class="inline-flex font-semibold text-gray-800" for="check1">
-            in stock</label
-          >
-        </div>
-        <div
-          class="
-            flex flex-row
-            items-center
-            justify-between
-            w-full
-            topBar
-            p-5
-            bg-white
-            border-t border-gray-200
-            rounded-bl-lg rounded-br-lg
-          "
-        >
-          <button
-            class="font-semibold px-4 py-2 bg-Rose-500 text-white justify-center rounded cursor-pointer"
-            @click="toggleModal"
-          >
-           Cancel
-          </button>
-          <button
-            class="px-2 py-2 text-white font-semibold bg-blue-500 rounded cursor-pointer"
-          >
+  <v-row justify="center">
+    <v-dialog v-model="dialog" persistent max-height="600px" max-width="600px">
+      <template #activator="{ on, attrs }">
+        <v-btn color="amber" dark v-bind="attrs" v-on="on">
+          something to add?
+        </v-btn>
+      </template>
+      <v-card color="light-blue accent-4">
+        <v-card-title color="yellow lighten-5">
+          <span class="font-main text-h5">add new product</span>
+        </v-card-title>
+        <v-card-text>
+          <v-container>
+            <v-row>
+              <v-col cols="12" sm="6" md="4">
+                <v-text-field
+                  v-model="title"
+                  color="yellow lighten-5"
+                  label="title"
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="6" md="4">
+                <v-text-field
+                  v-model="price"
+                  color="yellow lighten-5"
+                  label="price"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="6" md="4"> </v-col>
+              <v-col cols="12"> </v-col>
+              <v-col cols="12"> </v-col>
+              <v-col cols="12" sm="6">
+                <v-select
+                  v-model="catagory"
+                  color="yellow lighten-5"
+                  :items="[1, 2, 3, 4]"
+                  label="catagory"
+                  required
+                ></v-select>
+                <v-checkbox
+                  v-model="inStock"
+                  label="in stock"
+                  color="yellow lighten-5"
+                ></v-checkbox>
+              </v-col>
+              <v-col cols="12" sm="6">
+                <input
+                  id="single"
+                  type="file"
+                  accept="image/*"
+                  @change="uploadImage"
+                />
+              </v-col>
+            </v-row>
+          </v-container>
+          <small>*indicates required field</small>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="yellow lighten-5" text @click="dialog = false">
+            Close
+          </v-btn>
+          <v-btn color="yellow lighten-5" text @click="addProduct">
             Save
-            <div v-show="adding">
-              <div
-                style="border-top-color: transparent"
-                class="
-                  w-16
-                  h-16
-                  border-4 border-blue-400 border-double
-                  rounded-full
-                  animate-spin
-                "
-              ></div>
-            </div>
-          </button>
-        </div>
-      </div>
-    </div>
-  </form>
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-row>
 </template>
 
 <script>
@@ -185,106 +76,71 @@ export default {
   name: 'LargeModal',
   data() {
     return {
-      adding: false,
-      showModal: false,
-      test: null,
+      dialog: false,
       title: null,
       price: null,
       image: null,
       inStock: null,
       catagory: null,
       feedback: null,
-      imageData: null,
+      loading: false,
+      imagePath: '',
     }
   },
   mounted() {},
   methods: {
-    toggleModal() {
-      this.showModal = !this.showModal
+    async uploadImage(event) {
+      this.image = event.target.files[0]
+      // eslint-disable-next-line no-console
+      console.log(this.image)
+      try {
+        if (!this.image || this.image.length === 0) {
+          throw new Error('You must select an image to upload.')
+        }
+        // eslint-disable-next-line no-console
+        console.log(this.image)
+        const file = this.image
+        const fileExt = file.name.split('.').pop()
+        const fileName = `${Math.random()}.${fileExt}`
+        const filePath = `${fileName}`
+        this.imagePath = filePath
+
+        const { error: uploadError } = await this.$supabase.storage
+          .from('product-images')
+          .upload(filePath, file)
+
+        if (uploadError) throw uploadError
+      } catch (error) {
+        alert(error.message)
+      } finally {
+        // eslint-disable-next-line no-console
+        console.log(this.imagePath)
+      }
     },
 
-    // previewImage(event) {
-    //   this.uploadValue = 0
-    //   this.image = null
-    //   this.imageData = event.target.files[0]
-    //   this.onUpload()
-    // },
-
-    // onUpload() {
-    //   this.image = null
-    //   const storageRef = this.$fire.storage
-    //     .ref(`${'Product Image/' + this.imageData.name}`)
-    //     .put(this.imageData)
-    //   storageRef.on(
-    //     `state_changed`,
-    //     (snapshot) => {
-    //       this.uploadValue =
-    //         (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-    //     },
-    //     (error) => {
-    //       console.log(error.message)
-    //     },
-    //     () => {
-    //       this.uploadValue = 100
-    //       storageRef.snapshot.ref.getDownloadURL().then((url) => {
-    //         this.image = url
-    //         console.log(this.image)
-    //       })
-    //     }
-    //   )
-    // },
-
-    uploadImage(e) {
-      const file = e.target.files[0]
-      const storageRef = this.$fire.storage.ref('Product Image/' + file.name)
-
-      const uploadTask = storageRef.put(file)
-
-      uploadTask.on('state_changed', (snapshot) => {
-        // Handle successful uploads on complete
-        // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-        snapshot.ref
-          .getDownloadURL()
-          .then((downloadURL) => {
-            console.log(downloadURL)
-            this.image = downloadURL
-            this.feedback = null
-          })
-          .catch((err) => {
-            console.log(err)
-            this.feedback = 'choose diffrent image'
-          })
-      })
-    },
     async addProduct() {
-      const Image = await this.image
-      if (this.title) {
-        this.$fire.firestore
-          .collection('Products')
-          .add({
+      try {
+        this.loading = true
+        const { error } = await this.$supabase.from('products').insert([
+          {
             title: this.title,
             price: this.price,
-            image: Image,
             inStock: this.inStock,
-            catagory: this.catagory,
-            adding: true,
-          })
-          .then(() => {
-            this.title = null
-            this.price = null
-            this.inStock = null
-            this.catagory = null
-            this.image = null
-            this.adding = false
-            this.feedback = 'Product added'
-          })
-          .catch((err) => {
-            // eslint-disable-next-line no-console
-            console.log(err)
-          })
-      } else {
-        this.feedback = 'Fields cannot be empty'
+            catagory_id: this.catagory,
+          },
+        ])
+        if (error) throw error
+        alert('product added')
+      } catch (error) {
+        alert(error.error_description || error.message)
+      } finally {
+        this.dialog = false
+        this.$store.dispatch('getProducts')
       }
+    },
+
+    toggleModal() {
+      this.showModal = !this.showModal
     },
   },
 }
