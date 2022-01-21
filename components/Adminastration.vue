@@ -2,39 +2,14 @@
   <form
     v-if="showModal"
     id="modal"
-    class="
-      modal
-      flex
-      justify-center
-      h-screen
-      items-center
-      rounded-lg
-      antialiased
-    "
+    class="modal flex justify-center h-screen items-center rounded-lg antialiased"
     @submit.prevent="addProduct"
   >
     <div
-      class="
-        topBar
-        flex flex-col
-        w-11/12
-        sm:w-5/6
-        lg:w-1/2
-        max-w-2xl
-        mx-auto
-        rounded-lg
-        border border-green-300
-        shadow-xl
-      "
+      class="topBar flex flex-col w-11/12 sm:w-5/6 lg:w-1/2 max-w-2xl mx-auto rounded-lg border border-green-300 shadow-xl"
     >
       <div
-        class="
-          flex flex-row
-          justify-between
-          p-6
-          border-b border-gray-200
-          rounded-tl-lg rounded-tr-lg
-        "
+        class="flex flex-row justify-between p-6 border-b border-gray-200 rounded-tl-lg rounded-tr-lg"
       >
         <p class="font-semibold text-gray-100 text-6xl">Add Product</p>
         <svg
@@ -64,17 +39,7 @@
           type="text"
           name="title"
           placeholder="Enter title"
-          class="
-            p-2
-            mb-3
-            text-black
-            bg-gray-100
-            border border-gray-200
-            rounded
-            shadow-sm
-            h-16
-            focus:outline-none
-          "
+          class="p-2 mb-3 text-black bg-gray-100 border border-gray-200 rounded shadow-sm h-16 focus:outline-none"
         />
 
         <label for="price" class="mb-2 font-semibold text-gray-100 text-3xl"
@@ -86,37 +51,14 @@
           type="number"
           name="price"
           placeholder="Enter price"
-          class="
-            p-2
-            mb-3
-            text-black
-            bg-gray-100
-            border border-gray-200
-            rounded
-            shadow-sm
-            h-16
-            focus:outline-none
-          "
+          class="p-2 mb-3 text-black bg-gray-100 border border-gray-200 rounded shadow-sm h-16 focus:outline-none"
         />
         <label class="block mt-4 mb-2 font-semibold text-gray-100 text-3xl">
           <span class="text-gray-100">Catagory</span>
           <select
             v-model="catagory"
             placeholder="Catagory"
-            class="
-              shadow-sm
-              focus:outline-none
-              bg-white
-              h-16
-              text-black
-              rounded
-              text-base
-              form-select
-              mt-1
-              p-2
-              mb-3
-              w-full
-            "
+            class="shadow-sm focus:outline-none bg-white h-16 text-black rounded text-base form-select mt-1 p-2 mb-3 w-full"
           >
             <option>Lighters</option>
             <option>Shirts</option>
@@ -139,23 +81,13 @@
           >
         </div>
         <div
-          class="
-            flex flex-row
-            items-center
-            justify-between
-            w-full
-            topBar
-            p-5
-            bg-white
-            border-t border-gray-200
-            rounded-bl-lg rounded-br-lg
-          "
+          class="flex flex-row items-center justify-between w-full topBar p-5 bg-white border-t border-gray-200 rounded-bl-lg rounded-br-lg"
         >
           <button
             class="font-semibold px-4 py-2 bg-Rose-500 text-white justify-center rounded cursor-pointer"
             @click="toggleModal"
           >
-           Cancel
+            Cancel
           </button>
           <button
             class="px-2 py-2 text-white font-semibold bg-blue-500 rounded cursor-pointer"
@@ -164,13 +96,7 @@
             <div v-show="adding">
               <div
                 style="border-top-color: transparent"
-                class="
-                  w-16
-                  h-16
-                  border-4 border-blue-400 border-double
-                  rounded-full
-                  animate-spin
-                "
+                class="w-16 h-16 border-4 border-blue-400 border-double rounded-full animate-spin"
               ></div>
             </div>
           </button>

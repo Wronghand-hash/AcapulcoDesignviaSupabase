@@ -167,14 +167,14 @@ fa:
 
             <!-- <div class="row-span-5 col-span-2 place-items-center"> -->
             <div
-              class="grid lg:grid-cols-2 grid-cols-1 gap-6 p-4 mt-6 place-items-center self-center justify-self-center"
+              class="grid productCard lg:grid-cols-2 grid-cols-1 gap-6 p-4 mt-6 place-items-center self-center justify-self-center"
             >
               <ProductCard
                 v-for="product in products"
                 id="product-card"
                 ref="ProductCard"
                 :key="product.id"
-                class="p-4 productCard"
+                class="p-4"
                 :product="product"
               />
             </div>
@@ -236,10 +236,10 @@ export default {
 
   mounted() {
     // this.animateSurfingBoard()
-    this.animateBackground()
     this.animateProductCards()
-    this.getProducts()
+    this.animateBackground()
     this.$store.dispatch('getCatagories')
+    this.getProducts()
   },
 
   methods: {
@@ -284,23 +284,16 @@ export default {
     //       scale: 0.2,
     //     })
     // },
-    animateProductCards() {
-      const products = this.$gsap.utils.toArray('#product-card')
+    animateProductCards(product) {
+      const products = this.$gsap.utils.toArray('.productCard')
       products.forEach((product) => {
-        this.$gsap.fromTo(
-          product,
-          {
-            y: 200,
-            opacity: 0,
-          },
-          {
-            opacity: 1,
-            y: 0,
-            stagger: 0.1,
-
-            ease: 'Sine.easeOut',
-          }
-        )
+        this.$gsap.from(product, {
+          opacity: 0,
+          autoAlpha: 1,
+          y: -50,
+          ease: 'expo.Out',
+          duration: 3,
+        })
       })
     },
     animateBackground() {
@@ -347,12 +340,12 @@ export default {
         ease: 'power3.out',
         stagger: 0.1,
       })
-      // tl.to('.productCard', {
-      //   opacity: 1,
-      //   y: -20,
-      //   ease: 'power3.out',
-      //   stagger: 0.1,
-      // })
+      tl.from('.productCard', {
+        opacity: 0,
+        y: -20,
+        ease: 'power3.out',
+        stagger: 0.1,
+      })
     },
   },
 }

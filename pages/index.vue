@@ -839,7 +839,7 @@ export default {
 
 .learnMoreBtn {
   font-size: 30px;
-  background-color: #ff4a68;
+  background-color: #e5ff00;
   color: #120129;
   border-radius: 35px;
   transition: transform ease-in-out 0.5s;
@@ -849,8 +849,9 @@ export default {
 
 .learnMoreBtn:hover {
   transform: scale(1.05);
-  background-color: #120129;
-  color: #ff4a68;
+  rotate: 30%;
+  background-color: #030303;
+  color: #e5ff00;
 }
 
 /* #contactUsBtn {
