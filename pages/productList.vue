@@ -273,7 +273,7 @@ export default {
     animateProductCards(product) {
       const products = this.$gsap.utils.toArray('.productCard')
       products.forEach((product) => {
-        this.$gsap.from(product, {
+        this.$gsap.to(product, {
           opacity: 0,
           autoAlpha: 1,
           y: -50,

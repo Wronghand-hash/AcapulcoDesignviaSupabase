@@ -6,7 +6,7 @@
           something to add?
         </v-btn>
       </template>
-      <v-card color="light-blue accent-4">
+      <v-card color="amber darken-2">
         <v-card-title color="yellow lighten-5">
           <span class="font-main text-h5">add new product</span>
         </v-card-title>
@@ -62,8 +62,8 @@
           <v-btn color="yellow lighten-5" text @click="dialog = false">
             Close
           </v-btn>
-          <v-btn color="yellow lighten-5" text @click="addProduct">
-            Save
+          <v-btn :disabled="loading" color="yellow lighten-5" text @click="addProduct">
+             {{ loading ? 'Uploading ...' : 'save' }}
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -94,6 +94,7 @@ export default {
       // eslint-disable-next-line no-console
       console.log(this.image)
       try {
+        this.loading = true
         if (!this.image || this.image.length === 0) {
           throw new Error('You must select an image to upload.')
         }
@@ -115,18 +116,20 @@ export default {
       } finally {
         // eslint-disable-next-line no-console
         console.log(this.imagePath)
+        this.loading = false
       }
     },
 
     async addProduct() {
       try {
-        this.loading = true
+        const image = await this.imagePath
         const { error } = await this.$supabase.from('products').insert([
           {
             title: this.title,
             price: this.price,
             inStock: this.inStock,
             catagory_id: this.catagory,
+            image_url: image,
           },
         ])
         if (error) throw error

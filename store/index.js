@@ -54,6 +54,7 @@ export const actions = {
       if (error) throw error
       if (data) {
         commit('setProducts', data)
+        console.log(data)
       }
     } catch (error) {}
   },

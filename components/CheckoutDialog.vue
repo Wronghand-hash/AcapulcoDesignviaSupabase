@@ -24,14 +24,7 @@
       </template>
       <div id="main" class="h-screen w-screen">
         <div
-          class="
-            flex
-            h-full
-            absolute
-            w-full
-            flex-col
-            justify-items-center justify-center
-          "
+          class="flex h-full absolute w-full flex-col justify-items-center justify-center"
         >
           <LazyHydrate on-interaction>
             <PaymentDialog ref="PaymentDialog" class="self-center m-10" />
@@ -48,15 +41,7 @@
         >
           <div class="w-full h-full backGround">
             <div
-              class="
-                w-full
-                lg:h-3/5
-                h-2/4
-                flex
-                justify-center
-                align-center
-                flex-col
-              "
+              class="w-full lg:h-3/5 h-2/4 flex justify-center align-center flex-col"
             >
               <div class="w-full lg:h-1/4 h-full bg-green-400 lg:p-5 p-1">
                 <h1 class="">
@@ -74,15 +59,7 @@
                 </h1>
               </div>
               <div
-                class="
-                  grid grid-cols-2 grid-rows-4 grid-flow-row
-                  w-full
-                  lg:h-3/4
-                  h-4/5
-                  bg-CoolGray-800
-                  p-5
-                  gap-4
-                "
+                class="grid grid-cols-2 grid-rows-4 grid-flow-row w-full lg:h-3/4 h-4/5 bg-CoolGray-800 p-5 gap-4"
               >
                 <div>
                   <v-text-field
@@ -184,15 +161,7 @@
                 </div>
                 <div v-show="user">
                   <button
-                    class="
-                      font-mainFont
-                      text-3xl text-mainBlue
-                      font-bold
-                      rounded-full
-                      bg-mainRed
-                      px-4
-                      py-2
-                    "
+                    class="font-mainFont text-3xl text-mainBlue font-bold rounded-full bg-mainRed px-4 py-2"
                   >
                     Submit
                   </button>
@@ -218,61 +187,21 @@
               </div>
 
               <div
-                class="
-                  w-full
-                  h-3/4
-                  flex
-                  lg:p-7
-                  flex-col
-                  lg:flex-row
-                  p-4
-                  bg-LightBlue-600
-                "
+                class="w-full h-3/4 flex lg:p-7 flex-col lg:flex-row p-4 bg-LightBlue-600"
               >
                 <div
-                  class="
-                    w-full
-                    lg:w-5/6
-                    h-full
-                    overflow-x-scroll
-                    self-start
-                    lg:gap-2
-                    grid grid-cols-2
-                    lg:grid-cols-4
-                  "
+                  class="w-full lg:w-5/6 h-full overflow-x-scroll self-start lg:gap-2 grid grid-cols-2 lg:grid-cols-4"
                 >
                   <div
                     v-for="item in cartItem"
                     :key="item.id"
-                    class="
-                      w-full
-                      h-full
-                      flex
-                      backGround
-                      flex-col
-                      justify-center
-                      align-center
-                      self-start
-                    "
+                    class="w-full h-full flex backGround flex-col justify-center align-center self-start"
                   >
                     <div
-                      class="
-                        w-2/3
-                        h-full
-                        flex
-                        justify-center
-                        align-center
-                        space-x-3
-                      "
+                      class="w-2/3 h-full flex justify-center align-center space-x-3"
                     >
                       <img
-                        class="
-                          float-left
-                          rounded-full
-                          lg:w-24 lg:h-24
-                          h-20
-                          w-20
-                        "
+                        class="float-left rounded-full lg:w-24 lg:h-24 h-20 w-20"
                         :src="item.item.image"
                       />
                       <div
@@ -282,12 +211,7 @@
                           {{ item.item.title }}
                         </h1>
                         <button
-                          class="
-                            py-1
-                            bg-Rose-300
-                            border-2 border-pink-800
-                            rounded-full
-                          "
+                          class="py-1 bg-Rose-300 border-2 border-pink-800 rounded-full"
                           @click.prevent="removeCartProduct(item)"
                         >
                           <span
@@ -305,13 +229,7 @@
                     class="checkoutBtn py-1 flex justify-center align-center"
                   >
                     <span
-                      class="
-                        pl-4
-                        checkoutText
-                        font-mainFont
-                        text-lg
-                        lg:text-2xl
-                      "
+                      class="pl-4 checkoutText font-mainFont text-lg lg:text-2xl"
                       @click="checkout"
                     >
                       Checkout
@@ -387,97 +305,10 @@ export default {
       ],
     }
   },
-  computed: {
-  },
+  computed: {},
   methods: {
     removeCartProduct(Product) {
       this.$store.dispatch('removeCartProduct', Product)
-    },
-    async checkout() {
-      const user = await this.$fire.auth.currentUser
-      if (user && this.order.FullName && this.cartItem.length > 0) {
-        this.$fire.firestore
-          .collection('orders')
-          .add({
-            userId: user.uid,
-            cart: this.cartItem,
-            order: {
-              FullName: this.order.FullName,
-              City: this.order.City,
-              Province: this.order.Province,
-              Address: this.order.Address,
-              PhoneNumber: this.order.PhoneNumber,
-              Date: Date.now(),
-            },
-          })
-          .then(
-            () => console.log('lolo'),
-            (this.message = 'Your order has been added to your profile Page'),
-            (this.purchaseSuccess = '/tik.png'),
-            this.$refs.PaymentDialog.toggleDialog(
-              this.message,
-              this.purchaseSuccess
-            )
-          )
-          .catch((err) => {
-            console.error(err)
-          })
-      } else if (
-        !user &&
-        this.order.FullName !== null &&
-        this.order.Email &&
-        this.cartItem.length > 0
-      ) {
-        this.$fire.auth
-          .createUserWithEmailAndPassword(this.order.Email, this.order.Password)
-          .then((cred) => {
-            this.$fire.firestore.collection('users').doc(cred.user.uid).set({
-              displayName: this.order.FullName,
-              City: this.order.City,
-              PhoneNumber: this.order.PhoneNumber,
-              Address: this.order.Address,
-              Province: this.order.Province,
-            })
-          })
-          .then(() => {
-            const user = this.$fire.auth.currentUser
-            if (user && this.order.Name !== null && this.cartItem.length > 0) {
-              this.$fire.firestore
-                .collection('orders')
-                .add({
-                  userId: user.uid,
-                  cart: this.cartItem,
-                  order: {
-                    FullName: this.order.FullName,
-                    City: this.order.City,
-                    Province: this.order.Province,
-                    Address: this.order.Address,
-                    PhoneNumber: this.order.PhoneNumber,
-                    Date: Date.now(),
-                  },
-                })
-                .then(() => {
-                  console.log('sign up and add order')
-                  this.message =
-                    'You are signed in to our website and Your order has been added to your profile Page'
-                  this.purchaseSuccess = '/blueTik.png'
-                  this.$refs.PaymentDialog.toggleDialog(
-                    this.message,
-                    this.purchaseSuccess
-                  )
-                })
-            }
-          })
-      } else {
-        console.log('bull')
-        this.message =
-          'Something went Wrong please check the fields and make sure your shopping cart is not empty'
-        this.purchaseSuccess = '/bigX.png'
-        this.$refs.PaymentDialog.toggleDialog(
-          this.message,
-          this.purchaseSuccess
-        )
-      }
     },
   },
 }
