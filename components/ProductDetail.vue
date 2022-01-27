@@ -32,7 +32,7 @@
           /> -->
         </div>
 
-        <div class="w-3/5 p-9 p-7 bg-gray-100 flex-col flex justify-around">
+        <div class="w-3/5 p-9 p-7 bg-blueGray-100 flex-col flex justify-around">
           <div class="flex justify-between flex-grow-0">
             <h1
               class="lg:text-5xl text-4xl text-blueGray-900 font-bold font-mainFont"

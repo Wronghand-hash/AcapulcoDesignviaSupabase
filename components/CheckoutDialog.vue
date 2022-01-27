@@ -193,7 +193,7 @@
                   class="w-full lg:w-5/6 h-full overflow-x-scroll self-start lg:gap-2 grid grid-cols-2 lg:grid-cols-4"
                 >
                   <div
-                    v-for="item in cartItem"
+                    v-for="item in cart"
                     :key="item.id"
                     class="w-full h-full flex backGround flex-col justify-center align-center self-start"
                   >
@@ -230,7 +230,6 @@
                   >
                     <span
                       class="pl-4 checkoutText font-mainFont text-lg lg:text-2xl"
-                      @click="checkout"
                     >
                       Checkout
                     </span>
@@ -305,7 +304,11 @@ export default {
       ],
     }
   },
-  computed: {},
+  computed: {
+    cart() {
+      return this.$store.state.cart
+    },
+  },
   methods: {
     removeCartProduct(Product) {
       this.$store.dispatch('removeCartProduct', Product)

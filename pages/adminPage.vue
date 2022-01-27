@@ -173,7 +173,7 @@ fa:
                   >
                     <Adminastration
                       ref="Adminastration"
-                      class="adminastration w-24"
+                      class="adminastration"
                     />
                   </div>
                   <div
@@ -541,16 +541,19 @@ export default {
     showModal() {
       this.$refs.Adminastration.toggleModal()
     },
-    deleteProduct(id) {
-      this.$fire.firestore
-        .collection('Products')
-        .doc(id)
-        .delete()
-        .then(() => {
-          this.Products = this.Products.filter((product) => {
-            return product.id !== id
-          })
-        })
+    async deleteProduct(id) {
+      try {
+        this.deletingAnimation()
+        const { error } = await this.$supabase
+          .from('products')
+          .delete()
+          .match({ id })
+        if (error) throw error
+      } catch (error) {
+        alert(error.error_description || error.message)
+      } finally {
+        this.$store.dispatch('getProducts')
+      }
     },
 
     deleteOrder(id) {
@@ -563,6 +566,14 @@ export default {
             return order.id !== id
           })
         })
+    },
+    deletingAnimation() {
+      const gsap = this.$gsap
+
+      gsap.to('.kiskis', {
+        rotate: 360,
+        repeat: 2,
+      })
     },
 
     tab2() {

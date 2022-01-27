@@ -117,7 +117,7 @@
         <div
           class="max-h-52 lg:max-h-full w-5/6 h-4/5 space-y-3 flex flex-col overflow-x-scroll"
         >
-          <div v-for="item in cartItem" :key="item.id" class="w-full h-24 flex">
+          <div v-for="item in cart" :key="item.id" class="w-full h-24 flex">
             <div
               class="w-2/3 h-full flex justify-center align-center space-x-3"
             >
@@ -223,11 +223,24 @@ export default {
   },
   data() {
     return {
-      cart: [],
       drawer: false,
     }
   },
-  computed: {},
+  computed: {
+    cart() {
+      return this.$store.state.cart
+    },
+
+    cartTotalAmount() {
+      return this.$store.getters.cartItemCount
+    },
+    cartTotalPrice() {
+      return this.$store.getters.cartTotalPrice
+    },
+    total() {
+      return this.cartTotalPrice + 15
+    },
+  },
   methods: {
     removeCartProduct(Product) {
       this.$store.dispatch('removeCartProduct', Product)

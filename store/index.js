@@ -2,7 +2,7 @@ export const state = () => ({
   catagory: 2,
   user: null,
   products: [],
-  cart: []
+  cart: [],
 })
 
 export const mutations = {
@@ -28,6 +28,23 @@ export const mutations = {
       productInCart.quantity++
     } else {
       state.cart.push(Product)
+    }
+  },
+  removeProduct(state, Product) {
+    state.cart = state.cart.filter((item) => {
+      return item.item.id !== Product.item.id
+    })
+  },
+  incerementQuantity(state, Product) {
+    const Tproduct = state.cart.find((item) => item.item.id === Product.item.id)
+    if (Tproduct) {
+      Tproduct.quantity++
+    }
+  },
+  decrementQuantity(state, Product) {
+    const Tproduct = state.cart.find((item) => item.item.id === Product.item.id)
+    if (Tproduct) {
+      Tproduct.quantity--
     }
   },
 }
@@ -61,5 +78,35 @@ export const actions = {
 
   changeCatagory({ commit }, selected) {
     commit('ChangeCatagory', selected)
+  },
+
+  removeCartProduct({ commit }, Product) {
+    commit('removeProduct', Product)
+  },
+}
+
+export const getters = {
+  cartItemCount: (state) => {
+    return state.cart.length
+  },
+
+  // use this in the shopping cart drawer
+  cartTotalPrice(state) {
+    let total = 0
+
+    state.cart.forEach((item) => {
+      total += item.item.price * item.quantity
+    })
+
+    return total
+  },
+
+  cartSize(state) {
+    return state.cart.length
+  },
+  cartTotalAmount: (state) => {
+    return state.cart.reduce((total, product) => {
+      return total + product.price * product.quantity
+    }, 0)
   },
 }

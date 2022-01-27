@@ -2,13 +2,13 @@
   <v-row justify="center">
     <v-dialog v-model="dialog" persistent max-height="600px" max-width="600px">
       <template #activator="{ on, attrs }">
-        <v-btn color="amber" dark v-bind="attrs" v-on="on">
+        <v-btn height="200px" width="200px" color="amber" dark v-bind="attrs" v-on="on">
           something to add?
         </v-btn>
       </template>
-      <v-card color="amber darken-2">
+      <v-card  color="amber darken-2">
         <v-card-title color="yellow lighten-5">
-          <span class="font-main text-h5">add new product</span>
+          <span  class="font-main text-h5">add new product</span>
         </v-card-title>
         <v-card-text>
           <v-container>
@@ -137,6 +137,10 @@ export default {
       } catch (error) {
         alert(error.error_description || error.message)
       } finally {
+        this.title = null
+        this.price = null
+        this.inStock = null
+        this.imagePath = ''
         this.dialog = false
         this.$store.dispatch('getProducts')
       }
