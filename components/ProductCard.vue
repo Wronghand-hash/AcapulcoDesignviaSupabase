@@ -1,67 +1,22 @@
 <template>
-  <div  v-show="product.catagory_id === catagory">
+  <div v-show="product.catagory_id === catagory">
     <div
-      class="
-        flex flex-col
-        lg:h-72
-        h-rem26
-        lg:w-96 lg:flex-row
-        justify-center
-        align-center
-        lg:space-x-3
-        cardBackground
-        productCard
-      "
+      class="flex flex-col lg:h-72 h-rem26 lg:w-96 lg:flex-row justify-center align-center lg:space-x-3 cardBackground productCard"
     >
       <div
-        class="
-          lg:h-full
-          h-2/5
-          w-full
-          lg:w-2/5
-          bg-Emerald-100
-          flex
-          justify-center
-          align-center
-          overflow-hidden
-        "
+        class="lg:h-full h-2/5 w-full lg:w-2/5 bg-Emerald-100 flex justify-center align-center overflow-hidden"
       >
         <img
-          :src="product.image"
+          :src="imgUrl"
           alt=""
           class="object-contain lg:object-cover transform lg:scale-150"
         />
       </div>
       <div
-        class="
-          h-3/5
-          w-full
-          lg:w-3/5 lg:h-full
-          flex flex-col
-          justify-between
-          align-center
-          space-y-3
-          p-2
-          sm:py-3
-        "
+        class="h-3/5 w-full lg:w-3/5 lg:h-full flex flex-col justify-between align-center space-y-3 p-2 sm:py-3"
       >
         <div
-          class="
-            w-14
-            h-14
-            rounded-full
-            fixed
-            transform
-            translate-x-8
-            lg:-translate-y-5
-            -translate-y-9
-            self-end
-            flex
-            justify-center
-            align-center
-            bg-goldie
-            shoppingBtn
-          "
+          class="w-14 h-14 rounded-full fixed transform translate-x-8 lg:-translate-y-5 -translate-y-9 self-end flex justify-center align-center bg-goldie shoppingBtn"
           @click="addToCart"
         >
           <span class="shoppingBtnSpan">
@@ -81,11 +36,7 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </h3>
           <p
-            class="
-              lg:text-4xl
-              text-3xl text-mainBlue text-center
-              font-extrabold
-            "
+            class="lg:text-4xl text-3xl text-mainBlue text-center font-extrabold"
           >
             {{ product.price }} IRL
           </p>
@@ -129,10 +80,14 @@ export default {
 
     ProductDetail: () => import('../components/ProductDetail.vue'),
   },
-  props: ['product'],
+  props: {
+    // eslint-disable-next-line vue/require-default-prop
+    product: Object,
+  },
 
   data() {
     return {
+      imgUrl: '',
       Product: {
         item: this.product,
         quantity: 1,
@@ -145,11 +100,26 @@ export default {
       return this.$store.state.catagory
     },
   },
+  mounted() {
+    this.getImage()
+  },
 
   methods: {
     catagorySelect(selected) {
       this.catagory = selected
-      console.log(this.catagory)
+    },
+    async getImage() {
+      if (this.product.image_url) {
+        try {
+          const { data, error } = await this.$supabase.storage
+            .from('product-images')
+            .download(this.product.image_url)
+          if (error) throw error
+          this.imgUrl = URL.createObjectURL(data)
+        } catch (error) {
+          alert(error.error_description || error.message)
+        }
+      }
     },
     addToCart() {
       this.$store.commit('AddToCart', this.Product)

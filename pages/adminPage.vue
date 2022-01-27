@@ -66,18 +66,6 @@ fa:
         />
       </LazyHydrate>
 
-      <div class="absolute self-center flex w-full z-20 shadow-xl">
-        <Adminastration
-          ref="Adminastration"
-          v-gsap.from="{
-            y: 500,
-            duration: 1.5,
-            ease: 'expo.out',
-          }"
-          class="adminastration w-24"
-        />
-      </div>
-
       <div class="w-screen h-screen mt-15 grid align-center grid-rows-4">
         <div
           class="flex justify-center align-center w-full h-full container row-span-3"
@@ -147,7 +135,7 @@ fa:
                       rounded
                       color="amber"
                       class="border-2 border-CoolGray-600 p-5 m-3"
-                      @click="catagorySelect('Shirts')"
+                      @click="catagorySelect(4)"
                     >
                       <v-icon dark>mdi-tshirt-crew</v-icon></v-btn
                     >
@@ -157,7 +145,7 @@ fa:
                       rounded
                       color="amber"
                       class="border-2 border-CoolGray-600 p-2 m-3"
-                      @click="catagorySelect('Lighters')"
+                      @click="catagorySelect(2)"
                       ><v-icon dark>mdi-fire</v-icon></v-btn
                     >
                     <v-btn
@@ -166,7 +154,7 @@ fa:
                       rounded
                       color="amber"
                       class="border-2 border-CoolGray-600 p-2 m-3"
-                      @click="catagorySelect('Custom Matchboxes')"
+                      @click="catagorySelect(3)"
                       ><v-icon dark>mdi-package</v-icon></v-btn
                     >
                     <v-btn
@@ -175,7 +163,7 @@ fa:
                       rounded
                       color="amber"
                       class="border-2 border-CoolGray-600 p-2 m-3"
-                      @click="catagorySelect('Collections')"
+                      @click="catagorySelect(1)"
                       ><v-icon dark>mdi-toolbox</v-icon></v-btn
                     >
                   </div>
@@ -183,20 +171,17 @@ fa:
                   <div
                     class="addSomthing flex flex-col w-full h-full self-center align-center"
                   >
-                    <h2 class="text-3xl">{{ $t('something') }}</h2>
-                    <button
-                      class="focus:outline-none addButton self-center text-center align-center h-1/2 w-1/2"
-                      @click="showModal"
-                    >
-                      +
-                    </button>
+                    <Adminastration
+                      ref="Adminastration"
+                      class="adminastration w-24"
+                    />
                   </div>
                   <div
                     class="w-full products p-5 rounded-lg shadow-2xl overflow-y-scroll h-full text-gray-200"
                   >
                     <div v-for="product in Products" :key="product.id" class="">
                       <div
-                        v-show="product.catagory === catagory"
+                        v-show="product.catagory_id === catagory"
                         id="products"
                         class="flex flex-row divide-y border-black text-black place-content-around"
                       >
@@ -507,9 +492,8 @@ export default {
   },
   data() {
     return {
-      catagory: 'Shirts',
+      catagory: 2,
 
-      Products: [],
       openTab: 1,
       orders: [],
       orderProduct: [],
@@ -520,6 +504,9 @@ export default {
   computed: {
     user() {
       return this.$store.state.user
+    },
+    Products() {
+      return this.$store.state.products
     },
   },
 
@@ -536,25 +523,8 @@ export default {
   },
 
   mounted() {
-    // const orders = this.$fire.firestore
-    //   .collection('orders')
-    //   .get()
-    //   .then((querySnapshot) => {
-    //     querySnapshot.forEach((doc) => {
-    //       // doc.data() is never undefined for query doc snapshots
-    //       console.log(doc.data());
-    //       this.order = doc.data().order
-    //       this.orderProduct = doc.data().cart
-    //     })
-    //   })
-    //   .catch((err) => {
-    //     console.log(err)
-    //   })
-
-    // console.log(orders)
-    // console.log(this.order);
+    this.$store.dispatch('getProducts')
     this.welcome()
-    console.log(this.catagory)
   },
   methods: {
     catagorySelect(selectedTab) {
@@ -615,7 +585,6 @@ export default {
         opacity: 0,
         ease: 'power4.out',
       })
-      console.log(' you clicked me ')
     },
 
     tab3() {
