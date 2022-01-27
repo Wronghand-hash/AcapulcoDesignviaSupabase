@@ -10,7 +10,7 @@
     >
     black cat
     <a href='https://www.freepik.com/vectors/animals'>Animals vector created by macrovector - www.freepik.com</a> -->
-    <div id="main" class="panelContainer">
+    <div id="main" class="">
       <LazyHydrate class="z-50 fixed" when-idle>
         <Navbar
           v-gsap.to="{
@@ -21,23 +21,53 @@
           }"
         />
       </LazyHydrate>
-      <div
-        class="p-6 h-full w-full flex align-center justify-center bg-mainRed"
-      >
+      <div class="p-6 h-full w-full flex flex-col align-center panelContainer">
         <div
-          class="h-screen w-screen bg-blue-700 introText text-5xl flex flex-col flex-wrap align-center px-20 text-center space-y-3 justify-center"
+          class="relative flex h-screen w-screen justify-center align-center logo"
         >
-          <h1 class="p-4 text-mainBlue">Hi!</h1>
+          <img
+            class="absolute thirdPic"
+            src="../assets/images/logo-second.webp"
+            alt=""
+          />
+          <img
+            class="absolute firstPic"
+            src="../assets/images/logo-third.webp"
+            alt=""
+          />
+          <img
+            class="absolute secondPic"
+            src="../assets/images/logo-forth.webp"
+            alt=""
+          />
+          <img
+            class="absolute forthPic"
+            src="../assets/images/logo-first.webp"
+            alt=""
+          />
+        </div>
+        <div
+          class="h-screen w-screen bg-blue-800 introText lg:text-5xl text-4xl flex flex-col flex-wrap align-center px-20 text-center space-y-3 justify-center"
+        >
+          <h1 class="p-4 text-mainBlue lg:text-10xl text-4xl">Hi!</h1>
           <h3 class="p-4 text-mainBlue">
-            We are <span class="bg-goldie p-2"> Acapulco! </span>
+            We are <span class="bg-goldie p-2 font-bold"> Acapulco! </span>
           </h3>
           <h3>We are a Creative Team Based in Iran</h3>
           <h3>
             Our team is consisted of Two
-            <span class="text-goldie p-2"> FullStack Developers </span> and a
-            <span class="text-goldie p-2"> Digital Artist </span>
+            <span class="text-mainRed p-2 font-black">
+              FullStack Developers
+            </span>
+            and a
+            <span class="text-mainRed p-2 font-black"> Digital Artist </span>
           </h3>
         </div>
+
+        <!-- <div
+          class="h-screen w-screen bg-blue-700 introText text-5xl flex flex-col flex-wrap align-center px-20 text-center space-y-3 justify-center"
+        >
+        </div> -->
       </div>
       <!-- <LazyHydrate when-visible>
         <Footer />
@@ -115,7 +145,8 @@ export default {
 
   mounted() {
     this.welcomeAnimation()
-    this.pageAnimation()
+    this.logoRotate()
+    // this.pageAnimation()
 
     // tl.to('.panelContainer', 5, { x: -window.innerWidth })
 
@@ -149,81 +180,103 @@ export default {
     // })
   },
   methods: {
-    pageAnimation() {
+    logoRotate() {
       const gsap = this.$gsap
-
-      gsap.from('.hippie2', {
-        y: -500,
-        opacity: 0,
-        ease: 'sine.out',
-        scrollTrigger: {
-          trigger: '.panel2',
-          start: 'top center',
-          end: 'bottom bottom',
-          scrub: 2,
-          toggleActions: 'restart none resume pause',
-        },
-      })
-      gsap.from('.hippie2-text', {
-        scale: 0,
-        opacity: 0,
-        scrollTrigger: {
-          trigger: '.panel2',
-
-          start: 'top center',
-          end: 'bottom bottom',
-          scrub: 2,
-          toggleActions: 'restart none resume pause',
-        },
-      })
-      gsap.from('.hippie3', {
-        y: -350,
-        opacity: 0,
-        ease: 'Power2.easeIn',
-        scrollTrigger: {
-          trigger: '.panel3',
-          start: 'top center',
-          end: 'bottom bottom',
-          scrub: 2,
-          toggleActions: 'restart none resume pause',
-        },
-      })
-      gsap.from('.hippie3-text', {
-        scale: 0,
-        opacity: 0,
-        scrollTrigger: {
-          trigger: '.panel3',
-
-          start: 'top center',
-          end: 'bottom bottom',
-          scrub: 2,
-          toggleActions: 'restart none resume pause',
-        },
-      })
-      gsap.from('.backButton', {
-        y: 400,
-        ease: 'Power4.easeIn',
-        scrollTrigger: {
-          trigger: '.panel3',
-          start: 'top bottom',
-          end: 'bottom bottom',
-          scrub: 1,
-          toggleActions: 'restart none resume pause',
-        },
-      })
+      gsap
+        .timeline({
+          scrollTrigger: {
+            start: 'top top',
+            end: '+=8000',
+            scrub: 0.2,
+            trigger: '.panelContainer',
+          },
+        })
+        .to('.logo', {
+          rotation: 360 * 7,
+          duration: 0.2,
+          ease: 'expo.out',
+        })
     },
+    // pageAnimation() {
+    //   const gsap = this.$gsap
+
+    //   gsap.from('.hippie2', {
+    //     y: -500,
+    //     opacity: 0,
+    //     ease: 'sine.out',
+    //     scrollTrigger: {
+    //       trigger: '.panel2',
+    //       start: 'top center',
+    //       end: 'bottom bottom',
+    //       scrub: 2,
+    //       toggleActions: 'restart none resume pause',
+    //     },
+    //   })
+    //   gsap.from('.hippie2-text', {
+    //     scale: 0,
+    //     opacity: 0,
+    //     scrollTrigger: {
+    //       trigger: '.panel2',
+
+    //       start: 'top center',
+    //       end: 'bottom bottom',
+    //       scrub: 2,
+    //       toggleActions: 'restart none resume pause',
+    //     },
+    //   })
+    //   gsap.from('.hippie3', {
+    //     y: -350,
+    //     opacity: 0,
+    //     ease: 'Power2.easeIn',
+    //     scrollTrigger: {
+    //       trigger: '.panel3',
+    //       start: 'top center',
+    //       end: 'bottom bottom',
+    //       scrub: 2,
+    //       toggleActions: 'restart none resume pause',
+    //     },
+    //   })
+    //   gsap.from('.hippie3-text', {
+    //     scale: 0,
+    //     opacity: 0,
+    //     scrollTrigger: {
+    //       trigger: '.panel3',
+
+    //       start: 'top center',
+    //       end: 'bottom bottom',
+    //       scrub: 2,
+    //       toggleActions: 'restart none resume pause',
+    //     },
+    //   })
+    //   gsap.from('.backButton', {
+    //     y: 400,
+    //     ease: 'Power4.easeIn',
+    //     scrollTrigger: {
+    //       trigger: '.panel3',
+    //       start: 'top bottom',
+    //       end: 'bottom bottom',
+    //       scrub: 1,
+    //       toggleActions: 'restart none resume pause',
+    //     },
+    //   })
+    // },
     welcomeAnimation() {
       const tl = this.$gsap.timeline()
 
-      tl.from('.hippie1', 1, {
+      tl.from('.firstPic', 1.5, {
         opacity: 0,
-        y: -500,
-        delay: 1,
         ease: 'expo.out',
       })
-      tl.from('.hippie1-text', 0.5, {
+      tl.from('.secondPic', 0.5, {
         opacity: 0,
-        scale: 0.3,
+        ease: 'expo.out',
+      })
+      tl.from('.thirdPic', 0.5, {
+        opacity: 0,
+        ease: 'expo.out',
+      })
+      tl.from('.forthPic', 0.5, {
+        opacity: 0,
         ease: 'expo.out',
       })
     },
@@ -233,7 +286,9 @@ export default {
 
 <style scoped>
 .introText {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
   font-family: 'Roboto Slab', 'Rezvan';
-  font-weight: 900;
 }
 </style>
