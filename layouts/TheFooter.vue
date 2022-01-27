@@ -24,8 +24,8 @@ fa:
             >
               {{ $t('findUS') }}
             </h1>
-            <v-icon x-large class="icon-3d transform lg:scale-150"
-              >mdi-facebook</v-icon
+            <v-icon x-large class="icon-3d transform lg:scale-150">
+              mdi-telegram</v-icon
             >
             <v-icon x-large class="icon-3d transform lg:scale-150"
               >mdi-google</v-icon
