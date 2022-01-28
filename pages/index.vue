@@ -284,7 +284,7 @@ fa:
           </div>
 
           <div
-            class="h-screen w-screen flex flex-col lg:flex-row align-center justify-center space-y-6 p-20 lg:p-48 justify-self-stretch thirdContainer content"
+            class="h-screen w-screen flex flex-col lg:flex-row align-center justify-center space-y-6 p-14 lg:p-48 justify-self-stretch thirdContainer content"
           >
             <div class="pictureDiv lg:order-first cursor-pointer shadow-2xl">
               <!-- <h1
@@ -311,7 +311,7 @@ fa:
             </div>
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
-                <h3 class="text-6xl p-5 text-center">
+                <h3 class="p-5 text-center text-4xl lg:text-7xl sm:font-bold">
                   {{ $t('acapulcoShirt') }}
                 </h3>
                 <!-- <img class="transform scale-75" src="~/assets/images/fsdf.png" alt="" /> -->
@@ -327,11 +327,11 @@ fa:
           </div>
 
           <div
-            class="h-screen w-screen flex flex-col lg:flex-row align-center justify-center space-y-6 p-20 lg:p-48 justify-self-stretch forthContainer content"
+            class="h-screen w-screen flex flex-col lg:flex-row align-center justify-center space-y-6 p-14 lg:p-48 justify-self-stretch forthContainer content"
           >
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
-                <h3 class="text-6xl lg:text-7xl p-5 text-center">
+                <h3 class="text-4xl sm:font-bold lg:text-7xl p-5 text-center">
                   {{ $t('acapulcoMatchboxes') }}
                 </h3>
               </div>
@@ -354,7 +354,7 @@ fa:
             </div>
           </div>
           <div
-            class="h-screen w-screen flex flex-col lg:flex-row align-center justify-center space-y-6 p-20 lg:p-48 justify-self-stretch thirdContainer content"
+            class="h-screen w-screen flex flex-col lg:flex-row align-center justify-center space-y-2 p-14 lg:p-48 justify-self-stretch thirdContainer content"
           >
             <div class="pictureDiv lg:order-first cursor-pointer bg-red-200">
               <img
@@ -362,15 +362,17 @@ fa:
                 class="object-fill sm:w-96 sm:h-96 lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto relative pictureDivImages"
                 alt=""
               />
-              <h1
-                class="absolute m-3 font-mainFont rounded-full py-2 right-0 comingSoon px-8 text-mainBlue bg-goldie text-2xl lg:text-3xl font-bold"
-              >
-                {{ $t('comingSoon') }}
-              </h1>
             </div>
+            <h1
+              class="font-mainFont self-start rounded-full py-1 lg:py-2 comingSoon px-8 text-mainBlue bg-goldie text-2xl lg:text-3xl font-bold"
+            >
+              {{ $t('comingSoon') }}
+            </h1>
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
-                <h3 class="text-6xl p-5 text-center">
+                <h3
+                  class="text-4xl sm:font-bold lg:text-7xl lg:p-5 text-center my-3"
+                >
                   {{ $t('acapulcoShorts') }}
                 </h3>
                 <!-- <img class="transform scale-75" src="~/assets/images/fsdf.png" alt="" /> -->
@@ -386,25 +388,23 @@ fa:
           </div>
 
           <div
-            class="h-screen w-screen flex flex-col lg:flex-row align-center justify-center space-y-6 p-20 lg:p-48 justify-self-stretch thirdContainer content"
+            class="h-screen w-screen flex flex-col lg:flex-row align-center justify-center space-y-2 p-14 lg:p-48 justify-self-stretch thirdContainer content"
           >
-            <div
-              class="pictureDiv lg:order-last cursor-pointer bg-red-200 my-10"
-            >
+            <div class="pictureDiv lg:order-last cursor-pointer bg-red-200">
               <img
                 src="~/assets/images/Hoodie.webp"
                 class="object-fill sm:w-96 sm:h-96 lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto relative pictureDivImages"
                 alt=""
               />
-              <h1
-                class="absolute m-3 font-mainFont rounded-full py-2 right-0 comingSoon px-8 text-mainBlue bg-goldie text-2xl lg:text-3xl font-bold"
-              >
-                {{ $t('comingSoon') }}
-              </h1>
             </div>
-            <div class="textDiv flex flex-col order-last">
-              <div class="flex justify-center">
-                <h3 class="text-6xl p-5 text-center">
+            <h1
+              class="font-mainFont self-start rounded-full py-1 lg:py-2 comingSoon px-8 text-mainBlue bg-goldie text-2xl lg:text-3xl font-bold"
+            >
+              {{ $t('comingSoon') }}
+            </h1>
+            <div class="textDiv flex flex-col lg:order-last">
+              <div class="flex-row-reverse align-center justify-center">
+                <h3 class="text-4xl sm:font-bold lg:text-7xl text-center my-3">
                   {{ $t('acapulcoHoodies') }}
                 </h3>
                 <!-- <img
@@ -424,7 +424,7 @@ fa:
           </div>
 
           <div
-            class="h-screen fifthContainer flex flex-col lg:flex-row align-center justify-center space-y-6 content p-20 lg:p-48 justify-self-stretch"
+            class="h-screen fifthContainer flex flex-col lg:flex-row align-center justify-center space-y-2 content p-14 lg:p-48 justify-self-stretch"
           >
             <div class="pictureDiv lg:order-first cursor-pointer bg-red-200">
               <img
@@ -432,16 +432,15 @@ fa:
                 class="object-fill sm:w-96 sm:h-96 lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto relative pictureDivImages"
                 alt=""
               />
-              <h1
-                class="absolute m-3 font-mainFont rounded-full py-2 right-0 comingSoon px-8 text-mainBlue bg-goldie text-2xl lg:text-3xl font-bold"
-              >
-                {{ $t('comingSoon') }}
-              </h1>
             </div>
-
+            <h1
+              class="font-mainFont self-start rounded-full py-1 lg:py-2 comingSoon px-8 text-mainBlue bg-goldie text-2xl lg:text-3xl font-bold"
+            >
+              {{ $t('comingSoon') }}
+            </h1>
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
-                <h3 class="text-6xl p-5 text-center">
+                <h3 class="text-6xl p-5 text-center my-3">
                   {{ $t('collections') }}
                 </h3>
                 <!-- <img class="transform scale-75" src="~/assets/images/fsdf.png" alt="" /> -->

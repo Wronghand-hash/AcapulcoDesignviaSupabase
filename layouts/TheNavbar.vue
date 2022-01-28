@@ -246,8 +246,6 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
-
 span {
   font-family: 'Acme', 'Estedad';
   text-align: center;
