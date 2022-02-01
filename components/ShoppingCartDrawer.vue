@@ -33,7 +33,7 @@
       temporary
       scrollable
       app
-      class="drawer red lighten-4"
+      class="drawer pink lighten-2"
       width="30%"
       bottom
     >
@@ -203,10 +203,10 @@
               </h1>
             </div>
           </div>
-          <div class="h-1/3 w-full flex justify-center align-end space-x-4">
-            <button class="py-2 editBtn">
+          <div class="h-1/3 w-full flex justify-center align-center">
+            <!-- <button class="py-2 editBtn">
               <span class="px-12 font-mainFont text-2xl editText"> Edit </span>
-            </button>
+            </button> -->
             <CheckoutDialog />
           </div>
         </div>
@@ -287,7 +287,7 @@ export default {
 .editText {
   text-transform: capitalize;
 }
-
+/* 
 .editBtn {
   background-color: #ff4a68;
   color: #120129;
@@ -302,19 +302,5 @@ export default {
 .editBtn:active {
   transform: scale(1.05);
   filter: brightness(0.5);
-}
-
-/* @media screen and (max-width: 800px) {
-  .container {
-    width: 300px;
-  }
 } */
-/* .checkout {
-  display: flex;
-  justify-self: center;
-} */
-
-.freeLovePic {
-  z-index: -5;
-}
 </style>

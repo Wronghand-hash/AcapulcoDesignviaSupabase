@@ -27,12 +27,17 @@ fa:
             <v-icon x-large class="icon-3d transform lg:scale-150">
               mdi-telegram</v-icon
             >
+
             <v-icon x-large class="icon-3d transform lg:scale-150"
               >mdi-google</v-icon
             >
-            <v-icon x-large class="icon-3d transform lg:scale-150"
-              >mdi-instagram</v-icon
+            <a
+              href="https://instagram.com/acapulco_design?utm_medium=copy_link"
             >
+              <v-icon x-large class="icon-3d transform lg:scale-150"
+                >mdi-instagram</v-icon
+              >
+            </a>
             <v-icon x-large class="icon-3d transform lg:scale-150"
               >mdi-whatsapp</v-icon
             >

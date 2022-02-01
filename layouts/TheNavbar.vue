@@ -256,9 +256,7 @@ span {
 #admin-link {
   color: #fff;
 }
-.Navbar {
-  z-index: 200;
-}
+
 /* .sticky {
   background-color: #fff;
 } */

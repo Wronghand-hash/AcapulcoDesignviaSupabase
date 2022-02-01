@@ -7,14 +7,14 @@
       hide-overlay
       class="dialog"
     >
-      <template v-slot:activator="{ on, attrs }">
+      <template #activator="{ on, attrs }">
         <button
-          class="checkoutBtn py-1 flex justify-center align-center"
+          class="checkoutBtn py-1 lg:py-3 flex justify-center align-center"
           v-bind="attrs"
           @click="dialog = true"
           v-on="on"
         >
-          <span class="pl-4 checkoutText font-mainFont text-2xl">
+          <span class="pl-4 checkoutText font-mainFont text-2xl lg:text-4xl">
             Checkout
           </span>
           <v-icon x-large class="pink--text text--darken-2"
@@ -318,63 +318,6 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
-/* .wrapper {
-  background-image: linear-gradient(
-    to right top,
-    #009b87,
-    #0090ac,
-    #0080e1,
-    #0064ff,
-    #2e12eb
-  );
-  /* width: 300px;
-  height: 300px; */
-
-/* .grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 19px;
-  grid-row-gap: 0px;
-} */
-/* .shippingInfo {
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  justify-self: center;
-  background-color: #120129;
-  grid-area: 1 / 1 / 2 / 2;
-  height: 100%;
-  width: 80%;
-  border-radius: 20px;
-  box-shadow: -1px 11px 19px 0px #0000005c;
-} */
-/* .shoppingSummary {
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  justify-self: center;
-  grid-area: 1 / 2 / 2 / 3;
-  height: 100%;
-  width: 80%;
-  border-radius: 20px;
-  box-shadow: -1px 11px 19px 0px #0000005c;
-} */
-/* .shippingDetailText {
-  font-family: 'Londrina Solid', cursive;
-}
-.shoppingSummaryText {
-  font-family: 'Londrina Solid', cursive;
-} */
-/* .saveText {
-  
-  font-size: 2rem;
-  font-family: 'Londrina Solid', cursive;
-} */
-
 .span {
   cursor: pointer;
   transition: ease-in-out 0.3s;
@@ -414,9 +357,8 @@ export default {
   font-size: 1.3rem;
 } */
 .checkoutBtn {
-  background-color: transparent;
+  background-color: #63fdc2;
   color: #120129;
-  border: solid 2px #120129;
   border-radius: 35px;
   transition: ease-in-out 0.2s;
 }

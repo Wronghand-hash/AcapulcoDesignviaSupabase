@@ -334,11 +334,11 @@ fa:
                                   {{ $t('statusProcessing') }}
                                 </h1>
                                 <button class="" @click="deleteOrder(order.id)">
-                                  <img
+                                  <!-- <img
                                     class="p-1"
                                     src="~/assets/images/x1.png"
                                     alt=""
-                                  />
+                                  /> -->
                                 </button>
                               </div>
                               <h1 class="text-xl border-b-2 p-1">

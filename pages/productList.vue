@@ -88,13 +88,13 @@ fa:
               >
             </NuxtLink>
             <NuxtLink to="/">
-              <span class="menu px-5 text-4xl text-gray-100 font-semibold">
+              <span class="menu px-5 text-4xl text-white font-semibold">
                 {{ $t('home') }}
               </span>
             </NuxtLink>
             <NuxtLink to="/productList">
               <span>
-                <h1 class="px-5 text-4xl text-gray-100 font-semibold">
+                <h1 class="px-5 text-4xl text-white font-semibold">
                   {{ $t('shop') }}
                 </h1>
               </span>
@@ -220,8 +220,7 @@ export default {
   },
 
   data() {
-    return {
-    }
+    return {}
   },
   computed: {
     // products() {
@@ -231,23 +230,22 @@ export default {
     catagory() {
       return this.$store.state.catagory
     },
-    products(){
+    products() {
       return this.$store.state.products
-    }
+    },
   },
 
   mounted() {
     // this.animateSurfingBoard()
     this.animateProductCards()
     this.$store.dispatch('getProducts')
-     this.animateBackground()
+    this.animateBackground()
   },
 
   methods: {
     changeCatagory(selected) {
       this.$store.dispatch('changeCatagory', selected)
     },
-   
 
     // animateSurfingBoard() {
     //   const gsap = this.$gsap
@@ -358,11 +356,7 @@ export default {
 }
 
 .menuNavbar {
-  background-image: url('~/assets/images/trippy.jpg');
-  background-size: cover;
-  background-position: 0px 0px;
-  background-repeat: repeat-y;
-  animation: animatedBackground 45s linear infinite alternate;
+  background-color: #84ff79;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4.5px);
   -webkit-backdrop-filter: blur(4.5px);

@@ -23,7 +23,7 @@
       </LazyHydrate>
       <div class="p-6 h-full w-full flex flex-col align-center panelContainer">
         <div
-          class="relative flex h-screen w-screen justify-center align-center logo"
+          class="relative flex h-screen w-screen justify-center align-center NavbarTrigger logo"
         >
           <img
             class="absolute thirdPic"
@@ -47,31 +47,49 @@
           />
         </div>
         <div
-          class="h-screen w-screen bg-blue-800 introText lg:text-5xl text-4xl flex flex-col flex-wrap align-center px-20 text-center space-y-3 justify-center"
+          class="h-screen lg:h-auto w-screen introText align-center flex flex-col text-center justify-start"
         >
-          <h1 class="p-4 text-mainBlue lg:text-10xl text-4xl">Hi!</h1>
-          <h3 class="p-4 text-mainBlue">
-            We are <span class="bg-goldie p-2 font-bold"> Acapulco! </span>
+          <h1 class="text-mainRed lg:text-10xl text-10xl hiText">Hi!</h1>
+          <h3 class="text-mainBlue lg:text-8xl text-7xl weAreText">We are</h3>
+          <h3 class="text-7xl lg:text-9xl text-goldie font-bold acapulco">
+            Acapulco!
           </h3>
-          <h3>We are a Creative Team Based in Iran</h3>
-          <h3>
-            Our team is consisted of Two
-            <span class="text-mainRed p-2 font-black">
-              FullStack Developers
-            </span>
-            and a
-            <span class="text-mainRed p-2 font-black"> Digital Artist </span>
-          </h3>
+          <div class="text-darkPurple mt-20 text-4xl lg:text-6xl">
+            <h3>We are a Creative Team Based in Iran</h3>
+            <h3>
+              Our team is consisted of Two
+              <span class="text-mainRed p-2 font-black">
+                FullStack Developers
+              </span>
+              and a
+              <span class="text-mainRed p-2 font-black"> Digital Artist </span>
+            </h3>
+          </div>
         </div>
 
-        <!-- <div
-          class="h-screen w-screen bg-blue-700 introText text-5xl flex flex-col flex-wrap align-center px-20 text-center space-y-3 justify-center"
+        <div
+          class="h-screen lg:h-dialog w-screen p-10 flex flex-col lg:flex-row justify-around lg:align-start align-center"
         >
-        </div> -->
+          <img
+            class="w-96 Greez cursor-pointer"
+            src="../assets/images/Greez.webp"
+            alt=""
+          />
+          <img
+            class="w-96 Kesler cursor-pointer"
+            src="../assets/images/Kesler.webp"
+            alt=""
+          />
+          <img
+            class="w-96 Chao cursor-pointer"
+            src="../assets/images/Chao.webp"
+            alt=""
+          />
+        </div>
       </div>
-      <!-- <LazyHydrate when-visible>
+      <LazyHydrate when-visible>
         <Footer />
-      </LazyHydrate> -->
+      </LazyHydrate>
     </div>
     <!-- <section class="panel1 w-screen h-screen mt-15">
         <div
@@ -140,13 +158,13 @@ export default {
   components: {
     LazyHydrate,
     Navbar: () => import('~/layouts/TheNavbar.vue'),
-    // Footer: () => import('~/layouts/TheFooter.vue'),
+    Footer: () => import('../layouts/TheFooter.vue'),
   },
 
   mounted() {
-    this.welcomeAnimation()
+    this.logoApearAnimation()
     this.logoRotate()
-    // this.pageAnimation()
+    this.pageScrollAnimation()
 
     // tl.to('.panelContainer', 5, { x: -window.innerWidth })
 
@@ -197,85 +215,150 @@ export default {
           ease: 'expo.out',
         })
     },
-    // pageAnimation() {
-    //   const gsap = this.$gsap
+    pageScrollAnimation() {
+      const gsap = this.$gsap
+      const tl = gsap.timeline()
+      tl.from('.hiText', {
+        y: -100,
+        autoAlpha: 0,
 
-    //   gsap.from('.hippie2', {
-    //     y: -500,
-    //     opacity: 0,
-    //     ease: 'sine.out',
-    //     scrollTrigger: {
-    //       trigger: '.panel2',
-    //       start: 'top center',
-    //       end: 'bottom bottom',
-    //       scrub: 2,
-    //       toggleActions: 'restart none resume pause',
-    //     },
-    //   })
-    //   gsap.from('.hippie2-text', {
-    //     scale: 0,
-    //     opacity: 0,
-    //     scrollTrigger: {
-    //       trigger: '.panel2',
+        scale: 3,
+        ease: 'expo.out',
+        scrollTrigger: {
+          trigger: '.introText',
+          start: 'top bottom',
+          end: 'top center',
+          scrub: 0.3,
+          toggleActions: 'play none none reverse',
+        },
+      })
+      tl.from('.weAreText', {
+        y: -100,
+        autoAlpha: 0,
+        scale: 3,
+        ease: 'expo.out',
+        scrollTrigger: {
+          trigger: '.weAreText',
+          start: 'top bottom',
+          end: 'top 30%',
+          scrub: 0.3,
+          toggleActions: 'play none none reverse',
+        },
+      })
+      tl.from('.acapulco', {
+        y: 100,
+        autoAlpha: 0,
+        scale: 3,
+        ease: 'expo.out',
+        scrollTrigger: {
+          trigger: '.acapulco',
+          start: 'top bottom',
+          end: 'top 35%',
+          scrub: 0.3,
+          toggleActions: 'play none none reverse',
+        },
+      })
+      tl.from('.Greez', {
+        x: 200,
+        scale: 0.8,
+        ease: 'expo.out',
+        scrollTrigger: {
+          trigger: '.Greez',
+          start: 'top bottom',
+          end: 'top 35%',
+          scrub: 0.3,
+          toggleActions: 'play none none reverse',
+        },
+      })
+      tl.from('.Kesler', {
+        x: -200,
+        scale: 0.8,
+        ease: 'expo.out',
+        scrollTrigger: {
+          trigger: '.Kesler',
+          start: 'top bottom',
+          end: 'top 35%',
+          scrub: 0.3,
+          toggleActions: 'play none none reverse',
+        },
+      })
+      tl.from('.Chao', {
+        x: 200,
+        scale: 0.8,
+        ease: 'expo.out',
+        scrollTrigger: {
+          trigger: '.Chao',
+          start: 'top bottom',
+          end: 'top 35%',
+          scrub: 0.3,
+          toggleActions: 'play none none reverse',
+        },
+      })
+      // gsap.from('.hippie2-text', {
+      //   scale: 0,
+      //   opacity: 0,
+      //   scrollTrigger: {
+      //     trigger: '.panel2',
 
-    //       start: 'top center',
-    //       end: 'bottom bottom',
-    //       scrub: 2,
-    //       toggleActions: 'restart none resume pause',
-    //     },
-    //   })
-    //   gsap.from('.hippie3', {
-    //     y: -350,
-    //     opacity: 0,
-    //     ease: 'Power2.easeIn',
-    //     scrollTrigger: {
-    //       trigger: '.panel3',
-    //       start: 'top center',
-    //       end: 'bottom bottom',
-    //       scrub: 2,
-    //       toggleActions: 'restart none resume pause',
-    //     },
-    //   })
-    //   gsap.from('.hippie3-text', {
-    //     scale: 0,
-    //     opacity: 0,
-    //     scrollTrigger: {
-    //       trigger: '.panel3',
+      //     start: 'top center',
+      //     end: 'bottom bottom',
+      //     scrub: 2,
+      //     toggleActions: 'restart none resume pause',
+      //   },
+      // })
+      // gsap.from('.hippie3', {
+      //   y: -350,
+      //   opacity: 0,
+      //   ease: 'Power2.easeIn',
+      //   scrollTrigger: {
+      //     trigger: '.panel3',
+      //     start: 'top center',
+      //     end: 'bottom bottom',
+      //     scrub: 2,
+      //     toggleActions: 'restart none resume pause',
+      //   },
+      // })
+      // gsap.from('.hippie3-text', {
+      //   scale: 0,
+      //   opacity: 0,
+      //   scrollTrigger: {
+      //     trigger: '.panel3',
 
-    //       start: 'top center',
-    //       end: 'bottom bottom',
-    //       scrub: 2,
-    //       toggleActions: 'restart none resume pause',
-    //     },
-    //   })
-    //   gsap.from('.backButton', {
-    //     y: 400,
-    //     ease: 'Power4.easeIn',
-    //     scrollTrigger: {
-    //       trigger: '.panel3',
-    //       start: 'top bottom',
-    //       end: 'bottom bottom',
-    //       scrub: 1,
-    //       toggleActions: 'restart none resume pause',
-    //     },
-    //   })
-    // },
-    welcomeAnimation() {
+      //     start: 'top center',
+      //     end: 'bottom bottom',
+      //     scrub: 2,
+      //     toggleActions: 'restart none resume pause',
+      //   },
+      // })
+      // gsap.from('.backButton', {
+      //   y: 400,
+      //   ease: 'Power4.easeIn',
+      //   scrollTrigger: {
+      //     trigger: '.panel3',
+      //     start: 'top bottom',
+      //     end: 'bottom bottom',
+      //     scrub: 1,
+      //     toggleActions: 'restart none resume pause',
+      //   },
+      // })
+    },
+    logoApearAnimation() {
       const tl = this.$gsap.timeline()
 
       tl.from('.firstPic', 1.5, {
         opacity: 0,
         ease: 'expo.out',
+        delay: 2,
       })
-      tl.from('.secondPic', 0.5, {
+      tl.from('.secondPic', 1, {
         opacity: 0,
         ease: 'expo.out',
       })
-      tl.from('.thirdPic', 0.5, {
+      tl.from('.thirdPic', 1.5, {
         opacity: 0,
         ease: 'expo.out',
       })
-      tl.from('.forthPic', 0.5, {
+      tl.from('.forthPic', 1, {
         opacity: 0,
         ease: 'expo.out',
       })

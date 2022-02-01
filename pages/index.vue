@@ -59,7 +59,7 @@ fa:
             class="w-screen h-dialog flex flex-col align-center justify-between md:flex-row lg:flex-row lg:h-screen lg:justify-around"
           >
             <img
-              class="treePicture2 object-contain lg:object-cover h-64 drop-shadow-2xl rotate-180 transform lg:translate-x-20 md:-rotate-90 lg:rotate-90 z-10"
+              class="treePicture2 object-contain lg:object-cover h-64 drop-shadow-2xl rotate-180 transform lg:translate-x-36 md:-rotate-90 lg:rotate-90 z-10"
               src="~/assets/images/tree2.webp"
               alt=""
             />
@@ -70,7 +70,7 @@ fa:
               {{ $t('acapulcodesign') }}
             </h1>
             <img
-              class="treePicture object-contain h-64 transform lg:-translate-x-20 md:rotate-90 lg:rotate-90 drop-shadow-2xl"
+              class="treePicture object-contain h-64 transform lg:-translate-x-36 md:rotate-90 lg:rotate-90 drop-shadow-2xl"
               src="~/assets/images/tree.webp"
               alt=""
             />
@@ -403,7 +403,7 @@ fa:
               {{ $t('comingSoon') }}
             </h1>
             <div class="textDiv flex flex-col lg:order-last">
-              <div class="flex-row-reverse align-center justify-center">
+              <div class="flex justify-center">
                 <h3 class="text-4xl sm:font-bold lg:text-7xl text-center my-3">
                   {{ $t('acapulcoHoodies') }}
                 </h3>
