@@ -123,7 +123,7 @@
                   ></v-text-field>
                 </div>
 
-                <div v-show="!user">
+                <div>
                   <v-text-field
                     v-model="order.Email"
                     :rules="emailRules"
@@ -135,7 +135,7 @@
                     required
                   />
                 </div>
-                <div v-show="!user">
+                <div>
                   <v-text-field
                     v-model="order.Password"
                     dark
@@ -159,7 +159,7 @@
                     filled
                   ></v-text-field>
                 </div>
-                <div v-show="user">
+                <div>
                   <button
                     class="font-mainFont text-3xl text-mainBlue font-bold rounded-full bg-mainRed px-4 py-2"
                   >
