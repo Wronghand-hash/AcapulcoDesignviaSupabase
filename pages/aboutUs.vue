@@ -71,25 +71,25 @@
           class="h-screen lg:h-dialog w-screen p-10 flex flex-col lg:flex-row justify-around lg:align-start align-center"
         >
           <img
-            class="w-96 Greez cursor-pointer"
+            class="w-rem25 Greez cursor-pointer"
             src="../assets/images/Greez.webp"
             alt=""
           />
           <img
-            class="w-96 Kesler cursor-pointer"
+            class="w-rem25 Kesler cursor-pointer"
             src="../assets/images/Kesler.webp"
             alt=""
           />
           <img
-            class="w-96 Chao cursor-pointer"
+            class="w-rem25 Chao cursor-pointer"
             src="../assets/images/Chao.webp"
             alt=""
           />
         </div>
       </div>
-      <LazyHydrate when-visible>
+      <!-- <LazyHydrate when-visible>
         <Footer />
-      </LazyHydrate>
+      </LazyHydrate> -->
     </div>
     <!-- <section class="panel1 w-screen h-screen mt-15">
         <div
@@ -158,7 +158,7 @@ export default {
   components: {
     LazyHydrate,
     Navbar: () => import('~/layouts/TheNavbar.vue'),
-    Footer: () => import('../layouts/TheFooter.vue'),
+    // Footer: () => import('../layouts/TheFooter.vue'),
   },
 
   mounted() {
@@ -220,7 +220,7 @@ export default {
       const tl = gsap.timeline()
       tl.from('.hiText', {
         y: -100,
-        autoAlpha: 0,
+        opacity: 0,
 
         scale: 3,
         ease: 'expo.out',
@@ -234,7 +234,7 @@ export default {
       })
       tl.from('.weAreText', {
         y: -100,
-        autoAlpha: 0,
+        opacity: 0,
         scale: 3,
         ease: 'expo.out',
         scrollTrigger: {
@@ -247,7 +247,7 @@ export default {
       })
       tl.from('.acapulco', {
         y: 100,
-        autoAlpha: 0,
+        opacity: 0,
         scale: 3,
         ease: 'expo.out',
         scrollTrigger: {

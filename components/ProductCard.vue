@@ -1,7 +1,7 @@
 <template>
   <div v-show="product.catagory_id === catagory">
     <div
-      class="flex flex-col lg:h-72 h-rem26 lg:w-96 lg:flex-row justify-center align-center lg:space-x-3 cardBackground productCard"
+      class="flex flex-col lg:h-72 h-rem26 lg:w-96 lg:flex-row justify-center align-center lg:space-x-3 bg-transparent cardBackground productCard"
     >
       <div
         class="lg:h-full h-2/5 w-full lg:w-2/5 bg-Emerald-100 flex justify-center align-center overflow-hidden"
@@ -135,10 +135,8 @@ export default {
   color: #ff4a68;
 }
 .cardBackground {
-  /* background: #e6e6e6; */
   box-shadow: 0 8px 32px 0 #1f26875e;
-  backdrop-filter: blur(12.5px);
-  -webkit-backdrop-filter: blur(12.5px);
+
   border-radius: 10px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   transition: ease-in-out 0.2s;

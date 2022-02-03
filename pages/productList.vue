@@ -75,7 +75,7 @@ fa:
           </h1>
         </div>
         <div
-          class="lg:w-11/12 w-full h-full grid grid-cols-8 mt-24 background opacity-0"
+          class="lg:w-11/12 w-full h-full grid grid-cols-8 mt-24 background bg-transparent opacity-0"
         >
           <div
             class="menuNavbar sticky flex align-center py-6 divide-x-2 divide-black col-span-8"
@@ -88,13 +88,13 @@ fa:
               >
             </NuxtLink>
             <NuxtLink to="/">
-              <span class="menu px-5 text-4xl text-white font-semibold">
+              <span class="menu px-5 text-4xl text-darkPurple font-semibold">
                 {{ $t('home') }}
               </span>
             </NuxtLink>
             <NuxtLink to="/productList">
               <span>
-                <h1 class="px-5 text-4xl text-white font-semibold">
+                <h1 class="px-5 text-4xl text-darkPurple font-semibold">
                   {{ $t('shop') }}
                 </h1>
               </span>
@@ -320,13 +320,13 @@ export default {
       )
       tl.from('.sidebarText', {
         opacity: 0,
-        y: -20,
+        y: -60,
         ease: 'power3.out',
         stagger: 0.1,
       })
       tl.from('.productCard', {
         opacity: 0,
-        y: -20,
+        y: -40,
         ease: 'power3.out',
         stagger: 0.1,
       })
@@ -341,25 +341,19 @@ export default {
 }
 
 .background {
-  background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background-color: transparent;
   border-radius: 10px;
 }
 
 .sidebar {
   background: #ffeeeeef;
   box-shadow: 0 18px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4.5px);
-  -webkit-backdrop-filter: blur(4.5px);
 }
 
 .menuNavbar {
-  background-color: #84ff79;
+  background-color: #53db7c;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4.5px);
-  -webkit-backdrop-filter: blur(4.5px);
 }
 
 .sidebarText {

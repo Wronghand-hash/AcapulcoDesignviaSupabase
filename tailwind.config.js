@@ -19,6 +19,9 @@ module.exports = {
         rem26: '26rem',
         dialog: '32rem',
       },
+      width: {
+        rem25: '25rem',
+      },
       fontFamily: {
         mainFont: ['Yanone Kaffeesatz'],
       },
