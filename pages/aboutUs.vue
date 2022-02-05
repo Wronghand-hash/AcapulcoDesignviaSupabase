@@ -71,11 +71,6 @@
           class="h-screen lg:h-dialog w-screen p-10 flex flex-col lg:flex-row justify-around lg:align-start align-center"
         >
           <img
-            class="w-rem25 Greez cursor-pointer"
-            src="../assets/images/Greez.webp"
-            alt=""
-          />
-          <img
             class="w-rem25 Kesler cursor-pointer"
             src="../assets/images/Kesler.webp"
             alt=""
@@ -83,6 +78,11 @@
           <img
             class="w-rem25 Chao cursor-pointer"
             src="../assets/images/Chao.webp"
+            alt=""
+          />
+          <img
+            class="w-rem25 Greez cursor-pointer"
+            src="../assets/images/Greez.webp"
             alt=""
           />
         </div>
@@ -258,21 +258,9 @@ export default {
           toggleActions: 'play none none reverse',
         },
       })
-      tl.from('.Greez', {
-        x: 200,
-        scale: 0.8,
-        ease: 'expo.out',
-        scrollTrigger: {
-          trigger: '.Greez',
-          start: 'top bottom',
-          end: 'top 35%',
-          scrub: 0.3,
-          toggleActions: 'play none none reverse',
-        },
-      })
       tl.from('.Kesler', {
         x: -200,
-        scale: 0.8,
+        opacity: 0,
         ease: 'expo.out',
         scrollTrigger: {
           trigger: '.Kesler',
@@ -282,9 +270,10 @@ export default {
           toggleActions: 'play none none reverse',
         },
       })
+
       tl.from('.Chao', {
         x: 200,
-        scale: 0.8,
+        opacity: 0,
         ease: 'expo.out',
         scrollTrigger: {
           trigger: '.Chao',
@@ -294,6 +283,19 @@ export default {
           toggleActions: 'play none none reverse',
         },
       })
+      tl.from('.Greez', {
+        x: -200,
+        opacity: 0,
+        ease: 'expo.out',
+        scrollTrigger: {
+          trigger: '.Greez',
+          start: 'top bottom',
+          end: 'top 35%',
+          scrub: 0.3,
+          toggleActions: 'play none none reverse',
+        },
+      })
+
       // gsap.from('.hippie2-text', {
       //   scale: 0,
       //   opacity: 0,

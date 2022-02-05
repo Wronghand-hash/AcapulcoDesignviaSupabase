@@ -1,10 +1,10 @@
 <i18n lang="yaml">
 en:
   acapulcodesign: 'Acapulco Design'
-  limited: 'Limited'
-  custom: 'Custom'
-  handmade: 'Handmade'
-  merchendise: 'Merchendise'
+  welcome: 'Welcome'
+  to: 'To'
+  acapulco: 'Acapulco'
+  design: 'Design'
   lighters: 'Lighters'
   showMe: 'Show Me!'
   acapulcoShirt: 'Acapulco Shirt'
@@ -20,10 +20,10 @@ en:
   aboutUs: 'Learn more about Us'
 fa:
   acapulcodesign: 'آکاپلکو دیزاین'
-  limited: 'اجناس'
-  custom: ' شخصی سازی شده'
-  handmade: 'و دست ساز'
-  merchendise: 'به مدت محدود'
+  welcome: 'خوش اومدین'
+  to: 'به'
+  acapulco: 'آکاپلکو'
+  design: 'دیزاین'
   lighters: 'فندک ها'
   showMe: '!نشونم بده'
   acapulcoShirt: 'پیراهن آلکاپلکو'
@@ -48,13 +48,32 @@ fa:
 
       <div class="w-screen overflow-hidden">
         <div class="grid place-items-center w-screen">
-          <div class="w-40 lg:w-64 self-start mt-14">
+          <div
+            class="relative flex sm:mx-5 sm:px-5 h-screen w-screen justify-center align-center logo"
+          >
+            <img
+              class="absolute firstPic sm:mx-5 sm:px-5"
+              src="../assets/images/PeaceSignColor.webp"
+              alt=""
+            />
+            <img
+              class="absolute secondPic sm:mx-5 sm:px-5"
+              src="../assets/images/PeaceSignFirstLines.webp"
+              alt=""
+            />
+            <img
+              class="absolute thirdPic sm:mx-5 sm:px-5"
+              src="../assets/images/PeaceSignDetails.webp"
+              alt=""
+            />
+          </div>
+          <!-- <div class="w-40 lg:w-64 self-start mt-14">
             <img
               src="~/assets/images/peaceSign.svg"
               class="object-contain"
               alt=""
             />
-          </div>
+          </div> -->
           <div
             class="w-screen h-dialog flex flex-col align-center justify-between md:flex-row lg:flex-row lg:h-screen lg:justify-around"
           >
@@ -75,184 +94,37 @@ fa:
               alt=""
             />
           </div>
-          <!-- <div
-            class="
-              mt-44
-              mb-28
-              lg:mt-36
-              acapulco-div
-              lg:h-screen
-              px-5
-              lg:px-0
-              w-screen
-              h-screen
-              
-              relative
-            "
+
+          <div
+            class="flex h-screen w-screen justify-center align-center firstContainer content"
           >
-            <div class="lg:max-w-3xl w-full transform">
-              <img
-                class="
-                  object-contain
-                  w-full
-                  h-full
-                  drop-shadow-2xl
-                  transform
-                  lg:-rotate-90
-                "
-                src="~/assets/images/sketch-162443588438sdfs.png"
-                alt=""
-              />
-            </div>
+            <img
+              class="w-52 md:w-60 lg:w-rem25 object-contain transform lg:translate-x-0 translate-x-14"
+              :src="require(`~/assets/images/whatwhat-svg.webp`)"
+              alt=""
+            />
 
-            <div class="flex align-center justify-center md:align-start m-auto">
-              <h1
-                class="
-                  NavbarTrigger
-                  acapulco
-                  tracking-wider
-                  text-7xl
-                  md:text-9xl
-                  lg:text-10xl
-                  text-center
-                  leading-none
-                  text-gray-100
-                "
-              >
-                {{ $t('acapulcodesign') }}
-              </h1>
-            </div>
-            <div class="lg:max-w-xl z-10 h-2/5 w-full">
-             
-              <img
-                class="
-                  treePicture
-                  object-contain
-                  w-full
-                  h-full
-                  transform
-                  lg:rotate-90
-                  drop-shadow-2xl
-                "
-                src="~/assets/images/tree.webp"
-                alt=""
-              />
-            </div>
-          </div> -->
-          <!-- <img
-                class="
-                  lg:hidden
-                  object-contain
-                  w-full
-                  h-full
-                  drop-shadow-2xl
-                  rotate-180
-                  transform
-                  lg:translate-x-24
-                "
-                src="~/assets/images/sketch-162443588438sdfs.png"
-                alt=""
-              /> -->
-          <!-- <div
-            v-gsap.to="{
-              opacity: 1,
-              duration: 0.6,
-              delay: 1,
-              ease: 'circ.out',
-            }"
-            class="scrollDownBtn self-center mb-11"
-          >
-            <img src="~/assets/images/arrow.png" class="h-28 w-16 object-contain" alt="" />
-
-
-
-          </div> -->
-          <!-- <div
-            class="
-              flex
-              h-screen
-              w-screen
-              justify-center
-              align-center
-              firstContainer
-              content
-              relative
-            "
-          >
-            <div
-              class="
-                transform
-                -translate-x-36
-                lg:-translate-x-0
-                inset-y-0
-                left-0
-                absolute
-                max-w-xs
-                lg:max-w-xl
-              "
-            >
-              <img
-                class="object-cover"
-                :src="require(`~/assets/images/whatwhat-svg.webp`)"
-                alt=""
-              />
-            </div>
-            <div
-              class="
-                absolute
-                px-24
-                inset-0
-                lg:h-full
-                h-3/4
-                flex
-                justify-start
-                align-center
-                lg:p-96
-              "
-            >
+            <div class="lg:h-full h-3/4 flex justify-center align-center">
               <h2
-                class="
-                  sm:w-96
-                  h2-home
-                  z-10
-                  text-center
-                  capitalize
-                  font-semibold
-                  leading-4
-                  text-5xl
-                  md:text-7xl
-                  lg:text-9xl
-                  transform
-                  sm:m-auto
-                "
+                class="sm:w-96 h2-home z-10 text-center capitalize font-semibold leading-4 text-5xl md:text-7xl lg:text-9xl transform sm:m-auto"
               >
                 <span class="text-mainRed animatedSpans">
-                  {{ $t('limited') }} </span
-                >, <span class="animatedSpans">{{ $t('custom') }}</span
-                >,
-                <i class="animatedSpans">{{ $t('handmade') }} </i>
-                <span class="animatedSpans"> {{ $t('merchendise') }}</span>
+                  {{ $t('welcome') }} </span
+                ><span class="animatedSpans">{{ $t('to') }}</span>
+                <strong class="text-goldie animatedSpans"
+                  >{{ $t('acapulco') }}
+                </strong>
+                <span class="text-goldie animatedSpans">
+                  {{ $t('design') }}</span
+                >
               </h2>
             </div>
-            <div
-              class="
-                lg:max-w-xl
-                inset-y-0
-                right-0
-                z-10
-                flex
-                align-center
-                justify-end
-                max-w-xs
-              "
-            >
-              <img
-                class="object-cover"
-                :src="require(`~/assets/images/whatwhat1-svg.webp`)"
-                alt=""
-              />
-            </div>
-          </div> -->
+            <img
+              class="w-52 md:w-60 lg:w-rem25 object-contain transform lg:-translate-x-0 -translate-x-14"
+              :src="require(`~/assets/images/whatwhat1-svg.webp`)"
+              alt=""
+            />
+          </div>
 
           <div
             class="lg:mt-28 h-screen w-screen flex flex-col lg:flex-row align-center justify-center space-y-9 p-14 lg:p-48 justify-self-stretch forthContainer content"
@@ -390,6 +262,11 @@ fa:
           <div
             class="h-screen w-screen flex flex-col lg:flex-row align-center justify-center space-y-2 p-14 lg:p-48 justify-self-stretch thirdContainer content"
           >
+            <h1
+              class="font-mainFont lg:self-end rounded-full py-1 lg:py-2 comingSoon px-8 text-mainBlue bg-goldie text-2xl lg:text-3xl font-bold"
+            >
+              {{ $t('comingSoon') }}
+            </h1>
             <div class="pictureDiv lg:order-last cursor-pointer bg-red-200">
               <img
                 src="~/assets/images/Hoodie.webp"
@@ -397,11 +274,7 @@ fa:
                 alt=""
               />
             </div>
-            <h1
-              class="font-mainFont self-start rounded-full py-1 lg:py-2 comingSoon px-8 text-mainBlue bg-goldie text-2xl lg:text-3xl font-bold"
-            >
-              {{ $t('comingSoon') }}
-            </h1>
+
             <div class="textDiv flex flex-col lg:order-last">
               <div class="flex justify-center">
                 <h3 class="text-4xl sm:font-bold lg:text-7xl text-center my-3">
@@ -434,7 +307,7 @@ fa:
               />
             </div>
             <h1
-              class="font-mainFont self-start rounded-full py-1 lg:py-2 comingSoon px-8 text-mainBlue bg-goldie text-2xl lg:text-3xl font-bold"
+              class="font-mainFont lg:ml-3 self-start lg:self-end rounded-full py-1 lg:py-2 comingSoon px-8 text-mainBlue bg-goldie text-2xl lg:text-3xl font-bold"
             >
               {{ $t('comingSoon') }}
             </h1>
@@ -567,6 +440,7 @@ export default {
     // },
   },
   mounted() {
+    this.logoApearAnimation()
     window.addEventListener('scroll', this.handleScroll)
     this.animatePictureDiv()
     this.animateOnScroll()
@@ -576,6 +450,23 @@ export default {
     // this.animatePeaceSign()
   },
   methods: {
+    logoApearAnimation() {
+      const tl = this.$gsap.timeline()
+
+      tl.from('.firstPic', 1.5, {
+        opacity: 0,
+        ease: 'expo.out',
+        delay: 2,
+      })
+      tl.from('.secondPic', 1, {
+        opacity: 0,
+        ease: 'expo.out',
+      })
+      tl.from('.thirdPic', 1.5, {
+        opacity: 0,
+        ease: 'expo.out',
+      })
+    },
     handleScroll() {
       if (this.scTimer) return
       this.scTimer = setTimeout(() => {
@@ -684,46 +575,28 @@ export default {
     //   )
     // },
     animateOnScroll() {
-      // const tl = this.$gsap.timeline()
-
-      // tl.fromTo(
-      //   '.treePicture',
-      //   {
-      //     opacity: 0,
-      //     y: 40,
-      //     x: 60,
-      //   },
-      //   {
-      //     opacity: 0,
-      //     y: 0,
-      //     x: 0,
-
-      //     scrollTrigger: {
-      //       start: 'top top',
-      //       end: 'bottom top',
-      //       scrub: 0.5,
-      //       trigger: '.acapulco',
-      //     },
-      //   }
-      // )
       const spans = this.$gsap.utils.toArray('.animatedSpans')
       spans.forEach((span) => {
         this.$gsap.fromTo(
           span,
           {
-            y: 200,
+            y: 700,
+            scale: 1.5,
             opacity: 0,
           },
           {
             opacity: 1,
             y: 0,
+            scale: 1,
             ease: 'Sine.easeOut',
             scrollTrigger: {
               start: 'top bottom',
-              scrub: 1.5,
-              end: 'top 70%',
+              scrub: 0.3,
+              end: 'top 50%',
               trigger: span,
               stagger: 0.1,
+
+              toggleActions: 'play reverse  none none',
             },
           }
         )
@@ -742,7 +615,7 @@ export default {
             y: 0,
             ease: 'Power1.easeInOut',
             scrollTrigger: {
-              scrub: 0.7,
+              scrub: 0.3,
               start: 'top bottom',
               end: 'top center',
               trigger: content,
