@@ -48,7 +48,7 @@ fa:
 
       <div class="w-screen overflow-hidden">
         <div class="grid place-items-center w-screen">
-          <div
+          <!-- <div
             class="relative flex sm:mx-5 sm:px-5 h-screen w-screen justify-center align-center logo"
           >
             <img
@@ -66,7 +66,7 @@ fa:
               src="../assets/images/PeaceSignDetails.webp"
               alt=""
             />
-          </div>
+          </div> -->
           <!-- <div class="w-40 lg:w-64 self-start mt-14">
             <img
               src="~/assets/images/peaceSign.svg"
@@ -75,7 +75,7 @@ fa:
             />
           </div> -->
           <div
-            class="w-screen h-dialog flex flex-col align-center justify-between md:flex-row lg:flex-row lg:h-screen lg:justify-around"
+            class="w-screen mt-20 h-dialog flex flex-col align-center justify-between md:flex-row lg:flex-row lg:h-screen lg:justify-around"
           >
             <img
               class="treePicture2 object-contain lg:object-cover h-64 drop-shadow-2xl rotate-180 transform lg:translate-x-36 md:-rotate-90 lg:rotate-90 z-10"
