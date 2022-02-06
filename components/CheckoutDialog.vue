@@ -230,6 +230,7 @@
                   >
                     <span
                       class="pl-4 checkoutText font-mainFont text-lg lg:text-2xl"
+                      @click="submitOrder"
                     >
                       Checkout
                     </span>
@@ -312,6 +313,25 @@ export default {
   methods: {
     removeCartProduct(Product) {
       this.$store.dispatch('removeCartProduct', Product)
+    },
+    async submitFunciton(item) {
+      try {
+        const { error } = await this.$supabase.from('order-items').insert([
+          {
+            product_item: item.item.id,
+            product_quantity: item.quantity,
+          },
+        ])
+        console.log(item.quantity)
+        if (error) throw error
+      } catch (error) {
+        alert(error.error_description || error.message)
+      }
+    },
+    async submitOrder() {
+      await this.cart.forEach((item) => {
+        this.submitFunciton(item)
+      })
     },
   },
 }
