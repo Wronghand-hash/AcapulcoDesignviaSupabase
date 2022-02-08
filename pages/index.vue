@@ -131,13 +131,19 @@ fa:
           >
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
-                <h3 class="text-6xl lg:text-7xl p-5 text-center">
+                <h3
+                  class="text-6xl lg:text-7xl p-5 text-center flex justify-center align-end"
+                >
                   {{ $t('lighters') }}
+                  <img
+                    class="w-9 lg:w-14 ml-2 object-contain"
+                    src="../assets/images/acapulcoLighterSmall.webp"
+                  />
                 </h3>
               </div>
               <div class="self-center">
                 <NuxtLink to="/productList">
-                  <button class="learnMoreBtn">
+                  <button class="learnMoreBtn bg-pink-600">
                     <span class="learnMoreText">{{ $t('showMe') }}</span>
                   </button>
                 </NuxtLink>
@@ -183,14 +189,20 @@ fa:
             </div>
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
-                <h3 class="p-5 text-center text-4xl lg:text-7xl sm:font-bold">
+                <h3
+                  class="p-5 text-center text-4xl lg:text-7xl sm:font-bold flex justify-center align-end"
+                >
                   {{ $t('acapulcoShirt') }}
+                  <img
+                    class="w-11 lg:w-14 ml-2 object-contain"
+                    src="../assets/images/acapulcoShirtSmall.webp"
+                  />
                 </h3>
                 <!-- <img class="transform scale-75" src="~/assets/images/fsdf.png" alt="" /> -->
               </div>
               <div class="self-center">
                 <NuxtLink to="/productList">
-                  <button class="learnMoreBtn">
+                  <button class="learnMoreBtn bg-Cyan-400">
                     <span class="learnMoreText">{{ $t('showMe') }}</span>
                   </button>
                 </NuxtLink>
@@ -203,14 +215,22 @@ fa:
           >
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
-                <h3 class="text-4xl sm:font-bold lg:text-7xl p-5 text-center">
+                <h3
+                  class="text-4xl sm:font-bold lg:text-7xl p-5 text-center flex justify-center align-end"
+                >
                   {{ $t('acapulcoMatchboxes') }}
+                  <img
+                    class="w-8 lg:w-12 ml-1 object-contain"
+                    src="../assets/images/matchbox-small.webp"
+                  />
                 </h3>
               </div>
               <div class="self-center">
                 <NuxtLink to="/productList">
-                  <button class="learnMoreBtn">
-                    <span class="learnMoreText">{{ $t('showMe') }}</span>
+                  <button class="learnMoreBtn bg-red-700">
+                    <span class="learnMoreText text-white">{{
+                      $t('showMe')
+                    }}</span>
                   </button>
                 </NuxtLink>
               </div>
@@ -243,15 +263,19 @@ fa:
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
                 <h3
-                  class="text-4xl sm:font-bold lg:text-7xl lg:p-5 text-center my-3"
+                  class="text-4xl sm:font-bold lg:text-7xl lg:p-5 text-center my-3 flex justify-center align-end"
                 >
                   {{ $t('acapulcoShorts') }}
+                  <img
+                    class="w-10 lg:w-16 ml-2 object-contain"
+                    src="../assets/images/acapulcoShortSmall.webp"
+                  />
                 </h3>
                 <!-- <img class="transform scale-75" src="~/assets/images/fsdf.png" alt="" /> -->
               </div>
               <div class="self-center">
                 <NuxtLink to="/productList">
-                  <button class="learnMoreBtn">
+                  <button class="learnMoreBtn bg-yellow-500">
                     <span class="learnMoreText">{{ $t('showMe') }}</span>
                   </button>
                 </NuxtLink>
@@ -262,11 +286,11 @@ fa:
           <div
             class="h-screen w-screen flex flex-col lg:flex-row align-center justify-center space-y-2 p-14 lg:p-48 justify-self-stretch thirdContainer content"
           >
-            <h1
+            <!-- <h1
               class="font-mainFont lg:self-end rounded-full py-1 lg:py-2 comingSoon px-8 text-mainBlue bg-goldie text-2xl lg:text-3xl font-bold"
             >
               {{ $t('comingSoon') }}
-            </h1>
+            </h1> -->
             <div class="pictureDiv lg:order-last cursor-pointer bg-red-200">
               <img
                 src="~/assets/images/Hoodie.webp"
@@ -276,9 +300,15 @@ fa:
             </div>
 
             <div class="textDiv flex flex-col lg:order-last">
-              <div class="flex justify-center">
-                <h3 class="text-4xl sm:font-bold lg:text-7xl text-center my-3">
+              <div class="flex-row-reverse align-center justify-center">
+                <h3
+                  class="text-4xl sm:font-bold lg:text-7xl text-center flex justify-center align-end my-4"
+                >
                   {{ $t('acapulcoHoodies') }}
+                  <img
+                    class="w-10 lg:w-16 ml-2 object-contain"
+                    src="../assets/images/acapulcoHoodieSmall.webp"
+                  />
                 </h3>
                 <!-- <img
                   src="~/assets/images/Hoodie.png"
@@ -288,7 +318,7 @@ fa:
               </div>
               <div class="self-center">
                 <NuxtLink to="/productList">
-                  <button class="learnMoreBtn">
+                  <button class="learnMoreBtn bg-LightBlue-300">
                     <span class="learnMoreText">{{ $t('showMe') }}</span>
                   </button>
                 </NuxtLink>
@@ -313,14 +343,20 @@ fa:
             </h1>
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
-                <h3 class="text-6xl p-5 text-center my-3">
+                <h3
+                  class="text-6xl p-5 text-center my-3 flex justify-center align-end"
+                >
                   {{ $t('collections') }}
+                  <img
+                    class="w-10 lg:w-14 ml-2 object-contain"
+                    src="../assets/images/acapulcoCollectionSmall.webp"
+                  />
                 </h3>
                 <!-- <img class="transform scale-75" src="~/assets/images/fsdf.png" alt="" /> -->
               </div>
               <div class="self-center">
                 <NuxtLink to="/productList">
-                  <button class="learnMoreBtn">
+                  <button class="learnMoreBtn bg-Lime-500">
                     <span class="learnMoreText">{{ $t('showMe') }}</span>
                   </button>
                 </NuxtLink>
@@ -711,19 +747,17 @@ export default {
 
 .learnMoreBtn {
   font-size: 30px;
-  background-color: #e5ff00;
   color: #120129;
   border-radius: 35px;
-  transition: transform ease-in-out 0.5s;
+  transition: transform ease-in-out 0.3s;
   padding: 8px 45px;
   font-family: 'Yanone Kaffeesatz', 'Estedad';
 }
 
 .learnMoreBtn:hover {
-  transform: scale(1.05);
-  rotate: 30%;
-  background-color: #030303;
-  color: #e5ff00;
+  transform: scale(1.02);
+  filter: brightness(1.2);
+  filter: drop-shadow(1.5);
 }
 
 /* #contactUsBtn {
@@ -826,36 +860,5 @@ input::-moz-focus-inner {
   padding: 0;
   margin-top: -2px;
   margin-bottom: -2px;
-}
-
-.pictureDiv {
-  animation: 30s ease-in-out infinite alternate-reverse color-change;
-}
-@-webkit-keyframes color-change {
-  0% {
-    background-color: #d8bbff;
-  }
-
-  45% {
-    background-color: #a6a6db;
-  }
-
-  100% {
-    background-color: #ade7e7;
-  }
-}
-
-@keyframes color-change {
-  0% {
-    background-color: #595bee;
-  }
-
-  50% {
-    background-color: #55dd8e;
-  }
-
-  100% {
-    background-color: #83f1f1;
-  }
 }
 </style>

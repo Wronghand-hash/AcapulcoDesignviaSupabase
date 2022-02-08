@@ -24,7 +24,7 @@
       temporary
       app
       full-width
-      class="drawer purple darken-5"
+      class="drawer purple darken-4"
     >
       <div class="w-full h-full p-6">
         <div class="align-center w-full h-3/6 flex flex-col">
@@ -88,7 +88,7 @@ export default {
   z-index: 200 !important;
 }
 span {
-  font-family: 'Acme', sans-serif;
+  font-family: 'Acme', 'Rezvan';
   text-align: center;
   display: flex;
   justify-self: center;

@@ -82,7 +82,7 @@ html {
 }
 
 #main {
-  animation: 30s ease-in-out infinite alternate-reverse color-change;
+  animation: 25s ease-in-out infinite alternate-reverse color-change;
   height: 100%;
 }
 @-webkit-keyframes color-change {
@@ -109,7 +109,7 @@ html {
   }
 
   100% {
-    background-color: #595bee;
+    background-color: #5a25ec;
   }
 }
 * {

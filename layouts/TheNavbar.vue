@@ -32,7 +32,7 @@ fa:
       </v-btn>
     </div> -->
     <div class="hidden lg:flex">
-      <nuxt-link to="/aboutUs">
+      <nuxt-link to="/aboutus">
         <v-btn class="Btn" dark depressed rounded x-large color="transparent">
           <v-icon class="" large>mdi-meditation</v-icon>
           <span class="aboutUs text-xl lg:text-2xl"> {{ $t('aboutus') }} </span>
@@ -43,9 +43,11 @@ fa:
     <div class="flex align-center justify-end px-2">
       <div class="hidden lg:flex">
         <nuxt-link to="/">
-          <v-btn class="Btn" dark depressed rounded x-large color="transparent">
-            <span class="aboutUs text-xl lg:text-2xl"> {{ $t('home') }} </span>
-            <v-icon class="" large>mdi-home</v-icon>
+          <v-btn class="Btn" depressed rounded x-large color="transparent">
+            <span class="aboutUs white--text text-xl lg:text-2xl">
+              {{ $t('home') }}
+            </span>
+            <v-icon class="white--text" large>mdi-home</v-icon>
           </v-btn>
         </nuxt-link>
       </div>
@@ -128,13 +130,18 @@ fa:
       <nuxt-link
         v-if="$route.path.toString().includes('fa')"
         :to="switchLocalePath('en')"
+        @click="$i18n.setLocaleCookie('en')"
       >
         <v-btn class="Btn" dark depressed rounded x-large color="transparent">
           <v-icon class="" large>mdi-web</v-icon>
           <span class="aboutUs text-lg lg:text-x"> EN </span>
         </v-btn></nuxt-link
       >
-      <nuxt-link v-else :to="switchLocalePath('fa')">
+      <nuxt-link
+        v-else
+        :to="switchLocalePath('fa')"
+        @click="$i18n.setLocaleCookie('fa')"
+      >
         <v-btn class="Btn" dark depressed rounded x-large color="transparent">
           <v-icon class="" large>mdi-web</v-icon>
           <span class="aboutUs text-lg lg:text-xl"> FA </span>

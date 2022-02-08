@@ -1,3 +1,30 @@
+<i18n lang="yaml">
+en:
+  hi: 'Hi!'
+  weAre: 'We Are'
+  Acapulco: 'Acapulco!'
+  weAreACreativeTeam: 'We are a Creative Team Based in Iran'
+  ourTeam: 'Our team is consisted of two'
+  fullStack: 'FullStack Developers'
+  andA: 'and a'
+  digital: 'Digital Artist'
+  Kesler: 'Kesler'
+  Chao: 'Chao'
+  Greez: 'Greez'
+
+fa:
+  hi: 'سلام'
+  weAre: 'ما'
+  Acapulco: 'آلکاپلکوییم'
+  weAreACreativeTeam: 'ما یک تیم خلاق از ایران هستیم'
+  ourTeam: 'تیم ما تشکیل میشه از دو'
+  fullStack: 'برنامه نویس فول استک وب'
+  andA: 'و یک'
+  digital: 'نقاش دیجیتال'
+  Kesler: 'کسلر'
+  Chao: 'چاوو'
+  Greez: 'فیلیز'
+</i18n>
 <template>
   <v-app class="body overflow-hidden">
     <!-- peace thing
@@ -47,107 +74,108 @@
           />
         </div>
         <div
-          class="h-screen lg:h-auto w-screen introText align-center flex flex-col text-center justify-start"
+          class="h-auto mb-4 lg:h-auto w-screen introText align-center flex flex-col text-center justify-start"
         >
-          <h1 class="text-mainRed lg:text-10xl text-10xl hiText">Hi!</h1>
-          <h3 class="text-mainBlue lg:text-8xl text-7xl weAreText">We are</h3>
+          <h1 class="text-mainRed lg:text-10xl text-9xl hiText">
+            {{ $t('hi') }}
+          </h1>
+          <h3 class="text-mainBlue lg:text-8xl text-7xl weAreText">
+            {{ $t('weAre') }}
+          </h3>
           <h3 class="text-7xl lg:text-9xl text-goldie font-bold acapulco">
-            Acapulco!
+            {{ $t('Acapulco') }}
           </h3>
           <div class="text-darkPurple mt-20 text-4xl lg:text-6xl">
-            <h3>We are a Creative Team Based in Iran</h3>
+            <h3>{{ $t('weAreACreativeTeam') }}</h3>
             <h3>
-              Our team is consisted of Two
+              {{ $t('ourTeam') }}
               <span class="text-mainRed p-2 font-black">
-                FullStack Developers
+                {{ $t('fullStack') }}
               </span>
-              and a
-              <span class="text-mainRed p-2 font-black"> Digital Artist </span>
+              {{ $t('andA') }}
+              <span class="text-mainRed p-2 font-black">
+                {{ $t('digital') }}
+              </span>
             </h3>
           </div>
         </div>
 
         <div
-          class="h-screen lg:h-dialog w-screen p-10 flex flex-col lg:flex-row justify-around lg:align-start align-center"
-        >
-          <img
-            class="w-rem25 Kesler cursor-pointer"
-            src="../assets/images/Kesler.webp"
-            alt=""
-          />
-          <img
-            class="w-rem25 Chao cursor-pointer"
-            src="../assets/images/Chao.webp"
-            alt=""
-          />
-          <img
-            class="w-rem25 Greez cursor-pointer"
-            src="../assets/images/Greez.webp"
-            alt=""
-          />
-        </div>
-      </div>
-      <!-- <LazyHydrate when-visible>
-        <Footer />
-      </LazyHydrate> -->
-    </div>
-    <!-- <section class="panel1 w-screen h-screen mt-15">
-        <div
-          class="m-1 hippie1-text text-center p-8 text-5xl text-mainBlue font-bold"
-        >
-          Hi. we are a bunch of guys From a less known city of a dystopian
-          country
-        </div>
-        <img class="hippie1" src="~/assets/images/hippie1.png" alt="" />
-      </section>
-      <section
-        class="panel2 grid content-start place-content-center w-screen h-screen"
-      >
-        <div
-          class="m-1 hippie2-text text-center p-8 text-5xl text-mainBlue font-bold"
-        >
-          While we're not lost and consumed by the sheer pressure of human
-          survival We tend to smoke, and create stuff
-        </div>
-        <img
-          class="hippie2 justify-self-center"
-          src="~/assets/images/hippie2.png"
-          alt=""
-        />
-      </section>
-      <section
-        class="panel3 grid grid-rows-3 gap-3 content-center place-content-end w-screen h-screen"
-      >
-        <div
-          class="m-1 hippie3-text text-center p-8 text-5xl text-mainBlue font-bold"
-        >
-          In the hope of finding the long lost peace that we all crave Along the
-          way.
-        </div>
-        <img class="hippie3" src="~/assets/images/hippie3.png" alt="" />
-        <div
-          class="backButton lg:w-1/2 self-end flex justify-center p-2 rounded-xl font-bold text-5xl text-center bg-Rose-600 transform scale-75"
+          class="h-auto mt-5 lg:h-dialog w-screen text-center space-y-6 mb-7 p-5 flex flex-col lg:flex-row justify-around lg:align-start align-center"
         >
           <div
-            class="flex flex-col capitalize font-extrabold content-center justify-center"
+            class="flex flex-col KeslerDiv h-1/3 justify-center align-center space-y-2"
           >
-            <NuxtLink to="/">
-              <span class="text-mainBlue"> Back to our Shopping journey </span>
-            </NuxtLink>
+            <a
+              href="https://instagram.com/famousKesler/"
+              class="flex flex-col justify-center align-center space-y-2 lg:space-y-4"
+            >
+              <img
+                class="w-rem25 Kesler cursor-pointer lg:mb-4"
+                src="../assets/images/Kesler.webp"
+                alt=""
+              />
+              <h1
+                class="font-mainFont font-black text-3xl lg:text-5xl text-mainBlue"
+              >
+                {{ $t('Kesler') }}
+              </h1>
+              <h3
+                class="font-mainFont font-extralight text-3xl lg:text-4xl text-goldie"
+              >
+                {{ $t('digital') }}
+              </h3>
+            </a>
           </div>
-          <img
-            class="hippieCoco justify-self-center self-center"
-            src="~/assets/images/samadhiCoco.png"
-            alt=""
-          />
+          <div
+            class="flex flex-col ChaoDiv h-1/3 justify-center align-center space-y-2"
+          >
+            <a
+              href="https://instagram.com/comanche.chao/"
+              class="flex flex-col justify-center align-center space-y-2 lg:space-y-4"
+            >
+              <img
+                class="w-rem25 Chao cursor-pointer"
+                src="../assets/images/Chao.webp"
+                alt=""
+              />
+              <h1
+                class="font-mainFont font-black text-3xl lg:text-5xl text-mainBlue"
+              >
+                {{ $t('Chao') }}
+              </h1>
+              <h3
+                class="font-mainFont font-extralight text-3xl lg:text-4xl text-purple-700"
+              >
+                {{ $t('fullStack') }}
+              </h3>
+            </a>
+          </div>
+          <div class="flex flex-col GreezDiv h-1/3 justify-center align-center">
+            <a
+              href="https://instagram.com/disgruntle_greez"
+              class="flex flex-col justify-center align-center space-y-2 lg:space-y-4"
+            >
+              <img
+                class="w-rem25 Greez cursor-pointer"
+                src="../assets/images/Greez.webp"
+                alt=""
+              />
+              <h1
+                class="font-mainFont font-black text-3xl lg:text-5xl text-mainBlue"
+              >
+                {{ $t('Greez') }}
+              </h1>
+              <h3
+                class="font-mainFont font-extralight text-3xl lg:text-4xl text-pink-700"
+              >
+                {{ $t('fullStack') }}
+              </h3>
+            </a>
+          </div>
         </div>
-      </section>
-    </div> -->
-    <!-- <div class="panels"> Hi. we are a bunch of guys From a less known city of a dystopian
-            country While we're not lost and consumed by the sheer pressure of
-            human survival We tend to smoke, and create stuff In the hope of
-            finding the long lost peace that we all crave Along the way.</div>
-        </div> -->
+      </div>
+    </div>
   </v-app>
 </template>
 
@@ -158,7 +186,6 @@ export default {
   components: {
     LazyHydrate,
     Navbar: () => import('~/layouts/TheNavbar.vue'),
-    // Footer: () => import('../layouts/TheFooter.vue'),
   },
 
   mounted() {
@@ -370,10 +397,45 @@ export default {
 </script>
 
 <style scoped>
+* {
+  font-family: 'Roboto Slab', 'Rezvan';
+}
 .introText {
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
   font-family: 'Roboto Slab', 'Rezvan';
+}
+
+.KeslerDiv:hover {
+  cursor: pointer;
+  filter: drop-shadow(1.8);
+  filter: brightness(0.6);
+  transition: ease-in-out 0.3s;
+}
+.KeslerDiv:active {
+  filter: brightness(1.2);
+  scale: 1.2;
+  transition: ease-in-out 0.3s;
+}
+.ChaoDiv:hover {
+  cursor: pointer;
+  filter: drop-shadow(1.8);
+  filter: brightness(0.6);
+  transition: ease-in-out 0.3s;
+}
+.ChaoDiv:active {
+  filter: brightness(1.2);
+  scale: 1.2;
+  transition: ease-in-out 0.3s;
+}
+.GreezDiv:hover {
+  cursor: pointer;
+  filter: drop-shadow(1.8);
+  filter: brightness(0.6);
+  transition: ease-in-out 0.3s;
+}
+.GreezDiv:active {
+  filter: brightness(1.2);
+  scale: 1.2;
+  transition: ease-in-out 0.3s;
 }
 </style>

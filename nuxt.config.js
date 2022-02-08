@@ -102,6 +102,7 @@ export default {
   i18n: {
     vueI18nLoader: true,
     baseUrl: 'https://acapulcodesign.onrender.com',
+
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
