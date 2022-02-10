@@ -227,10 +227,10 @@
                 <div class="w-1/6 h-full flex justify-center align-center">
                   <button
                     class="checkoutBtn py-1 flex justify-center align-center"
+                    @click="submitOrderDetail"
                   >
                     <span
                       class="pl-4 checkoutText font-mainFont text-lg lg:text-2xl"
-                      @click="submitOrder"
                     >
                       Checkout
                     </span>
@@ -298,6 +298,8 @@ export default {
         Age: null,
       },
       dialog: false,
+      loading: false,
+      orderDetailId: null,
 
       emailRules: [
         (v) => !!v || 'E-mail is required',
@@ -309,15 +311,62 @@ export default {
     cart() {
       return this.$store.state.cart
     },
+    user() {
+      return this.$store.state.user
+    },
   },
   methods: {
     removeCartProduct(Product) {
       this.$store.dispatch('removeCartProduct', Product)
     },
+    async submitOrderDetail() {
+      this.loading = true
+      try {
+        if (this.user) {
+          const { error } = await this.$supabase.from('order-detail').insert([
+            {
+              'user-id': this.user.id,
+              'full-address': this.order.Address,
+              city: this.order.City,
+              province: this.order.Province,
+              'phone-number': this.order.PhoneNumber,
+              'full-name': this.order.FullName,
+            },
+          ])
+          if (error) throw error
+          alert('orderDetail added')
+        } else {
+          alert('pleaes sign in to your account')
+        }
+      } catch (error) {
+        alert(error.error_description || error.message)
+      } finally {
+        this.addOrderItems()
+      }
+    },
+    async addOrderItems() {
+      try {
+        const { data, error } = await this.$supabase
+          .from('order-detail')
+          .select(`id , user-id`)
+          .eq('user-id', this.user.id)
+          .range(0, 0)
+        if (error) throw error
+        console.log(data[0].id)
+        this.orderDetailId = data[0].id
+        console.log(this.orderDetailId)
+      } catch (error) {
+        alert(error.error_description || error.message)
+      } finally {
+        this.submitOrder()
+      }
+    },
     async submitFunciton(item) {
       try {
+        console.log(this.orderDetailId)
         const { error } = await this.$supabase.from('order-items').insert([
           {
+            'order-detail-id': this.orderDetailId,
             product_item: item.item.id,
             product_quantity: item.quantity,
           },
@@ -332,6 +381,7 @@ export default {
       await this.cart.forEach((item) => {
         this.submitFunciton(item)
       })
+      alert('orderItems added')
     },
   },
 }
