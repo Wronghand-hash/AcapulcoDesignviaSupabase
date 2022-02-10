@@ -50,7 +50,7 @@ fa:
 
 <template>
   <v-app id="app">
-    <div id="main" class="h-auto w-screen overflow-x-hidden">
+    <div id="main" class="h-full w-screen overflow-x-hidden">
       <LazyHydrate class="z-50" when-idle>
         <Navbar
           v-gsap.to="{
@@ -63,10 +63,57 @@ fa:
         />
       </LazyHydrate>
 
-      <div class="flex w-full h-full mt-10 items-center">
-        <div class="w-screen h-full grid grid-flow-col align-end grid-cols-6">
+      <div class="flex flex-col w-full h-full mt-20 items-center">
+        <div
+          class="flex flex-col lg:p-5 align-center lis w-full lg:w-1/2 h-1/3 flex flex-col justify-center align-center rounded-2xl justify-center"
+        >
           <div
-            class="flex flex-cols justify-center align-center w-full h-full p-10 col-span-4"
+            class="buttonContainer z-10 lg:p-10 w-full flex justify-center align-center content-center w-full rounded-2xl"
+          >
+            <div
+              :class="{
+                'bg-Lime-500': openTab === 1,
+              }"
+              class="lis w-1/2 h-1/2 lg:h-full my-2 mx-2 flex flex-col justify-center align-center rounded-2xl shadow-2xl"
+              @click="tab1() & toggleTabs(1)"
+            >
+              <img
+                class="flag w-full h-full rateImg object-contain"
+                src="~/assets/images/flag.png"
+                alt=""
+              />
+            </div>
+            <div
+              :class="{
+                'bg-Lime-500': openTab === 2,
+              }"
+              class="lis w-1/2 h-1/2 lg:h-full mx-2 my-4 transform translate-y-10 flex flex-col justify-center align-center rounded-2xl shadow-2xl"
+              @click="tab2() & toggleTabs(2)"
+            >
+              <img
+                class="mismisAdmin w-2/3 h-1/2 rateImg object-contain"
+                src="../assets/images/mismisAdmin-min.png"
+                alt=""
+              />
+            </div>
+            <div
+              :class="{
+                'bg-Lime-500': openTab === 3,
+              }"
+              class="lis w-1/2 h-1/2 lg:h-full my-2 mx-2 flex flex-col justify-center align-center rounded-2xl shadow-2xl"
+              @click="tab3() & toggleTabs(3)"
+            >
+              <img
+                class="mismisDelivery w-2/3 h-1/2 rateImg object-contain"
+                src="../assets/images/mismisDelivery.png"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+        <div class="w-screen h-screen flex flex-col">
+          <div
+            class="flex flex-cols justify-center align-center w-full h-full lg:p-4 col-span-4"
           >
             <div
               class="admin shadow-2xl px-4 py-8 flex flex-row justify-center self-center w-full rounded h-full"
@@ -123,9 +170,9 @@ fa:
                   class="w-full h-full"
                   :class="{ hidden: openTab !== 2, block: openTab === 2 }"
                 >
-                  <div class="h-full grid grid-cols-2 gap-x-3 grid-rows-2">
+                  <div class="h-full grid grid-cols-1 gap-x-3 grid-rows-2">
                     <div
-                      class="catagories container col-span-2 flex flex-wrap flex-row justify-around align-start h-full w-full m-3 p-5"
+                      class="catagories col-span-2 flex flex-wrap flex-row justify-around align-center h-full w-full m-3 p-5"
                     >
                       <v-btn
                         depressed
@@ -164,18 +211,18 @@ fa:
                         @click="catagorySelect(1)"
                         ><v-icon dark>mdi-toolbox</v-icon></v-btn
                       >
+                      <div
+                        class="addSomthing m-5 flex flex-col w-full h-full self-center align-center"
+                      >
+                        <Adminastration
+                          ref="Adminastration"
+                          class="adminastration"
+                        />
+                      </div>
                     </div>
 
                     <div
-                      class="addSomthing flex flex-col w-full h-full self-center align-center"
-                    >
-                      <Adminastration
-                        ref="Adminastration"
-                        class="adminastration"
-                      />
-                    </div>
-                    <div
-                      class="w-full products p-5 rounded-lg shadow-2xl overflow-y-scroll h-full text-gray-200"
+                      class="w-full products rounded-lg shadow-2xl overflow-y-scroll h-full text-gray-200"
                     >
                       <div
                         v-for="product in Products"
@@ -396,57 +443,6 @@ fa:
               </div>
             </div>
           </div>
-
-          <div
-            class="flex flex-col p-10 align-center lis w-2/3  flex flex-col justify-center align-center rounded-2xl  justify-center w-full h-full col-span-2"
-          >
-            <div
-              class="buttonContainer p-5 mx-2 w-full flex justify-center flex-col align-center content-center w-full rounded-2xl border-r-8 border-l-8 border-Indigo-600"
-            >
-              <div
-                :class="{
-                  'bg-Lime-500': openTab === 1,
-                  'border-4 border-Lime-500': openTab !== 1,
-                }"
-                class="lis w-1/2 my-2 flex flex-col justify-center align-center rounded-2xl shadow-2xl"
-                @click="tab1() & toggleTabs(1)"
-              >
-                <img
-                  class="w-2/3 h-1/2 rateImg object-contain"
-                  src="~/assets/images/flag.png"
-                  alt=""
-                />
-              </div>
-              <div
-                :class="{
-                  'bg-Lime-500': openTab === 2,
-                  'border-4 border-Lime-500': openTab !== 2,
-                }"
-                class="lis w-1/2 my-2 flex flex-col justify-center align-center rounded-2xl shadow-2xl"
-                @click="tab2() & toggleTabs(2)"
-              >
-                <img
-                  class="w-2/3 h-1/2 rateImg object-contain"
-                  src="../assets/images/mismisAdmin-min.png"
-                  alt=""
-                />
-              </div>
-              <div
-                :class="{
-                  'bg-Lime-500': openTab === 3,
-                  'border-4 border-Lime-500': openTab !== 3,
-                }"
-                class="lis w-1/2 my-2 flex flex-col justify-center align-center rounded-2xl shadow-2xl"
-                @click="tab3() & toggleTabs(3)"
-              >
-                <img
-                  class="w-2/3 h-1/2 rateImg object-contain"
-                  src="../assets/images/mismisDelivery.png"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -588,6 +584,15 @@ export default {
       const gsap = this.$gsap
       const tl = gsap.timeline()
 
+      gsap.to('.mismisDelivery', 0.5, {
+        scale: 1,
+      })
+      gsap.to('.flag', 0.5, {
+        scale: 1,
+      })
+      gsap.to('.mismisAdmin', 0.5, {
+        scale: 1.5,
+      })
       tl.from('.catagories', 0.5, {
         x: -100,
         opacity: 0,
@@ -610,6 +615,15 @@ export default {
       const gsap = this.$gsap
       const tl = gsap.timeline()
 
+      gsap.to('.mismisDelivery', 0.5, {
+        scale: 1.5,
+      })
+      gsap.to('.flag', 0.5, {
+        scale: 1,
+      })
+      tl.to('.mismisAdmin', 0.5, {
+        scale: 1,
+      })
       tl.from('.List', 0.3, {
         scale: 0.3,
         opacity: 0,
@@ -631,6 +645,15 @@ export default {
       const gsap = this.$gsap
       const tl = gsap.timeline()
 
+      gsap.to('.mismisDelivery', 0.5, {
+        scale: 1,
+      })
+      gsap.to('.flag', 0.5, {
+        scale: 1.5,
+      })
+      gsap.to('.mismisAdmin', 0.5, {
+        scale: 1,
+      })
       tl.from('.totalProducts', 0.5, {
         x: -100,
         opacity: 0,
@@ -778,9 +801,6 @@ input[type='number'] {
   border-color: #dee2ff;
   color: #023047;
 }
-.products {
-  background-color: #ffb703;
-}
 .addSomthing {
   color: #0a1931;
   font-family: 'Yanone Kaffeesatz', 'Estedad';
@@ -861,6 +881,5 @@ h1 {
 }
 
 .buttonContainer {
-  border: solid #23f4fc 10px;
 }
 </style>

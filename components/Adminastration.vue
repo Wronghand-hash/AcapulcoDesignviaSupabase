@@ -2,7 +2,7 @@
   <v-row justify="center">
     <v-dialog v-model="dialog" persistent max-height="600px" max-width="600px">
       <template #activator="{ on, attrs }">
-        <v-btn height="200px" width="200px" color="amber" dark v-bind="attrs" v-on="on">
+        <v-btn height="50px" width="200px" color="amber" dark v-bind="attrs" v-on="on">
           something to add?
         </v-btn>
       </template>
