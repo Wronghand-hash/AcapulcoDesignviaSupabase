@@ -35,7 +35,7 @@ fa:
               <v-icon large>mdi-login-variant</v-icon>
             </v-btn>
           </template>
-          <span class="text-3xl">{{ $t('join') }}</span>
+          <span class="text-2xl">{{ $t('join') }}</span>
         </v-tooltip>
       </template>
       <div>

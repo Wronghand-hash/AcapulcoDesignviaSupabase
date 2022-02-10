@@ -7,7 +7,7 @@ en:
   discover: 'Discover'
   lighters: 'Lighters'
   acapulcoShirt: 'Acapulco Shirt'
-  acapulcoMatchboxes: 'Custom Matchboxes'
+  acapulcoMatchboxes: 'Acapulco Matchboxes'
   acapulcoShorts: 'Acapulco Shorts'
   acapulcoHoodies: 'Acapulco Hoodies'
   collections: 'Collections'
@@ -21,7 +21,7 @@ fa:
   acapulcoShirt: 'پیراهن آلکاپلکو'
   acapulcoMatchboxes: 'کبریت های آکاپلکو'
   acapulcoHoodies: 'هودی های اکاپلکو'
-  acapulcoShorts: 'شورت های آکاپلکو'
+  acapulcoShorts: 'شلوارک های آکاپلکو'
   collections: 'کالکشن ها'
 </i18n>
 
@@ -101,73 +101,95 @@ fa:
             </NuxtLink>
           </div>
           <div
-            class="p-3 col-span-8 lg:col-span-2 self-start justify-self-end sidebar opacity-0 space-y-4 sticky h-auto flex flex-col justify-between align-center"
+            class="p-3 col-span-8 overflow-x-scroll self-start justify-self-center w-full sidebar opacity-0 space-y-4 sticky h-auto flex flex-col justify-between align-center"
           >
             <!-- <div class="flex flex-col p-10 self-center"> -->
             <!-- <h1 class="text-7xl mt-10 text-center text-gray-700 font-bold">
                 Shop
               </h1> -->
-            <h3
+            <!-- <h3
               class="p-3 text-mainBlue text-5xl lg:text-6xl border-red-600 font-black"
             >
               {{ $t('discover') }}
-            </h3>
+            </h3> -->
             <div
-              class="space-x-3 space-y-2 px-4 text-center lg:text-left flex flex-wrap align-center lg:justify-start justify-center"
+              class="space-x-3 space-y-2 px-4 text-center lg:text-left flex flex-nowrap align-center lg:justify-start justify-start"
             >
               <span class="cursor-pointer" @click="changeCatagory(2)">
                 <h1
-                  class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText"
+                  class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText text-center flex justify-center align-end"
                 >
                   {{ $t('lighters') }}
+                  <img
+                    class="w-5 lg:w-8 object-contain ml-2"
+                    src="../assets/images/acapulcoLighterSmall.webp"
+                  />
+                </h1>
+              </span>
+              <span class="cursor-pointer" @click="changeCatagory(4)">
+                <h1
+                  class="lg:text-3xl text-2xl text-mainBlue text-center flex justify-center align-end p-4 border-mainBlue border-b-2 sidebarText"
+                >
+                  {{ $t('acapulcoMatchboxes') }}
+                  <img
+                    class="w-7 lg:w-8 ml-1 object-contain"
+                    src="../assets/images/matchbox-small.webp"
+                  />
                 </h1>
               </span>
               <span class="cursor-pointer" @click="changeCatagory(3)">
                 <h1
-                  class="lg:text-3xl text-2xl text-mainBlue p-4 border-mainBlue border-b-2 sidebarText"
+                  class="lg:text-3xl text-2xl text-mainBlue p-4 border-mainBlue border-b-2 sidebarText text-center flex justify-center align-center"
                 >
                   {{ $t('acapulcoShirt') }}
-                </h1>
-              </span>
-              <span class="cursor-pointer" @click="changeCatagory(4)">
-                <h1
-                  class="lg:text-3xl text-2xl text-mainBlue p-4 border-mainBlue border-b-2 sidebarText"
-                >
-                  {{ $t('acapulcoMatchboxes') }}
+                  <img
+                    class="w-8 lg:w-14 object-contain ml-2"
+                    src="../assets/images/acapulcoShirtSmall.webp"
+                  />
                 </h1>
               </span>
               <span class="cursor-pointer" @click="changeCatagory(1)">
                 <h1
-                  class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText"
+                  class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText text-center flex justify-center align-center"
                 >
                   {{ $t('acapulcoShorts') }}
+                  <img
+                    class="w-8 lg:w-12 ml-1 object-contain"
+                    src="../assets/images/acapulcoShortSmall.webp"
+                  />
                 </h1>
               </span>
               <span class="cursor-pointer" @click="changeCatagory(2)">
                 <h1
-                  class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText"
+                  class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText text-center flex justify-center align-center"
                 >
                   {{ $t('acapulcoHoodies') }}
+                  <img
+                    class="w-8 lg:w-12 ml-1 object-contain"
+                    src="../assets/images/acapulcoHoodieSmall.webp"
+                  />
                 </h1>
               </span>
               <span class="cursor-pointer" @click="changeCatagory(4)">
                 <h1
-                  class="lg:text-3xl text-2xl border-mainBlue border-b-2 text-mainBlue p-4 sidebarText"
+                  class="lg:text-3xl text-2xl border-mainBlue border-b-2 text-mainBlue p-4 sidebarText text-center flex justify-center align-end"
                 >
                   {{ $t('collections') }}
+                  <img
+                    class="w-8 lg:w-12 ml-1 object-contain"
+                    src="../assets/images/acapulcoCollectionSmall.webp"
+                  />
                 </h1>
               </span>
             </div>
             <!-- </div> -->
           </div>
-          <div
-            class="lg:col-span-6 col-span-8 rounded-lg self-center justify-self-center"
-          >
+          <div class="col-span-8 rounded-lg self-center justify-self-center">
             <!-- <div class="grid w-full divide-y-4"> -->
 
             <!-- <div class="row-span-5 col-span-2 place-items-center"> -->
             <div
-              class="grid productCard lg:grid-cols-2 grid-cols-1 gap-6 p-4 mt-6 place-items-center self-center justify-self-center"
+              class="grid productCard lg:grid-cols-3 grid-cols-1 gap-6 p-4 mt-6 place-items-center self-center justify-self-center"
             >
               <ProductCard
                 v-for="product in products"
@@ -178,8 +200,6 @@ fa:
                 :product="product"
               />
             </div>
-            <!-- </div> -->
-            <!-- </div> -->
           </div>
         </div>
       </div>

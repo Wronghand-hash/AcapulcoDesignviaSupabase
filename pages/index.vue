@@ -30,7 +30,7 @@ fa:
   acapulcoMatchboxes: 'کبریت های آکاپلکو'
   comingSoon: '...بزودی'
   acapulcoHoodies: 'هودی های اکاپلکو'
-  acapulcoShorts: 'شورت های آکاپلکو'
+  acapulcoShorts: 'شلوارک های آکاپلکو'
   collections: 'کالکشن ها'
   weAreA: 'ما یک'
   creativeTeam: 'تیم خلاق'
@@ -256,7 +256,7 @@ fa:
               />
             </div>
             <h1
-              class="font-mainFont self-start rounded-full py-1 lg:py-2 comingSoon px-8 text-mainBlue bg-goldie text-2xl lg:text-3xl font-bold"
+              class="font-mainFont self-start lg:hidden rounded-full py-1 lg:py-2 comingSoon px-8 text-mainBlue bg-goldie text-2xl lg:text-3xl font-bold"
             >
               {{ $t('comingSoon') }}
             </h1>
@@ -291,15 +291,8 @@ fa:
             >
               {{ $t('comingSoon') }}
             </h1> -->
-            <div class="pictureDiv lg:order-last cursor-pointer bg-red-200">
-              <img
-                src="~/assets/images/Hoodie.webp"
-                class="object-fill sm:w-96 sm:h-96 lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto relative pictureDivImages"
-                alt=""
-              />
-            </div>
 
-            <div class="textDiv flex flex-col lg:order-last">
+            <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
                 <h3
                   class="text-4xl sm:font-bold lg:text-7xl text-center flex justify-center align-end my-4"
@@ -324,6 +317,13 @@ fa:
                 </NuxtLink>
               </div>
             </div>
+            <div class="pictureDiv lg:order-last cursor-pointer bg-red-200">
+              <img
+                src="~/assets/images/Hoodie.webp"
+                class="object-fill sm:w-96 sm:h-96 lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto relative pictureDivImages"
+                alt=""
+              />
+            </div>
           </div>
 
           <div
@@ -337,7 +337,7 @@ fa:
               />
             </div>
             <h1
-              class="font-mainFont lg:ml-3 self-start lg:self-end rounded-full py-1 lg:py-2 comingSoon px-8 text-mainBlue bg-goldie text-2xl lg:text-3xl font-bold"
+              class="font-mainFont lg:hidden lg:ml-3 self-start lg:self-start rounded-full py-1 lg:py-2 comingSoon px-8 text-mainBlue bg-goldie text-2xl lg:text-3xl font-bold"
             >
               {{ $t('comingSoon') }}
             </h1>
@@ -643,19 +643,18 @@ export default {
         this.$gsap.fromTo(
           content,
           {
-            y: -120,
+            x: 120,
             opacity: 0,
           },
           {
             opacity: 1,
-            y: 0,
+            x: 0,
             ease: 'Power1.easeInOut',
             scrollTrigger: {
-              scrub: 0.3,
+              scrub: 0.5,
               start: 'top bottom',
               end: 'top center',
               trigger: content,
-              stagger: 0.1,
 
               toggleActions: 'play reverse  none none',
             },

@@ -153,7 +153,7 @@ fa:
           </div>
           <div class="flex flex-col GreezDiv h-1/3 justify-center align-center">
             <a
-              href="https://instagram.com/disgruntle_greez"
+              href="https://instagram.com/just_greez"
               class="flex flex-col justify-center align-center space-y-2 lg:space-y-4"
             >
               <img
@@ -255,7 +255,7 @@ export default {
           trigger: '.introText',
           start: 'top bottom',
           end: 'top center',
-          scrub: 0.3,
+          scrub: 1.5,
           toggleActions: 'play none none reverse',
         },
       })
@@ -268,7 +268,7 @@ export default {
           trigger: '.weAreText',
           start: 'top bottom',
           end: 'top 30%',
-          scrub: 0.3,
+          scrub: 1.5,
           toggleActions: 'play none none reverse',
         },
       })
@@ -281,7 +281,7 @@ export default {
           trigger: '.acapulco',
           start: 'top bottom',
           end: 'top 35%',
-          scrub: 0.3,
+          scrub: 1.5,
           toggleActions: 'play none none reverse',
         },
       })
@@ -293,7 +293,7 @@ export default {
           trigger: '.Kesler',
           start: 'top bottom',
           end: 'top 35%',
-          scrub: 0.3,
+          scrub: 1.5,
           toggleActions: 'play none none reverse',
         },
       })
@@ -306,7 +306,7 @@ export default {
           trigger: '.Chao',
           start: 'top bottom',
           end: 'top 35%',
-          scrub: 0.3,
+          scrub: 1.5,
           toggleActions: 'play none none reverse',
         },
       })
@@ -318,7 +318,7 @@ export default {
           trigger: '.Greez',
           start: 'top bottom',
           end: 'top 35%',
-          scrub: 0.3,
+          scrub: 1.5,
           toggleActions: 'play none none reverse',
         },
       })

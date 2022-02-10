@@ -1,3 +1,19 @@
+<i18n lang="yaml">
+en:
+  menu: 'Menu'
+  shop: 'Shop'
+  home: 'Home'
+  admin: 'Admin'
+  aboutUs: 'About Us'
+
+fa:
+  menu: 'منو'
+  shop: 'خرید'
+  home: 'خونه'
+  admin: 'ادمین'
+  aboutUs: 'درباره ی ما'
+</i18n>
+
 <template>
   <div class="">
     <v-tooltip bottom class="sm:hidden">
@@ -15,7 +31,7 @@
           <v-icon x-large>mdi-microsoft-xbox-controller-menu</v-icon>
         </v-btn>
       </template>
-      <span class="sm:invisible">Menu</span>
+      <span class="sm:invisible">{{ $t('menu') }}</span>
     </v-tooltip>
 
     <v-navigation-drawer
@@ -37,7 +53,7 @@
               x-large
               color="transparent"
             >
-              <span class="aboutUs text-xl"> Home </span>
+              <span class="aboutUs text-xl"> {{ $t('home') }} </span>
               <v-icon class="" large>mdi-home</v-icon>
             </v-btn>
           </nuxt-link>
@@ -50,19 +66,19 @@
               x-large
               color="transparent"
             >
-              <span class="aboutUs text-xl"> About Us </span>
+              <span class="aboutUs text-xl"> {{ $t('aboutUs') }} </span>
               <v-icon class="" large>mdi-meditation</v-icon>
             </v-btn>
           </nuxt-link>
           <nuxt-link to="/productList">
             <v-btn depressed x-large dark color="transparent" class="">
-              <span class="white--text text-xl"> Shop </span>
+              <span class="white--text text-xl"> {{ $t('shop') }} </span>
               <v-icon large>mdi-shopping</v-icon>
             </v-btn>
           </nuxt-link>
           <NuxtLink id="admin-link" class="flex" to="/adminPage">
             <v-btn depressed dark x-large color="transparent" class="">
-              <span class="white--text text-xl">admin</span>
+              <span class="white--text text-xl">{{ $t('admin') }}</span>
               <v-icon class="cowboy">mdi-account-cowboy-hat</v-icon>
             </v-btn>
           </NuxtLink>
