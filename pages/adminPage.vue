@@ -65,7 +65,7 @@ fa:
 
       <div class="flex flex-col w-full h-full mt-20 items-center">
         <div
-          class="flex flex-col lg:p-5 align-center lis w-full lg:w-1/2 h-1/3 flex flex-col justify-center align-center rounded-2xl justify-center"
+          class="flex flex-col lg:p-5 align-center mb-8 lis w-full lg:w-1/2 h-1/3 flex flex-col justify-center align-center rounded-2xl justify-center"
         >
           <div
             class="buttonContainer z-10 lg:p-10 w-full flex justify-center align-center content-center w-full rounded-2xl"
@@ -594,18 +594,18 @@ export default {
         scale: 1.5,
       })
       tl.from('.catagories', 0.5, {
-        x: -100,
+        x: -50,
         opacity: 0,
         ease: 'power4.out',
       })
       tl.from('.addSomthing', 0.5, {
-        x: -100,
+        x: -50,
         opacity: 0,
         scale: 0.2,
         ease: 'power4.out',
       })
       tl.from('.products', 0.5, {
-        x: 100,
+        x: 50,
         opacity: 0,
         ease: 'power4.out',
       })

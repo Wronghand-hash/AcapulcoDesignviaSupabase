@@ -90,7 +90,7 @@ fa:
         >
           <button
             class="learnMoreBtn flex align-center justify-center w-full"
-            @click="googleSignIn"
+            @click="signInWithGoogle"
           >
             <span class="learnMoreText px-4 font-semibold py-2">
               {{ $t('google') }}
@@ -139,17 +139,14 @@ export default {
     error: '',
   }),
   methods: {
-    googleSignIn() {
-      this.$store
-        .dispatch('signInWithGoogle')
-        .then((result) => {
-          // store the user ore wathever
-          this.$forceUpdate()
-          this.$router.push('/')
-          this.dialog = false
+    async signInWithGoogle() {
+      try {
+        const { error } = await this.$supabase.auth.signIn({
+          provider: 'google',
         })
-        // eslint-disable-next-line no-console
-        .catch((err) => console.log(err))
+        if (error) throw error
+        alert('loggin success')
+      } catch (error) {}
     },
     async signInUser() {
       try {
