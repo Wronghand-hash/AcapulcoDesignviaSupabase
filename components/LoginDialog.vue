@@ -145,8 +145,13 @@ export default {
           provider: 'google',
         })
         if (error) throw error
-        alert('loggin success')
-      } catch (error) {}
+        
+      } catch (error) {
+        alert(error.error_description || error.message)
+      }
+      finally{
+        alert("loggin successfull you'll be redirected to acapulco in short order my friend")
+      }
     },
     async signInUser() {
       try {

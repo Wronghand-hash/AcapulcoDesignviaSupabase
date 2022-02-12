@@ -323,7 +323,7 @@ export default {
       this.loading = true
       try {
         if (this.user) {
-          const { error } = await this.$supabase.from('order-detail').insert([
+          const { data , error } = await this.$supabase.from('order-detail').insert([
             {
               'user-id': this.user.id,
               'full-address': this.order.Address,
@@ -334,27 +334,11 @@ export default {
             },
           ])
           if (error) throw error
+          this.orderDetailId = data[0].id
           alert('orderDetail added')
         } else {
           alert('pleaes sign in to your account')
         }
-      } catch (error) {
-        alert(error.error_description || error.message)
-      } finally {
-        this.addOrderItems()
-      }
-    },
-    async addOrderItems() {
-      try {
-        const { data, error } = await this.$supabase
-          .from('order-detail')
-          .select(`id , user-id`)
-          .eq('user-id', this.user.id)
-          .range(0, 0)
-        if (error) throw error
-        console.log(data[0].id)
-        this.orderDetailId = data[0].id
-        console.log(this.orderDetailId)
       } catch (error) {
         alert(error.error_description || error.message)
       } finally {
@@ -375,6 +359,9 @@ export default {
         if (error) throw error
       } catch (error) {
         alert(error.error_description || error.message)
+      }
+      finally{
+        alert("operation Completed")
       }
     },
     async submitOrder() {

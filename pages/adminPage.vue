@@ -72,7 +72,7 @@ fa:
           >
             <div
               :class="{
-                'bg-Lime-500': openTab === 1,
+                'bg-Sky-500': openTab === 1,
               }"
               class="lis w-1/2 h-1/2 lg:h-full my-2 mx-2 flex flex-col justify-center align-center rounded-2xl shadow-2xl"
               @click="tab1() & toggleTabs(1)"
@@ -85,7 +85,7 @@ fa:
             </div>
             <div
               :class="{
-                'bg-Lime-500': openTab === 2,
+                'bg-Sky-500': openTab === 2,
               }"
               class="lis w-1/2 h-1/2 lg:h-full mx-2 my-4 transform translate-y-10 flex flex-col justify-center align-center rounded-2xl shadow-2xl"
               @click="tab2() & toggleTabs(2)"
@@ -98,7 +98,7 @@ fa:
             </div>
             <div
               :class="{
-                'bg-Lime-500': openTab === 3,
+                'bg-Sky-500': openTab === 3,
               }"
               class="lis w-1/2 h-1/2 lg:h-full my-2 mx-2 flex flex-col justify-center align-center rounded-2xl shadow-2xl"
               @click="tab3() & toggleTabs(3)"
@@ -116,7 +116,7 @@ fa:
             class="flex flex-cols justify-center align-center w-full h-full lg:p-4 col-span-4"
           >
             <div
-              class="admin shadow-2xl px-4 py-8 flex flex-row justify-center self-center w-full rounded h-full"
+              class="admin bg-Sky-500 shadow-2xl px-4 py-8 flex flex-row justify-center self-center w-full rounded h-full"
             >
               <div
                 class="tab-content h-full w-full place-items-center content-center justify-center flex self-center tab-space"
@@ -222,7 +222,7 @@ fa:
                     </div>
 
                     <div
-                      class="w-full products rounded-lg shadow-2xl overflow-y-scroll h-full text-gray-200"
+                      class="w-full p-6 products rounded-lg shadow-2xl overflow-y-scroll h-full text-gray-200"
                     >
                       <div
                         v-for="product in Products"
@@ -584,13 +584,13 @@ export default {
       const gsap = this.$gsap
       const tl = gsap.timeline()
 
-      gsap.to('.mismisDelivery', 0.5, {
+      gsap.to('.mismisDelivery', 0.3, {
         scale: 1,
       })
-      gsap.to('.flag', 0.5, {
+      gsap.to('.flag', 0.3, {
         scale: 1,
       })
-      gsap.to('.mismisAdmin', 0.5, {
+      gsap.to('.mismisAdmin', 0.3, {
         scale: 1.5,
       })
       tl.from('.catagories', 0.5, {
@@ -615,13 +615,13 @@ export default {
       const gsap = this.$gsap
       const tl = gsap.timeline()
 
-      gsap.to('.mismisDelivery', 0.5, {
+      gsap.to('.mismisDelivery', 0.3, {
         scale: 1.5,
       })
-      gsap.to('.flag', 0.5, {
+      gsap.to('.flag', 0.3, {
         scale: 1,
       })
-      tl.to('.mismisAdmin', 0.5, {
+      tl.to('.mismisAdmin', 0.3, {
         scale: 1,
       })
       tl.from('.List', 0.3, {
@@ -645,13 +645,13 @@ export default {
       const gsap = this.$gsap
       const tl = gsap.timeline()
 
-      gsap.to('.mismisDelivery', 0.5, {
+      gsap.to('.mismisDelivery', 0.3, {
         scale: 1,
       })
-      gsap.to('.flag', 0.5, {
+      gsap.to('.flag', 0.3, {
         scale: 1.5,
       })
-      gsap.to('.mismisAdmin', 0.5, {
+      gsap.to('.mismisAdmin', 0.3, {
         scale: 1,
       })
       tl.from('.totalProducts', 0.5, {
@@ -789,7 +789,6 @@ input[type='number'] {
 
 .admin {
   font-family: 'Yanone Kaffeesatz';
-  background-color: #23f4fc;
 }
 
 #products {
