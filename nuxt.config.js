@@ -164,6 +164,9 @@ export default {
       asset: '0%',
     },
   },
+  vuetify: {
+    treeShake: true,
+  },
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   // pwa: {
   //   manifest: {
