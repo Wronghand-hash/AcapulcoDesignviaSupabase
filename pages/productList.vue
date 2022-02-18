@@ -113,7 +113,7 @@ fa:
               {{ $t('discover') }}
             </h3> -->
             <div
-              class="space-x-3 space-y-2 px-4 text-center lg:text-left flex flex-nowrap align-center lg:justify-start justify-start"
+              class="space-x-3 space-y-2 px-4 text-center lg:text-left flex flex-nowrap align-center justify-center"
             >
               <span class="cursor-pointer" @click="changeCatagory(2)">
                 <h1
@@ -121,52 +121,8 @@ fa:
                 >
                   {{ $t('lighters') }}
                   <img
-                    class="w-5 lg:w-8 object-contain ml-2"
+                    class="h-8 lg:h-14 object-contain ml-2"
                     src="../assets/images/acapulcoLighterSmall.webp"
-                  />
-                </h1>
-              </span>
-              <span class="cursor-pointer" @click="changeCatagory(4)">
-                <h1
-                  class="lg:text-3xl text-2xl text-mainBlue text-center flex justify-center align-end p-4 border-mainBlue border-b-2 sidebarText"
-                >
-                  {{ $t('acapulcoMatchboxes') }}
-                  <img
-                    class="w-7 lg:w-8 ml-1 object-contain"
-                    src="../assets/images/matchbox-small.webp"
-                  />
-                </h1>
-              </span>
-              <span class="cursor-pointer" @click="changeCatagory(3)">
-                <h1
-                  class="lg:text-3xl text-2xl text-mainBlue p-4 border-mainBlue border-b-2 sidebarText text-center flex justify-center align-center"
-                >
-                  {{ $t('acapulcoShirt') }}
-                  <img
-                    class="w-8 lg:w-14 object-contain ml-2"
-                    src="../assets/images/acapulcoShirtSmall.webp"
-                  />
-                </h1>
-              </span>
-              <span class="cursor-pointer" @click="changeCatagory(1)">
-                <h1
-                  class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText text-center flex justify-center align-center"
-                >
-                  {{ $t('acapulcoShorts') }}
-                  <img
-                    class="w-8 lg:w-12 ml-1 object-contain"
-                    src="../assets/images/acapulcoShortSmall.webp"
-                  />
-                </h1>
-              </span>
-              <span class="cursor-pointer" @click="changeCatagory(2)">
-                <h1
-                  class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText text-center flex justify-center align-center"
-                >
-                  {{ $t('acapulcoHoodies') }}
-                  <img
-                    class="w-8 lg:w-12 ml-1 object-contain"
-                    src="../assets/images/acapulcoHoodieSmall.webp"
                   />
                 </h1>
               </span>
@@ -176,8 +132,52 @@ fa:
                 >
                   {{ $t('collections') }}
                   <img
-                    class="w-8 lg:w-12 ml-1 object-contain"
+                    class="h-8 lg:h-12 ml-1 object-contain"
                     src="../assets/images/acapulcoCollectionSmall.webp"
+                  />
+                </h1>
+              </span>
+              <span class="cursor-pointer" @click="changeCatagory(4)">
+                <h1
+                  class="lg:text-3xl text-2xl text-mainBlue text-center flex justify-center align-end p-4 border-mainBlue border-b-2 sidebarText"
+                >
+                  {{ $t('acapulcoMatchboxes') }}
+                  <img
+                    class="h-8 lg:h-12 ml-1 object-contain"
+                    src="../assets/images/matchbox-small.webp"
+                  />
+                </h1>
+              </span>
+              <span class="cursor-pointer" @click="changeCatagory(3)">
+                <h1
+                  class="lg:text-3xl text-2xl text-mainBlue p-4 border-mainBlue border-b-2 sidebarText text-center flex justify-center align-end"
+                >
+                  {{ $t('acapulcoShirt') }}
+                  <img
+                    class="h-8 lg:h-12 object-contain ml-2"
+                    src="../assets/images/acapulcoShirtSmall.webp"
+                  />
+                </h1>
+              </span>
+              <span class="cursor-pointer" @click="changeCatagory(1)">
+                <h1
+                  class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText text-center flex justify-center align-end"
+                >
+                  {{ $t('acapulcoShorts') }}
+                  <img
+                    class="h-8 lg:h-12 ml-1 object-contain"
+                    src="../assets/images/acapulcoShortSmall.webp"
+                  />
+                </h1>
+              </span>
+              <span class="cursor-pointer" @click="changeCatagory(2)">
+                <h1
+                  class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText text-center flex justify-center align-end"
+                >
+                  {{ $t('acapulcoHoodies') }}
+                  <img
+                    class="h-8 lg:h-12 ml-1 object-contain"
+                    src="../assets/images/acapulcoHoodieSmall.webp"
                   />
                 </h1>
               </span>

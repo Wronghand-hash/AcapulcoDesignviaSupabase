@@ -136,7 +136,7 @@ fa:
                 >
                   {{ $t('lighters') }}
                   <img
-                    class="w-9 lg:w-14 ml-2 object-contain"
+                    class="h-36 lg:h-48 ml-2 object-contain"
                     src="../assets/images/acapulcoLighterSmall.webp"
                   />
                 </h3>
@@ -194,7 +194,7 @@ fa:
                 >
                   {{ $t('acapulcoShirt') }}
                   <img
-                    class="w-11 lg:w-14 ml-2 object-contain"
+                    class="h-36 lg:h-48 ml-2 object-contain"
                     src="../assets/images/acapulcoShirtSmall.webp"
                   />
                 </h3>
@@ -220,7 +220,7 @@ fa:
                 >
                   {{ $t('acapulcoMatchboxes') }}
                   <img
-                    class="w-8 lg:w-12 ml-1 object-contain"
+                    class="h-36 lg:h-48 ml-1 object-contain"
                     src="../assets/images/matchbox-small.webp"
                   />
                 </h3>
@@ -267,7 +267,7 @@ fa:
                 >
                   {{ $t('acapulcoShorts') }}
                   <img
-                    class="w-10 lg:w-16 ml-2 object-contain"
+                    class="h-36 lg:h-36 ml-2 object-contain"
                     src="../assets/images/acapulcoShortSmall.webp"
                   />
                 </h3>
@@ -299,7 +299,7 @@ fa:
                 >
                   {{ $t('acapulcoHoodies') }}
                   <img
-                    class="w-10 lg:w-16 ml-2 object-contain"
+                    class="h-36 lg:h-48 ml-2 object-contain"
                     src="../assets/images/acapulcoHoodieSmall.webp"
                   />
                 </h3>
@@ -348,7 +348,7 @@ fa:
                 >
                   {{ $t('collections') }}
                   <img
-                    class="w-10 lg:w-14 ml-2 object-contain"
+                    class="h-36 lg:h-48 ml-2 object-contain"
                     src="../assets/images/acapulcoCollectionSmall.webp"
                   />
                 </h3>
@@ -526,10 +526,10 @@ export default {
           opacity: 0,
           y: -90,
           scale: 1.5,
+          duration: 0.8,
           ease: 'Sine.easeOut',
           scrollTrigger: {
             trigger: pictureDiv,
-            scrub: true,
 
             start: 'top bottom',
             end: 'top center',
@@ -626,8 +626,8 @@ export default {
             scale: 1,
             ease: 'Sine.easeOut',
             scrollTrigger: {
+              scrub: 0.5,
               start: 'top bottom',
-              scrub: 0.3,
               end: 'top 50%',
               trigger: span,
               stagger: 0.1,
@@ -643,15 +643,16 @@ export default {
         this.$gsap.fromTo(
           content,
           {
-            x: 120,
-            opacity: 0,
-          },
-          {
             opacity: 1,
             x: 0,
+          },
+          {
+            duration: 1,
+            x: 180,
+            opacity: 0,
+
             ease: 'Power1.easeInOut',
             scrollTrigger: {
-              scrub: 0.5,
               start: 'top bottom',
               end: 'top center',
               trigger: content,
@@ -748,13 +749,13 @@ export default {
   font-size: 30px;
   color: #120129;
   border-radius: 35px;
-  transition: transform ease-in-out 0.3s;
+  transition: transform ease-in-out 0.6s;
   padding: 8px 45px;
   font-family: 'Yanone Kaffeesatz', 'Estedad';
 }
 
 .learnMoreBtn:hover {
-  transform: scale(1.02);
+  transform: scale(1.01);
   filter: brightness(1.2);
   filter: drop-shadow(1.5);
 }

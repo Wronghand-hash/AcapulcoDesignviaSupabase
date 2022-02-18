@@ -13,11 +13,7 @@ fa:
 
 <template>
   <div class="main">
-    <v-dialog
-      v-model="dialog"
-      max-width="600px"
-      transition="dialog-bottom-transition"
-    >
+    <v-dialog v-model="dialog" max-width="600px">
       <template #activator="{ on: menu, attrs }">
         <v-tooltip bottom>
           <template #activator="{ on: tooltip }">
@@ -145,12 +141,12 @@ export default {
           provider: 'google',
         })
         if (error) throw error
-        
       } catch (error) {
         alert(error.error_description || error.message)
-      }
-      finally{
-        alert("loggin successfull you'll be redirected to acapulco in short order my friend")
+      } finally {
+        alert(
+          "loggin successfull you'll be redirected to acapulco in short order my friend"
+        )
       }
     },
     async signInUser() {
