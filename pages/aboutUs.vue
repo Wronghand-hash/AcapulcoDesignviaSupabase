@@ -3,7 +3,9 @@ en:
   hi: 'Hi!'
   weAre: 'We Are'
   Acapulco: 'Acapulco!'
-  weAreACreativeTeam: 'We are a Creative Team Based in Iran'
+  whatIsAcapulco: 'آکاپلکو یه برند طراح لباس و اکسسوری '
+
+  weAreACreativeTeam: 'Acapulco comes from a Creative Team Based in Iran'
   ourTeam: 'Our team is consisted of two'
   fullStack: 'FullStack Developers'
   andA: 'and a'
@@ -16,7 +18,8 @@ fa:
   hi: 'سلام'
   weAre: 'ما'
   Acapulco: 'آلکاپلکوییم'
-  weAreACreativeTeam: 'ما یک تیم خلاق از ایران هستیم'
+  whatIsAcapulco: '  برند طراحی لباس و اکسسوری که سعی میکنه لحظه هاتونو رنگی  رنگی کنه'
+  weAreACreativeTeam: 'آکاپلکو ایده ی یک تیم خلاق  از ایران هست'
   ourTeam: 'تیم ما تشکیل میشه از دو'
   fullStack: 'برنامه نویس فول استک وب'
   andA: 'و یک'
@@ -86,6 +89,7 @@ fa:
             {{ $t('Acapulco') }}
           </h3>
           <div class="text-darkPurple mt-20 text-4xl lg:text-6xl">
+            <h3 class="text-mainRed">{{ $t('whatIsAcapulco') }}</h3>
             <h3>{{ $t('weAreACreativeTeam') }}</h3>
             <h3>
               {{ $t('ourTeam') }}
@@ -286,39 +290,39 @@ export default {
         },
       })
       tl.from('.Kesler', {
-        x: -200,
+        y: 200,
         opacity: 0,
         ease: 'expo.out',
         scrollTrigger: {
           trigger: '.Kesler',
           start: 'top bottom',
           end: 'top 35%',
-          scrub: 1.5,
+          scrub: 0.7,
           toggleActions: 'play none none reverse',
         },
       })
 
       tl.from('.Chao', {
-        x: 200,
+        y: 200,
         opacity: 0,
         ease: 'expo.out',
         scrollTrigger: {
           trigger: '.Chao',
           start: 'top bottom',
           end: 'top 35%',
-          scrub: 1.5,
+          scrub: 0.7,
           toggleActions: 'play none none reverse',
         },
       })
       tl.from('.Greez', {
-        x: -200,
+        y: 200,
         opacity: 0,
         ease: 'expo.out',
         scrollTrigger: {
           trigger: '.Greez',
           start: 'top bottom',
           end: 'top 35%',
-          scrub: 1.5,
+          scrub: 0.7,
           toggleActions: 'play none none reverse',
         },
       })

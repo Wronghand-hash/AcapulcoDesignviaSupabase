@@ -643,20 +643,18 @@ export default {
         this.$gsap.fromTo(
           content,
           {
-            opacity: 1,
-            x: 0,
+            y: 180,
+            opacity: 0,
           },
           {
-            duration: 1,
-            x: 180,
-            opacity: 0,
-
+            opacity: 1,
+            y: 0,
             ease: 'Power1.easeInOut',
             scrollTrigger: {
               start: 'top bottom',
               end: 'top center',
               trigger: content,
-
+              scrub: '0.2',
               toggleActions: 'play reverse  none none',
             },
           }
