@@ -35,7 +35,7 @@
                 <v-select
                   v-model="catagory"
                   color="yellow lighten-5"
-                  :items="[1, 2, 3, 4]"
+                  :items="['Lighters', 'Collections', 'Matchboxes', 'Shirts' , 'Shorts' , 'Hoodies']"
                   label="catagory"
                   required
                 ></v-select>
@@ -128,7 +128,7 @@ export default {
             title: this.title,
             price: this.price,
             inStock: this.inStock,
-            catagory_id: this.catagory,
+            catagory: this.catagory,
             image_url: image,
           },
         ])

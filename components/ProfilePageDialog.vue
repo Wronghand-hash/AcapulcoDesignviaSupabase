@@ -195,7 +195,7 @@
               </div>
               <div
                 class="Tabs h-full w-full flex flex-col justify-around lg:flex-row lg:justify-center align-center lg:space-x-5"
-                @click="toggleDialog('Sent')"
+                @click="toggleDialog('Order')"
               >
                 <img
                   src="~/assets/images/sent.png"
@@ -301,6 +301,7 @@ export default {
 
   mounted() {
     this.getProfile()
+    this.$store.dispatch('fetchOrders')
   },
   methods: {
     async getProfile() {

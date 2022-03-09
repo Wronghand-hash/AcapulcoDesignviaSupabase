@@ -1,8 +1,9 @@
 export const state = () => ({
-  catagory: 2,
+  catagory: 'Lighters',
   user: null,
   products: [],
   cart: [],
+  userOrders: []
 })
 
 export const mutations = {
@@ -17,6 +18,12 @@ export const mutations = {
   setProducts(state, data) {
     state.products = data
   },
+
+  setUserOrders(state, data){
+    state.userOrders = data
+  }, 
+
+
   AddToCart(state, Product) {
     // eslint-disable-next-line no-console
     console.log(Product)
@@ -57,7 +64,7 @@ export const actions = {
   async getCatagories({ commit }) {
     try {
       const { error } = await this.$supabase
-        .from('product_catagory')
+        .from('product-catagory')
         .select(`id , title`)
       if (error) throw error
     } catch (error) {
@@ -74,6 +81,23 @@ export const actions = {
         console.log(data)
       }
     } catch (error) {}
+  },
+
+  async fetchOrders({commit}) {
+    if (this.user) {
+      try {
+        const { data, error } = await this.$supabase
+          .from('order-detail')
+          .select()
+          .eq('user-id', await this.$store.state.user.id)
+        if (error) throw error
+        if (data) {
+         commit('setUserOrders', data)
+        }
+      } catch (error) {
+        alert(error.message)
+      }
+    }
   },
 
   changeCatagory({ commit }, selected) {

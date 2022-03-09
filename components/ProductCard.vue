@@ -1,5 +1,5 @@
 <template>
-  <div v-show="product.catagory_id === catagory">
+  <div v-show="product.catagory === catagory">
     <div
       class="flex flex-col lg:h-72 h-rem26 lg:w-96 lg:flex-row justify-center align-center lg:space-x-3 bg-transparent cardBackground productCard"
     >
