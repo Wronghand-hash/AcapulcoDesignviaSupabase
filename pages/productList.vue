@@ -115,7 +115,7 @@ fa:
             <div
               class="space-x-3 space-y-2 px-4 text-center lg:text-left flex flex-nowrap align-center justify-center"
             >
-              <span class="cursor-pointer" @click="changeCatagory(2)">
+              <span class="cursor-pointer" @click="changeCatagory('Lighters')">
                 <h1
                   class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText text-center flex justify-center align-end"
                 >
@@ -126,7 +126,7 @@ fa:
                   />
                 </h1>
               </span>
-              <span class="cursor-pointer" @click="changeCatagory(4)">
+              <span class="cursor-pointer" @click="changeCatagory('Collections')">
                 <h1
                   class="lg:text-3xl text-2xl border-mainBlue border-b-2 text-mainBlue p-4 sidebarText text-center flex justify-center align-end"
                 >
@@ -137,7 +137,7 @@ fa:
                   />
                 </h1>
               </span>
-              <span class="cursor-pointer" @click="changeCatagory(4)">
+              <span class="cursor-pointer" @click="changeCatagory('Matchboxes')">
                 <h1
                   class="lg:text-3xl text-2xl text-mainBlue text-center flex justify-center align-end p-4 border-mainBlue border-b-2 sidebarText"
                 >
@@ -148,7 +148,7 @@ fa:
                   />
                 </h1>
               </span>
-              <span class="cursor-pointer" @click="changeCatagory(3)">
+              <span class="cursor-pointer" @click="changeCatagory('Shirts')">
                 <h1
                   class="lg:text-3xl text-2xl text-mainBlue p-4 border-mainBlue border-b-2 sidebarText text-center flex justify-center align-end"
                 >
@@ -159,7 +159,7 @@ fa:
                   />
                 </h1>
               </span>
-              <span class="cursor-pointer" @click="changeCatagory(1)">
+              <span class="cursor-pointer" @click="changeCatagory('Shorts')">
                 <h1
                   class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText text-center flex justify-center align-end"
                 >
@@ -170,7 +170,7 @@ fa:
                   />
                 </h1>
               </span>
-              <span class="cursor-pointer" @click="changeCatagory(2)">
+              <span class="cursor-pointer" @click="changeCatagory('Hoodies')">
                 <h1
                   class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText text-center flex justify-center align-end"
                 >

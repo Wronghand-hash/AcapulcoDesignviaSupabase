@@ -15,7 +15,7 @@
           <v-badge
             :content="cartTotalAmount"
             :value="cartTotalAmount"
-            color="yellow"
+            color="deep purple"
             overlap
             bordered
             location="top-left"
