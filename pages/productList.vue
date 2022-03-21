@@ -1,7 +1,7 @@
 <i18n lang="yaml">
 en:
   takeATrip: 'Take a trip with us'
-  stayFree: 'Stay Free'
+  stayFree: 'Stay'
   home: 'Home'
   shop: 'Shop'
   discover: 'Discover'
@@ -10,10 +10,10 @@ en:
   acapulcoMatchboxes: 'Acapulco Matchboxes'
   acapulcoShorts: 'Acapulco Shorts'
   acapulcoHoodies: 'Acapulco Hoodies'
-  collections: 'Collections'
+  collections: 'Acapulco Collections'
 fa:
-  takeATrip: 'یه سفر با ما برو'
-  stayFree: 'آزاد بمون'
+  takeATrip: 'با ما هسمفر شید'
+  stayFree: 'خوش اومدین'
   home: 'خونه'
   shop: 'خرید'
   discover: '!کشف کن'
@@ -63,12 +63,12 @@ fa:
         </div>
         <div class="w-3/4 lg:w-4/6 z-10 mt-14 NavbarTrigger">
           <h1
-            class="text-8xl lg:text-9xl text-center text-mainBlue capitalize firstText opacity-0 NavbarTrigger"
+            class="text-7xl lg:text-9xl text-center text-mainBlue capitalize firstText opacity-0 NavbarTrigger"
           >
             {{ $t('takeATrip') }}
             <br />
             <span
-              class="text-mainRed font-extrabold span text-8xl lg:text-10xl"
+              class="text-mainRed font-extrabold span text-6xl lg:text-10xl sm:hidden sm:invisible"
             >
               {{ $t('stayFree') }}
             </span>
@@ -101,7 +101,7 @@ fa:
             </NuxtLink>
           </div>
           <div
-            class="p-3 col-span-8 overflow-x-scroll self-start justify-self-center w-full sidebar opacity-0 space-y-4 sticky h-auto flex flex-col justify-between align-center"
+            class="p-3 col-span-8 overflow-x-scroll self-center justify-self-center w-screen sidebar opacity-0 space-y-4 sticky h-auto flex flex-col justify-between align-center"
           >
             <!-- <div class="flex flex-col p-10 self-center"> -->
             <!-- <h1 class="text-7xl mt-10 text-center text-gray-700 font-bold">
@@ -357,7 +357,7 @@ export default {
 
 <style scoped>
 #main {
-  font-family: 'Yanone Kaffeesatz', 'Estedad';
+  font-family: 'Yanone Kaffeesatz', 'Rezvan';
 }
 
 .background {

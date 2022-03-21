@@ -2,13 +2,23 @@
   <v-row justify="center">
     <v-dialog v-model="dialog" persistent max-height="600px" max-width="600px">
       <template #activator="{ on, attrs }">
-        <v-btn height="50px" width="200px" color="amber" dark v-bind="attrs" v-on="on">
+        <v-btn
+          height="50px"
+          width="200px"
+          color="amber"
+          dark
+          v-bind="attrs"
+          v-on="on"
+        >
           something to add?
         </v-btn>
       </template>
-      <v-card  color="amber darken-2">
+      <v-card color="lime lighten-1">
         <v-card-title color="yellow lighten-5">
-          <span  class="font-main text-h5">add new product</span>
+          <span
+            class="font-mainFont font-bold capitalize text-white text-3xl bg-darkPurple p-7"
+            >add new product</span
+          >
         </v-card-title>
         <v-card-text>
           <v-container>
@@ -59,11 +69,15 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="yellow lighten-5" text @click="dialog = false">
+          <v-btn
+            class="text-2xl font-mainFont text-mainBlue"
+            light
+            @click="dialog = false"
+          >
             Close
           </v-btn>
-          <v-btn :disabled="loading" color="yellow lighten-5" text @click="addProduct">
-             {{ loading ? 'Uploading ...' : 'save' }}
+          <v-btn light :disabled="loading" @click="addProduct">
+            {{ loading ? 'Uploading ...' : 'save' }}
           </v-btn>
         </v-card-actions>
       </v-card>

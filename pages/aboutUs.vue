@@ -3,13 +3,14 @@ en:
   hi: 'Hi!'
   weAre: 'We Are'
   Acapulco: 'Acapulco!'
-  whatIsAcapulco: 'آکاپلکو یه برند طراح لباس و اکسسوری '
+  whatIsAcapulco: 'A clothing and accessory design brand that tries to color your moments'
 
   weAreACreativeTeam: 'Acapulco comes from a Creative Team Based in Iran'
   ourTeam: 'Our team is consisted of two'
   fullStack: 'FullStack Developers'
   andA: 'and a'
   digital: 'Digital Artist'
+  consisted: ' '
   Kesler: 'Kesler'
   Chao: 'Chao'
   Greez: 'Greez'
@@ -18,12 +19,13 @@ fa:
   hi: 'سلام'
   weAre: 'ما'
   Acapulco: 'آلکاپلکوییم'
-  whatIsAcapulco: '  برند طراحی لباس و اکسسوری که سعی میکنه لحظه هاتونو رنگی  رنگی کنه'
-  weAreACreativeTeam: 'آکاپلکو ایده ی یک تیم خلاق  از ایران هست'
-  ourTeam: 'تیم ما تشکیل میشه از دو'
+  whatIsAcapulco: 'یک برند طراحی لباس و اکسسوری که سعی میکنه لحظه هاتونو رنگارنگ کنه'
+  weAreACreativeTeam: 'آکاپلکو ایده ی یک تیم خلاق  از ایرانِ'
+  ourTeam: 'تیم ما از دو'
   fullStack: 'برنامه نویس فول استک وب'
   andA: 'و یک'
   digital: 'نقاش دیجیتال'
+  consisted: 'تشکیل میشه'
   Kesler: 'کسلر'
   Chao: 'چاوو'
   Greez: 'فیلیز'
@@ -77,7 +79,7 @@ fa:
           />
         </div>
         <div
-          class="h-auto mb-4 lg:h-auto w-screen introText align-center flex flex-col text-center justify-start"
+          class="h-auto mb-4 px-12 lg:px-36 w-screen introText align-center flex flex-col text-center justify-start"
         >
           <h1 class="text-mainRed lg:text-10xl text-9xl hiText">
             {{ $t('hi') }}
@@ -88,8 +90,8 @@ fa:
           <h3 class="text-7xl lg:text-9xl text-goldie font-bold acapulco">
             {{ $t('Acapulco') }}
           </h3>
-          <div class="text-darkPurple mt-20 text-4xl lg:text-6xl">
-            <h3 class="text-mainRed">{{ $t('whatIsAcapulco') }}</h3>
+          <div class="text-darkPurple space-y-6 mt-20 text-4xl lg:text-6xl">
+            <h3 class="text-mainBlue">{{ $t('whatIsAcapulco') }}</h3>
             <h3>{{ $t('weAreACreativeTeam') }}</h3>
             <h3>
               {{ $t('ourTeam') }}
@@ -100,6 +102,7 @@ fa:
               <span class="text-mainRed p-2 font-black">
                 {{ $t('digital') }}
               </span>
+              {{ $t('consisted') }}
             </h3>
           </div>
         </div>
