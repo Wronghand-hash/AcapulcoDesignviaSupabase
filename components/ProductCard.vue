@@ -151,6 +151,8 @@ export default {
 .shoppingBtn:active {
   filter: brightness(0.5);
 }
+.productCard {
+}
 /* .productDetailBackground {
   background: #120129c9;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);

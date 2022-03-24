@@ -1,16 +1,16 @@
 <i18n lang="yaml">
 en:
   takeATrip: 'Take a trip with us'
-  stayFree: 'Stay'
+  stayFree: 'Stay Blessed'
   home: 'Home'
   shop: 'Shop'
   discover: 'Discover'
   lighters: 'Lighters'
-  acapulcoShirt: 'Acapulco Shirt'
-  acapulcoMatchboxes: 'Acapulco Matchboxes'
-  acapulcoShorts: 'Acapulco Shorts'
-  acapulcoHoodies: 'Acapulco Hoodies'
-  collections: 'Acapulco Collections'
+  acapulcoShirt: 'Shirt'
+  acapulcoMatchboxes: 'Matchboxes'
+  acapulcoShorts: 'Shorts'
+  acapulcoHoodies: 'Hoodies'
+  collections: 'Collections'
 fa:
   takeATrip: 'با ما هسمفر شید'
   stayFree: 'خوش اومدین'
@@ -18,10 +18,10 @@ fa:
   shop: 'خرید'
   discover: '!کشف کن'
   lighters: 'فندک ها'
-  acapulcoShirt: 'پیراهن آلکاپلکو'
-  acapulcoMatchboxes: 'کبریت های آکاپلکو'
-  acapulcoHoodies: 'هودی های اکاپلکو'
-  acapulcoShorts: 'شلوارک های آکاپلکو'
+  acapulcoShirt: 'پیراهن ها'
+  acapulcoMatchboxes: 'کبریت ها'
+  acapulcoHoodies: 'هودی ها'
+  acapulcoShorts: 'شلوارک ها'
   collections: 'کالکشن ها'
 </i18n>
 
@@ -77,31 +77,29 @@ fa:
         <div
           class="lg:w-11/12 w-full h-full grid grid-cols-8 mt-24 background bg-transparent opacity-0"
         >
-          <div
-            class="menuNavbar sticky flex align-center py-6 divide-x-2 divide-black col-span-8"
-          >
+          <div class="menuNavbar sticky flex align-center py-6 col-span-8">
             <NuxtLink to="/">
-              <span class="p-9"
+              <span class="py-8 px-3"
                 ><v-icon light x-large color="pink lighten-5"
                   >mdi-chevron-double-left</v-icon
                 ></span
               >
             </NuxtLink>
             <NuxtLink to="/">
-              <span class="menu px-5 text-4xl text-darkPurple font-semibold">
+              <span
+                class="menu text-4xl self-center text-mainBlue font-semibold"
+              >
                 {{ $t('home') }}
               </span>
             </NuxtLink>
-            <NuxtLink to="/productList">
-              <span>
-                <h1 class="px-5 text-4xl text-darkPurple font-semibold">
-                  {{ $t('shop') }}
-                </h1>
+            <!-- <NuxtLink to="/productList">
+              <span class="menu text-4xl text-mainBlue font-semibold">
+                {{ $t('shop') }}
               </span>
-            </NuxtLink>
+            </NuxtLink> -->
           </div>
           <div
-            class="p-3 col-span-8 overflow-x-scroll self-center justify-self-center w-screen sidebar opacity-0 space-y-4 sticky h-auto flex flex-col justify-between align-center"
+            class="p-3 col-span-8 bg-LightBlue-200 self-center justify-self-center w-screen sidebar opacity-0 space-y-4 sticky h-auto flex flex-col justify-between align-center"
           >
             <!-- <div class="flex flex-col p-10 self-center"> -->
             <!-- <h1 class="text-7xl mt-10 text-center text-gray-700 font-bold">
@@ -113,74 +111,87 @@ fa:
               {{ $t('discover') }}
             </h3> -->
             <div
-              class="space-x-3 space-y-2 px-4 text-center lg:text-left flex flex-nowrap align-center justify-center"
+              class="space-x-2 lg:my-5 px-1 text-center lg:text-left flex align-center justify-center"
             >
-              <span class="cursor-pointer" @click="changeCatagory('Lighters')">
-                <h1
-                  class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText text-center flex justify-center align-end"
+              <div class="lg:flex lg:space-x-5">
+                <span
+                  class="cursor-pointer"
+                  @click="changeCatagory('Lighters')"
                 >
-                  {{ $t('lighters') }}
-                  <img
-                    class="h-8 lg:h-14 object-contain ml-2"
-                    src="../assets/images/acapulcoLighterSmall.webp"
-                  />
-                </h1>
-              </span>
-              <span class="cursor-pointer" @click="changeCatagory('Collections')">
-                <h1
-                  class="lg:text-3xl text-2xl border-mainBlue border-b-2 text-mainBlue p-4 sidebarText text-center flex justify-center align-end"
+                  <h1
+                    class="lg:text-3xl text-2xl bg-LightBlue-500 lg:rounded-md rounded-t-md shadow-2xl filter drop-shadow-2xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                  >
+                    {{ $t('lighters') }}
+                    <img
+                      class="h-8 lg:h-12 ml-1 object-contain"
+                      src="../assets/images/acapulcoLighterSmall.webp"
+                    />
+                  </h1>
+                </span>
+                <span
+                  class="cursor-pointer"
+                  @click="changeCatagory('Collections')"
                 >
-                  {{ $t('collections') }}
-                  <img
-                    class="h-8 lg:h-12 ml-1 object-contain"
-                    src="../assets/images/acapulcoCollectionSmall.webp"
-                  />
-                </h1>
-              </span>
-              <span class="cursor-pointer" @click="changeCatagory('Matchboxes')">
-                <h1
-                  class="lg:text-3xl text-2xl text-mainBlue text-center flex justify-center align-end p-4 border-mainBlue border-b-2 sidebarText"
+                  <h1
+                    class="lg:text-3xl text-2xl bg-LightBlue-500 lg:rounded-md shadow-2xl filter drop-shadow-2xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                  >
+                    {{ $t('collections') }}
+                    <img
+                      class="h-8 lg:h-12 ml-1 object-contain"
+                      src="../assets/images/acapulcoCollectionSmall.webp"
+                    />
+                  </h1>
+                </span>
+                <span
+                  class="cursor-pointer"
+                  @click="changeCatagory('Matchboxes')"
                 >
-                  {{ $t('acapulcoMatchboxes') }}
-                  <img
-                    class="h-8 lg:h-12 ml-1 object-contain"
-                    src="../assets/images/matchbox-small.webp"
-                  />
-                </h1>
-              </span>
-              <span class="cursor-pointer" @click="changeCatagory('Shirts')">
-                <h1
-                  class="lg:text-3xl text-2xl text-mainBlue p-4 border-mainBlue border-b-2 sidebarText text-center flex justify-center align-end"
-                >
-                  {{ $t('acapulcoShirt') }}
-                  <img
-                    class="h-8 lg:h-12 object-contain ml-2"
-                    src="../assets/images/acapulcoShirtSmall.webp"
-                  />
-                </h1>
-              </span>
-              <span class="cursor-pointer" @click="changeCatagory('Shorts')">
-                <h1
-                  class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText text-center flex justify-center align-end"
-                >
-                  {{ $t('acapulcoShorts') }}
-                  <img
-                    class="h-8 lg:h-12 ml-1 object-contain"
-                    src="../assets/images/acapulcoShortSmall.webp"
-                  />
-                </h1>
-              </span>
-              <span class="cursor-pointer" @click="changeCatagory('Hoodies')">
-                <h1
-                  class="lg:text-3xl text-2xl border-mainBlue border-b-2 p-4 sidebarText text-center flex justify-center align-end"
-                >
-                  {{ $t('acapulcoHoodies') }}
-                  <img
-                    class="h-8 lg:h-12 ml-1 object-contain"
-                    src="../assets/images/acapulcoHoodieSmall.webp"
-                  />
-                </h1>
-              </span>
+                  <h1
+                    class="lg:text-3xl text-2xl bg-LightBlue-500 rounded-b-md lg:rounded-md shadow-2xl filter drop-shadow-2xl px-12 py-2 text-center flex justify-center align-end sidebarText"
+                  >
+                    {{ $t('acapulcoMatchboxes') }}
+                    <img
+                      class="h-8 lg:h-12 ml-1 object-contain"
+                      src="../assets/images/matchbox-small.webp"
+                    />
+                  </h1>
+                </span>
+              </div>
+              <div class="lg:flex lg:space-x-5">
+                <span class="cursor-pointer" @click="changeCatagory('Shirts')">
+                  <h1
+                    class="lg:text-3xl text-2xl lg:rounded-md bg-LightBlue-500 rounded-t-md shadow-2xl filter drop-shadow-2xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                  >
+                    {{ $t('acapulcoShirt') }}
+                    <img
+                      class="h-8 lg:h-12 object-contain ml-2"
+                      src="../assets/images/acapulcoShirtSmall.webp"
+                    />
+                  </h1>
+                </span>
+                <span class="cursor-pointer" @click="changeCatagory('Shorts')">
+                  <h1
+                    class="lg:text-3xl text-2xl lg:rounded-md bg-LightBlue-500 shadow-2xl filter drop-shadow-2xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                  >
+                    {{ $t('acapulcoShorts') }}
+                    <img
+                      class="h-8 lg:h-12 ml-1 object-contain"
+                      src="../assets/images/acapulcoShortSmall.webp"
+                    />
+                  </h1>
+                </span>
+                <span class="cursor-pointer" @click="changeCatagory('Hoodies')">
+                  <h1
+                    class="lg:text-3xl text-2xl lg:rounded-md bg-LightBlue-500 rounded-b-md shadow-2xl filter drop-shadow-2xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                  >
+                    {{ $t('acapulcoHoodies') }}
+                    <img
+                      class="h-8 lg:h-12 ml-1 object-contain"
+                      src="../assets/images/acapulcoHoodieSmall.webp"
+                    />
+                  </h1>
+                </span>
+              </div>
             </div>
             <!-- </div> -->
           </div>
@@ -367,7 +378,7 @@ export default {
 }
 
 .sidebar {
-  background: #ffeeeeef;
+  background: #c5e2f7ef;
   box-shadow: 0 18px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
@@ -382,8 +393,14 @@ export default {
 }
 
 .sidebarText:hover {
-  color: #ff4a68;
-  border-bottom: #ff4a68 solid 2px;
+  color: white;
+  background-color: #104e88;
+  border: none;
+}
+.menu {
+  margin: 2px;
+  padding: 4px 10px;
+  background-color: #3ecc69;
 }
 
 /* @keyframes animatedBackground {

@@ -9,15 +9,15 @@
     >
       <template v-slot:activator="{ on, attrs }">
         <button
-          class="learnMore flex py-1 px-5 justify-center align-center bg-green-300 rounded-full"
+          class="learnMore flex py-1 px-5 justify-center align-center bg-Rose-600 rounded-full"
           v-bind="attrs"
           @click="dialog = true"
           v-on="on"
         >
-          <span class="checkoutText pl-2 font-mainFont text-2xl">
+          <span class="checkoutText text-white pl-2 font-mainFont text-2xl">
             Learn More!
           </span>
-          <v-icon large class="pink--text text--darken-2"
+          <v-icon large class="blue--text text--darken-2"
             >mdi-arrow-right-circle</v-icon
           >
         </button>
