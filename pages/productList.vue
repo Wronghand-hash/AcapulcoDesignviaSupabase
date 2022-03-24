@@ -2,7 +2,7 @@
 en:
   takeATrip: 'Take a trip with us'
   stayFree: 'Stay Blessed'
-  home: 'Home'
+  home: 'Categories'
   shop: 'Shop'
   discover: 'Discover'
   lighters: 'Lighters'
@@ -14,7 +14,7 @@ en:
 fa:
   takeATrip: 'با ما هسمفر شید'
   stayFree: 'خوش اومدین'
-  home: 'خونه'
+  home: 'دسته بندی ها'
   shop: 'خرید'
   discover: '!کشف کن'
   lighters: 'فندک ها'
@@ -85,13 +85,11 @@ fa:
                 ></span
               >
             </NuxtLink>
-            <NuxtLink to="/">
-              <span
-                class="menu text-4xl self-center text-mainBlue font-semibold"
-              >
-                {{ $t('home') }}
-              </span>
-            </NuxtLink>
+            <span
+              class="menu text-4xl py-3 justify-self-center self-center rounded-md text-mainBlue font-semibold"
+            >
+              {{ $t('home') }}
+            </span>
             <!-- <NuxtLink to="/productList">
               <span class="menu text-4xl text-mainBlue font-semibold">
                 {{ $t('shop') }}
@@ -99,7 +97,7 @@ fa:
             </NuxtLink> -->
           </div>
           <div
-            class="p-3 col-span-8 bg-LightBlue-200 self-center justify-self-center w-screen sidebar opacity-0 space-y-4 sticky h-auto flex flex-col justify-between align-center"
+            class="p-3 col-span-8 bg-LightBlue-100 self-center justify-self-center w-screen sidebar opacity-0 space-y-4 sticky h-auto flex flex-col justify-between align-center"
           >
             <!-- <div class="flex flex-col p-10 self-center"> -->
             <!-- <h1 class="text-7xl mt-10 text-center text-gray-700 font-bold">
@@ -113,7 +111,7 @@ fa:
             <div
               class="space-x-2 lg:my-5 px-1 text-center lg:text-left flex align-center justify-center"
             >
-              <div class="lg:flex lg:space-x-5">
+              <div class="lg:flex lg:space-x-5 font-bold">
                 <span
                   class="cursor-pointer"
                   @click="changeCatagory('Lighters')"
@@ -157,7 +155,7 @@ fa:
                   </h1>
                 </span>
               </div>
-              <div class="lg:flex lg:space-x-5">
+              <div class="lg:flex lg:space-x-5 font-bold">
                 <span class="cursor-pointer" @click="changeCatagory('Shirts')">
                   <h1
                     class="lg:text-3xl text-2xl lg:rounded-md bg-LightBlue-500 rounded-t-md shadow-2xl filter drop-shadow-2xl px-12 py-2 sidebarText text-center flex justify-center align-end"
@@ -399,8 +397,8 @@ export default {
 }
 .menu {
   margin: 2px;
-  padding: 4px 10px;
-  background-color: #3ecc69;
+  padding: 4px 13px;
+  background-color: #84f0a6;
 }
 
 /* @keyframes animatedBackground {
