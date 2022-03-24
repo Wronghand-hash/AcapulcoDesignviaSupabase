@@ -136,7 +136,7 @@ fa:
                 >
                   {{ $t('lighters') }}
                   <img
-                    class="h-36 lg:h-48 ml-2 object-contain"
+                    class="h-24 lg:h-48 ml-2 object-contain"
                     src="../assets/images/acapulcoLighterSmall.webp"
                   />
                 </h3>
@@ -194,7 +194,7 @@ fa:
                 >
                   {{ $t('acapulcoShirt') }}
                   <img
-                    class="h-36 lg:h-48 ml-2 object-contain"
+                    class="h-24 lg:h-48 ml-2 object-contain"
                     src="../assets/images/acapulcoShirtSmall.webp"
                   />
                 </h3>
@@ -220,7 +220,7 @@ fa:
                 >
                   {{ $t('acapulcoMatchboxes') }}
                   <img
-                    class="h-36 lg:h-48 ml-1 object-contain"
+                    class="h-24 lg:h-48 ml-1 object-contain"
                     src="../assets/images/matchbox-small.webp"
                   />
                 </h3>
@@ -267,7 +267,7 @@ fa:
                 >
                   {{ $t('acapulcoShorts') }}
                   <img
-                    class="h-36 lg:h-36 ml-2 object-contain"
+                    class="h-24 h lg:h-24 ml-2 object-contain"
                     src="../assets/images/acapulcoShortSmall.webp"
                   />
                 </h3>
@@ -299,7 +299,7 @@ fa:
                 >
                   {{ $t('acapulcoHoodies') }}
                   <img
-                    class="h-36 lg:h-48 ml-2 object-contain"
+                    class="h-24 lg:h-48 ml-2 object-contain"
                     src="../assets/images/acapulcoHoodieSmall.webp"
                   />
                 </h3>
@@ -348,7 +348,7 @@ fa:
                 >
                   {{ $t('collections') }}
                   <img
-                    class="h-36 lg:h-48 ml-2 object-contain"
+                    class="h-24 lg:h-48 ml-2 object-contain"
                     src="../assets/images/acapulcoCollectionSmall.webp"
                   />
                 </h3>

@@ -2,6 +2,7 @@
 en:
   takeATrip: 'Take a trip with us'
   stayFree: 'Stay Blessed'
+  backHome: 'Go Back'
   home: 'Categories'
   shop: 'Shop'
   discover: 'Discover'
@@ -14,6 +15,7 @@ en:
 fa:
   takeATrip: 'با ما هسمفر شید'
   stayFree: 'خوش اومدین'
+  backHome: 'برگرد خونه'
   home: 'دسته بندی ها'
   shop: 'خرید'
   discover: '!کشف کن'
@@ -79,11 +81,19 @@ fa:
         >
           <div class="menuNavbar sticky flex align-center py-6 col-span-8">
             <NuxtLink to="/">
-              <span class="py-8 px-3"
-                ><v-icon light x-large color="pink lighten-5"
-                  >mdi-chevron-double-left</v-icon
-                ></span
-              >
+              <v-tooltip bottom>
+                <template #activator="{ on: tooltip }">
+                  <span class="py-8 px-3" v-on="{ ...tooltip }"
+                    ><v-icon light x-large color="pink lighten-5"
+                      >mdi-chevron-double-left</v-icon
+                    ></span
+                  >
+                </template>
+                <span
+                  class="font-mainFont font-extrabold text-xl text-LightBlue-50"
+                  >{{ $t('backHome') }}</span
+                >
+              </v-tooltip>
             </NuxtLink>
             <span
               class="menu text-4xl py-3 justify-self-center self-center rounded-md text-mainBlue font-semibold"
@@ -392,7 +402,7 @@ export default {
 
 .sidebarText:hover {
   color: white;
-  background-color: #104e88;
+  background-color: #1411c7;
   border: none;
 }
 .menu {
