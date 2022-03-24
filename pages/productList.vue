@@ -359,15 +359,19 @@ export default {
       )
       tl.from('.sidebarText', {
         opacity: 0,
-        y: -60,
+        y: 60,
         ease: 'power3.out',
-        stagger: 0.1,
+        duration: 0.3,
+
+        stagger: 0.3,
       })
       tl.from('.productCard', {
         opacity: 0,
-        y: -40,
+        y: 40,
         ease: 'power3.out',
-        stagger: 0.1,
+        duration: 0.3,
+
+        stagger: 0.3,
       })
     },
   },
