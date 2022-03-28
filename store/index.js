@@ -19,6 +19,8 @@ export const mutations = {
     state.products = data
   },
 
+  //setProducts fix
+
   setUserOrders(state, data){
     state.userOrders = data
   }, 
