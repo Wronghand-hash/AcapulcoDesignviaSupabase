@@ -109,15 +109,6 @@ fa:
           <div
             class="p-3 col-span-8 bg-LightBlue-100 self-center justify-self-center w-screen sidebar opacity-0 space-y-4 sticky h-auto flex flex-col justify-between align-center"
           >
-            <!-- <div class="flex flex-col p-10 self-center"> -->
-            <!-- <h1 class="text-7xl mt-10 text-center text-gray-700 font-bold">
-                Shop
-              </h1> -->
-            <!-- <h3
-              class="p-3 text-mainBlue text-5xl lg:text-6xl border-red-600 font-black"
-            >
-              {{ $t('discover') }}
-            </h3> -->
             <div
               class="space-x-2 lg:my-5 px-1 text-center lg:text-left flex align-center justify-center"
             >
@@ -219,6 +210,18 @@ fa:
                 :product="product"
               />
             </div>
+            <div class="w-full px-56">
+              <v-pagination
+                v-model="page"
+                circle
+                color="#240046"
+                large
+                prev-icon="mdi-menu-left"
+                next-icon="mdi-menu-right"
+                class="my-4 font-bold text-lg"
+                :length="15"
+              ></v-pagination>
+            </div>
           </div>
         </div>
       </div>
@@ -257,10 +260,12 @@ export default {
       done()
     },
   },
-
   data() {
-    return {}
+    return {
+      page: 1,
+    }
   },
+
   computed: {
     // products() {
     //   return this.$store.state.products
@@ -384,7 +389,7 @@ export default {
 }
 
 .background {
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: 0 8px 32px 0 #e7e7e75e;
   background-color: transparent;
   border-radius: 10px;
 }

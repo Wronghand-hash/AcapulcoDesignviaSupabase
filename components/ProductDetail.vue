@@ -7,14 +7,14 @@
       width="900px"
       :fullscreen="$vuetify.breakpoint.smOnly"
     >
-      <template v-slot:activator="{ on, attrs }">
+      <template #activator="{ on, attrs }">
         <button
-          class="learnMore flex py-1 px-5 justify-center align-center bg-Rose-600 rounded-full"
+          class="learnMore flex py-1 px-5 justify-center align-center bg-mainGreen rounded-full"
           v-bind="attrs"
           @click="dialog = true"
           v-on="on"
         >
-          <span class="checkoutText text-white pl-2 font-mainFont text-2xl">
+          <span class="checkoutText text-mainBlue pl-2 font-mainFont text-2xl">
             Learn More!
           </span>
           <v-icon large class="blue--text text--darken-2"
@@ -32,7 +32,7 @@
           /> -->
         </div>
 
-        <div class="w-3/5 p-9 p-7 bg-blueGray-100 flex-col flex justify-around">
+        <div class="w-3/5 p-9 flex-col flex justify-around">
           <div class="flex justify-between flex-grow-0">
             <h1
               class="lg:text-5xl text-4xl text-blueGray-900 font-bold font-mainFont"
@@ -178,7 +178,7 @@ export default {
 }
 
 .learnMore:active {
-  transform: scale(0.95);
+  transform: scale(0.97);
   filter: brightness(1);
 }
 </style>
