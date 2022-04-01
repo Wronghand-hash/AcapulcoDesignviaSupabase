@@ -1,12 +1,6 @@
 <template>
   <div>
-    <v-dialog
-      v-model="dialog"
-      transition="dialog-top-transition"
-      class="dialog"
-      width="900px"
-      :fullscreen="$vuetify.breakpoint.smOnly"
-    >
+    <v-dialog v-model="dialog" class="dialog" fullscreen>
       <template #activator="{ on, attrs }">
         <button
           class="learnMore flex py-1 px-5 justify-center align-center bg-mainGreen rounded-full"
@@ -23,16 +17,25 @@
         </button>
       </template>
 
-      <div class="w-full h-dialog flex">
-        <div class="w-2/5 h-full bg-mainRed">
-          <!-- <img
-            src="~/assets/images/davisuko-rhUU1pemhQ0-unsplash-removebg-preview.png"
-            alt=""
-            class=""
-          /> -->
+      <div
+        class="w-screen h-full bg-green-100 p-9 space-y-4 lg:space-x-6 productDetail flex flex-col md:flex-row"
+      >
+        <div
+          class="md:w-3/4 w-full lg:h-full h-3/4 filter drop-shadow-2xl rounded-lg bg-green-300 flex justify-center p-3"
+        >
+          <!-- <div
+            class="w-full h-full filter drop-shadow-2xl rounded-lg bg-CoolGray-100"
+          ></div> -->
         </div>
+        <div
+          class="md:w-1/4 w-full lg:h-full h-1/4 rounded-lg bg-green-500"
+        ></div>
 
-        <div class="w-3/5 p-9 flex-col flex justify-around">
+        <!-- <v-icon light x-large class="m-7">mdi-chevron-double-left</v-icon> -->
+        <!-- <div class="w-2/5 h-full bg-mainRed">
+          
+        </div> -->
+        <!-- <div class="w-3/5 p-9 flex-col flex justify-around">
           <div class="flex justify-between flex-grow-0">
             <h1
               class="lg:text-5xl text-4xl text-blueGray-900 font-bold font-mainFont"
@@ -111,7 +114,7 @@
               >
             </button>
           </div>
-        </div>
+        </div> -->
       </div>
     </v-dialog>
   </div>
@@ -180,5 +183,8 @@ export default {
 .learnMore:active {
   transform: scale(0.97);
   filter: brightness(1);
+}
+.dialog {
+  z-index: 300;
 }
 </style>
