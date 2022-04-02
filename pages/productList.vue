@@ -14,7 +14,7 @@ en:
   collections: 'Collections'
 fa:
   takeATrip: 'با ما هسمفر شید'
-  stayFree: 'خوش اومدین'
+  stayFree: 'خوش اومدید'
   backHome: 'برگرد خونه'
   home: 'دسته بندی ها'
   shop: 'خرید'
@@ -99,7 +99,7 @@ fa:
                 </v-tooltip>
               </NuxtLink>
               <span
-                class="menu text-4xl py-3 justify-self-center self-center rounded-md text-mainBlue font-semibold"
+                class="menu lg:text-4xl text-2xl py-3 justify-self-center self-center rounded-md text-mainBlue font-semibold"
               >
                 {{ $t('home') }}
               </span>
@@ -221,7 +221,9 @@ fa:
             </div>
             <!-- </div> -->
           </div>
-          <div class="col-span-8 rounded-lg self-center justify-self-center">
+          <div
+            class="col-span-8 w-full rounded-lg self-center justify-self-center"
+          >
             <!-- <div class="grid w-full divide-y-4"> -->
 
             <!-- <div class="row-span-5 col-span-2 place-items-center"> -->
@@ -237,7 +239,7 @@ fa:
                 :product="product"
               />
             </div>
-            <div class="w-full px-56">
+            <div class="w-screen">
               <v-pagination
                 v-model="page"
                 circle
@@ -245,7 +247,7 @@ fa:
                 large
                 prev-icon="mdi-menu-left"
                 next-icon="mdi-menu-right"
-                class="my-4 font-bold text-lg"
+                class="my-4 px-12 text-4xl font-bold lg:px-32"
                 :length="15"
               ></v-pagination>
             </div>

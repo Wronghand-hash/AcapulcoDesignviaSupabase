@@ -24,23 +24,25 @@ fa:
             >
               {{ $t('findUS') }}
             </h1>
-            <v-icon x-large class="icon-3d transform lg:scale-150">
-              mdi-telegram</v-icon
-            >
-
-            <v-icon x-large class="icon-3d transform lg:scale-150"
-              >mdi-google</v-icon
-            >
-            <a
-              href="https://instagram.com/acapulco_design?utm_medium=copy_link"
-            >
-              <v-icon x-large class="icon-3d transform lg:scale-150"
-                >mdi-instagram</v-icon
+            <div class="flex items-center justify-center space-x-8">
+              <v-icon x-large dark class="icon-3d transform lg:scale-150">
+                mdi-telegram</v-icon
               >
-            </a>
-            <v-icon x-large class="icon-3d transform lg:scale-150"
-              >mdi-whatsapp</v-icon
-            >
+
+              <v-icon x-large dark class="icon-3d transform lg:scale-150"
+                >mdi-google</v-icon
+              >
+              <a
+                href="https://instagram.com/acapulco_design?utm_medium=copy_link"
+              >
+                <v-icon x-large dark class="icon-3d transform lg:scale-150"
+                  >mdi-instagram</v-icon
+                >
+              </a>
+              <v-icon x-large dark class="icon-3d transform lg:scale-150"
+                >mdi-whatsapp</v-icon
+              >
+            </div>
           </div>
           <div class="w-40 h-48 self-end justify-self-end">
             <a href="https://www.instagram.com/famouskesler/?hl=en">
@@ -97,14 +99,9 @@ export default {}
 }
 </style>
 <style lang="scss" scoped>
-$redColor: rgba(244, 67, 54, 1);
-$blueColor: rgba(33, 150, 243, 1);
 .icon-3d {
   cursor: pointer;
-  -webkit-animation: icon3d 200ms 10;
-  animation: icon3d 200ms 10;
-  color: #f6f6f6;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
   border-bottom: 5px solid #120129;
   border-radius: 25px;
   // border-right: 5px solid #120129;
@@ -112,27 +109,7 @@ $blueColor: rgba(33, 150, 243, 1);
     border-bottom: 5px solid #ff4a68;
     // border-right: 5px solid #ff4a68;
 
-    transition: ease-in-out 0.7s;
-    -webkit-animation: icon3d 200ms infinite;
-    animation: icon3d 200ms infinite;
-  }
-}
-
-@keyframes icon3d {
-  0% {
-    text-shadow: 5px 4px $redColor, -5px -6px $blueColor;
-  }
-  25% {
-    text-shadow: -5px -6px $redColor, 5px 4px $blueColor;
-  }
-  50% {
-    text-shadow: 5px -4px $redColor, -8px 4px $blueColor;
-  }
-  75% {
-    text-shadow: -8px -4px $redColor, -5px -4px $blueColor;
-  }
-  100% {
-    text-shadow: -5px 0 $redColor, 5px -4px $blueColor;
+    transition: ease-in-out 0.3s;
   }
 }
 </style>
