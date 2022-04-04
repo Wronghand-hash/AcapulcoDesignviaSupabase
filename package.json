@@ -17,6 +17,7 @@
     "test:e2e": "cross-env TEST=e2e ava ./test/e2e/**/*"
   },
   "dependencies": {
+    "@nuxt/kit": "^0.8.1-edge",
     "@nuxtjs/i18n": "^7.0.3",
     "@nuxtjs/svg": "^0.3.0",
     "core-js": "^3.21.1",
