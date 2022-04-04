@@ -28,7 +28,7 @@ fa:
   consisted: 'تشکیل میشه'
   Kesler: 'کسلر'
   Chao: 'چاوو'
-  Greez: 'فیلیز'
+  Greez: 'گریز'
 </i18n>
 <template>
   <v-app class="body overflow-hidden">
@@ -152,7 +152,7 @@ fa:
                 {{ $t('Chao') }}
               </h1>
               <h3
-                class="font-mainFont font-extralight text-3xl lg:text-4xl text-purple-700"
+                class="font-mainFont font-extralight text-3xl lg:text-4xl text-mainGreen"
               >
                 {{ $t('fullStack') }}
               </h3>

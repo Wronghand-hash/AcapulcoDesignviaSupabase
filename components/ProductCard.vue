@@ -1,16 +1,12 @@
 <template>
   <div v-show="product.catagory === catagory">
     <div
-      class="flex flex-col lg:h-72 h-rem26 lg:w-96 lg:flex-row justify-center align-center lg:space-x-3 bg-transparent cardBackground productCard"
+      class="flex flex-col lg:h-72 h-rem26 lg:w-96 lg:flex-row justify-center align-center lg:space-x-3 cardBackground productCard"
     >
       <div
-        class="lg:h-full h-2/5 w-full lg:w-2/5 bg-Emerald-100 flex justify-center align-center overflow-hidden"
+        class="lg:h-full h-2/5 w-full lg:w-2/5 flex justify-center align-center overflow-hidden"
       >
-        <img
-          :src="imgUrl"
-          alt=""
-          class="object-contain lg:object-cover transform lg:scale-150"
-        />
+        <img :src="imgUrl" alt="" class="object-contain h-44" />
       </div>
       <div
         class="h-3/5 w-full lg:w-3/5 lg:h-full flex flex-col justify-between align-center space-y-3 p-2 sm:py-3"
@@ -20,12 +16,7 @@
           @click="addToCart"
         >
           <span class="shoppingBtnSpan">
-            <v-icon
-              color="white
-"
-              class=""
-              >mdi-basket-plus-outline</v-icon
-            >
+            <v-icon color="white" class="">mdi-basket-plus-outline</v-icon>
           </span>
         </div>
         <div class="w-full h-3/4 flex flex-col justify-between align-center">
@@ -151,14 +142,11 @@ export default {
 .shoppingBtn:active {
   filter: brightness(0.5);
 }
-.productCard {
+.cardBackground {
+  backdrop-filter: blur(13px) saturate(180%);
+  -webkit-backdrop-filter: blur(13px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.79);
+  border-radius: 12px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
 }
-/* .productDetailBackground {
-  background: #120129c9;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(11px);
-  -webkit-backdrop-filter: blur(11px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-} */
 </style>

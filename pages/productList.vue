@@ -14,7 +14,7 @@ en:
   collections: 'Collections'
 fa:
   takeATrip: 'با ما هسمفر شید'
-  stayFree: 'خوش اومدین'
+  stayFree: 'خوش اومدید'
   backHome: 'برگرد خونه'
   home: 'دسته بندی ها'
   shop: 'خرید'
@@ -79,45 +79,63 @@ fa:
         <div
           class="lg:w-11/12 w-full h-full grid grid-cols-8 mt-24 background bg-transparent opacity-0"
         >
-          <div class="menuNavbar sticky flex align-center py-6 col-span-8">
-            <NuxtLink to="/">
-              <v-tooltip bottom>
-                <template #activator="{ on: tooltip }">
-                  <span class="py-8 px-3" v-on="{ ...tooltip }"
-                    ><v-icon light x-large color="pink lighten-5"
-                      >mdi-chevron-double-left</v-icon
-                    ></span
+          <div
+            class="menuNavbar sticky flex align-center justify-between py-6 col-span-8"
+          >
+            <div class="flex items-center">
+              <NuxtLink to="/">
+                <v-tooltip bottom>
+                  <template #activator="{ on: tooltip }">
+                    <span class="py-8 px-3" v-on="{ ...tooltip }"
+                      ><v-icon light x-large color="pink lighten-5"
+                        >mdi-chevron-double-left</v-icon
+                      ></span
+                    >
+                  </template>
+                  <span
+                    class="font-mainFont font-extrabold text-xl text-LightBlue-50"
+                    >{{ $t('backHome') }}</span
                   >
-                </template>
-                <span
-                  class="font-mainFont font-extrabold text-xl text-LightBlue-50"
-                  >{{ $t('backHome') }}</span
-                >
-              </v-tooltip>
-            </NuxtLink>
-            <span
-              class="menu text-4xl py-3 justify-self-center self-center rounded-md text-mainBlue font-semibold"
-            >
-              {{ $t('home') }}
-            </span>
-            <!-- <NuxtLink to="/productList">
-              <span class="menu text-4xl text-mainBlue font-semibold">
-                {{ $t('shop') }}
+                </v-tooltip>
+              </NuxtLink>
+              <span
+                class="menu lg:text-4xl text-2xl py-3 justify-self-center self-center rounded-md text-mainBlue font-semibold"
+              >
+                {{ $t('home') }}
               </span>
-            </NuxtLink> -->
+            </div>
+            <div class="pt-2 relative text-white mr-5">
+              <input
+                class="border-2 placeholder-white transition ease-in duration-300 text-darkPurple hover:bg-white border-gray-300 bg-mainBlue h-10 px-5 pr-4 md:pr-16 rounded-full text-md focus:outline-none"
+                type="search"
+                name="search"
+                placeholder="ُSearch"
+              />
+              <button type="submit" class="absolute right-0 top-0 mt-5 mr-4">
+                <svg
+                  id="Capa_1"
+                  class="text-white h-4 w-4 fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  version="1.1"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 56.966 56.966"
+                  style="enable-background: new 0 0 56.966 56.966"
+                  xml:space="preserve"
+                  width="512px"
+                  height="512px"
+                >
+                  <path
+                    d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
           <div
             class="p-3 col-span-8 bg-LightBlue-100 self-center justify-self-center w-screen sidebar opacity-0 space-y-4 sticky h-auto flex flex-col justify-between align-center"
           >
-            <!-- <div class="flex flex-col p-10 self-center"> -->
-            <!-- <h1 class="text-7xl mt-10 text-center text-gray-700 font-bold">
-                Shop
-              </h1> -->
-            <!-- <h3
-              class="p-3 text-mainBlue text-5xl lg:text-6xl border-red-600 font-black"
-            >
-              {{ $t('discover') }}
-            </h3> -->
             <div
               class="space-x-2 lg:my-5 px-1 text-center lg:text-left flex align-center justify-center"
             >
@@ -127,7 +145,7 @@ fa:
                   @click="changeCatagory('Lighters')"
                 >
                   <h1
-                    class="lg:text-3xl text-2xl bg-LightBlue-500 lg:rounded-md rounded-t-md shadow-2xl filter drop-shadow-2xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                    class="lg:text-3xl text-2xl bg-LightBlue-500 lg:rounded-md rounded-t-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
                     {{ $t('lighters') }}
                     <img
@@ -141,7 +159,7 @@ fa:
                   @click="changeCatagory('Collections')"
                 >
                   <h1
-                    class="lg:text-3xl text-2xl bg-LightBlue-500 lg:rounded-md shadow-2xl filter drop-shadow-2xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                    class="lg:text-3xl text-2xl bg-LightBlue-500 lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
                     {{ $t('collections') }}
                     <img
@@ -155,7 +173,7 @@ fa:
                   @click="changeCatagory('Matchboxes')"
                 >
                   <h1
-                    class="lg:text-3xl text-2xl bg-LightBlue-500 rounded-b-md lg:rounded-md shadow-2xl filter drop-shadow-2xl px-12 py-2 text-center flex justify-center align-end sidebarText"
+                    class="lg:text-3xl text-2xl bg-LightBlue-500 rounded-b-md lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 text-center flex justify-center align-end sidebarText"
                   >
                     {{ $t('acapulcoMatchboxes') }}
                     <img
@@ -168,7 +186,7 @@ fa:
               <div class="lg:flex lg:space-x-5 font-bold">
                 <span class="cursor-pointer" @click="changeCatagory('Shirts')">
                   <h1
-                    class="lg:text-3xl text-2xl lg:rounded-md bg-LightBlue-500 rounded-t-md shadow-2xl filter drop-shadow-2xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                    class="lg:text-3xl text-2xl lg:rounded-md bg-LightBlue-500 rounded-t-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
                     {{ $t('acapulcoShirt') }}
                     <img
@@ -179,7 +197,7 @@ fa:
                 </span>
                 <span class="cursor-pointer" @click="changeCatagory('Shorts')">
                   <h1
-                    class="lg:text-3xl text-2xl lg:rounded-md bg-LightBlue-500 shadow-2xl filter drop-shadow-2xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                    class="lg:text-3xl text-2xl lg:rounded-md bg-LightBlue-500 shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
                     {{ $t('acapulcoShorts') }}
                     <img
@@ -190,7 +208,7 @@ fa:
                 </span>
                 <span class="cursor-pointer" @click="changeCatagory('Hoodies')">
                   <h1
-                    class="lg:text-3xl text-2xl lg:rounded-md bg-LightBlue-500 rounded-b-md shadow-2xl filter drop-shadow-2xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                    class="lg:text-3xl text-2xl lg:rounded-md bg-LightBlue-500 rounded-b-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
                     {{ $t('acapulcoHoodies') }}
                     <img
@@ -203,7 +221,9 @@ fa:
             </div>
             <!-- </div> -->
           </div>
-          <div class="col-span-8 rounded-lg self-center justify-self-center">
+          <div
+            class="col-span-8 w-full rounded-lg self-center justify-self-center"
+          >
             <!-- <div class="grid w-full divide-y-4"> -->
 
             <!-- <div class="row-span-5 col-span-2 place-items-center"> -->
@@ -218,6 +238,18 @@ fa:
                 class="p-4"
                 :product="product"
               />
+            </div>
+            <div class="w-screen">
+              <v-pagination
+                v-model="page"
+                circle
+                color="#240046"
+                large
+                prev-icon="mdi-menu-left"
+                next-icon="mdi-menu-right"
+                class="my-4 px-12 text-4xl font-bold lg:px-32"
+                :length="15"
+              ></v-pagination>
             </div>
           </div>
         </div>
@@ -257,10 +289,12 @@ export default {
       done()
     },
   },
-
   data() {
-    return {}
+    return {
+      page: 1,
+    }
   },
+
   computed: {
     // products() {
     //   return this.$store.state.products
@@ -384,8 +418,8 @@ export default {
 }
 
 .background {
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  background-color: transparent;
+  box-shadow: 0 8px 32px 0 #e7e7e75e;
+  background-color: #ffffffa0;
   border-radius: 10px;
 }
 
