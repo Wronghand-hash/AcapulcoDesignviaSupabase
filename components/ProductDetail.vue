@@ -18,17 +18,17 @@
       </template>
 
       <div
-        class="w-screen h-full bg-green-100 p-9 space-y-4 lg:space-x-6 productDetail flex flex-col md:flex-row"
+        class="w-screen h-full bg-green-100 p-9 space-y-4 lg:space-x-6 lg:space-y-4 productDetail flex flex-col lg:flex-row"
       >
         <div
-          class="md:w-3/4 w-full lg:h-full h-3/4 filter drop-shadow-2xl rounded-lg bg-green-300 flex justify-center p-3"
+          class="lg:w-3/4 w-full lg:h-full h-3/4 filter drop-shadow-2xl rounded-lg bg-green-300 flex justify-center"
         >
           <!-- <div
             class="w-full h-full filter drop-shadow-2xl rounded-lg bg-CoolGray-100"
           ></div> -->
         </div>
         <div
-          class="md:w-1/4 w-full lg:h-full h-1/4 rounded-lg bg-green-500"
+          class="lg:w-1/4 w-full lg:h-full h-1/4 rounded-lg bg-green-500"
         ></div>
 
         <!-- <v-icon light x-large class="m-7">mdi-chevron-double-left</v-icon> -->
@@ -38,7 +38,7 @@
         <!-- <div class="w-3/5 p-9 flex-col flex justify-around">
           <div class="flex justify-between flex-grow-0">
             <h1
-              class="lg:text-5xl text-4xl text-blueGray-900 font-bold font-mainFont"
+              class="md:text-5xl text-4xl text-blueGray-900 font-bold font-mainFont"
             >
               {{ product.title }}
               <h3 class="text-gray-600 font-thin text-2xl font-mainFont">
@@ -46,7 +46,7 @@
               </h3>
             </h1>
             <h1
-              class="lg:text-5xl text-4xl text-blueGray-900 font-bold font-mainFont"
+              class="md:text-5xl text-4xl text-blueGray-900 font-bold font-mainFont"
             >
               {{ product.price }}$
             </h1>
@@ -99,7 +99,7 @@
               <v-icon
                 color="white
 "
-                class="lg:pb-2 lg:pl-2"
+                class="md:pb-2 md:pl-2"
                 >mdi-basket-plus-outline</v-icon
               >
             </button>
@@ -109,7 +109,7 @@
               <v-icon
                 color="white
 "
-                class="lg:pb-2 lg:pl-2"
+                class="md:pb-2 md:pl-2"
                 >mdi-share-variant</v-icon
               >
             </button>
@@ -123,35 +123,59 @@
 <script>
 export default {
   props: ['product'],
+
   data() {
     return {
-      dialog: false,
-
-      cart: [],
-
+      items: [
+        {
+          src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+        },
+        {
+          src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+        },
+        {
+          src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+        },
+        {
+          src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+        },
+      ],
+      imgUrl: '',
       Product: {
         item: this.product,
         quantity: 1,
       },
     }
   },
+
   computed: {
-    cartTotalAmount() {
-      return this.$store.getters.cartItemCount
-    },
-    cartItem() {
-      return this.$store.state.cart
+    catagory() {
+      return this.$store.state.catagory
     },
   },
+  mounted() {
+    this.getImage()
+  },
+
   methods: {
+    catagorySelect(selected) {
+      this.catagory = selected
+    },
+    async getImage() {
+      if (this.product.image_url) {
+        try {
+          const { data, error } = await this.$supabase.storage
+            .from('product-images')
+            .download(this.product.image_url)
+          if (error) throw error
+          this.imgUrl = URL.createObjectURL(data)
+        } catch (error) {
+          alert(error.error_description || error.message)
+        }
+      }
+    },
     addToCart() {
       this.$store.commit('AddToCart', this.Product)
-    },
-    incrementQuantity(Product) {
-      this.$store.commit('incerementQuantity', Product)
-    },
-    decrementQuantity(Product) {
-      this.$store.commit('decrementQuantity', Product)
     },
   },
 }

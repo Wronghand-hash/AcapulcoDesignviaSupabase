@@ -16,15 +16,15 @@ fa:
   takeATrip: 'با ما هسمفر شید'
   stayFree: 'خوش اومدید'
   backHome: 'برگرد خونه'
-  home: 'دسته بندی ها'
+  home: 'دسته بندی '
   shop: 'خرید'
   discover: '!کشف کن'
-  lighters: 'فندک ها'
-  acapulcoShirt: 'پیراهن ها'
-  acapulcoMatchboxes: 'کبریت ها'
-  acapulcoHoodies: 'هودی ها'
-  acapulcoShorts: 'شلوارک ها'
-  collections: 'کالکشن ها'
+  lighters: 'فندک '
+  acapulcoShirt: 'پیراهن '
+  acapulcoMatchboxes: 'کبریت '
+  acapulcoHoodies: 'هودی '
+  acapulcoShorts: 'شلوارک '
+  collections: 'کالکشن '
 </i18n>
 
 <template>
@@ -395,15 +395,16 @@ export default {
         opacity: 0,
         y: 60,
         ease: 'power3.out',
-        duration: 0.3,
+        duration: 0.5,
 
         stagger: 0.3,
       })
       tl.from('.productCard', {
+        delay: 0.3,
         opacity: 0,
         y: 40,
         ease: 'power3.out',
-        duration: 0.3,
+        duration: 0.6,
 
         stagger: 0.3,
       })
