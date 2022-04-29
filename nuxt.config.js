@@ -1,4 +1,6 @@
-export default {
+import { defineNuxtConfig } from '@nuxt/bridge'
+
+export default defineNuxtConfig({
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - Limited Custom Handmade Merchendise',
@@ -55,7 +57,6 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/pwa
     // '@nuxtjs/pwa',
-    'nuxt-speedkit',
     [
       'nuxt-supabase',
       {
@@ -134,36 +135,7 @@ export default {
       },
     },
   },
-  speedkit: {
-    disableNuxtImage: true,
 
-    detection: {
-      performance: true,
-      browserSupport: true,
-    },
-    performanceMetrics: {
-      device: {
-        hardwareConcurrency: { min: 2, max: 48 },
-        deviceMemory: { min: 2 },
-      },
-      timing: {
-        fcp: 800,
-        dcl: 1200,
-      },
-      lighthouseDetectionByUserAgent: false,
-    },
-
-    componentAutoImport: false,
-    componentPrefix: undefined,
-
-    /**
-     * IntersectionObserver rootMargin for Components and Assets
-     */
-    lazyOffset: {
-      component: '0%',
-      asset: '0%',
-    },
-  },
   vuetify: {
     treeShake: true,
   },
@@ -176,4 +148,4 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-}
+})
