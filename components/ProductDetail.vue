@@ -18,14 +18,18 @@
       </template>
 
       <div
-        class="w-screen h-full bg-green-100 p-9 space-y-4 lg:space-x-6 lg:space-y-4 productDetail flex flex-col lg:flex-row"
+        class="w-screen h-full bg-green-100 p-9 space-y-4 lg:space-x-6 lg:space-y-0 productDetail flex flex-col lg:flex-row"
       >
         <div
-          class="lg:w-3/4 w-full lg:h-full h-3/4 filter drop-shadow-2xl rounded-lg bg-green-300 flex justify-center"
+          class="lg:w-3/4 w-full lg:h-full h-3/4 filter drop-shadow-2xl rounded-lg flex justify-center"
         >
-          <!-- <div
-            class="w-full h-full filter drop-shadow-2xl rounded-lg bg-CoolGray-100"
-          ></div> -->
+          <no-ssr>
+            <ProductZoomer
+              :base-images="images"
+              :base-zoomer-options="zoomerOptions"
+            >
+            </ProductZoomer>
+          </no-ssr>
         </div>
         <div
           class="lg:w-1/4 w-full lg:h-full h-1/4 rounded-lg bg-green-500"
@@ -126,63 +130,87 @@ export default {
 
   data() {
     return {
-      items: [
-        {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
-        },
-        {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
-        },
-        {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
-        },
-        {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
-        },
-      ],
-      imgUrl: '',
-      Product: {
-        item: this.product,
-        quantity: 1,
+      dialog: false,
+
+      images: {
+        thumbs: [
+          {
+            id: 1,
+            url: 'http://localhost:3000/_nuxt/assets/images/tree2.webp',
+          },
+          {
+            id: 2,
+            url: 'http://localhost:3000/_nuxt/assets/images/tree2.webp',
+          },
+        ],
+        normal_size: [
+          {
+            id: 1,
+            url: 'http://localhost:3000/_nuxt/assets/images/tree2.webp',
+          },
+          {
+            id: 2,
+            url: 'http://localhost:3000/_nuxt/assets/images/tree2.webp',
+          },
+        ],
+        large_size: [
+          {
+            id: 1,
+            url: 'http://localhost:3000/_nuxt/assets/images/tree2.webp',
+          },
+          {
+            id: 2,
+            url: 'http://localhost:3000/_nuxt/assets/images/tree2.webp',
+          },
+        ],
+      },
+      zoomerOptions: {
+        zoomFactor: 3,
+        pane: 'pane',
+        hoverDelay: 300,
+        namespace: 'zoomer-bottom',
+        move_by_click: false,
+        scroll_items: 4,
+        choosed_thumb_border_color: '#dd2c00',
+        scroller_position: 'bottom',
+        zoomer_pane_position: 'right',
       },
     }
   },
 
   computed: {
-    catagory() {
-      return this.$store.state.catagory
-    },
+    // catagory() {
+    //   return this.$store.state.catagory
+    // },
   },
-  mounted() {
-    this.getImage()
-  },
+  mounted() {},
 
   methods: {
-    catagorySelect(selected) {
-      this.catagory = selected
-    },
-    async getImage() {
-      if (this.product.image_url) {
-        try {
-          const { data, error } = await this.$supabase.storage
-            .from('product-images')
-            .download(this.product.image_url)
-          if (error) throw error
-          this.imgUrl = URL.createObjectURL(data)
-        } catch (error) {
-          alert(error.error_description || error.message)
-        }
-      }
-    },
-    addToCart() {
-      this.$store.commit('AddToCart', this.Product)
-    },
+    // catagorySelect(selected) {
+    //   this.catagory = selected
+    // },
+    // async getImage() {
+    //   if (this.product.image_url) {
+    //     try {
+    //       const { data, error } = await this.$supabase.storage
+    //         .from('product-images')
+    //         .download(this.product.image_url)
+    //       if (error) throw error
+    //       this.imgUrl = URL.createObjectURL(data)
+    //     } catch (error) {
+    //       alert(error.error_description || error.message)
+    //     }
+    //   }
+    // },
+    // addToCart() {
+    //   this.$store.commit('AddToCart', this.Product)
+    // },
   },
 }
 </script>
 
 <style scoped>
-.learnMoreBtn {
+/* .learnMoreBtn {
   background-color: #ff4a68;
   color: #120129;
   transition: ease-in-out 0.2s;
@@ -207,7 +235,7 @@ export default {
 .learnMore:active {
   transform: scale(0.97);
   filter: brightness(1);
-}
+} */
 .dialog {
   z-index: 300;
 }
