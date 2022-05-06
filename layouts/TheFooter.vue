@@ -25,29 +25,35 @@ fa:
               {{ $t('findUS') }}
             </h1>
             <div class="flex items-center justify-center space-x-8">
-              <v-icon x-large dark class="icon-3d transform lg:scale-150">
-                mdi-telegram</v-icon
-              >
+              <a href="https://t.me/acapulco_design" class="icon-3d">
+                <img
+                  class="object-contain pb-4"
+                  src="~/assets/images/telegramIcon.webp"
+                  alt=""
+                />
+              </a>
 
-              <v-icon x-large dark class="icon-3d transform lg:scale-150"
+              <!-- <v-icon x-large dark class="icon-3d transform lg:scale-150"
                 >mdi-google</v-icon
-              >
+              > -->
               <a
                 href="https://instagram.com/acapulco_design?utm_medium=copy_link"
               >
-                <v-icon x-large dark class="icon-3d transform lg:scale-150"
+                <v-icon x-large dark class="icon-3d transform lg:scale-150 pb-3"
                   >mdi-instagram</v-icon
                 >
               </a>
-              <v-icon x-large dark class="icon-3d transform lg:scale-150"
-                >mdi-whatsapp</v-icon
-              >
+              <a href="https://wa.me/+989146211500">
+                <v-icon x-large dark class="icon-3d transform pb-3 lg:scale-150"
+                  >mdi-whatsapp</v-icon
+                >
+              </a>
             </div>
           </div>
           <div class="w-40 h-48 self-end justify-self-end">
             <a href="https://www.instagram.com/famouskesler/?hl=en">
               <img
-                class="object-contain icon-3d"
+                class="object-contain icon-3d pb-6"
                 src="~/assets/images/ppp.png"
                 alt=""
               />
@@ -101,12 +107,10 @@ export default {}
 <style lang="scss" scoped>
 .icon-3d {
   cursor: pointer;
-  padding-bottom: 10px;
-  border-bottom: 5px solid #120129;
-  border-radius: 25px;
+  border-bottom: 7px solid #120129;
   // border-right: 5px solid #120129;
   &:hover {
-    border-bottom: 5px solid #ff4a68;
+    border-bottom: 7px solid #53db7c;
     // border-right: 5px solid #ff4a68;
 
     transition: ease-in-out 0.3s;

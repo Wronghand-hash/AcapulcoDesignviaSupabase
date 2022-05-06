@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */ /* eslint-disable no-undef */
 <i18n lang="yaml">
 en:
   takeATrip: 'Take a trip with us'
@@ -227,8 +228,12 @@ fa:
             <!-- <div class="grid w-full divide-y-4"> -->
 
             <!-- <div class="row-span-5 col-span-2 place-items-center"> -->
-            <div
-              class="grid productCard lg:grid-cols-3 grid-cols-1 gap-6 p-4 mt-6 place-items-center self-center justify-self-center"
+            <transition-group
+              appear
+              class="w-full h-full grid productCard lg:grid-cols-4 space-y-5 grid-cols-1 gap-6 p-10 mt-6 place-items-center self-center justify-self-center"
+              tag="ul"
+              @before-enter="beforeEnter"
+              @enter="enter"
             >
               <ProductCard
                 v-for="product in products"
@@ -238,7 +243,8 @@ fa:
                 class="p-4"
                 :product="product"
               />
-            </div>
+            </transition-group>
+
             <div class="w-screen">
               <v-pagination
                 v-model="page"
@@ -263,6 +269,7 @@ fa:
 
 <script>
 import LazyHydrate from 'vue-lazy-hydration'
+import { onMounted, watch } from '@vue/runtime-core'
 
 export default {
   components: {
@@ -273,28 +280,115 @@ export default {
     ProductCard: () => import('../components/ProductCard.vue'),
   },
 
-  transition: {
-    mode: 'out-in',
-    css: false,
+  setup() {
+    const SearchIndex = ref('')
+    const inStock = ref(false)
 
-    beforeEnter(el) {
-      this.$gsap.set(el, { opacity: 0 })
-    },
-    enter(el, done) {
-      this.$gsap.to(el, 1, { opacity: 1 })
-      done()
-    },
-    leave(el, done) {
-      this.$gsap.to(el, 1, { opacity: 0 })
-      done()
-    },
-  },
-  data() {
+    const order = ref('price')
+
+    const ascention = ref()
+
+    const products = ref([])
+
+    const category = ref('')
+
+    const page = ref()
+
+    watch(SearchIndex, () => {
+      SearchProducts()
+    })
+
+    watch(category, () => {
+      changeCategories()
+      console.log(category)
+    })
+
+    onMounted(() => {
+      // getcategories();
+      console.log(category)
+      getProducts()
+    })
+    async function SearchProducts() {
+      try {
+        // loading.value = true
+
+        const { data, error } = await this.$supabase
+          .from('products')
+          .select()
+          .textSearch('title', SearchIndex.value, {
+            config: 'english',
+          })
+        // .eq("product-category", props.category.title);
+
+        if (error) throw error
+        products.value = data
+      } catch (error) {
+        alert(error.message)
+      } finally {
+        // loading.value = false
+      }
+    }
+    async function changeCategories() {
+      try {
+        const { data, error } = await this.$supabase
+          .from('products')
+          .select()
+          .eq('product-category', category.value)
+        // .eq("product-category", props.category.title);
+
+        if (error) throw error
+        products.value = data
+      } catch (error) {
+        alert(error.message)
+      }
+    }
+
+    async function getProducts() {
+      try {
+        const { data, error } = await this.$supabase
+          .from('products')
+          .select()
+          .order(order.value, { ascending: ascention.value })
+          .range(from.value, to.value)
+        // .eq("product-category", props.category.title);
+
+        if (error) throw error
+        products.value = data
+      } catch (error) {
+        alert(error.message)
+      }
+    }
+    const beforeEnter = (el) => {
+      el.style.opacity = 0
+      el.style.transform = 'translateY(100px)'
+    }
+    const enter = (el, done) => {
+      this.$gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        onComplete: done,
+        delay: 0.2,
+      })
+    }
+
     return {
-      page: 1,
+      page,
+      SearchIndex,
+      enter,
+      beforeEnter,
+      inStock,
+      products,
+      getProducts,
+
+      order,
+
+      ascention,
+
+      category,
     }
   },
-
+  data() {},
   computed: {
     // products() {
     //   return this.$store.state.products
