@@ -1,4 +1,5 @@
-/* eslint-disable no-undef */ /* eslint-disable no-undef */
+/* eslint-disable no-undef */ /* eslint-disable no-undef */ /* eslint-disable
+no-undef */
 <i18n lang="yaml">
 en:
   takeATrip: 'Take a trip with us'
@@ -281,18 +282,23 @@ export default {
   },
 
   setup() {
+    // eslint-disable-next-line no-undef
     const SearchIndex = ref('')
+    // eslint-disable-next-line no-undef
     const inStock = ref(false)
-
+    // eslint-disable-next-line no-undef
     const order = ref('price')
-
+    // eslint-disable-next-line no-undef
     const ascention = ref()
-
+    // eslint-disable-next-line no-undef
     const products = ref([])
+    // eslint-disable-next-line no-undef
     const from = ref(1)
+    // eslint-disable-next-line no-undef
     const to = ref(4)
+    // eslint-disable-next-line no-undef
     const category = ref('')
-
+    // eslint-disable-next-line no-undef
     const page = ref()
 
     watch(SearchIndex, () => {
