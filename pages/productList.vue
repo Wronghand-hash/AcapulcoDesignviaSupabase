@@ -289,7 +289,8 @@ export default {
     const ascention = ref()
 
     const products = ref([])
-
+    const from = ref(1)
+    const to = ref(4)
     const category = ref('')
 
     const page = ref()
@@ -382,25 +383,15 @@ export default {
       getProducts,
 
       order,
-
+      from,
+      to,
       ascention,
 
       category,
     }
   },
   data() {},
-  computed: {
-    // products() {
-    //   return this.$store.state.products
-    // },
-
-    catagory() {
-      return this.$store.state.catagory
-    },
-    products() {
-      return this.$store.state.products
-    },
-  },
+  computed: {},
 
   mounted() {
     // this.animateSurfingBoard()
