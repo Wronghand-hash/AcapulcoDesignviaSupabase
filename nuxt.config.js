@@ -19,7 +19,7 @@ export default defineNuxtConfig({
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: '../static/icon.ico',
+        href: '../../static/icon.ico',
       },
     ],
   },
@@ -36,7 +36,6 @@ export default defineNuxtConfig({
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
@@ -53,18 +52,12 @@ export default defineNuxtConfig({
       scrollTrigger: true,
     },
   },
-  // Modules: https://go.nuxtjs.dev/config-modules
+
   modules: [
     // https://go.nuxtjs.dev/pwa
     // '@nuxtjs/pwa',
-    [
-      'nuxt-supabase',
-      {
-        supabaseUrl: 'https://wbdticjizbqlkikhitkt.supabase.co',
-        supabaseKey:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MTYyODgyOSwiZXhwIjoxOTU3MjA0ODI5fQ.skEudlMwoIMGAnVXW18IJMCZj9rbFKcYjG-Fqt0Ke9k',
-      },
-    ],
+
+    ['nuxt-supabase'],
     '@nuxtjs/i18n',
     [
       'nuxt-lazy-load',
@@ -100,6 +93,21 @@ export default defineNuxtConfig({
       },
     ],
   ],
+  publicRuntimeConfig: {
+    supabaseUrl:
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MTYyODgyOSwiZXhwIjoxOTU3MjA0ODI5fQ.skEudlMwoIMGAnVXW18IJMCZj9rbFKcYjG-Fqt0Ke9k',
+    supabaseKey: 'https://wbdticjizbqlkikhitkt.supabase.co',
+  },
+  supabase: {
+    supabaseKey: 'https://wbdticjizbqlkikhitkt.supabase.co',
+    supabaseUrl:
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MTYyODgyOSwiZXhwIjoxOTU3MjA0ODI5fQ.skEudlMwoIMGAnVXW18IJMCZj9rbFKcYjG-Fqt0Ke9k',
+    supabaseOptions: {},
+    auth: {
+      onAuthStateChangeMutation: 'setUser',
+      // onAuthStateChangeAction: 'onAuthStateChange'
+    },
+  },
   i18n: {
     vueI18nLoader: true,
     baseUrl: 'https://acapulcodesign.onrender.com',

@@ -270,7 +270,9 @@ fa:
 
 <script>
 import LazyHydrate from 'vue-lazy-hydration'
+import { useSupabase, useSupabaseAuth } from 'nuxt-supabase/composables'
 import { onMounted, watch } from '@vue/runtime-core'
+import { computed } from '#imports'
 
 export default {
   components: {
@@ -282,6 +284,10 @@ export default {
   },
 
   setup() {
+    const user = computed(() => auth.user())
+    const supabase = useSupabase()
+    const auth = useSupabaseAuth()
+
     // eslint-disable-next-line no-undef
     const SearchIndex = ref('')
     // eslint-disable-next-line no-undef
@@ -319,7 +325,7 @@ export default {
       try {
         // loading.value = true
 
-        const { data, error } = await this.$supabase
+        const { data, error } = await this.supabase
           .from('products')
           .select()
           .textSearch('title', SearchIndex.value, {
@@ -337,7 +343,7 @@ export default {
     }
     async function changeCategories() {
       try {
-        const { data, error } = await this.$supabase
+        const { data, error } = await this.supabase
           .from('products')
           .select()
           .eq('product-category', category.value)
@@ -352,7 +358,7 @@ export default {
 
     async function getProducts() {
       try {
-        const { data, error } = await this.$supabase
+        const { data, error } = await this.supabase
           .from('products')
           .select()
           .order(order.value, { ascending: ascention.value })
@@ -387,12 +393,13 @@ export default {
       inStock,
       products,
       getProducts,
-
+      user,
       order,
       from,
       to,
+      auth,
       ascention,
-
+      supabase,
       category,
     }
   },
