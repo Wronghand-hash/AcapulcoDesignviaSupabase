@@ -25,13 +25,7 @@
         ></div>
         <div class="lg:w-1/4 w-full lg:h-full h-1/4 rounded-lg bg-green-500">
           <client-only>
-            <inner-image-zoom
-              :fullscreen-on-mobile="true"
-              zoom-type="hover"
-              hide-close-button="true"
-              src="../assets/images/Chao.webp"
-              class="w-carousel bg-gray-800 flex justify-center items-center h-96"
-            />
+            <image-zoom regular-webp="../assets/images/Chao.webp"> </image-zoom>
           </client-only>
         </div>
 
@@ -125,9 +119,11 @@
 </template>
 
 <script>
+import imageZoom from 'vue-image-zoomer'
+
 export default {
-  components: {},
-  props: ['product'],
+  components: { imageZoom },
+  // props: ['product'],
 
   data() {
     return {

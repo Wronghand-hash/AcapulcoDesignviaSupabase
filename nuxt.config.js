@@ -1,7 +1,4 @@
-import { defineNuxtConfig } from '@nuxt/bridge'
-
-export default defineNuxtConfig({
-  // Global page headers: https://go.nuxtjs.dev/config-head
+export default {
   head: {
     titleTemplate: '%s - Limited Custom Handmade Merchendise',
     title: 'Acapulco',
@@ -19,7 +16,7 @@ export default defineNuxtConfig({
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: '~/assets/icon.ico',
+        href: '/icon.ico',
       },
     ],
   },
@@ -29,7 +26,7 @@ export default defineNuxtConfig({
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: '~/plugins/vue-product-zoomer.js', ssr: false }],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
 
@@ -162,4 +159,4 @@ export default defineNuxtConfig({
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-})
+}
