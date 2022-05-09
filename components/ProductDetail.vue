@@ -22,18 +22,18 @@
       >
         <div
           class="lg:w-3/4 w-full lg:h-full h-3/4 filter drop-shadow-2xl rounded-lg flex justify-center"
-        >
-          <no-ssr>
-            <ProductZoomer
-              :base-images="images"
-              :base-zoomer-options="zoomerOptions"
-            >
-            </ProductZoomer>
-          </no-ssr>
-        </div>
-        <div
-          class="lg:w-1/4 w-full lg:h-full h-1/4 rounded-lg bg-green-500"
         ></div>
+        <div class="lg:w-1/4 w-full lg:h-full h-1/4 rounded-lg bg-green-500">
+          <client-only>
+            <inner-image-zoom
+              :fullscreen-on-mobile="true"
+              zoom-type="hover"
+              hide-close-button="true"
+              src="../assets/images/Chao.webp"
+              class="w-carousel bg-gray-800 flex justify-center items-center h-96"
+            />
+          </client-only>
+        </div>
 
         <!-- <v-icon light x-large class="m-7">mdi-chevron-double-left</v-icon> -->
         <!-- <div class="w-2/5 h-full bg-mainRed">
@@ -126,55 +126,12 @@
 
 <script>
 export default {
+  components: {},
   props: ['product'],
 
   data() {
     return {
       dialog: false,
-
-      images: {
-        thumbs: [
-          {
-            id: 1,
-            url: 'http://localhost:3000/_nuxt/assets/images/tree2.webp',
-          },
-          {
-            id: 2,
-            url: 'http://localhost:3000/_nuxt/assets/images/tree2.webp',
-          },
-        ],
-        normal_size: [
-          {
-            id: 1,
-            url: 'http://localhost:3000/_nuxt/assets/images/tree2.webp',
-          },
-          {
-            id: 2,
-            url: 'http://localhost:3000/_nuxt/assets/images/tree2.webp',
-          },
-        ],
-        large_size: [
-          {
-            id: 1,
-            url: 'http://localhost:3000/_nuxt/assets/images/tree2.webp',
-          },
-          {
-            id: 2,
-            url: 'http://localhost:3000/_nuxt/assets/images/tree2.webp',
-          },
-        ],
-      },
-      zoomerOptions: {
-        zoomFactor: 3,
-        pane: 'pane',
-        hoverDelay: 300,
-        namespace: 'zoomer-bottom',
-        move_by_click: false,
-        scroll_items: 4,
-        choosed_thumb_border_color: '#dd2c00',
-        scroller_position: 'bottom',
-        zoomer_pane_position: 'right',
-      },
     }
   },
 

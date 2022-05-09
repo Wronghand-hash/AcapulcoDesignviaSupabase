@@ -19,7 +19,7 @@ export default defineNuxtConfig({
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: '../../static/icon.ico',
+        href: '~/assets/icon.ico',
       },
     ],
   },
@@ -32,7 +32,6 @@ export default defineNuxtConfig({
   plugins: [{ src: '~/plugins/vue-product-zoomer.js', ssr: false }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: false,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -57,7 +56,14 @@ export default defineNuxtConfig({
     // https://go.nuxtjs.dev/pwa
     // '@nuxtjs/pwa',
 
-    ['nuxt-supabase'],
+    [
+      'nuxt-supabase',
+      {
+        supabaseUrl: 'https://wbdticjizbqlkikhitkt.supabase.co',
+        supabaseKey:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MTYyODgyOSwiZXhwIjoxOTU3MjA0ODI5fQ.skEudlMwoIMGAnVXW18IJMCZj9rbFKcYjG-Fqt0Ke9k',
+      },
+    ],
     '@nuxtjs/i18n',
     [
       'nuxt-lazy-load',
@@ -93,21 +99,21 @@ export default defineNuxtConfig({
       },
     ],
   ],
-  publicRuntimeConfig: {
-    supabaseUrl:
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MTYyODgyOSwiZXhwIjoxOTU3MjA0ODI5fQ.skEudlMwoIMGAnVXW18IJMCZj9rbFKcYjG-Fqt0Ke9k',
-    supabaseKey: 'https://wbdticjizbqlkikhitkt.supabase.co',
-  },
-  supabase: {
-    supabaseKey: 'https://wbdticjizbqlkikhitkt.supabase.co',
-    supabaseUrl:
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MTYyODgyOSwiZXhwIjoxOTU3MjA0ODI5fQ.skEudlMwoIMGAnVXW18IJMCZj9rbFKcYjG-Fqt0Ke9k',
-    supabaseOptions: {},
-    auth: {
-      onAuthStateChangeMutation: 'setUser',
-      // onAuthStateChangeAction: 'onAuthStateChange'
-    },
-  },
+  // publicRuntimeConfig: {
+  //   supabaseUrl:
+  //     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MTYyODgyOSwiZXhwIjoxOTU3MjA0ODI5fQ.skEudlMwoIMGAnVXW18IJMCZj9rbFKcYjG-Fqt0Ke9k',
+  //   supabaseKey: 'https://wbdticjizbqlkikhitkt.supabase.co',
+  // },
+  // supabase: {
+  //   supabaseKey: 'https://wbdticjizbqlkikhitkt.supabase.co',
+  //   supabaseUrl:
+  //     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MTYyODgyOSwiZXhwIjoxOTU3MjA0ODI5fQ.skEudlMwoIMGAnVXW18IJMCZj9rbFKcYjG-Fqt0Ke9k',
+  //   supabaseOptions: {},
+  //   auth: {
+  //     onAuthStateChangeMutation: 'setUser',
+  //     // onAuthStateChangeAction: 'onAuthStateChange'
+  //   },
+  // },
   i18n: {
     vueI18nLoader: true,
     baseUrl: 'https://acapulcodesign.onrender.com',

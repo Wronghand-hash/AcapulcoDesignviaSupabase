@@ -1,3 +1,5 @@
 import Vue from 'vue'
-import ProductZoomer from 'vue-product-zoomer'
-Vue.use(ProductZoomer)
+import InnerImageZoom from 'vue-inner-image-zoom'
+import 'vue-inner-image-zoom/lib/vue-inner-image-zoom.css'
+
+Vue.use(InnerImageZoom)
