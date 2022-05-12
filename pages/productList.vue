@@ -278,127 +278,6 @@ export default {
     Navbar: () => import('../layouts/TheNavbar.vue'),
     ProductCard: () => import('../components/ProductCard.vue'),
   },
-
-  // setup() {
-  //   const user = computed(() => auth.user())
-  //   const supabase = useSupabase()
-  //   const auth = useSupabaseAuth()
-
-  //   // eslint-disable-next-line no-undef
-  //   const SearchIndex = ref('')
-  //   // eslint-disable-next-line no-undef
-  //   const inStock = ref(false)
-  //   // eslint-disable-next-line no-undef
-  //   const order = ref('price')
-  //   // eslint-disable-next-line no-undef
-  //   const ascention = ref()
-  //   // eslint-disable-next-line no-undef
-  //   const products = ref([])
-  //   // eslint-disable-next-line no-undef
-  //   const from = ref(1)
-  //   // eslint-disable-next-line no-undef
-  //   const to = ref(4)
-  //   // eslint-disable-next-line no-undef
-  //   const category = ref('')
-  //   // eslint-disable-next-line no-undef
-  //   const page = ref()
-
-  //   watch(SearchIndex, () => {
-  //     SearchProducts()
-  //   })
-
-  //   watch(category, () => {
-  //     changeCategories()
-  //     console.log(category)
-  //   })
-
-  //   onMounted(() => {
-  //     // getcategories();
-  //     console.log(category)
-  //     getProducts()
-  //   })
-  //   async function SearchProducts() {
-  //     try {
-  //       // loading.value = true
-
-  //       const { data, error } = await this.supabase
-  //         .from('products')
-  //         .select()
-  //         .textSearch('title', SearchIndex.value, {
-  //           config: 'english',
-  //         })
-  //       // .eq("product-category", props.category.title);
-
-  //       if (error) throw error
-  //       products.value = data
-  //     } catch (error) {
-  //       alert(error.message)
-  //     } finally {
-  //       // loading.value = false
-  //     }
-  //   }
-  //   async function changeCategories() {
-  //     try {
-  //       const { data, error } = await this.supabase
-  //         .from('products')
-  //         .select()
-  //         .eq('product-category', category.value)
-  //       // .eq("product-category", props.category.title);
-
-  //       if (error) throw error
-  //       products.value = data
-  //     } catch (error) {
-  //       alert(error.message)
-  //     }
-  //   }
-
-  //   async function getProducts() {
-  //     try {
-  //       const { data, error } = await this.supabase
-  //         .from('products')
-  //         .select()
-  //         .order(order.value, { ascending: ascention.value })
-  //         .range(from.value, to.value)
-  //       // .eq("product-category", props.category.title);
-
-  //       if (error) throw error
-  //       products.value = data
-  //     } catch (error) {
-  //       alert(error.message)
-  //     }
-  //   }
-  //   const beforeEnter = (el) => {
-  //     el.style.opacity = 0
-  //     el.style.transform = 'translateY(100px)'
-  //   }
-  //   const enter = (el, done) => {
-  //     this.$gsap.to(el, {
-  //       opacity: 1,
-  //       y: 0,
-  //       duration: 0.8,
-  //       onComplete: done,
-  //       delay: 0.2,
-  //     })
-  //   }
-
-  //   return {
-  //     page,
-  //     SearchIndex,
-  //     enter,
-  //     beforeEnter,
-  //     inStock,
-  //     products,
-  //     getProducts,
-  //     user,
-  //     order,
-  //     from,
-  //     to,
-  //     auth,
-  //     ascention,
-  //     supabase,
-  //     category,
-  //   }
-  // },
   transition: {
     mode: 'out-in',
     css: false,
@@ -415,9 +294,11 @@ export default {
       done()
     },
   },
+
   data() {
     return {
       page: 1,
+      products: [],
     }
   },
   computed: {
@@ -427,21 +308,31 @@ export default {
     catagory() {
       return this.$store.state.catagory
     },
-    products() {
-      return this.$store.state.products
-    },
   },
 
   mounted() {
     // this.animateSurfingBoard()
     this.animateProductCards()
-    this.$store.dispatch('getProducts')
+    // this.$store.dispatch('getProducts')
     this.animateBackground()
+    this.getProducts()
   },
 
   methods: {
     changeCatagory(selected) {
       this.$store.dispatch('changeCatagory', selected)
+    },
+
+    async getProducts() {
+      try {
+        const { data, error } = await this.$supabase.from('products').select()
+        if (error) throw error
+        if (data) {
+          this.products = data
+          alert('products fetched')
+          console.log(data)
+        }
+      } catch (error) {}
     },
 
     // animateSurfingBoard() {
