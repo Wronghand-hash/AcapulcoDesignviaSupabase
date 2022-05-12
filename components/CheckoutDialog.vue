@@ -9,7 +9,7 @@
     >
       <template #activator="{ on, attrs }">
         <button
-          class="checkoutBtn py-1 lg:py-3 flex justify-center align-center"
+          class="checkoutBtn p-4 lg:py-3 flex justify-center align-center"
           v-bind="attrs"
           @click="dialog = true"
           v-on="on"
@@ -36,15 +36,15 @@
             <v-icon x-large>mdi-close</v-icon>
           </v-btn>
         </div> -->
-        <div
-          class="h-full w-full flex lg:p-11 flex align-center justify-center"
-        >
+        <div class="h-full w-full flex align-center justify-center">
           <div class="w-full h-full backGround">
             <div
               class="w-full lg:h-3/5 h-2/4 flex justify-center align-center flex-col"
             >
-              <div class="w-full lg:h-1/4 h-full bg-green-400 lg:p-5 p-1">
-                <h1 class="">
+              <div
+                class="w-full h-auto flex items-center bg-green-400 lg:p-5 p-1"
+              >
+                <h1 class="flex items-center">
                   <span class="span transform scale-125" @click="dialog = false"
                     ><v-icon dark x-large color=""
                       >mdi-chevron-double-left</v-icon
@@ -161,7 +161,7 @@
                 </div>
                 <div>
                   <button
-                    class="font-mainFont text-3xl text-mainBlue font-bold rounded-full bg-mainRed px-4 py-2"
+                    class="font-mainFont w-full text-3xl text-mainBlue font-bold rounded-full bg-Rose-400 transition ease-in duration-200 hover:bg-red-200 px-4 py-2"
                   >
                     Submit
                   </button>
@@ -176,7 +176,7 @@
 
             <div class="w-full lg:h-2/5 h-2/4">
               <div class="bg-Rose-400">
-                <h1 class="pa-5">
+                <h1 class="pa-5 flex items-center">
                   <v-icon x-large dark>mdi-cart-arrow-right</v-icon>
                   <span
                     class="font-mainFont text-mainBlue font-extrabold text-4xl"
@@ -187,7 +187,7 @@
               </div>
 
               <div
-                class="w-full h-3/4 flex lg:p-7 flex-col lg:flex-row p-4 bg-LightBlue-600"
+                class="w-full h-3/4 flex lg:p-7 flex-col lg:flex-row p-4 bg-darkPurple"
               >
                 <div
                   class="w-full lg:w-5/6 h-full overflow-x-scroll self-start lg:gap-2 grid grid-cols-2 lg:grid-cols-4"
@@ -224,14 +224,19 @@
                     </div>
                   </div>
                 </div>
-                <div class="w-1/6 h-full flex justify-center align-center">
+                <div
+                  class="lg:w-1/6 w-full h-full lg:space-y-4 flex lg:flex-col space-x-4 justify-around align-center"
+                >
+                  <h1
+                    class="font-mainFont text-center text-3xl flex justify-center items-center bg-white p-5 rounded-lg text-mainBlue font-semibold"
+                  >
+                    Shopping Sum : 2400 IRL
+                  </h1>
                   <button
-                    class="checkoutBtn py-1 flex justify-center align-center"
+                    class="checkoutBtn lg:p-4 p-2"
                     @click="submitOrderDetail"
                   >
-                    <span
-                      class="pl-4 checkoutText font-mainFont text-lg lg:text-2xl"
-                    >
+                    <span class="pl-4 checkoutText font-mainFont text-2xl">
                       Checkout
                     </span>
                     <v-icon x-large class="pink--text text--darken-2 sm:hidden"
@@ -323,16 +328,18 @@ export default {
       this.loading = true
       try {
         if (this.user) {
-          const { data , error } = await this.$supabase.from('order-detail').insert([
-            {
-              'user-id': this.user.id,
-              'full-address': this.order.Address,
-              city: this.order.City,
-              province: this.order.Province,
-              'phone-number': this.order.PhoneNumber,
-              'full-name': this.order.FullName,
-            },
-          ])
+          const { data, error } = await this.$supabase
+            .from('order-detail')
+            .insert([
+              {
+                'user-id': this.user.id,
+                'full-address': this.order.Address,
+                city: this.order.City,
+                province: this.order.Province,
+                'phone-number': this.order.PhoneNumber,
+                'full-name': this.order.FullName,
+              },
+            ])
           if (error) throw error
           this.orderDetailId = data[0].id
           alert('orderDetail added')
@@ -359,9 +366,8 @@ export default {
         if (error) throw error
       } catch (error) {
         alert(error.error_description || error.message)
-      }
-      finally{
-        alert("operation Completed")
+      } finally {
+        alert('operation Completed')
       }
     },
     async submitOrder() {

@@ -1,7 +1,7 @@
 <template>
   <div v-show="product.catagory === catagory">
     <div
-      class="flex flex-col lg:h-72 h-rem26 lg:w-96 lg:flex-row justify-center align-center lg:space-x-3 cardBackground productCard"
+      class="flex flex-col lg:h-72 h-dialog lg:w-96 lg:flex-row justify-center align-center lg:space-x-3 cardBackground productCard"
     >
       <div
         class="lg:h-full h-2/5 w-full lg:w-2/5 flex justify-center align-center overflow-hidden"
@@ -19,7 +19,7 @@
             <v-icon color="white" class="">mdi-basket-plus-outline</v-icon>
           </span>
         </div>
-        <div class="w-full h-3/4 flex flex-col justify-between align-center">
+        <div class="w-full h-3/4 flex flex-col justify-around align-center">
           <h1 class="text-5xl text-mainBlue font-bold text-center">
             {{ product.title }}
           </h1>

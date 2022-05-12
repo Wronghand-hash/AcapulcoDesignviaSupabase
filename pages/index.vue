@@ -48,6 +48,8 @@ fa:
 
       <div class="w-screen overflow-hidden">
         <div class="grid place-items-center w-screen">
+          <!-- <InnerImageZoom regular-webp="../assets/images/Chao.webp" /> -->
+
           <!-- <div
             class="relative flex sm:mx-5 sm:px-5 h-screen w-screen justify-center align-center logo"
           >
@@ -369,10 +371,10 @@ fa:
           >
             <div class="flex flex-row flex-wrap w-5/6 h-2/6 justify-center">
               <h1
-                class="introText capitalize text-5xl lg:text-7xl text-center bg-goldie p-2"
+                class="introText capitalize text-5xl lg:text-7xl text-center bg-mainGreen p-2"
               >
                 {{ $t('weAreA') }}
-                <span class="text-Rose-700"> {{ $t('creativeTeam') }} </span>
+                <span class="text-goldie"> {{ $t('creativeTeam') }} </span>
                 {{ $t('based') }}
               </h1>
               <h3
@@ -439,12 +441,14 @@ fa:
 
 <script>
 import LazyHydrate from 'vue-lazy-hydration'
+// import 'vue-inner-image-zoom/lib/vue-inner-image-zoom.css'
+// import InnerImageZoom from 'vue-inner-image-zoom'
 
 export default {
   name: 'IndexPage',
   components: {
     LazyHydrate,
-
+    // InnerImageZoom,
     Footer: () => import('../layouts/TheFooter.vue'),
     Navbar: () => import('../layouts/TheNavbar.vue'),
   },

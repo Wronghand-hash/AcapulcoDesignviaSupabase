@@ -18,15 +18,47 @@
       </template>
 
       <div
-        class="w-screen h-full bg-green-100 p-9 space-y-4 lg:space-x-6 lg:space-y-0 productDetail flex flex-col lg:flex-row"
+        class="w-screen h-screen bg-green-100 p-9 space-y-4 lg:space-x-6 lg:space-y-0 productDetail flex flex-col lg:flex-row"
       >
         <div
+          class="lg:w-1/4 w-full lg:h-full h-1/4 flex justify-start items-center flex-col p-6 rounded-lg bg-Emerald-500"
+        >
+          <!-- <InnerImageZoom src="../assets/images/Chao.webp" />
+              <client-only> q
+                <image-zoom regular-webp="../assets/images/Chao.webp"> </image-zoom>
+              </client-only> -->
+          <h1 class="font-black text-4xl text-mainBlue font-mainFont">
+            Product Name
+          </h1>
+          <h2 class="font-black text-3xl text-mainBlue font-mainFont">
+            Product Price
+          </h2>
+          <h2
+            class="font-black text-2xl text-CoolGray-700 font-mainFont leading-5"
+          >
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium
+            asperiores fugiat repell
+          </h2>
+          <button
+            class="bg-goldie p-5 font-mainFont text-2xl rounded-md cursor-pointer font-black transition ease-in duration-200 hover:bg-yellow-800"
+          >
+            Add to Cart
+            <v-icon color="white" class="">mdi-basket-plus-outline</v-icon>
+          </button>
+        </div>
+        <div
           class="lg:w-3/4 w-full lg:h-full h-3/4 filter drop-shadow-2xl rounded-lg flex justify-center"
-        ></div>
-        <div class="lg:w-1/4 w-full lg:h-full h-1/4 rounded-lg bg-green-500">
-          <client-only>
-            <image-zoom regular-webp="../assets/images/Chao.webp"> </image-zoom>
-          </client-only>
+        >
+          <v-carousel class="bg-mainGreen w-full h-full">
+            <v-carousel-item
+              v-for="(item, i) in items"
+              :key="i"
+              cycle
+              :src="item.src"
+              reverse-transition="fade-transition"
+              transition="fade-transition"
+            ></v-carousel-item>
+          </v-carousel>
         </div>
 
         <!-- <v-icon light x-large class="m-7">mdi-chevron-double-left</v-icon> -->
@@ -119,12 +151,16 @@
 </template>
 
 <script>
-import imageZoom from 'vue-image-zoomer'
+// import 'vue-inner-image-zoom/lib/vue-inner-image-zoom.css'
+// import imageZoom from 'vue-image-zoomer'
 
+// import InnerImageZoom from 'vue-inner-image-zoom'
 export default {
-  components: { imageZoom },
   // props: ['product'],
-
+  components: {
+    // InnerImageZoom,
+    // imageZoom,
+  },
   data() {
     return {
       dialog: false,

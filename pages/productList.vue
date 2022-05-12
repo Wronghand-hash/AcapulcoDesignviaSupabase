@@ -230,7 +230,7 @@ fa:
 
             <!-- <div class="row-span-5 col-span-2 place-items-center"> -->
             <div
-              class="w-full h-full grid productCard lg:grid-cols-4 space-y-5 grid-cols-1 gap-6 p-10 mt-6 place-items-center self-center justify-self-center"
+              class="w-full h-full grid productCard lg:grid-cols-3 space-y-5 grid-cols-1 gap-6 p-10 mt-6 place-items-center self-center justify-self-center"
             >
               <ProductCard
                 v-for="product in products"
