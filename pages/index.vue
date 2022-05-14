@@ -16,8 +16,8 @@ en:
   weAreA: 'We are a'
   creativeTeam: 'Creative Team'
   based: 'Based in Iran'
-  if: 'If you want to know more; maybe get a cup of coffee (Or tea!), you can!'
-  aboutUs: 'Learn more about Us'
+  if: 'If you want to know more; maybe get a cup of coffee (or tea), you can!'
+  aboutUs: 'Learn more about us'
 fa:
   acapulcodesign: 'آکاپلکو دیزاین'
   welcome: 'خوش اومدین'
@@ -35,7 +35,7 @@ fa:
   weAreA: 'ما یک'
   creativeTeam: 'تیم خلاق'
   based: 'از ایران هستیم'
-  if: ' اگر میخواین ما رو بیشتر بشناسین؛ شاید یه فنجون قهوه (یا چای!) باهم بزنیم، میتونین'
+  if: ' اگر میخواین ما رو بیشتر بشناسین؛ شاید یه فنجون قهوه (یا چای) باهم بزنیم، میتونین'
   aboutUs: 'بیشتر مارو بشناسین'
 </i18n>
 
@@ -371,10 +371,10 @@ fa:
           >
             <div class="flex flex-row flex-wrap w-5/6 h-2/6 justify-center">
               <h1
-                class="introText capitalize text-5xl lg:text-7xl text-center bg-mainGreen p-2"
+                class="introText capitalize text-5xl lg:text-7xl text-center bg-mainGreen p-3"
               >
                 {{ $t('weAreA') }}
-                <span class="text-goldie"> {{ $t('creativeTeam') }} </span>
+                <span class="text-Indigo-700"> {{ $t('creativeTeam') }} </span>
                 {{ $t('based') }}
               </h1>
               <h3

@@ -106,14 +106,19 @@ fa:
                 {{ $t('home') }}
               </span>
             </div>
-            <div class="pt-2 relative text-white mr-5">
+            <div class="pt-2 relative text-white mr-10">
               <input
-                class="border-2 placeholder-white transition ease-in duration-300 text-darkPurple hover:bg-white border-gray-300 bg-mainBlue h-10 px-5 pr-4 md:pr-16 rounded-full text-md focus:outline-none"
+                v-model="SearchIndex"
+                class="border-2 placeholder-mainBlue transition ease-in w-72 duration-300 text-darkPurple hover:bg-white border-gray-300 bg-green-200 h-12 px-5 pr-4 md:pr-16 rounded-full text-lg focus:outline-none"
                 type="search"
                 name="search"
                 placeholder="ُSearch"
               />
-              <button type="submit" class="absolute right-0 top-0 mt-5 mr-4">
+              <button
+                type="submit"
+                class="absolute right-0 top-0 mt-5 mr-4"
+                @click="SearchProducts"
+              >
                 <svg
                   id="Capa_1"
                   class="text-white h-4 w-4 fill-current"
@@ -147,7 +152,7 @@ fa:
                   @click="changeCatagory('Lighters')"
                 >
                   <h1
-                    class="lg:text-3xl text-2xl bg-LightBlue-500 lg:rounded-md rounded-t-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                    class="lg:text-3xl text-2xl bg-green-500 lg:rounded-md rounded-t-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
                     {{ $t('lighters') }}
                     <img
@@ -161,7 +166,7 @@ fa:
                   @click="changeCatagory('Collections')"
                 >
                   <h1
-                    class="lg:text-3xl text-2xl bg-LightBlue-500 lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                    class="lg:text-3xl text-2xl bg-green-500 lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
                     {{ $t('collections') }}
                     <img
@@ -175,7 +180,7 @@ fa:
                   @click="changeCatagory('Matchboxes')"
                 >
                   <h1
-                    class="lg:text-3xl text-2xl bg-LightBlue-500 rounded-b-md lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 text-center flex justify-center align-end sidebarText"
+                    class="lg:text-3xl text-2xl bg-green-500 rounded-b-md lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 text-center flex justify-center align-end sidebarText"
                   >
                     {{ $t('acapulcoMatchboxes') }}
                     <img
@@ -188,7 +193,7 @@ fa:
               <div class="lg:flex lg:space-x-5 font-bold">
                 <span class="cursor-pointer" @click="changeCatagory('Shirts')">
                   <h1
-                    class="lg:text-3xl text-2xl lg:rounded-md bg-LightBlue-500 rounded-t-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                    class="lg:text-3xl text-2xl lg:rounded-md bg-green-500 rounded-t-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
                     {{ $t('acapulcoShirt') }}
                     <img
@@ -199,7 +204,7 @@ fa:
                 </span>
                 <span class="cursor-pointer" @click="changeCatagory('Shorts')">
                   <h1
-                    class="lg:text-3xl text-2xl lg:rounded-md bg-LightBlue-500 shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                    class="lg:text-3xl text-2xl lg:rounded-md bg-green-500 shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
                     {{ $t('acapulcoShorts') }}
                     <img
@@ -210,7 +215,7 @@ fa:
                 </span>
                 <span class="cursor-pointer" @click="changeCatagory('Hoodies')">
                   <h1
-                    class="lg:text-3xl text-2xl lg:rounded-md bg-LightBlue-500 rounded-b-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                    class="lg:text-3xl text-2xl lg:rounded-md bg-green-500 rounded-b-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
                     {{ $t('acapulcoHoodies') }}
                     <img
@@ -221,6 +226,17 @@ fa:
                 </span>
               </div>
             </div>
+            <v-select
+              :items="items"
+              light
+              filled
+              item-color="blue darken-1"
+              class="bg-mainGreen bg-opacity-40 self-start justify-self-start text-4xl"
+              label="Filters"
+              outlined
+              @input="changeOrder"
+            ></v-select>
+
             <!-- </div> -->
           </div>
           <div
@@ -248,6 +264,7 @@ fa:
                 circle
                 color="#240046"
                 large
+                dense
                 prev-icon="mdi-menu-left"
                 next-icon="mdi-menu-right"
                 class="my-4 px-12 text-4xl font-bold lg:px-32"
@@ -299,6 +316,10 @@ export default {
     return {
       page: 1,
       products: [],
+      SearchIndex: '',
+      order: 'price',
+      ascention: false,
+      items: ['Newest', 'Most Expensive', 'Least Expensive'],
     }
   },
   computed: {
@@ -309,62 +330,102 @@ export default {
       return this.$store.state.catagory
     },
   },
+  watch: {
+    SearchIndex() {
+      this.SearchProducts()
+    },
+
+    order() {
+      this.getProducts()
+
+      console.log(this.order)
+    },
+    ascention() {
+      this.getProducts()
+
+      console.log(this.order)
+    },
+  },
 
   mounted() {
     // this.animateSurfingBoard()
-    this.animateProductCards()
     // this.$store.dispatch('getProducts')
     this.animateBackground()
     this.getProducts()
   },
 
   methods: {
+    async SearchProducts() {
+      try {
+        const { data, error } = await this.$supabase
+          .from('products')
+          .select()
+          .textSearch('title', this.SearchIndex, {
+            config: 'english',
+          })
+
+        if (error) throw error
+        if (data) {
+          this.products = data
+
+          // alert('products fetched')
+          // console.log(data)
+        }
+      } catch (error) {
+      } finally {
+        this.animateProductCardsForSearch()
+      }
+    },
+    changeOrder(selected) {
+      if (selected === 'Newest') {
+        this.order = 'created_at'
+      } else if (selected === 'Most Expensive') {
+        this.order = 'price'
+        this.ascention = false
+      } else if (selected === 'Least Expensive') {
+        this.order = 'price'
+        this.ascention = true
+      }
+    },
     changeCatagory(selected) {
       this.$store.dispatch('changeCatagory', selected)
     },
 
     async getProducts() {
       try {
-        const { data, error } = await this.$supabase.from('products').select()
+        const { data, error } = await this.$supabase
+          .from('products')
+          .select()
+          .order(this.order, { ascending: this.ascention })
+
         if (error) throw error
         if (data) {
           this.products = data
-          alert('products fetched')
-          console.log(data)
+          this.animateProductCards()
+
+          // alert('products fetched')
+          // console.log(data)
         }
       } catch (error) {}
     },
 
-    // animateSurfingBoard() {
-    //   const gsap = this.$gsap
-
-    //   gsap
-    //     .timeline({
-    //       scrollTrigger: {
-    //         start: 'top top',
-    //         end: '+=700',
-    //         scrub: 2,
-    //         trigger: '.navbar',
-    //         marker: true,
-    //       },
-    //     })
-    //     .to('.surfingBoard', {
-    //       opacity: 0,
-    //       rotation: 360 * 7,
-    //       duration: 0.2,
-    //       y: 100,
-    //       scale: 0.2,
-    //     })
-    // },
+    animateProductCardsForSearch(product) {
+      const products = this.$gsap.utils.toArray('.productCard')
+      products.forEach((product) => {
+        this.$gsap.to(product, {
+          opacity: 1,
+          y: -40,
+          duration: 0.5,
+        })
+      })
+    },
     animateProductCards(product) {
       const products = this.$gsap.utils.toArray('.productCard')
       products.forEach((product) => {
         this.$gsap.to(product, {
           opacity: 0,
-          autoAlpha: 1,
-          y: -50,
-          ease: 'expo.Out',
-          duration: 3,
+          y: 40,
+          duration: 0.5,
         })
       })
     },
@@ -417,7 +478,7 @@ export default {
       tl.from('.productCard', {
         delay: 0.3,
         opacity: 0,
-        y: 40,
+        y: 60,
         ease: 'power3.out',
         duration: 0.6,
 
@@ -455,8 +516,8 @@ export default {
 }
 
 .sidebarText:hover {
-  color: white;
-  background-color: #1411c7;
+  color: #001524;
+  background-color: #70d48f;
   border: none;
 }
 .menu {
