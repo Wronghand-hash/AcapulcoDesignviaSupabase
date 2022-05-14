@@ -13,10 +13,10 @@
           something to add?
         </v-btn>
       </template>
-      <v-card color="lime lighten-1">
-        <v-card-title color="yellow lighten-5">
+      <v-card color="">
+        <v-card-title color="yellow lighten-1">
           <span
-            class="font-mainFont font-bold capitalize text-white text-3xl bg-darkPurple p-7"
+            class="font-mainFont font-bold capitalize text-white text-3xl rounded shadow-2xl bg-Lime-500 p-4"
             >add new product</span
           >
         </v-card-title>
@@ -26,7 +26,7 @@
               <v-col cols="12" sm="6" md="4">
                 <v-text-field
                   v-model="title"
-                  color="yellow lighten-5"
+                  color="yellow lighten-"
                   label="title"
                   required
                 ></v-text-field>
@@ -38,9 +38,6 @@
                   label="price"
                 ></v-text-field>
               </v-col>
-              <v-col cols="12" sm="6" md="4"> </v-col>
-              <v-col cols="12"> </v-col>
-              <v-col cols="12"> </v-col>
               <v-col cols="12" sm="6">
                 <v-select
                   v-model="catagory"
@@ -70,13 +67,14 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn
-            class="text-2xl font-mainFont text-mainBlue"
+            class="text-2xl font-mainFont text-white"
+            color="lime"
             light
             @click="dialog = false"
           >
             Close
           </v-btn>
-          <v-btn light :disabled="loading" @click="addProduct">
+          <v-btn color="lime" light :disabled="loading" @click="addProduct">
             {{ loading ? 'Uploading ...' : 'save' }}
           </v-btn>
         </v-card-actions>

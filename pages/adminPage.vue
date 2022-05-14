@@ -50,7 +50,7 @@ fa:
 
 <template>
   <v-app id="app">
-    <div id="main" class="h-full w-screen overflow-x-hidden">
+    <div id="main" class="max-h-full w-screen overflow-x-hidden">
       <LazyHydrate class="z-50" when-idle>
         <Navbar
           v-gsap.to="{
@@ -65,16 +65,16 @@ fa:
 
       <div class="flex flex-col w-full h-full mt-20 items-center">
         <div
-          class="flex flex-col lg:p-5 align-center mb-8 lis w-full lg:w-1/2 h-1/3 flex flex-col justify-center align-center rounded-2xl justify-center"
+          class="flex flex-col align-center mb-8 lis w-full lg:w-2/3 h-1/3 flex flex-col justify-center align-center rounded-2xl justify-center"
         >
           <div
-            class="buttonContainer z-10 lg:p-10 w-full flex justify-center align-center content-center w-full rounded-2xl"
+            class="buttonContainer shadow-2xl z-10 lg:p-10 w-full flex justify-center align-center content-center w-full rounded-2xl"
           >
             <div
               :class="{
                 'bg-Sky-500': openTab === 1,
               }"
-              class="lis w-1/2 h-1/2 lg:h-full my-2 mx-2 flex flex-col justify-center align-center rounded-2xl shadow-2xl"
+              class="lis w-1/2 lg:h-full my-2 mx-2 flex flex-col justify-center align-center rounded-2xl"
               @click="tab1() & toggleTabs(1)"
             >
               <img
@@ -87,7 +87,7 @@ fa:
               :class="{
                 'bg-Sky-500': openTab === 2,
               }"
-              class="lis w-1/2 h-1/2 lg:h-full mx-2 my-4 transform translate-y-10 flex flex-col justify-center align-center rounded-2xl shadow-2xl"
+              class="lis w-1/2 lg:h-full mx-2 my-4 flex flex-col justify-center align-center rounded-2xl"
               @click="tab2() & toggleTabs(2)"
             >
               <img
@@ -100,7 +100,7 @@ fa:
               :class="{
                 'bg-Sky-500': openTab === 3,
               }"
-              class="lis w-1/2 h-1/2 lg:h-full my-2 mx-2 flex flex-col justify-center align-center rounded-2xl shadow-2xl"
+              class="lis w-1/2 lg:h-full my-2 mx-2 flex flex-col justify-center align-center rounded-2xl"
               @click="tab3() & toggleTabs(3)"
             >
               <img
@@ -116,7 +116,7 @@ fa:
             class="flex flex-cols justify-center align-center w-full h-full lg:p-4 col-span-4"
           >
             <div
-              class="admin bg-Sky-500 shadow-2xl px-4 py-8 flex flex-row justify-center self-center w-full rounded h-full"
+              class="admin bg-Sky-500 shadow-2xl px-4 flex flex-row justify-center self-center w-full rounded h-full"
             >
               <div
                 class="tab-content h-full w-full place-items-center content-center justify-center flex self-center tab-space"
@@ -136,7 +136,7 @@ fa:
                       <h2
                         class="ProductLength border-t-2 w-1/3 text-center rounded border-b-2"
                       >
-                        {{ Products.length }}
+                        {{ products.length }}
                       </h2>
                       <h2 class="text-center">{{ $t('products') }}</h2>
                     </div>
@@ -212,7 +212,7 @@ fa:
                         ><v-icon dark>mdi-toolbox</v-icon></v-btn
                       >
                       <div
-                        class="addSomthing m-5 flex flex-col w-full h-full self-center align-center"
+                        class="addSomthing m-2 flex flex-col w-full h-auto self-center align-center"
                       >
                         <Adminastration
                           ref="Adminastration"
@@ -222,15 +222,14 @@ fa:
                     </div>
 
                     <div
-                      class="w-full p-6 products rounded-lg shadow-2xl overflow-y-scroll h-full text-gray-200"
+                      class="w-full products rounded-lg px-2 shadow-2xl bg-white overflow-y-scroll h-full text-gray-200"
                     >
                       <div
-                        v-for="product in Products"
+                        v-for="product in products"
                         :key="product.id"
                         class=""
                       >
                         <div
-                          v-show="product.catagory_id === catagory"
                           id="products"
                           class="flex flex-row divide-y border-black text-black place-content-around"
                         >
@@ -238,6 +237,7 @@ fa:
                             class="bottomBorder flex flex-row place-content-between border-b-2 w-full"
                           >
                             <h3 class="">{{ product.title }}</h3>
+                            <p>{{ product.price }}</p>
                             <button class="" @click="deleteProduct(product.id)">
                               <img
                                 class="kiskis"
@@ -320,7 +320,7 @@ fa:
                               class="listCard w-full shadow-xl flex flex-row rounded-full my-3 p-4 place-content-around"
                             >
                               <h1 class="m-1 text-xl lg:text-3xl">
-                                {{ order.order.FullName }}
+                                {{ order.FullName }}
                               </h1>
                               <h1 class="m-1 text-xl lg:text-3xl">
                                 {{ order.Date }}
@@ -395,21 +395,21 @@ fa:
                                 </div>
                                 <h1 class="text-xl border-b-2 p-1">
                                   {{ $t('fullName') }}:
-                                  {{ order.order.FullName }}
+                                  {{ order.FullName }}
                                 </h1>
                                 <h1 class="text-xl border-b-2 p-1">
-                                  {{ $t('address') }}: {{ order.order.Address }}
+                                  {{ $t('address') }}: {{ order.Address }}
                                 </h1>
                                 <h1 class="text-xl border-b-2 p-1">
                                   {{ $t('phoneNumber') }}:
-                                  {{ order.order.PhoneNumber }}
+                                  {{ order.PhoneNumber }}
                                 </h1>
                                 <h1 class="text-xl border-b-2 p-1">
-                                  {{ $t('city') }}: {{ order.order.City }}
+                                  {{ $t('city') }}: {{ order.City }}
                                 </h1>
                                 <h1 class="text-xl border-b-2 p-1">
                                   {{ $t('province') }}:
-                                  {{ order.order.Province }}
+                                  {{ order.Province }}
                                 </h1>
 
                                 <h1 class="text-xl p-1">{{ $t('items') }}:</h1>
@@ -502,15 +502,13 @@ export default {
       orders: [],
       orderProduct: [],
       ordersTab: 'List',
+      products: [],
     }
   },
 
   computed: {
     user() {
       return this.$store.state.user
-    },
-    Products() {
-      return this.$store.state.products
     },
   },
 
@@ -527,8 +525,9 @@ export default {
   },
 
   mounted() {
-    this.$store.dispatch('getProducts')
+    this.getProducts()
     this.welcome()
+    this.fetchOrders()
   },
   methods: {
     catagorySelect(selectedTab) {
@@ -545,18 +544,46 @@ export default {
     showModal() {
       this.$refs.Adminastration.toggleModal()
     },
+
+    async getProducts() {
+      try {
+        const { data, error } = await this.$supabase.from('products').select()
+
+        if (error) throw error
+        if (data) {
+          this.products = data
+          this.animateProductCards()
+
+         
+          // console.log(data)
+        }
+      } catch (error) {}
+    },
+
+    async fetchOrders() {
+      try {
+        const { data, error } = await this.$supabase
+          .from('order-detail')
+          .select()
+        if (error) throw error
+        if (data) {
+          this.orders = data
+          console.log(this.orders)
+        }
+      } catch (error) {
+        alert(error.message)
+      }
+    },
+
     async deleteProduct(id) {
       try {
         this.deletingAnimation()
-        const { error } = await this.$supabase
-          .from('products')
-          .delete()
-          .match({ id })
+        const { error } = await this.$supabase.from('products').delete()
         if (error) throw error
       } catch (error) {
         alert(error.error_description || error.message)
       } finally {
-        this.$store.dispatch('getProducts')
+        this.getProducts()
       }
     },
 
@@ -584,15 +611,6 @@ export default {
       const gsap = this.$gsap
       const tl = gsap.timeline()
 
-      gsap.to('.mismisDelivery', 0.3, {
-        scale: 1,
-      })
-      gsap.to('.flag', 0.3, {
-        scale: 1,
-      })
-      gsap.to('.mismisAdmin', 0.3, {
-        scale: 1.5,
-      })
       tl.from('.catagories', 0.5, {
         x: -50,
         opacity: 0,
@@ -615,15 +633,6 @@ export default {
       const gsap = this.$gsap
       const tl = gsap.timeline()
 
-      gsap.to('.mismisDelivery', 0.3, {
-        scale: 1.5,
-      })
-      gsap.to('.flag', 0.3, {
-        scale: 1,
-      })
-      tl.to('.mismisAdmin', 0.3, {
-        scale: 1,
-      })
       tl.from('.List', 0.3, {
         scale: 0.3,
         opacity: 0,
@@ -645,15 +654,6 @@ export default {
       const gsap = this.$gsap
       const tl = gsap.timeline()
 
-      gsap.to('.mismisDelivery', 0.3, {
-        scale: 1,
-      })
-      gsap.to('.flag', 0.3, {
-        scale: 1.5,
-      })
-      gsap.to('.mismisAdmin', 0.3, {
-        scale: 1,
-      })
       tl.from('.totalProducts', 0.5, {
         x: -100,
         opacity: 0,
