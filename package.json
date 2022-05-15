@@ -17,11 +17,11 @@
     "test:e2e": "cross-env TEST=e2e ava ./test/e2e/**/*"
   },
   "dependencies": {
+    "@nuxt/kit": "^3.0.0-rc.3",
     "@nuxtjs/composition-api": "^0.32.0",
     "@nuxtjs/i18n": "^7.0.3",
     "@nuxtjs/svg": "^0.3.0",
     "core-js": "^3.22.4",
-    "@nuxt/kit": "^0.8.1-edge",
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-optipng": "^8.0.0",
     "jpeg-js": "^0.4.3",
