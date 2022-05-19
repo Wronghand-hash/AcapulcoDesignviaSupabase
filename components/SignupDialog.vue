@@ -2,10 +2,12 @@
 en:
   signUp: 'Signup'
   enter: 'Enter'
+  confirmation: 'Check your email for confirmation'
 
 fa:
   signUp: 'حساب جدید'
   enter: 'ورود'
+  confirmation: 'لینک تایید اکانت به ایمیلتون ارسال شد'
 </i18n>
 
 <template>
@@ -85,6 +87,15 @@ fa:
           </p>
         </v-form>
       </div>
+      <v-alert
+        v-show="confirmation"
+        border="bottom"
+        color="blue"
+        type="success"
+        class="text-3xl font-black"
+      >
+        {{ $t('confirmation') }}
+      </v-alert>
     </v-dialog>
   </div>
 </template>
@@ -95,6 +106,7 @@ fa:
 export default {
   data: () => ({
     valid: true,
+    confirmation: false,
     displayName: '',
     // displayNameRules: [
     //   (v) => !!v || 'Name is required',
@@ -136,7 +148,7 @@ export default {
           }
         )
         if (error) throw error
-        alert('Check your inbox for conformtion')
+        this.confirmation = true
       } catch (error) {
         alert(error.error_description || error.message)
       } finally {

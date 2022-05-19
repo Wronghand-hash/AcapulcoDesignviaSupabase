@@ -231,7 +231,7 @@ fa:
               light
               filled
               item-color="blue darken-1"
-              class="bg-mainGreen bg-opacity-40 lg:self-start w-full font-mainFont font-black text-mainBlue lg:justify-self-start text-4xl"
+              class="bg-mainGreen bg-opacity-40 lg:self-start lg:w-full font-mainFont font-black text-mainBlue lg:justify-self-start text-4xl"
               label="Filters"
               outlined
               @input="changeOrder"
@@ -371,7 +371,7 @@ export default {
         const { data, error } = await this.$supabase
           .from('products')
           .select()
-          .textSearch('title', this.SearchIndex.trim())
+          .textSearch('title', this.SearchIndex.toString().trim())
 
         if (error) throw error
         if (data) {

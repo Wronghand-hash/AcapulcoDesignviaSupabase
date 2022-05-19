@@ -4,11 +4,13 @@ en:
   login: 'Login'
   google: 'Sign in with Google'
   noAccount: 'Dont have an account?'
+  loggedIn: 'You have seccessfuly logged in'
 fa:
   join: 'به ما بپیوندید'
   login: 'ورود'
   google: 'ورود از طریق حساب گوگل'
   noAccount: 'هنوز حسابی ندارید؟'
+  loggedIn: ' ورود موفقیت آمیز بود کاز'
 </i18n>
 
 <template>
@@ -105,6 +107,15 @@ fa:
           {{ error }}
         </p>
       </div>
+      <v-alert
+        v-show="loggedIn"
+        border="bottom"
+        color="green"
+        type="success"
+        class="text-4xl items-center flex justify-center font-light"
+      >
+        {{ $t('loggedIn') }}
+      </v-alert>
     </v-dialog>
   </div>
 </template>
@@ -117,7 +128,7 @@ export default {
   },
   data: () => ({
     dialog: false,
-
+    loggedIn: false,
     email: '',
     emailRules: [
       (v) => !!v || 'E-mail is required',
@@ -144,9 +155,10 @@ export default {
       } catch (error) {
         alert(error.error_description || error.message)
       } finally {
-        alert(
-          "loggin successfull you'll be redirected to acapulco in short order my friend"
-        )
+        this.loggedIn = true
+        setTimeout(() => {
+          this.dialog = false
+        }, 3000)
       }
     },
     async signInUser() {
@@ -156,7 +168,10 @@ export default {
           password: this.password,
         })
         if (error) throw error
-        alert('you are logged in')
+        this.loggedIn = true
+        setTimeout(() => {
+          this.dialog = false
+        }, 3000)
       } catch (error) {
         alert(error.error_description || error.message)
       }

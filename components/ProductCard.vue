@@ -1,3 +1,10 @@
+<i18n lang="yaml">
+en:
+  addedtoCart: 'Item added successfully'
+
+fa:
+  addedtoCart: 'به سبد خرید اضافه شد'
+</i18n>
 <template>
   <div>
     <div
@@ -59,6 +66,15 @@
         </div> -->
       </div>
     </div>
+    <v-alert
+      v-show="addedtoCart"
+      transition="fade-transition"
+      color="green"
+      type="success"
+      class="text-4xl text-mainBlue flex items-center justify-center"
+    >
+      {{ $t('addedtoCart') }}
+    </v-alert>
   </div>
 </template>
 
@@ -78,6 +94,7 @@ export default {
 
   data() {
     return {
+      addedtoCart: false,
       imgUrl: '',
       Product: {
         item: this.product,
@@ -114,6 +131,10 @@ export default {
     },
     addToCart() {
       this.$store.commit('AddToCart', this.Product)
+      this.addedtoCart = true
+      setTimeout(() => {
+        this.addedtoCart = false
+      }, 3000)
     },
   },
 }
