@@ -6,6 +6,7 @@ en:
   admin: 'Admin'
   welcome: 'Welcome Back!'
   logout: 'Logout'
+  signedOut: 'Successfully logged out'
 fa:
   aboutus: 'درباره ی ما'
   home: 'خانه'
@@ -13,12 +14,22 @@ fa:
   admin: 'ادمین'
   welcome: 'خوش برگشتی'
   logout: 'لاگ آوت'
+  signedOut: 'از حسابتون خارج شدید'
 </i18n>
 <template>
   <!-- <v-app> -->
   <div
     class="mb-8 fixed w-screen h-20 lg:h-24 bg-transparent Navbar opacity-100 z-50 flex align-center justify-center lg:px-9"
   >
+    <v-alert
+      v-show="signedOut"
+      border="bottom"
+      color="green"
+      type="success"
+      class="text-4xl text-mainBlue items-center absolute justify-center"
+    >
+      {{ $t('signedOut') }}
+    </v-alert>
     <!-- <div class="hidden lg:flex">
       <v-btn
         class="Btn"
@@ -185,6 +196,7 @@ export default {
   },
   data() {
     return {
+      signedOut: false,
       categories: [
         {
           title: 'Lighters',
@@ -238,10 +250,8 @@ export default {
       try {
         const { error } = await this.$supabase.auth.signOut()
         if (error) throw error
-        alert('signed out')
-      } catch (error) {
-        alert(error.message)
-      }
+        this.signedOut = true
+      } catch (error) {}
     },
   },
   // created() {

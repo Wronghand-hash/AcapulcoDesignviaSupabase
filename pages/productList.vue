@@ -231,7 +231,7 @@ fa:
               light
               filled
               item-color="blue darken-1"
-              class="bg-mainGreen bg-opacity-40 lg:self-start lg:w-full font-mainFont font-black text-mainBlue lg:justify-self-start text-4xl"
+              class="bg-mainGreen bg-opacity-40 lg:self-start lg:w-auto w-full font-mainFont font-black text-mainBlue lg:justify-self-start text-4xl"
               label="Filters"
               outlined
               @input="changeOrder"
@@ -371,7 +371,10 @@ export default {
         const { data, error } = await this.$supabase
           .from('products')
           .select()
-          .textSearch('title', this.SearchIndex.toString().trim())
+          .textSearch(
+            'title'.toString().trim(),
+            this.SearchIndex.toString().trim()
+          )
 
         if (error) throw error
         if (data) {
@@ -427,23 +430,16 @@ export default {
     //     })
     //   })
     // },
-    animateProductCards(product) {
-      const products = this.$gsap.utils.toArray('.productCard')
-      products.forEach((product) => {
-        this.$gsap.fromTo(
-          product,
-          {
-            opacity: 0,
-            y: 40,
-            duration: 0.5,
-          },
-          {
-            opacity: 1,
-            y: 0,
-          }
-        )
-      })
-    },
+    // animateProductCards(product) {
+    //   const products = this.$gsap.utils.toArray('.productCard')
+    //   products.forEach((product) => {
+    //     this.$gsap.fromTo(product, {
+    //       opacity: 0,
+    //       y: 40,
+    //       duration: 0.5,
+    //     })
+    //   })
+    // },
     animateBackground() {
       const gsap = this.$gsap
       const tl = gsap.timeline()
@@ -550,19 +546,19 @@ export default {
   }
 } */
 
-.products-enter-active,
-.products-leave-active {
+.products-leave-active,
+.products-enter-active {
   transition: all 0.5s ease;
 }
 
-.products-enter-from,
 .products-leave-to {
   opacity: 0;
   transform: translateY(30px);
 }
-.products-enter-to,
-.products-leave-from {
+
+.products-enter-to {
   opacity: 1;
+  transform: translateY(30px);
 }
 /* .products-enter-to,
 .products-leave-from {

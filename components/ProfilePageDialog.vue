@@ -69,7 +69,6 @@
                 >
                   <div>
                     <v-text-field
-                      v-model="user.City"
                       color="red lighten-5"
                       dark
                       label="City"
