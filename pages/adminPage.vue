@@ -79,29 +79,32 @@ fa:
             <div
               :class="{
                 'bg-pink-500': openTab === 1,
+                'text-white': openTab === 1
               }"
-              class="lis lg:h-full w-full h-3/6 flex flex-col justify-center cursor-pointer align-center rounded-2xl"
+              class="lis lg:h-full transition w-full h-3/6 flex flex-col justify-center cursor-pointer align-center rounded-2xl"
               @click="tab1() & toggleTabs(1)"
             >
-              <h2 class="font-bold text-white text-2xl">Sells</h2>
+              <h2 class="font-bold text-2xl">Sells</h2>
             </div>
             <div
               :class="{
                 'bg-pink-500': openTab === 2,
+                'text-white': openTab === 2
               }"
-              class="lis lg:h-full w-11/12 h-3/6 flex flex-col justify-center cursor-pointer align-center rounded-2xl"
+              class="lis lg:h-full transition w-11/12 h-3/6 flex flex-col justify-center cursor-pointer align-center rounded-2xl"
               @click="tab2() & toggleTabs(2)"
             >
-              <h2 class="font-bold text-white text-2xl">Products</h2>
+              <h2 class="font-bold text-2xl">Products</h2>
             </div>
             <div
               :class="{
                 'bg-pink-500': openTab === 3,
+                'text-white': openTab === 3
               }"
-              class="lis lg:h-full w-full h-3/6 flex flex-col justify-center cursor-pointer align-center rounded-2xl"
+              class="lis lg:h-full transition w-full h-3/6 flex flex-col justify-center cursor-pointer align-center rounded-2xl"
               @click="tab3() & toggleTabs(3)"
             >
-              <h2 class="font-bold text-white text-2xl">Orders</h2>
+              <h2 class="font-bold text-2xl">Orders</h2>
             </div>
           </div>
         </div>
