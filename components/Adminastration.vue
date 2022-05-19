@@ -5,7 +5,7 @@
         <v-btn
           height="50px"
           width="200px"
-          color="amber"
+          color="pink lighten-3"
           dark
           v-bind="attrs"
           v-on="on"
@@ -14,9 +14,9 @@
         </v-btn>
       </template>
       <v-card color="">
-        <v-card-title color="yellow lighten-1">
+        <v-card-title color="yellow lighten-2">
           <span
-            class="font-mainFont font-bold capitalize text-white text-3xl rounded shadow-2xl bg-Lime-500 p-4"
+            class="font-mainFont font-bold capitalize text-white text-3xl rounded shadow-2xl bg-pink-500 p-4"
             >add new product</span
           >
         </v-card-title>
@@ -26,7 +26,7 @@
               <v-col cols="12" sm="6" md="4">
                 <v-text-field
                   v-model="title"
-                  color="yellow lighten-"
+                  color="indigo"
                   label="title"
                   required
                 ></v-text-field>
@@ -34,14 +34,14 @@
               <v-col cols="12" sm="6" md="4">
                 <v-text-field
                   v-model="price"
-                  color="yellow lighten-5"
+                  color="indigo"
                   label="price"
                 ></v-text-field>
               </v-col>
               <v-col cols="12" sm="6">
                 <v-select
                   v-model="catagory"
-                  color="yellow lighten-5"
+                  color="indigo"
                   :items="['Lighters', 'Collections', 'Matchboxes', 'Shirts' , 'Shorts' , 'Hoodies']"
                   label="catagory"
                   required
@@ -49,7 +49,7 @@
                 <v-checkbox
                   v-model="inStock"
                   label="in stock"
-                  color="yellow lighten-5"
+                  color="indigo"
                 ></v-checkbox>
               </v-col>
               <v-col cols="12" sm="6">
@@ -68,13 +68,13 @@
           <v-spacer></v-spacer>
           <v-btn
             class="text-2xl font-mainFont text-white"
-            color="lime"
+            color="pink"
             light
             @click="dialog = false"
           >
             Close
           </v-btn>
-          <v-btn color="lime" light :disabled="loading" @click="addProduct">
+          <v-btn color="pink" light :disabled="loading" @click="addProduct">
             {{ loading ? 'Uploading ...' : 'save' }}
           </v-btn>
         </v-card-actions>

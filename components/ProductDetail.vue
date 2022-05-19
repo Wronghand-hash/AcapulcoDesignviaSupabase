@@ -28,10 +28,10 @@
                 <image-zoom regular-webp="../assets/images/Chao.webp"> </image-zoom>
               </client-only> -->
           <h1 class="font-black text-4xl text-mainBlue font-mainFont">
-            {{ Product.item.title }}
+            {{ title }}
           </h1>
           <h2 class="font-black text-3xl text-mainBlue font-mainFont">
-            {{ Product.item.price }}
+            {{ price }}
           </h2>
           <h2
             class="font-black text-2xl text-CoolGray-700 font-mainFont leading-5"
@@ -46,7 +46,7 @@
             <v-icon color="white" class="">mdi-basket-plus-outline</v-icon>
           </button>
         </div>
-        <div
+        <!-- <div
           class="lg:w-3/4 w-full lg:h-full h-3/4 filter drop-shadow-2xl rounded-lg flex justify-center"
         >
           <v-carousel class="bg-mainGreen w-full h-full">
@@ -59,7 +59,7 @@
               transition="fade-transition"
             ></v-carousel-item>
           </v-carousel>
-        </div>
+        </div> -->
 
         <!-- <v-icon light x-large class="m-7">mdi-chevron-double-left</v-icon> -->
         <!-- <div class="w-2/5 h-full bg-mainRed">
@@ -167,6 +167,8 @@ export default {
   data() {
     return {
       dialog: false,
+      title: 'loading',
+      price: 'loading',
       Product: {
         item: {
           title: 'loading',
@@ -182,11 +184,13 @@ export default {
     //   return this.$store.state.catagory
     // },
   },
+
   mounted() {
     setTimeout(() => {
-      console.log(this.product)
-      this.Product = this.product
-    }, 7000)
+      this.title = this.product.item.title
+      this.price = this.product.item.price
+    }, 5000)
+   
   },
 
   methods: {

@@ -65,58 +65,52 @@ fa:
 
       <div class="flex flex-col w-full h-full mt-20 items-center">
         <div
-          class="flex flex-col align-center mb-8 lis w-full lg:w-2/3 h-1/3 flex flex-col justify-center align-center rounded-2xl justify-center"
+          class="bg-pink-600 flex h-32 lg:h-40 self-center justify-around align-center mb-4 rounded shadow-2xl w-9/12"
+        >
+          <h2 class="text-3xl text-white font-bold">Kissy</h2>
+          <div class="w-20 h-20 bg-yellow-500 rounded-full"></div>
+        </div>
+        <div
+          class="flex flex-col align-center mb-8 lis w-full lg:w-2/3 flex flex-col justify-center align-center rounded-2xl justify-center"
         >
           <div
-            class="buttonContainer shadow-2xl z-10 lg:p-10 w-full flex justify-center align-center content-center w-full rounded-2xl"
+            class="buttonContainer shadow-2xl h-32 px-1 z-10 lg:p-10 w-10/12 flex justify-center align-center content-center rounded-2xl"
           >
             <div
               :class="{
-                'bg-Sky-500': openTab === 1,
+                'bg-pink-500': openTab === 1,
               }"
-              class="lis w-1/2 lg:h-full my-2 mx-2 flex flex-col justify-center align-center rounded-2xl"
+              class="lis lg:h-full w-full h-3/6 flex flex-col justify-center cursor-pointer align-center rounded-2xl"
               @click="tab1() & toggleTabs(1)"
             >
-              <img
-                class="flag w-full h-full rateImg object-contain"
-                src="~/assets/images/flag.png"
-                alt=""
-              />
+              <h2 class="font-bold text-white text-2xl">Sells</h2>
             </div>
             <div
               :class="{
-                'bg-Sky-500': openTab === 2,
+                'bg-pink-500': openTab === 2,
               }"
-              class="lis w-1/2 lg:h-full mx-2 my-4 flex flex-col justify-center align-center rounded-2xl"
+              class="lis lg:h-full w-11/12 h-3/6 flex flex-col justify-center cursor-pointer align-center rounded-2xl"
               @click="tab2() & toggleTabs(2)"
             >
-              <img
-                class="mismisAdmin w-2/3 h-1/2 rateImg object-contain"
-                src="../assets/images/mismisAdmin-min.png"
-                alt=""
-              />
+              <h2 class="font-bold text-white text-2xl">Products</h2>
             </div>
             <div
               :class="{
-                'bg-Sky-500': openTab === 3,
+                'bg-pink-500': openTab === 3,
               }"
-              class="lis w-1/2 lg:h-full my-2 mx-2 flex flex-col justify-center align-center rounded-2xl"
+              class="lis lg:h-full w-full h-3/6 flex flex-col justify-center cursor-pointer align-center rounded-2xl"
               @click="tab3() & toggleTabs(3)"
             >
-              <img
-                class="mismisDelivery w-2/3 h-1/2 rateImg object-contain"
-                src="../assets/images/mismisDelivery.png"
-                alt=""
-              />
+              <h2 class="font-bold text-white text-2xl">Orders</h2>
             </div>
           </div>
         </div>
-        <div class="w-screen h-screen flex flex-col">
+        <div class="w-11/12 h-full flex flex-col">
           <div
             class="flex flex-cols justify-center align-center w-full h-full lg:p-4 col-span-4"
           >
             <div
-              class="admin bg-Sky-500 shadow-2xl px-4 flex flex-row justify-center self-center w-full rounded h-full"
+              class="admin bg-pink-200 shadow-2xl px-4 flex flex-row justify-center self-center w-full rounded h-full"
             >
               <div
                 class="tab-content h-full w-full place-items-center content-center justify-center flex self-center tab-space"
@@ -128,13 +122,15 @@ fa:
                     block: openTab === 1,
                   }"
                 >
-                  <div class="w-full h-full grid grid-rows-1 grid-cols-3">
+                  <div
+                    class="w-full h-full md:flex-row lg:flex-row flex justify-evenly flex-col"
+                  >
                     <div
-                      class="totalProducts w-full h-full flex flex-col justify-center align-center"
+                      class="totalProducts flex flex-col justify-center align-center"
                     >
                       <h2 class="text-center">{{ $t('total') }}</h2>
                       <h2
-                        class="ProductLength border-t-2 w-1/3 text-center rounded border-b-2"
+                        class="ProductLength border-t-2 text-center rounded border-b-2"
                       >
                         {{ products.length }}
                       </h2>
@@ -146,7 +142,7 @@ fa:
                     >
                       <h2 class="text-center">{{ $t('total') }}</h2>
                       <h2
-                        class="SellsLength border-t-2 w-1/3 text-center rounded border-b-2"
+                        class="SellsLength border-t-2 text-center rounded border-b-2"
                       >
                         {{ orders.length }}
                       </h2>
@@ -158,7 +154,7 @@ fa:
                     >
                       <h2 class="text-center">{{ $t('shipment') }}</h2>
                       <h2
-                        class="ShipmentLength border-t-2 w-1/3 text-center rounded border-b-2"
+                        class="ShipmentLength border-t-2 text-center rounded border-b-2"
                       >
                         25
                       </h2>
@@ -170,50 +166,47 @@ fa:
                   class="w-full h-full"
                   :class="{ hidden: openTab !== 2, block: openTab === 2 }"
                 >
-                  <div class="h-full grid grid-cols-1 gap-x-3 grid-rows-2">
+                  <div
+                    class="h-full flex flex-col align-center justify-between mb-5 w-full"
+                  >
                     <div
-                      class="catagories col-span-2 flex flex-wrap flex-row justify-around align-center h-full w-full m-3 p-5"
+                      class="catagories my-5 space-y-2 flex flex-wrap flex-row justify-around align-center h-32 w-full"
                     >
-                      <v-btn
-                        depressed
-                        x-large
-                        rounded
-                        color="amber"
-                        class="border-2 border-CoolGray-600 p-5 m-3"
+                      <button
+                        class="border-2 bg-pink-700 rounded-full border-CoolGray-600 w-24 h-24"
                         @click="catagorySelect(4)"
                       >
-                        <v-icon dark>mdi-tshirt-crew</v-icon></v-btn
-                      >
-                      <v-btn
-                        depressed
-                        x-large
-                        rounded
-                        color="amber"
-                        class="border-2 border-CoolGray-600 p-2 m-3"
+                        <v-icon x-large class="text-4xl" dark
+                          >mdi-tshirt-crew</v-icon
+                        >
+                      </button>
+                      <button
+                        class="border-2 bg-pink-700 rounded-full border-CoolGray-600 w-24 h-24"
                         @click="catagorySelect(2)"
-                        ><v-icon dark>mdi-fire</v-icon></v-btn
                       >
-                      <v-btn
-                        depressed
-                        x-large
-                        rounded
-                        color="amber"
-                        class="border-2 border-CoolGray-600 p-2 m-3"
+                        <v-icon x-large class="text-4xl" dark>mdi-fire</v-icon>
+                      </button>
+                      <button
+                        class="border-2 bg-pink-700 rounded-full border-CoolGray-600 w-24 h-24"
                         @click="catagorySelect(3)"
-                        ><v-icon dark>mdi-package</v-icon></v-btn
                       >
-                      <v-btn
-                        depressed
-                        x-large
-                        rounded
-                        color="amber"
-                        class="border-2 border-CoolGray-600 p-2 m-3"
+                        <v-icon x-large class="text-4xl" dark
+                          >mdi-package</v-icon
+                        >
+                      </button>
+                      <button
+                        class="border-2 bg-pink-700 rounded-full border-CoolGray-600 w-24 h-24"
                         @click="catagorySelect(1)"
-                        ><v-icon dark>mdi-toolbox</v-icon></v-btn
                       >
-                      <div
-                        class="addSomthing m-2 flex flex-col w-full h-auto self-center align-center"
-                      >
+                        <v-icon x-large class="text-4xl" dark
+                          >mdi-toolbox</v-icon
+                        >
+                      </button>
+                    </div>
+                    <div
+                      class="addSomthing m-2 flex flex-col w-full h-40 justify-center item-center self-center align-center"
+                    >
+                      <div>
                         <Adminastration
                           ref="Adminastration"
                           class="adminastration"
@@ -222,8 +215,13 @@ fa:
                     </div>
 
                     <div
-                      class="w-full products rounded-lg p-2 shadow-2xl bg-white overflow-y-scroll h-full text-gray-200"
+                      class="w-full products rounded-lg p-2 shadow-2xl bg-white overflow-y-scroll h-80 text-gray-200"
                     >
+                      <div class="flex-justify-center align-center">
+                        <h2 class="font-bold text-2xl border-b-2 my-2">
+                          stock:
+                        </h2>
+                      </div>
                       <div
                         v-for="product in products"
                         :key="product.id"
@@ -234,7 +232,7 @@ fa:
                           class="flex flex-row divide-y border-black text-black place-content-around"
                         >
                           <div
-                            class="bottomBorder flex flex-row place-content-between border-b-2 w-full"
+                            class="bottomBorder flex flex-row place-content-between border-b-2 border-Indigo-500 w-full"
                           >
                             <div class="flex-justify-center">
                               <h3 class="">{{ product.title }}</h3>
@@ -825,20 +823,20 @@ input[type='number'] {
 
 .sellsRecord {
   font-size: 35px;
-  border-color: #54086b;
+  border-color: #2f013d;
   color: #050833;
 }
 
 .SellsLength {
-  border-color: #c7f954;
+  border-color: #17005d;
 }
 
 .ProductLength {
-  border-color: #c7f954;
+  border-color: #2f013d;
 }
 
 .ShipmentLength {
-  border-color: #c7f954;
+  border-color: #2f013d;
 }
 
 .List {
