@@ -46,9 +46,10 @@
             <v-icon color="white" class="">mdi-basket-plus-outline</v-icon>
           </button>
         </div>
-        <!-- <div
+        <div
           class="lg:w-3/4 w-full lg:h-full h-3/4 filter drop-shadow-2xl rounded-lg flex justify-center"
         >
+        <!-- <img :src="imgUrl" alt="" class="object-contain h-full w-full" /> -->
           <v-carousel class="bg-mainGreen w-full h-full">
             <v-carousel-item
               v-for="(item, i) in items"
@@ -59,7 +60,7 @@
               transition="fade-transition"
             ></v-carousel-item>
           </v-carousel>
-        </div> -->
+        </div>
 
         <!-- <v-icon light x-large class="m-7">mdi-chevron-double-left</v-icon> -->
         <!-- <div class="w-2/5 h-full bg-mainRed">
@@ -166,6 +167,7 @@ export default {
   },
   data() {
     return {
+      imgUrl: '',
       dialog: false,
       title: 'loading',
       price: 'loading',
@@ -186,6 +188,7 @@ export default {
   },
 
   mounted() {
+    this.getImage()
     setTimeout(() => {
       this.title = this.product.item.title
       this.price = this.product.item.price
@@ -194,6 +197,19 @@ export default {
   },
 
   methods: {
+      async getImage() {
+      if (this.product.item.image_url) {
+        try {
+          const { data, error } = await this.$supabase.storage
+            .from('product-images')
+            .download(this.product.item.image_url)
+          if (error) throw error
+          this.imgUrl = URL.createObjectURL(data)
+        } catch (error) {
+          alert(error.error_description || error.message)
+        }
+      }
+    },
     // catagorySelect(selected) {
     //   this.catagory = selected
     // },
