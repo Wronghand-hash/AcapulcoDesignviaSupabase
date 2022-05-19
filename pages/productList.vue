@@ -490,16 +490,15 @@ export default {
 
         stagger: 0.3,
       })
-      // tl.from('.productCard', {
-      //   delay: 0.3,
-      //   opacity: 0,
-      //   y: 60,
-      //   ease: 'power3.out',
-      //   duration: 0.6,
+      tl.from('.productCard', {
+        delay: 0.3,
+        opacity: 0,
+        y: 60,
+        ease: 'power3.out',
+        duration: 0.6,
 
-      //   stagger: 0.3,
-      // }
-      // )
+        stagger: 0.3,
+      })
     },
   },
 }
