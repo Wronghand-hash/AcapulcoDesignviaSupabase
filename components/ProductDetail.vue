@@ -28,10 +28,10 @@
                 <image-zoom regular-webp="../assets/images/Chao.webp"> </image-zoom>
               </client-only> -->
           <h1 class="font-black text-4xl text-mainBlue font-mainFont">
-            Product Name
+            {{ Product.item.title }}
           </h1>
           <h2 class="font-black text-3xl text-mainBlue font-mainFont">
-            Product Price
+            {{ Product.item.price }}
           </h2>
           <h2
             class="font-black text-2xl text-CoolGray-700 font-mainFont leading-5"
@@ -156,14 +156,24 @@
 
 // import InnerImageZoom from 'vue-inner-image-zoom'
 export default {
-  // props: ['product'],
   components: {
     // InnerImageZoom,
     // imageZoom,
   },
+  props: {
+    // eslint-disable-next-line vue/require-default-prop
+    product: Object,
+  },
   data() {
     return {
       dialog: false,
+      Product: {
+        item: {
+          title: 'loading',
+          price: 'loading',
+        },
+        quantity: 1,
+      },
     }
   },
 
@@ -172,7 +182,12 @@ export default {
     //   return this.$store.state.catagory
     // },
   },
-  mounted() {},
+  mounted() {
+    setTimeout(() => {
+      console.log(this.product)
+      this.Product = this.product
+    }, 7000)
+  },
 
   methods: {
     // catagorySelect(selected) {
