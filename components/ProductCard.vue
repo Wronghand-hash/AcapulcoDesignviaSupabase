@@ -33,8 +33,8 @@
           </p>
         </div>
         <div class="w-full h-1/4 flex justify-center align-center">
-          <LazyHydrate when-visible>
-            <ProductDetail :product="product" />
+          <LazyHydrate on-click>
+            <ProductDetail :product="Product" />
           </LazyHydrate>
         </div>
         <!-- 

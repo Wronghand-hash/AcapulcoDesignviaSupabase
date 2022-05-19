@@ -222,7 +222,7 @@ fa:
                     </div>
 
                     <div
-                      class="w-full products rounded-lg px-2 shadow-2xl bg-white overflow-y-scroll h-full text-gray-200"
+                      class="w-full products rounded-lg p-2 shadow-2xl bg-white overflow-y-scroll h-full text-gray-200"
                     >
                       <div
                         v-for="product in products"
@@ -236,8 +236,12 @@ fa:
                           <div
                             class="bottomBorder flex flex-row place-content-between border-b-2 w-full"
                           >
-                            <h3 class="">{{ product.title }}</h3>
-                            <p>{{ product.price }}</p>
+                            <div class="flex-justify-center">
+                              <h3 class="">{{ product.title }}</h3>
+                            </div>
+                            <div class="flex-justify-center">
+                              <p>{{ product.price }}</p>
+                            </div>
                             <button class="" @click="deleteProduct(product.id)">
                               <img
                                 class="kiskis"
@@ -554,7 +558,6 @@ export default {
           this.products = data
           this.animateProductCards()
 
-         
           // console.log(data)
         }
       } catch (error) {}
@@ -578,7 +581,10 @@ export default {
     async deleteProduct(id) {
       try {
         this.deletingAnimation()
-        const { error } = await this.$supabase.from('products').delete()
+        const { error } = await this.$supabase
+          .from('products')
+          .delete()
+          .match({ id })
         if (error) throw error
       } catch (error) {
         alert(error.error_description || error.message)
