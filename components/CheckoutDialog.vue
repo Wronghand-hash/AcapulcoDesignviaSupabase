@@ -42,7 +42,7 @@
               class="w-full lg:h-3/5 h-2/4 flex justify-center align-center flex-col"
             >
               <div
-                class="w-full h-auto flex items-center bg-green-400 lg:p-5 p-1"
+                class="w-full h-auto flex items-center bg-mainGreen lg:p-5 p-1"
               >
                 <h1 class="flex items-center">
                   <span class="span transform scale-125" @click="dialog = false"
@@ -175,7 +175,7 @@
             </div>
 
             <div class="w-full lg:h-2/5 h-2/4">
-              <div class="bg-Rose-400">
+              <div class="bg-mainGreen">
                 <h1 class="pa-5 flex items-center">
                   <v-icon x-large dark>mdi-cart-arrow-right</v-icon>
                   <span
@@ -187,7 +187,7 @@
               </div>
 
               <div
-                class="w-full h-3/4 flex lg:p-7 flex-col lg:flex-row p-4 bg-darkPurple"
+                class="w-full h-3/4 flex lg:p-7 flex-col lg:flex-row p-4 bg-Indigo-800"
               >
                 <div
                   class="w-full lg:w-5/6 h-full overflow-x-scroll self-start lg:gap-2 grid grid-cols-2 lg:grid-cols-4"

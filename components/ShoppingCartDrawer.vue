@@ -34,7 +34,7 @@
       temporary
       scrollable
       app
-      class="drawer pink lighten-2"
+      class="drawer green accent-2"
       width="30%"
       bottom
     >
@@ -44,7 +44,11 @@
         <div
           class="max-h-52 lg:max-h-full w-5/6 h-4/5 space-y-3 flex flex-col overflow-x-scroll"
         >
-          <div v-for="item in cart" :key="item.id" class="w-full h-24 flex">
+          <div
+            v-for="item in cart"
+            :key="item.id"
+            class="w-full h-24 flex bg-white rounded-lg"
+          >
             <div
               class="w-2/3 h-full flex justify-center align-center space-x-3"
             >
@@ -105,7 +109,7 @@
       <div class="checkout w-full lg:h-1/3 flex justify-center align-end p-5">
         <div class="w-4/5 h-full flex flex-col justify-center align-end">
           <div class="w-full h-2/3 flex justify-evenly flex-col">
-            <div class="flex justify-around">
+            <div class="flex justify-around text-center">
               <h1 class="font-extralight font-mainFont text-2xl text-mainBlue">
                 Subtotal
               </h1>

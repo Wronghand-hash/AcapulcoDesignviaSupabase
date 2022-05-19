@@ -4,9 +4,9 @@
       class="flex flex-col lg:h-72 h-dialog lg:w-96 lg:flex-row justify-center align-center lg:space-x-3 cardBackground productCard"
     >
       <div
-        class="lg:h-full h-2/5 w-full lg:w-2/5 flex justify-center align-center overflow-hidden"
+        class="lg:h-full bg-white h-2/5 w-full lg:w-2/5 flex justify-center align-center overflow-hidden"
       >
-        <img :src="imgUrl" alt="" class="object-contain h-44" />
+        <img :src="imgUrl" alt="" class="object-contain h-full w-full" />
       </div>
       <div
         class="h-3/5 w-full lg:w-3/5 lg:h-full flex flex-col justify-between align-center space-y-3 p-2 sm:py-3"
@@ -143,8 +143,8 @@ export default {
   filter: brightness(0.5);
 }
 .cardBackground {
-  backdrop-filter: blur(13px) saturate(180%);
-  -webkit-backdrop-filter: blur(13px) saturate(180%);
+  /* backdrop-filter: saturate(180%);
+  -webkit-backdrop-filter: blur(13px) saturate(180%); */
   background-color: rgba(255, 255, 255, 0.79);
   border-radius: 12px;
   border: 1px solid rgba(209, 213, 219, 0.3);

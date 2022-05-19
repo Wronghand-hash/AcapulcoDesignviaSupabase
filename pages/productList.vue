@@ -82,13 +82,13 @@ fa:
           class="lg:w-11/12 w-full h-full grid grid-cols-8 mt-24 background bg-transparent opacity-0"
         >
           <div
-            class="menuNavbar sticky flex align-center justify-between py-6 col-span-8"
+            class="menuNavbar lg:px-3 sticky space-y-2 flex-col lg:flex-row flex align-center justify-between py-6 col-span-8"
           >
-            <div class="flex items-center">
+            <div class="flex items-center w-full justify-start">
               <NuxtLink to="/">
                 <v-tooltip bottom>
                   <template #activator="{ on: tooltip }">
-                    <span class="py-8 px-3" v-on="{ ...tooltip }"
+                    <span class="py-8 px-2" v-on="{ ...tooltip }"
                       ><v-icon light x-large color="pink lighten-5"
                         >mdi-chevron-double-left</v-icon
                       ></span
@@ -106,7 +106,7 @@ fa:
                 {{ $t('home') }}
               </span>
             </div>
-            <div class="pt-2 relative text-white mr-10">
+            <div class="pt-2 relative text-white">
               <input
                 v-model="SearchIndex"
                 class="border-2 placeholder-mainBlue transition ease-in w-72 duration-300 text-darkPurple hover:bg-white border-gray-300 bg-green-200 h-12 px-5 pr-4 md:pr-16 rounded-full text-lg focus:outline-none"
@@ -141,7 +141,7 @@ fa:
             </div>
           </div>
           <div
-            class="p-3 col-span-8 bg-LightBlue-100 self-center justify-self-center w-screen sidebar opacity-0 space-y-4 sticky h-auto flex flex-col justify-between align-center"
+            class="p-3 col-span-8 bg-LightBlue-100 self-center justify-self-center flex-col w-screen sidebar opacity-0 space-y-4 sticky h-auto flex justify-between align-center"
           >
             <div
               class="space-x-2 lg:my-5 px-1 text-center lg:text-left flex align-center justify-center"
@@ -231,7 +231,7 @@ fa:
               light
               filled
               item-color="blue darken-1"
-              class="bg-mainGreen bg-opacity-40 self-start justify-self-start text-4xl"
+              class="bg-mainGreen bg-opacity-40 lg:self-start w-full font-mainFont font-black text-mainBlue lg:justify-self-start text-4xl"
               label="Filters"
               outlined
               @input="changeOrder"
@@ -245,7 +245,9 @@ fa:
             <!-- <div class="grid w-full divide-y-4"> -->
 
             <!-- <div class="row-span-5 col-span-2 place-items-center"> -->
-            <div
+
+            <TransitionGroup
+              name="products"
               class="w-full h-full grid productCard lg:grid-cols-3 space-y-5 grid-cols-1 gap-6 p-10 mt-6 place-items-center self-center justify-self-center"
             >
               <ProductCard
@@ -256,7 +258,7 @@ fa:
                 class="p-4"
                 :product="product"
               />
-            </div>
+            </TransitionGroup>
 
             <div class="w-screen">
               <v-pagination
@@ -314,6 +316,8 @@ export default {
 
   data() {
     return {
+      from: 1,
+      to: 4,
       page: 1,
       products: [],
       SearchIndex: '',
@@ -332,9 +336,16 @@ export default {
   },
   watch: {
     SearchIndex() {
-      this.SearchProducts()
+      if (this.SearchIndex !== '') {
+        this.SearchProducts()
+      } else {
+        this.getProducts()
+      }
     },
-
+    page() {
+      this.to = this.page * 4
+      this.getProducts()
+    },
     order() {
       this.getProducts()
 
@@ -360,9 +371,7 @@ export default {
         const { data, error } = await this.$supabase
           .from('products')
           .select()
-          .textSearch('title', this.SearchIndex, {
-            config: 'english',
-          })
+          .textSearch('title', this.SearchIndex.trim())
 
         if (error) throw error
         if (data) {
@@ -372,8 +381,7 @@ export default {
           // console.log(data)
         }
       } catch (error) {
-      } finally {
-        this.animateProductCardsForSearch()
+        // this.animateProductCardsForSearch()
       }
     },
     changeOrder(selected) {
@@ -397,11 +405,12 @@ export default {
           .from('products')
           .select()
           .order(this.order, { ascending: this.ascention })
+          .range(this.from, this.to)
 
         if (error) throw error
         if (data) {
           this.products = data
-          this.animateProductCards()
+          // this.animateProductCards()
 
           // alert('products fetched')
           // console.log(data)
@@ -409,24 +418,30 @@ export default {
       } catch (error) {}
     },
 
-    animateProductCardsForSearch(product) {
-      const products = this.$gsap.utils.toArray('.productCard')
-      products.forEach((product) => {
-        this.$gsap.to(product, {
-          opacity: 1,
-          y: -40,
-          duration: 0.5,
-        })
-      })
-    },
+    // animateProductCardsForSearch(product) {
+    //   const products = this.$gsap.utils.toArray('.productCard')
+    //   products.forEach((product) => {
+    //     this.$gsap.to(product, {
+    //       opacity: 1,
+    //       duration: 0.5,
+    //     })
+    //   })
+    // },
     animateProductCards(product) {
       const products = this.$gsap.utils.toArray('.productCard')
       products.forEach((product) => {
-        this.$gsap.to(product, {
-          opacity: 0,
-          y: 40,
-          duration: 0.5,
-        })
+        this.$gsap.fromTo(
+          product,
+          {
+            opacity: 0,
+            y: 40,
+            duration: 0.5,
+          },
+          {
+            opacity: 1,
+            y: 0,
+          }
+        )
       })
     },
     animateBackground() {
@@ -475,15 +490,16 @@ export default {
 
         stagger: 0.3,
       })
-      tl.from('.productCard', {
-        delay: 0.3,
-        opacity: 0,
-        y: 60,
-        ease: 'power3.out',
-        duration: 0.6,
+      // tl.from('.productCard', {
+      //   delay: 0.3,
+      //   opacity: 0,
+      //   y: 60,
+      //   ease: 'power3.out',
+      //   duration: 0.6,
 
-        stagger: 0.3,
-      })
+      //   stagger: 0.3,
+      // }
+      // )
     },
   },
 }
@@ -533,5 +549,25 @@ export default {
   to {
     background-position: 0 100%;
   }
+} */
+
+.products-enter-active,
+.products-leave-active {
+  transition: all 0.5s ease;
+}
+
+.products-enter-from,
+.products-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.products-enter-to,
+.products-leave-from {
+  opacity: 1;
+}
+/* .products-enter-to,
+.products-leave-from {
+  opacity: 1;
+  transform: translateX(0px);
 } */
 </style>
