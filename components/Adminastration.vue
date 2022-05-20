@@ -28,7 +28,7 @@
             border="bottom"
             color="green"
             type="success"
-            class="text-4xl text-mainBlue items-center absolute justify-center"
+            class="text-4xl text-mainBlue items-center  justify-center"
           >
             Product Added Cuz
           </v-alert>
@@ -98,6 +98,17 @@
             {{ loading ? 'Uploading ...' : 'save' }}
           </v-btn>
         </v-card-actions>
+         <v-alert
+            v-show="productAdded"
+            transition="fade-transition"
+            border="bottom"
+            color="green"
+            type="success"
+            class="text-4xl text-mainBlue items-center absolute justify-center"
+          >
+            Product Added Cuz
+          </v-alert>
+        </v-card-title>
       </v-card>
     </v-dialog>
   </v-row>
