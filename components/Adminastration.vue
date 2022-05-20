@@ -181,9 +181,6 @@ export default {
         setTimeout(() => {
           this.productAdded = false
         }, 3000)
-        setTimeout(() => {
-          this.showModal = false
-        }, 2000)
       } catch (error) {
         alert(error.error_description || error.message)
       } finally {
@@ -191,7 +188,9 @@ export default {
         this.price = null
         this.inStock = null
         this.imagePath = ''
-        this.dialog = false
+        setTimeout(() => {
+          this.showModal = false
+        }, 2000)
         this.$store.dispatch('getProducts')
       }
     },
