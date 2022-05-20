@@ -262,7 +262,7 @@ fa:
                 dense
                 prev-icon="mdi-menu-left"
                 next-icon="mdi-menu-right"
-                class="my-4 px-12 text-4xl flex items-center justify-center font-bold lg:px-32"
+                class="my-4 px-18 text-4xl flex items-center justify-center font-bold lg:px-32"
                 :length="10"
               ></v-pagination>
             </div>

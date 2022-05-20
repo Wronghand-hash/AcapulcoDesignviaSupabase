@@ -18,6 +18,7 @@ module.exports = {
       height: {
         rem26: '26rem',
         dialog: '32rem',
+        footer: '80rem',
       },
       width: {
         rem25: '25rem',
