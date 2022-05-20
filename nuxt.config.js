@@ -23,6 +23,9 @@ export default defineNuxtConfig({
       },
     ],
   },
+  bridge: {
+    nitro: false,
+  },
   target: 'static',
   loading: '~/components/loading.vue',
   // Global CSS: https://go.nuxtjs.dev/config-css
