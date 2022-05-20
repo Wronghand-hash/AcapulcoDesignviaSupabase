@@ -1,16 +1,7 @@
 <template>
   <div
     v-if="loading"
-    class="
-      h-screen
-      w-screen
-      bg-transparent
-      grid
-      place-items-center
-      self-center
-      absolute
-      z-50
-    "
+    class="h-screen w-screen bg-transparent grid place-items-center self-center absolute z-50"
   >
     <div class="lds-ripple bg-transparent">
       <div></div>
@@ -21,6 +12,7 @@
 
 <script>
 export default {
+  name: 'LoadingComponent',
   data: () => ({
     loading: false,
     overlay: false,

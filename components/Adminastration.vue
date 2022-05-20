@@ -3,14 +3,17 @@
     <v-dialog v-model="dialog" persistent max-height="600px" max-width="600px">
       <template #activator="{ on, attrs }">
         <v-btn
-          height="50px"
-          width="200px"
-          color="pink lighten-3"
+          height="100px"
+          width="280px"
+          color="pink darken-1"
           dark
           v-bind="attrs"
+          class="my-7"
           v-on="on"
         >
-          something to add?
+          <span class="font-mainFont font-semibold text-mainBlue text-4xl">
+            Add a Product
+          </span>
         </v-btn>
       </template>
       <v-card color="">
@@ -42,7 +45,14 @@
                 <v-select
                   v-model="catagory"
                   color="indigo"
-                  :items="['Lighters', 'Collections', 'Matchboxes', 'Shirts' , 'Shorts' , 'Hoodies']"
+                  :items="[
+                    'Lighters',
+                    'Collections',
+                    'Matchboxes',
+                    'Shirts',
+                    'Shorts',
+                    'Hoodies',
+                  ]"
                   label="catagory"
                   required
                 ></v-select>
