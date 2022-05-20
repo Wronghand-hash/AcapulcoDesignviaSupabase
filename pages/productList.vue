@@ -147,10 +147,7 @@ fa:
               class="space-x-2 lg:my-5 px-1 text-center lg:text-left flex align-center justify-center"
             >
               <div class="lg:flex lg:space-x-5 font-bold">
-                <span
-                  class="cursor-pointer"
-                  @click="changeCatagory('Lighters')"
-                >
+                <span class="cursor-pointer" @click="category = 'Lighters'">
                   <h1
                     class="lg:text-3xl text-2xl bg-green-500 lg:rounded-md rounded-t-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
@@ -161,10 +158,7 @@ fa:
                     />
                   </h1>
                 </span>
-                <span
-                  class="cursor-pointer"
-                  @click="changeCatagory('Collections')"
-                >
+                <span class="cursor-pointer" @click="category = 'Collections'">
                   <h1
                     class="lg:text-3xl text-2xl bg-green-500 lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
@@ -175,10 +169,7 @@ fa:
                     />
                   </h1>
                 </span>
-                <span
-                  class="cursor-pointer"
-                  @click="changeCatagory('Matchboxes')"
-                >
+                <span class="cursor-pointer" @click="category = 'Matchboxes'">
                   <h1
                     class="lg:text-3xl text-2xl bg-green-500 rounded-b-md lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 text-center flex justify-center align-end sidebarText"
                   >
@@ -191,7 +182,7 @@ fa:
                 </span>
               </div>
               <div class="lg:flex lg:space-x-5 font-bold">
-                <span class="cursor-pointer" @click="changeCatagory('Shirts')">
+                <span class="cursor-pointer" @click="category = 'Shirts'">
                   <h1
                     class="lg:text-3xl text-2xl lg:rounded-md bg-green-500 rounded-t-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
@@ -202,7 +193,7 @@ fa:
                     />
                   </h1>
                 </span>
-                <span class="cursor-pointer" @click="changeCatagory('Shorts')">
+                <span class="cursor-pointer" @click="category = 'Shorts'">
                   <h1
                     class="lg:text-3xl text-2xl lg:rounded-md bg-green-500 shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
@@ -213,7 +204,7 @@ fa:
                     />
                   </h1>
                 </span>
-                <span class="cursor-pointer" @click="changeCatagory('Hoodies')">
+                <span class="cursor-pointer" @click="category = 'Hoodies'">
                   <h1
                     class="lg:text-3xl text-2xl lg:rounded-md bg-green-500 rounded-b-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
@@ -248,14 +239,14 @@ fa:
 
             <TransitionGroup
               name="products"
-              class="w-full h-full grid productCard lg:grid-cols-3 space-y-5 grid-cols-1 gap-6 p-10 mt-6 place-items-center self-center justify-self-center"
+              class="w-full h-full grid productCard opacity-0 lg:grid-cols-3 space-y-5 grid-cols-1 gap-6 p-10 mt-6 place-items-center self-center justify-self-center"
             >
               <ProductCard
                 v-for="product in products"
                 id="product-card"
                 ref="ProductCard"
                 :key="product.id"
-                class="p-4"
+                class="p-4 product"
                 :product="product"
               />
             </TransitionGroup>
@@ -319,20 +310,29 @@ export default {
       from: 1,
       to: 4,
       page: 1,
+      category: '',
       products: [],
       SearchIndex: '',
       order: 'price',
       ascention: false,
       items: ['Newest', 'Most Expensive', 'Least Expensive'],
+      // categories: [
+      //   'Shirt',
+      //   'Collection',
+      //   'Shorts',
+      //   'Lighters',
+      //   'Hoodies',
+      //   'Matchboxes',
+      // ],
     }
   },
   computed: {
     // products() {
     //   return this.$store.state.products
     // },
-    catagory() {
-      return this.$store.state.catagory
-    },
+    // catagory() {
+    //   return this.$store.state.catagory
+    // },
   },
   watch: {
     SearchIndex() {
@@ -341,6 +341,9 @@ export default {
       } else {
         this.getProducts()
       }
+    },
+    category() {
+      this.changeCategory()
     },
     page() {
       this.to = this.page * 4
@@ -366,6 +369,21 @@ export default {
   },
 
   methods: {
+    async changeCategory() {
+      try {
+        const { data, error } = await this.$supabase
+          .from('products')
+          .select()
+          .eq('category', this.category)
+        // .eq("product-category", props.category.title);
+
+        if (error) throw error
+        this.products = data
+      } catch (error) {
+        alert(error.message)
+      }
+    },
+
     async SearchProducts() {
       try {
         const { data, error } = await this.$supabase
@@ -398,9 +416,9 @@ export default {
         this.ascention = true
       }
     },
-    changeCatagory(selected) {
-      this.$store.dispatch('changeCatagory', selected)
-    },
+    // changeCatagory(selected) {
+    //   this.$store.dispatch('changeCatagory', selected)
+    // },
 
     async getProducts() {
       try {
@@ -486,14 +504,12 @@ export default {
 
         stagger: 0.3,
       })
-      tl.from('.productCard', {
+      tl.to('.productCard', {
         delay: 0.3,
-        opacity: 0,
-        y: 60,
+        opacity: 1,
+        y: -60,
         ease: 'power3.out',
         duration: 0.6,
-
-        stagger: 0.3,
       })
     },
   },
@@ -556,9 +572,12 @@ export default {
   transform: translateY(30px);
 }
 
+.products-enter {
+  opacity: 0 !important;
+  transform: translateY(-30px) !important;
+}
 .products-enter-to {
-  opacity: 1;
-  transform: translateY(30px);
+  opacity: 1 !important;
 }
 /* .products-enter-to,
 .products-leave-from {
