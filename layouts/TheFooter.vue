@@ -17,7 +17,7 @@ fa:
   <div>
     <div class="seventhContainer w-screen bg-mainBlue flex flex-col">
       <div
-        class="flex justify-center flex-col w-screen align-center mt-2 h-screen lg:mt-24 lg:mb-80 mb-36"
+        class="flex justify-center flex-col w-screen align-center mt-16 h-screen lg:mt-24 lg:mb-80 mb-52"
       >
         <div
           class="h-14 z-40 flex-col flex align-center justify-center p-6 self-center"
@@ -102,7 +102,7 @@ fa:
           </div>
         </div>
         <img
-          class="lg:object-fill object-contain bottom-0 absolute lg:h-screen lg:w-screen w-full"
+          class="lg:object-fill object-contain bottom-0 absolute lg:h-screen lg:w-screen w-screen"
           src="~/assets/images/footerpic.webp"
           alt=""
         />
