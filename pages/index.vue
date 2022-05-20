@@ -80,18 +80,18 @@ fa:
             class="w-screen mt-20 h-dialog flex flex-col align-center justify-between md:flex-row lg:flex-row lg:h-screen lg:justify-around"
           >
             <img
-              class="treePicture2 object-contain lg:object-cover h-64 drop-shadow-2xl rotate-180 transform lg:translate-x-36 md:-rotate-90 lg:rotate-90 z-10"
+              class="treePicture2 object-contain lg:object-cover h-56 drop-shadow-2xl rotate-180 transform lg:translate-x-36 md:-rotate-90 lg:rotate-90 z-10"
               src="~/assets/images/tree2.webp"
               alt=""
             />
 
             <h1
-              class="flex justify-center align-center NavbarTrigger acapulco tracking-wider text-7xl md:text-9xl lg:text-10xl text-center leading-none flex-shrink text-white"
+              class="flex justify-center align-center NavbarTrigger acapulco tracking-wider text-6xl md:text-9xl lg:text-10xl text-center leading-none text-white"
             >
               {{ $t('acapulcodesign') }}
             </h1>
             <img
-              class="treePicture object-contain h-64 transform lg:-translate-x-36 md:rotate-90 lg:rotate-90 drop-shadow-2xl"
+              class="treePicture object-contain h-56 transform lg:-translate-x-36 md:rotate-90 lg:rotate-90 drop-shadow-2xl"
               src="~/assets/images/tree.webp"
               alt=""
             />

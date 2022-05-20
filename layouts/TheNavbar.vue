@@ -19,7 +19,7 @@ fa:
 <template>
   <!-- <v-app> -->
   <div
-    class="mb-8 fixed w-screen h-20 lg:h-24 bg-transparent Navbar opacity-100 z-50 flex align-center justify-center lg:px-9"
+    class="mb-8 fixed w-screen h-20 lg:h-24 bg-transparent Navbar opacity-100 z-50 flex align-center justify-center pl-2 lg:px-9"
   >
     <v-alert
       v-show="signedOut"
