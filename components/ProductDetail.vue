@@ -206,6 +206,7 @@ export default {
       dialog: false,
       title: 'loading',
       price: 'loading',
+      description: 'loading',
       Product: {
         item: {
           title: 'loading',
@@ -227,6 +228,7 @@ export default {
     setTimeout(() => {
       this.title = this.product.item.title
       this.price = this.product.item.price
+      this.description = this.product.item.description
     }, 5000)
   },
 

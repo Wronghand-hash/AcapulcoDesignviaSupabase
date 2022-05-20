@@ -189,7 +189,7 @@ export default {
         this.inStock = null
         this.imagePath = ''
         setTimeout(() => {
-          this.showModal = false
+          this.dialog = false
         }, 2000)
         this.$store.dispatch('getProducts')
       }
