@@ -23,6 +23,7 @@ fa:
   >
     <v-alert
       v-show="signedOut"
+      transition="fade-transition"
       border="bottom"
       color="green"
       type="success"
@@ -72,7 +73,7 @@ fa:
           </v-btn>
         </nuxt-link>
       </div>
-      <div class="hidden lg:flex">
+      <div v-show="admin === true" class="hidden lg:flex">
         <NuxtLink id="admin-link" class="flex" to="/adminPage">
           <v-btn depressed dark x-large color="transparent" class="">
             <span class="white--text text-xl lg:text-2xl">
@@ -197,6 +198,7 @@ export default {
   data() {
     return {
       signedOut: false,
+      admin: false,
       categories: [
         {
           title: 'Lighters',
@@ -220,18 +222,25 @@ export default {
     },
   },
 
+  watch: {
+    user() {
+      if (this.user !== null) {
+        this.admin = false
+      }
+    },
+  },
+
   mounted() {
     this.$supabase.auth.onAuthStateChange(() => {
       this.$store.dispatch('setUser', this.$supabase.auth.user())
     })
     this.animateNavbar()
+    if (this.$store.state.user) {
+      this.getUser()
+    }
     // this.playSound()
   },
   methods: {
-    // playSound() {
-    //   const audio = new Audio(require('../assets/audio/hymn.mp3'))
-    //   audio.play()
-    // },
     animateNavbar() {
       this.$gsap.to('.Navbar', {
         backgroundColor: '#ff4a68',
@@ -251,14 +260,27 @@ export default {
         const { error } = await this.$supabase.auth.signOut()
         if (error) throw error
         this.signedOut = true
+        setTimeout(() => {
+          this.signedOut = false
+        }, 3000)
+      } catch (error) {}
+    },
+    async getUser() {
+      try {
+        const { data, error } = await this.$supabase
+          .from('users')
+          .select()
+          .eq('id', this.$store.state.user.id)
+
+        if (error) throw error
+        console.log(data[0].admin)
+        if (data[0].admin === true) {
+          console.log(data[0])
+          this.admin = true
+        }
       } catch (error) {}
     },
   },
-  // created() {
-  //   axios.get('http://127.0.0.1:8000/api/category/').then((response) => {
-  //     this.categories = response.data
-  //   })
-  // },
 }
 </script>
 
