@@ -18,27 +18,25 @@
       </template>
 
       <div
-        class="w-screen h-screen bg-green-100 p-9 space-y-4 lg:space-x-6 lg:space-y-0 productDetail flex flex-col lg:flex-row"
+        class="w-screen h-full bg-blue-300 p-2 space-y-4 lg:space-x-6 lg:space-y-0 productDetail flex lg:justify-evenly flex-col lg:flex-row"
       >
+        <div class="absolute p-2 text-red-500 left-0 top-0" @click="dialog = false">
+          <v-icon class="text-red-500 text-2xl">mdi-close</v-icon>
+        </div>
         <div
-          class="lg:w-1/4 w-full lg:h-full h-1/4 flex justify-start items-center flex-col p-6 rounded-lg bg-Emerald-500"
+          class="lg:w-full w-full lg:h-full h-32 flex justify-center items-center align-center flex-col p-2 rounded-lg bg-green-700"
         >
           <!-- <InnerImageZoom src="../assets/images/Chao.webp" />
               <client-only> q
                 <image-zoom regular-webp="../assets/images/Chao.webp"> </image-zoom>
               </client-only> -->
-          <h1 class="font-black text-4xl text-mainBlue font-mainFont">
+          <h1 class="font-black text-4xl lg:text-9xl text-white font-mainFont">
             {{ title }}
           </h1>
-          <h2 class="font-black text-3xl text-mainBlue font-mainFont">
+          <h2 class="font-black text-3xl lg:text-8xl text-white font-mainFont">
             {{ price }}
           </h2>
-          <h2
-            class="font-black text-2xl text-CoolGray-700 font-mainFont leading-5"
-          >
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium
-            asperiores fugiat repell
-          </h2>
+
           <button
             class="bg-goldie p-5 font-mainFont text-2xl rounded-md cursor-pointer font-black transition ease-in duration-200 hover:bg-yellow-800"
           >
@@ -47,10 +45,10 @@
           </button>
         </div>
         <div
-          class="lg:w-3/4 w-full lg:h-full h-3/4 filter drop-shadow-2xl rounded-lg flex justify-center"
+          class="lg:w-3/4 w-full lg:h-full lg:h-full h-54 filter drop-shadow-2xl rounded-lg flex justify-center"
         >
-        <!-- <img :src="imgUrl" alt="" class="object-contain h-full w-full" /> -->
-          <v-carousel class="bg-mainGreen w-full h-full">
+          <!-- <img :src="imgUrl" alt="" class="object-contain h-full w-full" /> -->
+          <v-carousel class="bg-Emerald-100 w-full lg:h-full h-54 bg-red-500">
             <v-carousel-item
               v-for="(item, i) in items"
               :key="i"
@@ -60,6 +58,40 @@
               transition="fade-transition"
             ></v-carousel-item>
           </v-carousel>
+        </div>
+
+        <div
+          class="w-full lg:h-full h-1/4 flex justify-start items-center flex-col p-6 rounded-lg bg-green-200"
+        >
+          <div class="flex justify-around w-full m-2 space-x-1">
+            <div
+              class="bg-yellow-500 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
+            ></div>
+            <div
+              class="bg-pink-500 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
+            ></div>
+            <div
+              class="bg-green-500 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
+            ></div>
+            <div
+              class="bg-red-500 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
+            ></div>
+            <div
+              class="bg-blue-500 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
+            ></div>
+            <div
+              class="bg-purple-500 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
+            ></div>
+            <div
+              class="bg-Cyan-500 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
+            ></div>
+          </div>
+          <h2
+            class="font-black text-2xl text-CoolGray-700 font-mainFont leading-5"
+          >
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium
+            asperiores fugiat repell
+          </h2>
         </div>
 
         <!-- <v-icon light x-large class="m-7">mdi-chevron-double-left</v-icon> -->
@@ -193,11 +225,10 @@ export default {
       this.title = this.product.item.title
       this.price = this.product.item.price
     }, 5000)
-   
   },
 
   methods: {
-      async getImage() {
+    async getImage() {
       if (this.product.item.image_url) {
         try {
           const { data, error } = await this.$supabase.storage

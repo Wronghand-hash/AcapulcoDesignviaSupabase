@@ -48,7 +48,7 @@ module.exports = {
       goldie: '#ff9e00',
       white: colors.white,
       black: colors.black,
-      gray: colors.neutral,
+      gray: colors.gray,
       LightBlue: colors.sky,
       red: colors.red,
       blue: colors.blue,
