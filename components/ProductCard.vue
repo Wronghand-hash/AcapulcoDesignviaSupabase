@@ -33,12 +33,12 @@ fa:
           <h3
             class="text-2xl text-gray-600 font-thin text-center leading-tight"
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            {{ product.description }}
           </h3>
           <p
             class="lg:text-4xl text-3xl text-mainBlue text-center font-extrabold"
           >
-            {{ product.price }} IRL
+            {{ product.price }} Tooman
           </p>
         </div>
         <div class="w-full h-1/4 flex justify-center align-center">
