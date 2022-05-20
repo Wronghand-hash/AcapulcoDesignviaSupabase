@@ -23,6 +23,7 @@ export default defineNuxtConfig({
       },
     ],
   },
+  target: 'static',
   loading: '~/components/loading.vue',
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
