@@ -51,6 +51,14 @@
                   label="price"
                 ></v-text-field>
               </v-col>
+              <v-col cols="12" sm="6" md="4">
+                <v-text-field
+                  v-model="description"
+                  color="indigo"
+                  label="description"
+                  required
+                ></v-text-field>
+              </v-col>
               <v-col cols="12" sm="6">
                 <v-select
                   v-model="category"
@@ -129,6 +137,7 @@ export default {
       feedback: null,
       loading: false,
       imagePath: '',
+      descrition: '',
     }
   },
   mounted() {},
@@ -160,7 +169,8 @@ export default {
       } finally {
         // eslint-disable-next-line no-console
         console.log(this.imagePath)
-        this.loading = false
+        this.loading = false 
+        // some niggas
       }
     },
 
@@ -174,6 +184,7 @@ export default {
             inStock: this.inStock,
             category: this.category,
             image_url: image,
+            description: this.description,
           },
         ])
         if (error) throw error
