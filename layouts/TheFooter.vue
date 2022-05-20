@@ -63,7 +63,7 @@ fa:
             </div>
             <a href="https://www.instagram.com/famouskesler/?hl=en">
               <img
-                class="object-contain icon-3d pb-6"
+                class="object-contain p-8 kesler"
                 src="~/assets/images/ppp.png"
                 alt=""
               />
@@ -102,7 +102,7 @@ fa:
           </div>
         </div>
         <img
-          class="object-cover bottom-0 absolute lg:h-screen lg:w-screen w-full"
+          class="lg:object-fill object-contain bottom-0 absolute lg:h-screen lg:w-screen w-full"
           src="~/assets/images/footerpic.webp"
           alt=""
         />
@@ -112,7 +112,24 @@ fa:
 </template>
 
 <script>
-export default {}
+export default {
+  mounted() {
+    this.animateKisKis()
+  },
+  methods: {
+    animateKisKis() {
+      const tl = this.$gsap.timeline({ repeat: -1, yoyo: true })
+      tl.from('.kesler', 1, {
+        ease: 'power1.inOut',
+        rotation: -6,
+        x: 10,
+        delay: 0.09,
+
+        transformOrigin: '50% 100%',
+      })
+    },
+  },
+}
 </script>
 <style scoped>
 .payamone {
@@ -145,6 +162,11 @@ export default {}
 .payamone:hover {
   color: #fbff00;
 }
+
+/* .kesler:active {
+  transition: all ease-in-out 0.3s;
+  scale: 1.5;
+} */
 .payamone:active {
   color: #ff758c;
   scale: 0.8;

@@ -81,7 +81,6 @@
                   </div>
                   <div>
                     <v-text-field
-                      v-model="user.Province"
                       color="red lighten-5"
                       dark
                       label="Province"
@@ -93,7 +92,6 @@
                   </div>
                   <div class="col-span-2 mt-2">
                     <v-text-field
-                      v-model="user.Address"
                       color="red lighten-5"
                       dark
                       label="Address"
@@ -121,7 +119,6 @@
                 >
                   <div>
                     <v-text-field
-                      v-model="username"
                       color="blue darken-4"
                       dark
                       label="Name"
@@ -134,7 +131,6 @@
                   </div>
                   <div class="">
                     <v-text-field
-                      v-model="user.email"
                       color="red lighten-5"
                       dark
                       label="Last name"
@@ -146,7 +142,6 @@
                   </div>
                   <div>
                     <v-text-field
-                      v-model="user.phoneNumber"
                       color="red lighten-5"
                       dark
                       label="Phone Number"
@@ -159,7 +154,6 @@
                   </div>
                   <div>
                     <v-select
-                      v-model="order.Age"
                       color="red lighten-5"
                       dark
                       :items="['0-17', '18-29', '30-54', '54+']"
