@@ -17,7 +17,7 @@ fa:
   <div>
     <div class="seventhContainer w-screen bg-mainBlue flex flex-col">
       <div
-        class="flex justify-center flex-col w-screen align-center mt-2 h-screen lg:mb-72 mb-36"
+        class="flex justify-center flex-col w-screen align-center mt-2 h-screen lg:mt-24 lg:mb-80 mb-36"
       >
         <div
           class="h-14 z-40 flex-col flex align-center justify-center p-6 self-center"
@@ -63,7 +63,7 @@ fa:
             </div>
             <a href="https://www.instagram.com/famouskesler/?hl=en">
               <img
-                class="object-contain p-8 kesler"
+                class="object-contain h-96 p-10 kesler"
                 src="~/assets/images/ppp.png"
                 alt=""
               />

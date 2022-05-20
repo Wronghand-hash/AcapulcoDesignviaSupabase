@@ -100,15 +100,9 @@ fa:
           <div
             class="flex h-screen w-screen justify-center align-center firstContainer content"
           >
-            <img
-              class="w-52 md:w-60 lg:w-rem25 object-contain transform lg:translate-x-0 translate-x-14"
-              :src="require(`~/assets/images/whatwhat-svg.webp`)"
-              alt=""
-            />
-
             <div class="lg:h-full h-3/4 flex justify-center align-center">
               <h2
-                class="sm:w-96 h2-home z-10 text-center capitalize font-semibold leading-4 text-5xl md:text-7xl lg:text-9xl transform sm:m-auto"
+                class="sm:w-96 h2-home z-10 px-36 text-center capitalize font-semibold leading-4 text-5xl md:text-7xl lg:text-9xl transform sm:m-auto"
               >
                 <span class="text-mainRed animatedSpans">
                   {{ $t('welcome') }} </span
@@ -121,11 +115,6 @@ fa:
                 >
               </h2>
             </div>
-            <img
-              class="w-52 md:w-60 lg:w-rem25 object-contain transform lg:-translate-x-0 -translate-x-14"
-              :src="require(`~/assets/images/whatwhat1-svg.webp`)"
-              alt=""
-            />
           </div>
 
           <div
