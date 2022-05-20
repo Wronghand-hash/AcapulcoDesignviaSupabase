@@ -104,8 +104,8 @@ export default {
   },
 
   computed: {
-    catagory() {
-      return this.$store.state.catagory
+    category() {
+      return this.$store.state.category
     },
   },
   mounted() {
@@ -113,8 +113,8 @@ export default {
   },
 
   methods: {
-    catagorySelect(selected) {
-      this.catagory = selected
+    categorySelect(selected) {
+      this.category = selected
     },
     async getImage() {
       if (this.product.image_url) {

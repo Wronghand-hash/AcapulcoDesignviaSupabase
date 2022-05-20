@@ -332,8 +332,8 @@ export default {
     // products() {
     //   return this.$store.state.products
     // },
-    // catagory() {
-    //   return this.$store.state.catagory
+    // category() {
+    //   return this.$store.state.category
     // },
   },
   watch: {
@@ -418,8 +418,8 @@ export default {
         this.ascention = true
       }
     },
-    // changeCatagory(selected) {
-    //   this.$store.dispatch('changeCatagory', selected)
+    // changecategory(selected) {
+    //   this.$store.dispatch('changecategory', selected)
     // },
 
     async getProducts() {

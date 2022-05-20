@@ -3,8 +3,8 @@ en:
   findUS: 'Find Us One Social Media!'
   made: 'Made With'
   iran: 'From Iran'
-  developement: 'Developement By'
-  art: 'Art By'
+  developement: 'Developement By :'
+  art: 'Art By :'
 
 fa:
   findUS: 'ما رو تو شبکه های اجتماعی پیدا کنید '
@@ -15,7 +15,9 @@ fa:
 </i18n>
 <template>
   <div>
-    <div class="seventhContainer w-screen bg-mainBlue flex flex-col">
+    <div
+      class="seventhContainer w-screen bg-mainBlue flex flex-col overflow-hidden"
+    >
       <div
         class="flex justify-center flex-col w-screen align-center mt-16 h-screen lg:mt-24 lg:mb-80 mb-52"
       >
@@ -74,7 +76,7 @@ fa:
               {{ $t('made') }} ❤️ {{ $t('iran') }}
             </h1>
             <h1
-              class="self-center lg:ml-4 font-mainFont font-thin capitalize text-center text-3xl p-1 lg:text-4xl text-mainRed"
+              class="self-center lg:ml-4 flex flex-col font-mainFont font-thin capitalize text-center text-3xl p-1 lg:text-4xl text-mainRed"
             >
               {{ $t('developement') }}
               <a
@@ -86,7 +88,7 @@ fa:
                 href="https://www.instagram.com/just_greez/?hl=en"
                 class="Greez"
               >
-                and Greez🐻</a
+                Greez🐻</a
               >
             </h1>
             <h1
@@ -102,7 +104,7 @@ fa:
           </div>
         </div>
         <img
-          class="lg:object-fill object-contain bottom-0 absolute lg:h-screen lg:w-screen w-screen"
+          class="lg:object-fill object-contain bottom-0 absolute lg:h-screen lg:w-screen w-full"
           src="~/assets/images/footerpic.webp"
           alt=""
         />

@@ -79,7 +79,7 @@ fa:
             <div
               :class="{
                 'bg-pink-500': openTab === 1,
-                'text-white': openTab === 1
+                'text-white': openTab === 1,
               }"
               class="lis lg:h-full transition w-full h-3/6 flex flex-col justify-center cursor-pointer align-center rounded-2xl"
               @click="tab1() & toggleTabs(1)"
@@ -89,7 +89,7 @@ fa:
             <div
               :class="{
                 'bg-pink-500': openTab === 2,
-                'text-white': openTab === 2
+                'text-white': openTab === 2,
               }"
               class="lis lg:h-full transition w-11/12 h-3/6 flex flex-col justify-center cursor-pointer align-center rounded-2xl"
               @click="tab2() & toggleTabs(2)"
@@ -99,7 +99,7 @@ fa:
             <div
               :class="{
                 'bg-pink-500': openTab === 3,
-                'text-white': openTab === 3
+                'text-white': openTab === 3,
               }"
               class="lis lg:h-full transition w-full h-3/6 flex flex-col justify-center cursor-pointer align-center rounded-2xl"
               @click="tab3() & toggleTabs(3)"
@@ -177,7 +177,7 @@ fa:
                     >
                       <button
                         class="border-2 bg-pink-700 rounded-full border-CoolGray-600 w-24 h-24"
-                        @click="catagorySelect(4)"
+                        @click="categorySelect(4)"
                       >
                         <v-icon x-large class="text-4xl" dark
                           >mdi-tshirt-crew</v-icon
@@ -185,13 +185,13 @@ fa:
                       </button>
                       <button
                         class="border-2 bg-pink-700 rounded-full border-CoolGray-600 w-24 h-24"
-                        @click="catagorySelect(2)"
+                        @click="categorySelect(2)"
                       >
                         <v-icon x-large class="text-4xl" dark>mdi-fire</v-icon>
                       </button>
                       <button
                         class="border-2 bg-pink-700 rounded-full border-CoolGray-600 w-24 h-24"
-                        @click="catagorySelect(3)"
+                        @click="categorySelect(3)"
                       >
                         <v-icon x-large class="text-4xl" dark
                           >mdi-package</v-icon
@@ -199,7 +199,7 @@ fa:
                       </button>
                       <button
                         class="border-2 bg-pink-700 rounded-full border-CoolGray-600 w-24 h-24"
-                        @click="catagorySelect(1)"
+                        @click="categorySelect(1)"
                       >
                         <v-icon x-large class="text-4xl" dark
                           >mdi-toolbox</v-icon
@@ -477,7 +477,7 @@ export default {
   //           title: doc.data().title,
   //           price: doc.data().price,
   //           image: doc.data().image,
-  //           catagory: doc.data().catagory,
+  //           category: doc.data().category,
   //         })
   //       }
   //     })
@@ -501,7 +501,7 @@ export default {
   },
   data() {
     return {
-      catagory: 2,
+      category: 2,
 
       openTab: 1,
       orders: [],
@@ -535,8 +535,8 @@ export default {
     this.fetchOrders()
   },
   methods: {
-    catagorySelect(selectedTab) {
-      this.catagory = selectedTab
+    categorySelect(selectedTab) {
+      this.category = selectedTab
     },
 
     orderTab(tab) {

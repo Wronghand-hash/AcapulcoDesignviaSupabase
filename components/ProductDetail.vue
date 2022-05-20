@@ -20,7 +20,10 @@
       <div
         class="w-screen h-full bg-blue-300 p-2 space-y-4 lg:space-x-6 lg:space-y-0 productDetail flex lg:justify-evenly flex-col lg:flex-row"
       >
-        <div class="absolute p-2 text-red-500 left-0 top-0" @click="dialog = false">
+        <div
+          class="absolute p-2 text-red-500 left-0 top-0"
+          @click="dialog = false"
+        >
           <v-icon class="text-red-500 text-2xl">mdi-close</v-icon>
         </div>
         <div
@@ -105,7 +108,7 @@
             >
               {{ product.title }}
               <h3 class="text-gray-600 font-thin text-2xl font-mainFont">
-                {{ product.catagory }}
+                {{ product.category }}
               </h3>
             </h1>
             <h1
@@ -214,8 +217,8 @@ export default {
   },
 
   computed: {
-    // catagory() {
-    //   return this.$store.state.catagory
+    // category() {
+    //   return this.$store.state.category
     // },
   },
 
@@ -241,8 +244,8 @@ export default {
         }
       }
     },
-    // catagorySelect(selected) {
-    //   this.catagory = selected
+    // categorySelect(selected) {
+    //   this.category = selected
     // },
     // async getImage() {
     //   if (this.product.image_url) {
