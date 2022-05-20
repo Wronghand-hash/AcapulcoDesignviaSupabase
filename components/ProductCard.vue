@@ -31,7 +31,7 @@ fa:
             {{ product.title }}
           </h1>
           <h3
-            class="text-2xl text-gray-600 font-thin text-center leading-tight"
+            class="text-2xl text-gray-600 font-thin text-center capitalize leading-tight"
           >
             {{ product.description }}
           </h3>
