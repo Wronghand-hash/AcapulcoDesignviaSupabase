@@ -30,7 +30,9 @@ fa:
           <h1 class="text-5xl text-mainBlue font-bold text-center capitalize">
             {{ product.title }}
           </h1>
-          <h3 class="text-2xl text-gray-600 font-thin text-center">
+          <h3
+            class="text-2xl text-gray-600 font-thin text-center leading-tight"
+          >
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </h3>
           <p

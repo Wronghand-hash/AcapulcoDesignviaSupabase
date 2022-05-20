@@ -22,6 +22,16 @@
             class="font-mainFont font-bold capitalize text-white text-3xl rounded shadow-2xl bg-pink-500 p-4"
             >add new product</span
           >
+          <v-alert
+            v-show="productAdded"
+            transition="fade-transition"
+            border="bottom"
+            color="green"
+            type="success"
+            class="text-4xl text-mainBlue items-center absolute justify-center"
+          >
+            Product Added Cuz
+          </v-alert>
         </v-card-title>
         <v-card-text>
           <v-container>
@@ -98,6 +108,7 @@ export default {
   name: 'LargeModal',
   data() {
     return {
+      productAdded: false,
       dialog: false,
       title: null,
       price: null,
@@ -165,6 +176,10 @@ export default {
         this.imagePath = ''
         this.dialog = false
         this.$store.dispatch('getProducts')
+        this.productAdded = true
+        setTimeout(() => {
+          this.productAdded = false
+        }, 3000)
       }
     },
 
