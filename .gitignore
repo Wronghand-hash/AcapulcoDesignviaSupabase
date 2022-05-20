@@ -21,7 +21,6 @@ coverage
 
 # nyc test coverage
 .nyc_output
-.output
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
@@ -89,3 +88,5 @@ sw.*
 
 # Vim swap files
 *.swp
+
+.output
