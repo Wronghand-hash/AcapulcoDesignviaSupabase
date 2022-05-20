@@ -16,10 +16,6 @@ fa:
     <div
       class="seventhContainer w-screen h-dialog lg:h-screen bg-mainBlue flex flex-col"
     >
-      <div>
-        <ProductDetail />
-      </div>
-
       <div class="h-3/6 flex align-center justify-center p-6 self-center">
         <div class="self-center flex">
           <div class="text-center space-x-3 lg:space-x-12 lg:space-y-8">
@@ -31,7 +27,7 @@ fa:
             <div class="flex items-center justify-center space-x-8">
               <a href="https://t.me/acapulco_design" class="icon-3d">
                 <img
-                  class="object-contain pb-4"
+                  class="object-contain pb-4 w-11"
                   src="~/assets/images/telegramIcon.webp"
                   alt=""
                 />
@@ -90,11 +86,7 @@ fa:
 </template>
 
 <script>
-export default {
-  components: {
-    ProductDetail: () => import('../components/ProductDetail.vue'),
-  },
-}
+export default {}
 </script>
 <style scoped>
 .payamone {

@@ -251,7 +251,9 @@ fa:
               />
             </TransitionGroup>
 
-            <div class="w-screen">
+            <div
+              class="w-full h-20 flex justify-center items-center bg-green-300 bg-opacity-70 px-4"
+            >
               <v-pagination
                 v-model="page"
                 circle
@@ -260,8 +262,8 @@ fa:
                 dense
                 prev-icon="mdi-menu-left"
                 next-icon="mdi-menu-right"
-                class="my-4 px-12 text-4xl font-bold lg:px-32"
-                :length="15"
+                class="my-4 px-12 text-4xl flex items-center justify-center font-bold lg:px-32"
+                :length="10"
               ></v-pagination>
             </div>
           </div>
@@ -538,19 +540,22 @@ export default {
 }
 
 .sidebarText {
-  transition: ease-in-out 0.3s;
+  transition: all 0.2s ease-in-out;
   color: #001524;
 }
 
 .sidebarText:hover {
   color: #001524;
   background-color: #70d48f;
-  border: none;
+}
+.sidebarText:active {
+  color: #001524;
+  background-color: #008028;
+  transform: scale(1.05);
 }
 .menu {
   margin: 2px;
   padding: 4px 13px;
-  background-color: #84f0a6;
 }
 
 /* @keyframes animatedBackground {
@@ -564,7 +569,7 @@ export default {
 
 .products-leave-active,
 .products-enter-active {
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 
 .products-leave-to {

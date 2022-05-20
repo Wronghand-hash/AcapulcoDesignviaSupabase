@@ -178,6 +178,8 @@ export default defineNuxtConfig({
     },
   },
   vuetify: {
+    customVariables: ['~/assets/css/variables.scss'],
+
     treeShake: true,
   },
   // PWA module configuration: https://go.nuxtjs.dev/pwa
