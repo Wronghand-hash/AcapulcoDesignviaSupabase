@@ -166,7 +166,10 @@ export default {
           },
         ])
         if (error) throw error
-        alert('product added')
+        this.productAdded = true
+        setTimeout(() => {
+          this.productAdded = false
+        }, 3000)
       } catch (error) {
         alert(error.error_description || error.message)
       } finally {
@@ -176,10 +179,6 @@ export default {
         this.imagePath = ''
         this.dialog = false
         this.$store.dispatch('getProducts')
-        this.productAdded = true
-        setTimeout(() => {
-          this.productAdded = false
-        }, 3000)
       }
     },
 
