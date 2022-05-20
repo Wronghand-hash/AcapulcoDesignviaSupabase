@@ -27,7 +27,7 @@ fa:
           </span>
         </div>
         <div class="w-full h-3/4 flex flex-col justify-around align-center">
-          <h1 class="text-5xl text-mainBlue font-bold text-center">
+          <h1 class="text-5xl text-mainBlue font-bold text-center capitalize">
             {{ product.title }}
           </h1>
           <h3 class="text-2xl text-gray-600 font-thin text-center">
