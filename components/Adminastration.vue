@@ -43,7 +43,7 @@
               </v-col>
               <v-col cols="12" sm="6">
                 <v-select
-                  v-model="catagory"
+                  v-model="category"
                   color="indigo"
                   :items="[
                     'Lighters',
@@ -53,7 +53,7 @@
                     'Shorts',
                     'Hoodies',
                   ]"
-                  label="catagory"
+                  label="category"
                   required
                 ></v-select>
                 <v-checkbox
@@ -103,7 +103,7 @@ export default {
       price: null,
       image: null,
       inStock: null,
-      catagory: null,
+      category: null,
       feedback: null,
       loading: false,
       imagePath: '',
@@ -150,7 +150,7 @@ export default {
             title: this.title,
             price: this.price,
             inStock: this.inStock,
-            catagory: this.catagory,
+            category: this.category,
             image_url: image,
           },
         ])

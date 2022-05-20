@@ -1,9 +1,9 @@
 export const state = () => ({
-  catagory: 'Lighters',
+  category: 'Lighters',
   user: null,
   products: [],
   cart: [],
-  userOrders: []
+  userOrders: [],
 })
 
 export const mutations = {
@@ -11,8 +11,8 @@ export const mutations = {
     state.user = user
   },
 
-  ChangeCatagory(state, selected) {
-    state.catagory = selected
+  Changecategory(state, selected) {
+    state.category = selected
   },
 
   setProducts(state, data) {
@@ -21,10 +21,9 @@ export const mutations = {
 
   //  setProducts fix
 
-  setUserOrders(state, data){
+  setUserOrders(state, data) {
     state.userOrders = data
-  }, 
-
+  },
 
   AddToCart(state, Product) {
     // eslint-disable-next-line no-console
@@ -66,7 +65,7 @@ export const actions = {
   async getCatagories({ commit }) {
     try {
       const { error } = await this.$supabase
-        .from('product-catagory')
+        .from('product-category')
         .select(`id , title`)
       if (error) throw error
     } catch (error) {
@@ -85,7 +84,7 @@ export const actions = {
     } catch (error) {}
   },
 
-  async fetchOrders({commit}) {
+  async fetchOrders({ commit }) {
     if (this.user) {
       try {
         const { data, error } = await this.$supabase
@@ -94,7 +93,7 @@ export const actions = {
           .eq('user-id', await this.$store.state.user.id)
         if (error) throw error
         if (data) {
-         commit('setUserOrders', data)
+          commit('setUserOrders', data)
         }
       } catch (error) {
         alert(error.message)
@@ -102,8 +101,8 @@ export const actions = {
     }
   },
 
-  changeCatagory({ commit }, selected) {
-    commit('ChangeCatagory', selected)
+  changecategory({ commit }, selected) {
+    commit('Changecategory', selected)
   },
 
   removeCartProduct({ commit }, Product) {
