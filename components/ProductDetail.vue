@@ -1,3 +1,10 @@
+<i18n lang="yaml">
+en:
+  learnMore: 'learn more!'
+
+fa:
+  learnMore: 'بیشتر نشونم بده'
+</i18n>
 <template>
   <div>
     <v-dialog v-model="dialog" class="dialog" fullscreen>
@@ -8,8 +15,8 @@
           @click="dialog = true"
           v-on="on"
         >
-          <span class="checkoutText text-mainBlue pl-2 font-mainFont text-2xl">
-            Learn More!
+          <span class="checkoutText text-mainBlue pl-2 text-2xl">
+            {{ $t('learnMore') }}
           </span>
           <v-icon large class="blue--text text--darken-2"
             >mdi-arrow-right-circle</v-icon
@@ -48,9 +55,9 @@
           </button>
         </div>
         <div
-          class="lg:w-3/4 w-full lg:h-full lg:h-full h-54 filter drop-shadow-2xl rounded-lg flex justify-center"
+          class="lg:w-3/4 w-full lg:h-full lg:h-full h-full filter drop-shadow-2xl rounded-lg flex justify-center"
         >
-          <v-carousel class="w-full lg:h-full">
+          <v-carousel class="w-full h-full lg:h-full">
             <v-carousel-item
               v-for="(item, i) in items"
               :key="i"
@@ -234,10 +241,6 @@ export default {
       this.price = this.product.item.price
       this.description = this.product.item.description
     }, 5000)
-
-    this.items.forEach((element) => {
-      console.log(element)
-    })
   },
 
   methods: {
@@ -297,6 +300,9 @@ export default {
 </script>
 
 <style scoped>
+.dialog {
+  font-family: 'Yanone Kaffeesatz', 'Rezvan';
+}
 /* .learnMoreBtn {
   background-color: #ff4a68;
   color: #120129;

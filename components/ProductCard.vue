@@ -1,22 +1,46 @@
 <i18n lang="yaml">
 en:
   addedtoCart: 'Item added successfully'
+  outofStock: 'Item soon will be available'
+  price: 'Tooman'
+  comingSoon: 'coming soon...'
 
 fa:
   addedtoCart: 'به سبد خرید اضافه شد'
+  outofStock: 'محصول به زودی اضافه خواهد شد'
+  price: 'تومان'
+  comingSoon: '...بزودی'
 </i18n>
 <template>
   <div>
     <div
-      class="flex flex-col lg:h-72 h-dialog lg:w-96 lg:flex-row justify-center align-center lg:space-x-3 cardBackground productCard"
+      class="flex flex-col lg:h-72 h-card lg:w-96 lg:flex-row justify-center align-center lg:space-x-3 cardBackground productCard"
     >
       <div
-        class="lg:h-full bg-white h-2/5 w-full lg:w-2/5 flex justify-center align-center overflow-hidden"
+        class="lg:h-full relative bg-white h-2/5 w-full lg:w-2/5 flex justify-center align-center overflow-hidden"
       >
-        <img :src="imgUrl" alt="" class="object-contain h-full w-full" />
+        <p
+          v-show="product.inStock !== true"
+          class="lg:text-xl text-lg text-mainBlue absolute bottom-0 p-1 px-2 bg-goldie rounded-full text-center font-extrabold"
+        >
+          {{ $t('comingSoon') }}
+        </p>
+        <v-progress-circular
+          v-show="!imgUrl"
+          :size="50"
+          color="amber"
+          position="center"
+          indeterminate
+        ></v-progress-circular>
+        <img
+          v-show="imgUrl"
+          :src="imgUrl"
+          alt=""
+          class="object-contain h-full w-full"
+        />
       </div>
       <div
-        class="h-3/5 w-full lg:w-3/5 lg:h-full flex flex-col justify-between align-center space-y-3 p-2 sm:py-3"
+        class="h-3/5 w-full lg:w-3/5 lg:h-full flex flex-col justify-around space-y-2 align-center p-2 sm:py-3"
       >
         <div
           class="w-14 h-14 rounded-full fixed transform translate-x-8 lg:-translate-y-5 -translate-y-9 self-end flex justify-center align-center bg-goldie shoppingBtn"
@@ -26,25 +50,27 @@ fa:
             <v-icon color="white" class="">mdi-basket-plus-outline</v-icon>
           </span>
         </div>
-        <div class="w-full h-3/4 flex flex-col justify-around align-center">
+        <div class="w-full h-full flex flex-col justify-around align-center">
           <h1 class="text-5xl text-mainBlue font-bold text-center capitalize">
             {{ product.title }}
           </h1>
-          <h3
-            class="text-2xl text-gray-600 font-thin text-center capitalize leading-tight"
+          <div class="flex flex-col justify-end items-center">
+            <p
+              class="lg:text-4xl text-3xl text-mainBlue text-center font-extrabold"
+            >
+              {{ product.price }}
+              <span class="text-xl"> {{ $t('price') }} </span>
+            </p>
+
+            <LazyHydrate on-click>
+              <ProductDetail :product="Product" />
+            </LazyHydrate>
+          </div>
+          <!-- <h3
+            class="text-xl text-gray-600 font-thin text-center capitalize leading-tight"
           >
             {{ product.description }}
-          </h3>
-          <p
-            class="lg:text-4xl text-3xl text-mainBlue text-center font-extrabold"
-          >
-            {{ product.price }} Tooman
-          </p>
-        </div>
-        <div class="w-full h-1/4 flex justify-center align-center">
-          <LazyHydrate on-click>
-            <ProductDetail :product="Product" />
-          </LazyHydrate>
+          </h3> -->
         </div>
         <!-- 
         
@@ -77,6 +103,18 @@ fa:
     >
       {{ $t('addedtoCart') }}
     </v-alert>
+    <v-alert
+      v-show="outStock"
+      transition="fade-transition"
+      color="blue"
+      type="info"
+    >
+      <p
+        class="text-2xl capitalize text-mainBlue flex items-center justify-center"
+      >
+        {{ $t('outofStock') }}
+      </p>
+    </v-alert>
   </div>
 </template>
 
@@ -97,6 +135,7 @@ export default {
   data() {
     return {
       addedtoCart: false,
+      outStock: false,
       imgUrl: '',
       Product: {
         item: this.product,
@@ -132,11 +171,18 @@ export default {
       }
     },
     addToCart() {
-      this.$store.commit('AddToCart', this.Product)
-      this.addedtoCart = true
-      setTimeout(() => {
-        this.addedtoCart = false
-      }, 3000)
+      if (this.product.inStock === true) {
+        this.$store.commit('AddToCart', this.Product)
+        this.addedtoCart = true
+        setTimeout(() => {
+          this.addedtoCart = false
+        }, 3000)
+      } else {
+        this.outStock = true
+        setTimeout(() => {
+          this.outStock = false
+        }, 2000)
+      }
     },
   },
 }
@@ -152,7 +198,7 @@ export default {
   box-shadow: 0 8px 32px 0 #1f26875e;
 
   border-radius: 10px;
-  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-family: 'Yanone Kaffeesatz', 'Rezvan';
   transition: ease-in-out 0.2s;
 }
 .shoppingBtn {
