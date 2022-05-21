@@ -76,7 +76,12 @@ fa:
               <v-icon large>mdi-shopping</v-icon>
             </v-btn>
           </nuxt-link>
-          <NuxtLink id="admin-link" class="flex" to="/adminPage">
+          <NuxtLink
+            v-show="isAdmin === true"
+            id="admin-link"
+            class="flex"
+            to="/adminPage"
+          >
             <v-btn depressed dark x-large color="transparent" class="">
               <span class="white--text text-xl">{{ $t('admin') }}</span>
               <v-icon class="cowboy">mdi-account-cowboy-hat</v-icon>
@@ -91,11 +96,17 @@ fa:
 <script>
 export default {
   components: {},
+  props: ['admin'],
   data() {
     return {
       drawer: false,
     }
   },
+  computed:{
+    isAdmin(){
+      return this.admin
+    }
+  }
 }
 </script>
 

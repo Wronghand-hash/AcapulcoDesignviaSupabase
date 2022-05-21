@@ -129,7 +129,7 @@ fa:
       </div>
       <div class="lg:hidden">
         <LazyHydrate when-visible>
-          <MenuBarDrawer />
+          <MenuBarDrawer :admin="admin"/>
         </LazyHydrate>
       </div>
       <div class="">

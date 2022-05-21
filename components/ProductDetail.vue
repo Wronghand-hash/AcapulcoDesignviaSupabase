@@ -50,16 +50,17 @@
         <div
           class="lg:w-3/4 w-full lg:h-full lg:h-full h-54 filter drop-shadow-2xl rounded-lg flex justify-center"
         >
-          <!-- <img :src="imgUrl" alt="" class="object-contain h-full w-full" /> -->
-          <v-carousel class="bg-Emerald-100 w-full lg:h-full h-54 bg-red-500">
+          <v-carousel class="w-full lg:h-full">
             <v-carousel-item
               v-for="(item, i) in items"
               :key="i"
               cycle
-              :src="item.src"
+              :src="item"
               reverse-transition="fade-transition"
               transition="fade-transition"
-            ></v-carousel-item>
+            >
+              <img :src="item" alt="" class="object-contain h-full w-full" />
+            </v-carousel-item>
           </v-carousel>
         </div>
 
@@ -202,9 +203,11 @@ export default {
   },
   data() {
     return {
-      imgUrl: '',
+      imgUrl: null,
       dialog: false,
       title: 'loading',
+      imgUrl2: null,
+      items: [],
       price: 'loading',
       description: 'loading',
       Product: {
@@ -225,11 +228,16 @@ export default {
 
   mounted() {
     this.getImage()
+    this.getImage2()
     setTimeout(() => {
       this.title = this.product.item.title
       this.price = this.product.item.price
       this.description = this.product.item.description
     }, 5000)
+
+    this.items.forEach((element) => {
+      console.log(element)
+    })
   },
 
   methods: {
@@ -243,6 +251,25 @@ export default {
           this.imgUrl = URL.createObjectURL(data)
         } catch (error) {
           alert(error.error_description || error.message)
+        } finally {
+          this.items.push(this.imgUrl)
+          console.log(this.items)
+        }
+      }
+    },
+    async getImage2() {
+      if (this.product.item.img2) {
+        try {
+          const { data, error } = await this.$supabase.storage
+            .from('product-images')
+            .download(this.product.item.img2)
+          if (error) throw error
+          this.imgUrl2 = URL.createObjectURL(data)
+        } catch (error) {
+          alert(error.error_description || error.message)
+        } finally {
+          this.items.push(this.imgUrl2)
+          console.log(this.items)
         }
       }
     },
