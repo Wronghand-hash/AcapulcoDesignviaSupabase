@@ -56,30 +56,30 @@ fa:
       <div class="hidden lg:flex">
         <nuxt-link to="/">
           <v-btn class="Btn" depressed rounded x-large color="transparent">
+            <v-icon class="white--text" large>mdi-home</v-icon>
             <span class="aboutUs white--text text-xl lg:text-2xl">
               {{ $t('home') }}
             </span>
-            <v-icon class="white--text" large>mdi-home</v-icon>
           </v-btn>
         </nuxt-link>
       </div>
       <div class="hidden lg:flex">
         <nuxt-link to="/productList">
           <v-btn depressed x-large color="transparent" class="">
+            <v-icon medium class="white--text">mdi-shopping</v-icon>
             <span class="white--text text-xl lg:text-2xl">
               {{ $t('shop') }}
             </span>
-            <v-icon medium class="white--text">mdi-shopping</v-icon>
           </v-btn>
         </nuxt-link>
       </div>
       <div v-show="admin === true" class="hidden lg:flex">
         <NuxtLink id="admin-link" class="flex" to="/adminPage">
           <v-btn depressed dark x-large color="transparent" class="">
+            <v-icon class="cowboy">mdi-cryengine</v-icon>
             <span class="white--text text-xl lg:text-2xl">
               {{ $t('admin') }}
             </span>
-            <v-icon class="cowboy">mdi-cryengine</v-icon>
           </v-btn>
         </NuxtLink>
       </div>
@@ -129,7 +129,7 @@ fa:
       </div>
       <div class="lg:hidden">
         <LazyHydrate when-visible>
-          <MenuBarDrawer :admin="admin"/>
+          <MenuBarDrawer :admin="admin" />
         </LazyHydrate>
       </div>
       <div class="">
