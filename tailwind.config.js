@@ -19,6 +19,7 @@ module.exports = {
         rem26: '26rem',
         dialog: '32rem',
         footer: '80rem',
+        card: '34rem'
       },
       width: {
         rem25: '25rem',

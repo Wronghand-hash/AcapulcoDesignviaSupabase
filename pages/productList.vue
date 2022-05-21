@@ -310,12 +310,12 @@ export default {
   data() {
     return {
       from: 1,
-      to: 4,
+      to: 6,
       page: 1,
-      category: '',
+      category: 'Shirts',
       products: [],
       SearchIndex: '',
-      order: 'price',
+      order: 'created_at',
       ascention: false,
       items: ['Newest', 'Most Expensive', 'Least Expensive'],
       // categories: [
@@ -377,6 +377,8 @@ export default {
           .from('products')
           .select()
           .eq('category', this.category)
+          .range(this.from, this.to)
+
         // .eq("product-category", props.category.title);
 
         if (error) throw error
@@ -427,6 +429,7 @@ export default {
         const { data, error } = await this.$supabase
           .from('products')
           .select()
+          .eq('category', this.category)
           .order(this.order, { ascending: this.ascention })
           .range(this.from, this.to)
 
