@@ -3,7 +3,7 @@ en:
   acapulcodesign: 'Acapulco Design'
   welcome: 'Welcome'
   to: 'To'
-  acapulco: 'Acapulco'
+  acapulco: 'Acapulco Design'
   design: 'Design'
   lighters: 'Lighters'
   showMe: 'Show Me!'
@@ -88,7 +88,7 @@ fa:
             <h1
               class="flex justify-center align-center NavbarTrigger acapulco tracking-wider text-6xl md:text-9xl lg:text-10xl text-center leading-none text-white"
             >
-              {{ $t('acapulcodesign') }}
+              {{ $t('acapulco') }}
             </h1>
             <img
               class="treePicture object-contain h-56 transform lg:-translate-x-36 md:rotate-90 lg:rotate-90 drop-shadow-2xl"
@@ -98,21 +98,21 @@ fa:
           </div>
 
           <div
-            class="flex h-screen w-screen justify-center align-center firstContainer content"
+            class="flex h-96 w-screen justify-center align-center firstContainer content"
           >
             <div class="lg:h-full h-3/4 flex justify-center align-center">
               <h2
-                class="sm:w-96 h2-home z-10 px-36 text-center capitalize font-semibold leading-4 text-5xl md:text-7xl lg:text-9xl transform sm:m-auto"
+                class="h2-home lg:px-80 text-center capitalize font-black leading-3 text-6xl md:text-7xl lg:text-9xl"
               >
                 <span class="text-mainRed animatedSpans">
                   {{ $t('welcome') }} </span
                 ><span class="animatedSpans">{{ $t('to') }}</span>
                 <strong class="text-goldie animatedSpans"
-                  >{{ $t('acapulco') }}
+                  >{{ $t('acapulcodesign') }}
                 </strong>
-                <span class="text-goldie animatedSpans">
+                <!-- <span class="text-goldie animatedSpans">
                   {{ $t('design') }}</span
-                >
+                > -->
               </h2>
             </div>
           </div>
@@ -177,7 +177,7 @@ fa:
               </h1> -->
               <img
                 src="~/assets/images/shirtacapulco.webp"
-                class="object-fill sm:w-96 h-full lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto pictureDivImages"
+                class="object-contain sm:w-96 h-full lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto pictureDivImages"
                 alt=""
               />
             </div>

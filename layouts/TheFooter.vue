@@ -10,8 +10,8 @@ fa:
   findUS: 'ما رو تو شبکه های اجتماعی پیدا کنید '
   made: 'ساخته شده با'
   iran: 'از ایران'
-  developement: 'توسعه سایت از'
-  art: 'هنر از'
+  developement: 'توسعه سایت توسط'
+  art: 'هنر توسط'
 </i18n>
 <template>
   <div>
@@ -76,7 +76,7 @@ fa:
               {{ $t('made') }} ❤️ {{ $t('iran') }}
             </h1>
             <h1
-              class="self-center lg:ml-4 flex flex-col font-mainFont font-thin capitalize text-center text-3xl p-1 lg:text-4xl text-mainRed"
+              class="self-center flex flex-col font-mainFont space-y-2 font-thin capitalize text-center text-3xl lg:text-4xl text-mainRed"
             >
               {{ $t('developement') }}
               <a
@@ -92,7 +92,7 @@ fa:
               >
             </h1>
             <h1
-              class="self-center lg:ml-4 font-mainFont font-thin capitalize text-3xl p-1 lg:text-4xl text-mainRed"
+              class="flex flex-col self-center font-mainFont text-center space-y-2 font-thin capitalize text-3xl lg:text-4xl text-mainRed"
             >
               {{ $t('art') }}
               <a

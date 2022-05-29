@@ -38,9 +38,10 @@ fa:
       v-model="drawer"
       left
       temporary
+      transition="fade-transition"
       app
       full-width
-      class="drawer purple darken-4"
+      class="drawer indigo darken-3"
     >
       <div class="w-full h-full p-6">
         <div class="align-center w-full h-3/6 flex flex-col">
@@ -53,8 +54,8 @@ fa:
               x-large
               color="transparent"
             >
-              <span class="aboutUs text-xl"> {{ $t('home') }} </span>
               <v-icon class="" large>mdi-home</v-icon>
+              <span class="aboutUs text-2xl"> {{ $t('home') }} </span>
             </v-btn>
           </nuxt-link>
           <nuxt-link to="/aboutUs">
@@ -66,14 +67,14 @@ fa:
               x-large
               color="transparent"
             >
-              <span class="aboutUs text-xl"> {{ $t('aboutUs') }} </span>
               <v-icon class="" large>mdi-meditation</v-icon>
+              <span class="aboutUs text-2xl"> {{ $t('aboutUs') }} </span>
             </v-btn>
           </nuxt-link>
           <nuxt-link to="/productList">
             <v-btn depressed x-large dark color="transparent" class="">
-              <span class="white--text text-xl"> {{ $t('shop') }} </span>
               <v-icon large>mdi-shopping</v-icon>
+              <span class="white--text text-2xl"> {{ $t('shop') }} </span>
             </v-btn>
           </nuxt-link>
           <NuxtLink
@@ -83,8 +84,8 @@ fa:
             to="/adminPage"
           >
             <v-btn depressed dark x-large color="transparent" class="">
-              <span class="white--text text-xl">{{ $t('admin') }}</span>
               <v-icon class="cowboy">mdi-account-cowboy-hat</v-icon>
+              <span class="white--text text-2xl">{{ $t('admin') }}</span>
             </v-btn>
           </NuxtLink>
         </div>
@@ -102,11 +103,11 @@ export default {
       drawer: false,
     }
   },
-  computed:{
-    isAdmin(){
+  computed: {
+    isAdmin() {
       return this.admin
-    }
-  }
+    },
+  },
 }
 </script>
 
