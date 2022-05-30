@@ -19,7 +19,7 @@ en:
   if: 'If you want to know more; maybe get a cup of coffee (or tea), you can!'
   aboutUs: 'Learn more about us'
 fa:
-  acapulcodesign: 'خوش اومدین'
+  acapulcodesign: 'خوش اومدید'
   welcome: 'به'
   to: 'آکاپلکو دیزاین'
   acapulco: 'آکاپلکو دیزاین'
