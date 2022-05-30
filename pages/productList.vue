@@ -429,7 +429,7 @@ export default {
         const { data, error } = await this.$supabase
           .from('products')
           .select()
-          .eq('category', this.category)
+          .eq('category', this.$store.state.category)
           .order(this.order, { ascending: this.ascention })
           .range(this.from, this.to)
 

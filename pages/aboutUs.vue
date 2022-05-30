@@ -169,7 +169,7 @@ fa:
                 alt=""
               />
               <h1
-                class="font-mainFont font-black my-2 text-3xl lg:text-5xl text-mainBlue"
+                class="font-mainFont font-black my-4 text-3xl lg:text-5xl text-mainBlue"
               >
                 {{ $t('Greez') }}
               </h1>

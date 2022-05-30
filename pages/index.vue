@@ -134,7 +134,10 @@ fa:
               </div>
               <div class="self-center">
                 <NuxtLink to="/productList">
-                  <button class="learnMoreBtn bg-pink-600">
+                  <button
+                    class="learnMoreBtn bg-pink-600"
+                    @click="selectCategory('Lighters')"
+                  >
                     <span class="learnMoreText">{{ $t('showMe') }}</span>
                   </button>
                 </NuxtLink>
@@ -193,7 +196,10 @@ fa:
               </div>
               <div class="self-center">
                 <NuxtLink to="/productList">
-                  <button class="learnMoreBtn bg-Cyan-400">
+                  <button
+                    class="learnMoreBtn bg-Cyan-400"
+                    @click="selectCategory('Shirts')"
+                  >
                     <span class="learnMoreText">{{ $t('showMe') }}</span>
                   </button>
                 </NuxtLink>
@@ -218,7 +224,10 @@ fa:
               </div>
               <div class="self-center">
                 <NuxtLink to="/productList">
-                  <button class="learnMoreBtn bg-red-700">
+                  <button
+                    class="learnMoreBtn bg-red-700"
+                    @click="selectCategory('Matchboxes')"
+                  >
                     <span class="learnMoreText text-white">{{
                       $t('showMe')
                     }}</span>
@@ -266,7 +275,10 @@ fa:
               </div>
               <div class="self-center">
                 <NuxtLink to="/productList">
-                  <button class="learnMoreBtn bg-yellow-500">
+                  <button
+                    class="learnMoreBtn bg-yellow-500"
+                    @click="selectCategory('Shorts')"
+                  >
                     <span class="learnMoreText">{{ $t('showMe') }}</span>
                   </button>
                 </NuxtLink>
@@ -302,7 +314,10 @@ fa:
               </div>
               <div class="self-center">
                 <NuxtLink to="/productList">
-                  <button class="learnMoreBtn bg-LightBlue-300">
+                  <button
+                    class="learnMoreBtn bg-LightBlue-300"
+                    @click="selectCategory('Hoodies')"
+                  >
                     <span class="learnMoreText">{{ $t('showMe') }}</span>
                   </button>
                 </NuxtLink>
@@ -347,7 +362,10 @@ fa:
               </div>
               <div class="self-center">
                 <NuxtLink to="/productList">
-                  <button class="learnMoreBtn bg-Lime-500">
+                  <button
+                    class="learnMoreBtn bg-Lime-500"
+                    @click="selectCategory('Collections')"
+                  >
                     <span class="learnMoreText">{{ $t('showMe') }}</span>
                   </button>
                 </NuxtLink>
@@ -460,6 +478,7 @@ export default {
   data() {
     return {
       scTimer: 0,
+      selectedCategory: '',
       scY: 0,
     }
   },
@@ -479,6 +498,9 @@ export default {
     // this.animatePeaceSign()
   },
   methods: {
+    selectCategory(selected) {
+      this.$store.commit('Changecategory', selected)
+    },
     logoApearAnimation() {
       const tl = this.$gsap.timeline()
 
