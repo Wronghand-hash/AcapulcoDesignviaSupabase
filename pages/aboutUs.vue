@@ -152,7 +152,7 @@ fa:
                 {{ $t('Chao') }}
               </h1>
               <h3
-                class="font-mainFont font-extralight text-3xl lg:text-4xl text-mainGreen"
+                class="font-mainFont font-extralight text-3xl lg:text-4xl text-Emerald-400"
               >
                 {{ $t('fullStack') }}
               </h3>
