@@ -324,7 +324,7 @@ export default {
         scrollTrigger: {
           trigger: '.Greez',
           start: 'top bottom',
-          end: 'top 35%',
+          end: 'top 50%',
           scrub: 0.7,
           toggleActions: 'play none none reverse',
         },
