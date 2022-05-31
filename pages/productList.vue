@@ -147,7 +147,10 @@ fa:
               class="space-x-2 lg:my-5 px-1 text-center lg:text-left flex align-center justify-center"
             >
               <div class="lg:flex lg:space-x-5 font-bold">
-                <span class="cursor-pointer" @click="category = 'Lighters'">
+                <span
+                  class="cursor-pointer"
+                  @click="category = 'Lighters' && selectCategory('Lighters')"
+                >
                   <h1
                     class="lg:text-3xl text-2xl bg-green-500 lg:rounded-md rounded-t-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
@@ -158,7 +161,7 @@ fa:
                     />
                   </h1>
                 </span>
-                <span class="cursor-pointer" @click="category = 'Collections'">
+                <span class="cursor-pointer" @click="category = 'Collections' && selectCategory('Collections')">
                   <h1
                     class="lg:text-3xl text-2xl bg-green-500 lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
@@ -169,7 +172,12 @@ fa:
                     />
                   </h1>
                 </span>
-                <span class="cursor-pointer" @click="category = 'Matchboxes'">
+                <span
+                  class="cursor-pointer"
+                  @click="
+                    category = 'Matchboxes' && selectCategory('Matchboxes')
+                  "
+                >
                   <h1
                     class="lg:text-3xl text-2xl bg-green-500 rounded-b-md lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 text-center flex justify-center align-end sidebarText"
                   >
@@ -182,7 +190,10 @@ fa:
                 </span>
               </div>
               <div class="lg:flex lg:space-x-5 font-bold">
-                <span class="cursor-pointer" @click="category = 'Shirts'">
+                <span
+                  class="cursor-pointer"
+                  @click="category = 'Shirts' && selectCategory('Shirts')"
+                >
                   <h1
                     class="lg:text-3xl text-2xl lg:rounded-md bg-green-500 rounded-t-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
@@ -193,7 +204,10 @@ fa:
                     />
                   </h1>
                 </span>
-                <span class="cursor-pointer" @click="category = 'Shorts'">
+                <span
+                  class="cursor-pointer"
+                  @click="category = 'Shorts' && selectCategory('Shorts')"
+                >
                   <h1
                     class="lg:text-3xl text-2xl lg:rounded-md bg-green-500 shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
@@ -204,7 +218,10 @@ fa:
                     />
                   </h1>
                 </span>
-                <span class="cursor-pointer" @click="category = 'Hoodies'">
+                <span
+                  class="cursor-pointer"
+                  @click="category = 'Hoodies' && selectCategory('Hoodies')"
+                >
                   <h1
                     class="lg:text-3xl text-2xl lg:rounded-md bg-green-500 rounded-b-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
@@ -371,12 +388,16 @@ export default {
   },
 
   methods: {
+    selectCategory(selected) {
+      this.$store.commit('Changecategory', selected)
+      this.changeCategory()
+    },
     async changeCategory() {
       try {
         const { data, error } = await this.$supabase
           .from('products')
           .select()
-          .eq('category', this.category)
+          .eq('category', this.$store.state.category)
           .range(this.from, this.to)
 
         // .eq("product-category", props.category.title);
