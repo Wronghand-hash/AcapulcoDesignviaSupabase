@@ -132,11 +132,6 @@ fa:
           <MenuBarDrawer :admin="admin" />
         </LazyHydrate>
       </div>
-      <div class="">
-        <LazyHydrate when-visible>
-          <LoginDialog v-show="!user"> </LoginDialog>
-        </LazyHydrate>
-      </div>
 
       <v-spacer></v-spacer>
       <nuxt-link
@@ -159,6 +154,9 @@ fa:
           <span class="aboutUs text-lg lg:text-xl"> FA </span>
         </v-btn></nuxt-link
       >
+      <LazyHydrate when-visible>
+        <LoginDialog v-show="!user"> </LoginDialog>
+      </LazyHydrate>
       <ShoppingCartDrawer />
     </div>
   </div>
