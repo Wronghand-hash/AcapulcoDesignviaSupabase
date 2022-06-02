@@ -161,7 +161,12 @@ fa:
                     />
                   </h1>
                 </span>
-                <span class="cursor-pointer" @click="category = 'Collections' && selectCategory('Collections')">
+                <span
+                  class="cursor-pointer"
+                  @click="
+                    category = 'Collections' && selectCategory('Collections')
+                  "
+                >
                   <h1
                     class="lg:text-3xl text-2xl bg-green-500 lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
@@ -327,7 +332,7 @@ export default {
   data() {
     return {
       from: 1,
-      to: 6,
+      to: 9,
       page: 1,
       category: 'Shirts',
       products: [],
