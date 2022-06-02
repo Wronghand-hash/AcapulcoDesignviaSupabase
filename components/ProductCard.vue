@@ -149,8 +149,8 @@ export default {
       return this.$store.state.category
     },
   },
-  mounted() {
-    this.getImage()
+  async mounted() {
+    await this.getImage()
   },
 
   methods: {
@@ -170,9 +170,9 @@ export default {
         }
       }
     },
-    addToCart() {
+    async addToCart() {
       if (this.product.inStock === true) {
-        this.$store.commit('AddToCart', this.Product)
+        await this.$store.commit('AddToCart', this.Product)
         this.addedtoCart = true
         setTimeout(() => {
           this.addedtoCart = false
