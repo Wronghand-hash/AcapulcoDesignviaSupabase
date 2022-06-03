@@ -3,7 +3,7 @@ en:
   learnMore: 'learn more!'
 
 fa:
-  learnMore: 'بیشتر نشونم بده'
+  learnMore: 'نشونم بده'
 </i18n>
 <template>
   <div>

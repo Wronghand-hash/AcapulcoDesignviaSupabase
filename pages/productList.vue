@@ -444,7 +444,7 @@ export default {
     changeOrder(selected) {
       if (selected === 'Newest') {
         this.order = 'created_at'
-        this.ascention = true
+        this.ascention = false
       } else if (selected === 'Most Expensive') {
         this.order = 'price'
         this.ascention = false
