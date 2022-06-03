@@ -34,9 +34,9 @@ fa:
         >
           <v-icon>mdi-account-check</v-icon>
 
-          <span class="text-xl font-bold text-center ProfileText"
-            >My Profile</span
-          >
+          <span class="text-xl font-bold text-center ProfileText">{{
+            $t('profile')
+          }}</span>
         </v-btn>
       </template>
 
@@ -77,7 +77,7 @@ fa:
                       <v-icon x-large dark class="transform scale-125 mr-4"
                         >mdi-home-edit-outline</v-icon
                       >
-                      My Address
+                      {{ $t('myAddress') }}
                     </span>
                   </h2>
                 </div>
@@ -127,7 +127,7 @@ fa:
                     <span
                       class="font-mainFont text-mainBlue font-extrabold text-5xl ml-2"
                     >
-                      Account Information
+                      {{ $t('accountInformation') }}
                     </span>
                   </h1>
                 </div>
@@ -189,7 +189,7 @@ fa:
               class="w-full h-1/4 flex space-x-2 align-center justify-center p-4"
             >
               <div
-                class="h-full w-full flex flex-col lg:flex-row align-center justify-around lg:flex-row lg:justify-center align-center Tabs space-x-5"
+                class="h-full w-full flex flex-col lg:flex-row align-center justify-around lg:justify-center align-center Tabs space-x-5"
                 @click="toggleDialog('Processing')"
               >
                 <img
@@ -200,7 +200,7 @@ fa:
                 <h2
                   class="text-2xl lg:text-6xl font-mainFont text-mainBlue font-bold"
                 >
-                  Processing
+                  {{ $t('proccessing') }}
                 </h2>
               </div>
               <div
@@ -215,11 +215,11 @@ fa:
                 <h2
                   class="text-2xl lg:text-6xl font-mainFont text-mainBlue font-bold"
                 >
-                  Sent
+                  {{ $t('sent') }}
                 </h2>
               </div>
               <div
-                class="Tabs h-full w-full flex flex-col lg:flex-row align-center justify-around lg:flex-row lg:justify-center align-center lg:space-x-5"
+                class="Tabs h-full w-full flex flex-col align-center justify-around lg:flex-row lg:justify-center align-center lg:space-x-5"
                 @click="toggleDialog('Delivery')"
               >
                 <img
@@ -230,7 +230,7 @@ fa:
                 <h2
                   class="text-2xl lg:text-6xl font-mainFont text-mainBlue font-bold"
                 >
-                  Delivered
+                  {{ $t('delivered') }}
                 </h2>
               </div>
             </div>
@@ -363,6 +363,9 @@ export default {
 </script>
 
 <style scoped>
+* {
+  font-family: 'Yanone Kaffeesatz', 'Rezvan';
+}
 .Tabs {
   cursor: pointer;
   transition: ease-in-out 0.3s;
@@ -381,7 +384,6 @@ export default {
 .profilePageBtn {
   font-size: 1.7em;
   color: rgb(73, 73, 73);
-  font-family: 'Acme', sans-serif;
   font-weight: 800;
   text-transform: capitalize;
 }
@@ -414,10 +416,6 @@ span {
 
 .span:hover {
   filter: brightness(0.2);
-}
-
-.ProfileText {
-  font-family: 'Acme', sans-serif;
 }
 
 /* .backround {

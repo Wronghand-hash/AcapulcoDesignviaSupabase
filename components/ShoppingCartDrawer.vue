@@ -1,3 +1,19 @@
+<i18n lang="yaml">
+en:
+  shoppingCart: 'ُShopping Cart'
+  subTotal: 'Subtotal'
+  shipping: 'Shipping'
+  total: 'Total'
+  delete: 'Delete'
+
+fa:
+  shoppingCart: 'سبد خرید'
+  subTotal: 'جمع سبد خرید'
+  shipping: 'هزینه ی ارسال'
+  total: 'کل مبلغ پرداختی'
+  delete: 'پاک کردن'
+</i18n>
+
 <template>
   <div class="">
     <v-tooltip bottom>
@@ -25,7 +41,7 @@
           </v-badge>
         </v-btn>
       </template>
-      <span>Shopping Cart</span>
+      <span> {{ $t('shoppingCart') }} </span>
     </v-tooltip>
 
     <v-navigation-drawer
@@ -65,7 +81,7 @@
                   @click.prevent="removeCartProduct(item)"
                 >
                   <span class="px-5 font-mainFont text-2xl text-pink-800">
-                    Delete
+                    {{ $t('delete') }}
                   </span>
                 </button>
               </div>
@@ -111,14 +127,14 @@
           <div class="w-full h-2/3 flex justify-evenly flex-col">
             <div class="flex justify-around text-center">
               <h1 class="font-extralight font-mainFont text-2xl text-mainBlue">
-                Subtotal
+                {{ $t('subTotal') }}
               </h1>
               <h1 class="font-extralight font-mainFont text-2xl text-mainBlue">
-                Shipping
+                {{ $t('shipping') }}
               </h1>
 
               <h1 class="font-bold font-mainFont text-3xl text-mainBlue">
-                Total
+                {{ $t('total') }}
               </h1>
             </div>
             <div class="flex justify-around h-full align-center">
@@ -187,6 +203,9 @@ export default {
 </script>
 
 <style scoped>
+* {
+  font-family: 'Yanone Kaffeesatz', 'Rezvan';
+}
 .drawer {
   z-index: 199 !important;
 }

@@ -247,7 +247,7 @@ fa:
                   <h1
                     class="font-mainFont text-center text-3xl flex justify-center items-center bg-white p-5 rounded-lg text-mainBlue font-semibold"
                   >
-                    {{ $t('shoppingSum') }} : 2400 IRL
+                    {{ $t('shoppingSum') }} : {{ total }} IRL
                   </h1>
                   <button
                     class="checkoutBtn lg:p-4 p-2"
@@ -332,6 +332,12 @@ export default {
   computed: {
     cart() {
       return this.$store.state.cart
+    },
+    cartTotalPrice() {
+      return this.$store.getters.cartTotalPrice
+    },
+    total() {
+      return this.cartTotalPrice + 15
     },
     user() {
       return this.$store.state.user
