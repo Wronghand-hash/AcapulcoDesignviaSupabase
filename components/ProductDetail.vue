@@ -15,7 +15,7 @@ fa:
           @click="dialog = true"
           v-on="on"
         >
-          <span class="checkoutText text-mainBlue pl-2 text-2xl">
+          <span @click="entrance" class="checkoutText text-mainBlue pl-2 text-2xl">
             {{ $t('learnMore') }}
           </span>
           <v-icon large class="blue--text text--darken-2"
@@ -66,7 +66,12 @@ fa:
               reverse-transition="fade-transition"
               transition="fade-transition"
             >
-              <img v-lazy-load :src="item"  alt="" class="object-contain h-full w-full" />
+              <img
+                v-lazy-load
+                :src="item"
+                alt=""
+                class="object-contain h-full w-full"
+              />
             </v-carousel-item>
           </v-carousel>
         </div>
@@ -233,17 +238,18 @@ export default {
     // },
   },
 
-  mounted() {
-    this.getImage()
-    this.getImage2()
-    setTimeout(() => {
-      this.title = this.product.item.title
-      this.price = this.product.item.price
-      this.description = this.product.item.description
-    }, 5000)
-  },
+  mounted() {},
 
   methods: {
+    entrance() {
+      this.getImage()
+      this.getImage2()
+      setTimeout(() => {
+        this.title = this.product.item.title
+        this.price = this.product.item.price
+        this.description = this.product.item.description
+      }, 2000)
+    },
     async getImage() {
       if (this.product.item.image_url) {
         try {

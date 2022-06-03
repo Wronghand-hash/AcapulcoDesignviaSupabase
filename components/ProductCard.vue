@@ -62,7 +62,7 @@ fa:
               <span class="text-xl"> {{ $t('price') }} </span>
             </p>
 
-            <LazyHydrate on-click>
+            <LazyHydrate never on-click>
               <ProductDetail :product="Product" />
             </LazyHydrate>
           </div>
