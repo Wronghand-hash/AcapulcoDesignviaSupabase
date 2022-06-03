@@ -1,3 +1,20 @@
+<i18n lang="yaml">
+en:
+  checkout: 'Checkout'
+  shippingDetail: 'Shipping Detail'
+  submit: 'Submit'
+  shoppingSummary: 'Shopping Summary'
+  delete: 'Delete'
+  shoppingSum: 'Shopping Sum'
+fa:
+  checkout: 'ادامه ی خرید'
+  shippingDetail: 'اطلاعات ارسال'
+  submit: 'تایید'
+  shoppingSummary: 'خلاصه ی سبد خرید'
+  delete: 'پاک کردن'
+  shoppingSum: 'هزینه ی پرداختی'
+</i18n>
+
 <template>
   <div>
     <v-dialog
@@ -15,7 +32,7 @@
           v-on="on"
         >
           <span class="pl-4 checkoutText font-mainFont text-2xl lg:text-4xl">
-            Checkout
+            {{ $t('checkout') }}
           </span>
           <v-icon x-large class="pink--text text--darken-2"
             >mdi-arrow-right-circle</v-icon
@@ -54,7 +71,7 @@
                   <span
                     class="font-mainFont text-mainBlue font-extrabold text-4xl"
                   >
-                    Shipping Details
+                    {{ $t('shippingDetail') }}
                   </span>
                 </h1>
               </div>
@@ -163,7 +180,7 @@
                   <button
                     class="font-mainFont w-full text-3xl text-mainBlue font-bold rounded-full bg-Rose-400 transition ease-in duration-200 hover:bg-red-200 px-4 py-2"
                   >
-                    Submit
+                    {{ $t('submit') }}
                   </button>
                 </div>
 
@@ -181,7 +198,7 @@
                   <span
                     class="font-mainFont text-mainBlue font-extrabold text-4xl"
                   >
-                    Shopping Summary
+                    {{ $t('shoppingSummary') }}
                   </span>
                 </h1>
               </div>
@@ -217,7 +234,7 @@
                           <span
                             class="px-5 font-mainFont text-2xl text-pink-800"
                           >
-                            Delete
+                            {{ $t('delete') }}
                           </span>
                         </button>
                       </div>
@@ -230,14 +247,14 @@
                   <h1
                     class="font-mainFont text-center text-3xl flex justify-center items-center bg-white p-5 rounded-lg text-mainBlue font-semibold"
                   >
-                    Shopping Sum : 2400 IRL
+                    {{ $t('shoppingSum') }} : 2400 IRL
                   </h1>
                   <button
                     class="checkoutBtn lg:p-4 p-2"
                     @click="submitOrderDetail"
                   >
                     <span class="pl-4 checkoutText font-mainFont text-2xl">
-                      Checkout
+                      {{ $t('checkout') }}
                     </span>
                     <v-icon x-large class="pink--text text--darken-2 sm:hidden"
                       >mdi-arrow-right-circle</v-icon
@@ -381,6 +398,9 @@ export default {
 </script>
 
 <style scoped>
+* {
+  font-family: 'Yanone Kaffeesatz', 'Rezvan';
+}
 .span {
   cursor: pointer;
   transition: ease-in-out 0.3s;
@@ -447,12 +467,10 @@ export default {
   background-color: #ff4a68;
 } */
 .items {
-  font-family: 'Yanone Kaffeesatz', sans-serif;
   color: #120129;
   font-size: 26px;
 }
 .total {
-  font-family: 'Londrina Solid', cursive;
   text-transform: capitalize;
   font-size: 30px;
 }

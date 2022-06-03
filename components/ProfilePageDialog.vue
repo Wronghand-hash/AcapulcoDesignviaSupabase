@@ -1,3 +1,20 @@
+<i18n lang="yaml">
+en:
+  profile: 'My Profile'
+  myAddress: 'My address'
+  accountInformation: 'Account Information'
+  proccessing: 'Processing'
+  sent: 'Sent'
+  delivered: 'Delivered'
+fa:
+  profile: 'پروفایل من'
+  myAddress: 'آدرس من'
+  accountInformation: 'اطلاعات حساب'
+  proccessing: 'در حال پردازش'
+  sent: 'فرستاده شد'
+  delivered: 'تحویل داده شده'
+</i18n>
+
 <template>
   <div class="main">
     <v-dialog
