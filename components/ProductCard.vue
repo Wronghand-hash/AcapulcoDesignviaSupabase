@@ -62,9 +62,9 @@ fa:
               <span class="text-xl"> {{ $t('price') }} </span>
             </p>
 
-            <!-- <LazyHydrate>
+            <LazyHydrate on-click>
               <ProductDetail :product="Product" />
-            </LazyHydrate> -->
+            </LazyHydrate>
           </div>
           <!-- <h3
             class="text-xl text-gray-600 font-thin text-center capitalize leading-tight"
@@ -119,13 +119,13 @@ fa:
 </template>
 
 <script>
-// import LazyHydrate from 'vue-lazy-hydration'
+import LazyHydrate from 'vue-lazy-hydration'
 
 export default {
   components: {
-    // LazyHydrate,
+    LazyHydrate,
 
-    // ProductDetail: () => import('../components/ProductDetail.vue'),
+    ProductDetail: () => import('../components/ProductDetail.vue'),
   },
   props: {
     // eslint-disable-next-line vue/require-default-prop
