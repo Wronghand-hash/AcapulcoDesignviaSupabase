@@ -73,7 +73,7 @@ fa:
           </v-btn>
         </nuxt-link>
       </div>
-      <div v-show="admin === true" class="hidden lg:flex">
+      <div v-show="showAdmin === true" class="hidden lg:flex">
         <NuxtLink id="admin-link" class="flex" to="/adminPage">
           <v-btn depressed dark x-large color="transparent" class="">
             <v-icon class="cowboy">mdi-cryengine</v-icon>
@@ -218,11 +218,14 @@ export default {
     user() {
       return this.$store.state.user
     },
+    showAdmin() {
+      return this.admin
+    },
   },
 
   watch: {
     user() {
-      if (this.user !== null) {
+      if (this.user === null) {
         this.admin = false
       }
     },
@@ -261,7 +264,10 @@ export default {
         setTimeout(() => {
           this.signedOut = false
         }, 3000)
-      } catch (error) {}
+      } catch (error) {
+      } finally {
+        this.admin = false
+      }
     },
     async getUser() {
       try {
@@ -274,9 +280,11 @@ export default {
         console.log(data[0].admin)
         if (data[0].admin === true) {
           console.log(data[0])
-          this.admin = true
         }
-      } catch (error) {}
+      } catch (error) {
+      } finally {
+        this.admin = true
+      }
     },
   },
 }

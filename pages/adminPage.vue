@@ -119,21 +119,21 @@ fa:
                 class="tab-content h-full w-full place-items-center content-center justify-center flex self-center tab-space"
               >
                 <div
-                  class="flex flex-col place-items-center justify-center h-full w-full text-gray-200"
+                  class="flex p-4 flex-col place-items-center justify-center h-full w-full text-gray-200"
                   :class="{
                     hidden: openTab !== 1,
                     block: openTab === 1,
                   }"
                 >
                   <div
-                    class="w-full h-full md:flex-row lg:flex-row flex justify-evenly flex-col"
+                    class="w-full h-full md:flex-row space-y-4 lg:flex-row flex justify-evenly flex-col"
                   >
                     <div
                       class="totalProducts flex flex-col justify-center align-center"
                     >
                       <h2 class="text-center">{{ $t('total') }}</h2>
                       <h2
-                        class="ProductLength border-t-2 text-center rounded border-b-2"
+                        class="ProductLength bg-pink-300 px-2 border-t-2 text-center rounded border-b-2"
                       >
                         {{ products.length }}
                       </h2>
@@ -145,7 +145,7 @@ fa:
                     >
                       <h2 class="text-center">{{ $t('total') }}</h2>
                       <h2
-                        class="SellsLength border-t-2 text-center rounded border-b-2"
+                        class="SellsLength bg-pink-300 px-2 border-t-2 text-center rounded border-b-2"
                       >
                         {{ orders.length }}
                       </h2>
@@ -157,7 +157,7 @@ fa:
                     >
                       <h2 class="text-center">{{ $t('shipment') }}</h2>
                       <h2
-                        class="ShipmentLength border-t-2 text-center rounded border-b-2"
+                        class="ShipmentLength bg-pink-300 px-2 border-t-2 text-center rounded border-b-2"
                       >
                         25
                       </h2>
@@ -170,55 +170,74 @@ fa:
                   :class="{ hidden: openTab !== 2, block: openTab === 2 }"
                 >
                   <div
-                    class="h-full flex flex-col align-center justify-between mb-5 w-full"
+                    class="h-full flex flex-col align-center justify-between w-full"
                   >
-                    <div
-                      class="catagories my-5 space-y-2 flex flex-wrap flex-row justify-around align-center h-32 w-full"
-                    >
-                      <button
-                        class="border-2 bg-pink-700 rounded-full border-CoolGray-600 w-24 h-24"
-                        @click="categorySelect(4)"
+                    <div class="flex flex-col w-full h-full space-y-12">
+                      <div
+                        class="catagories my-5 space-y-2 flex flex-wrap flex-row justify-around align-center h-32 w-full"
                       >
-                        <v-icon x-large class="text-4xl" dark
-                          >mdi-tshirt-crew</v-icon
+                        <button
+                          :class="{ 'bg-Amber-500': category === 'Shirts' }"
+                          class="border-2 transition bg-pink-700 rounded-full border-CoolGray-600 w-24 h-24"
+                          @click="category = 'Shirts'"
                         >
-                      </button>
-                      <button
-                        class="border-2 bg-pink-700 rounded-full border-CoolGray-600 w-24 h-24"
-                        @click="categorySelect(2)"
-                      >
-                        <v-icon x-large class="text-4xl" dark>mdi-fire</v-icon>
-                      </button>
-                      <button
-                        class="border-2 bg-pink-700 rounded-full border-CoolGray-600 w-24 h-24"
-                        @click="categorySelect(3)"
-                      >
-                        <v-icon x-large class="text-4xl" dark
-                          >mdi-package</v-icon
+                          <v-icon x-large class="text-4xl" dark
+                            >mdi-tshirt-crew</v-icon
+                          >
+                        </button>
+                        <button
+                          :class="{ 'bg-Amber-500': category === 'Lighters' }"
+                          class="border-2 transition bg-pink-700 rounded-full border-CoolGray-600 w-24 h-24"
+                          @click="category = 'Lighters'"
                         >
-                      </button>
-                      <button
-                        class="border-2 bg-pink-700 rounded-full border-CoolGray-600 w-24 h-24"
-                        @click="categorySelect(1)"
-                      >
-                        <v-icon x-large class="text-4xl" dark
-                          >mdi-toolbox</v-icon
+                          <v-icon x-large class="text-4xl" dark
+                            >mdi-fire</v-icon
+                          >
+                        </button>
+                        <button
+                          :class="{ 'bg-Amber-500': category === 'Hoodies' }"
+                          class="border-2 transition bg-pink-700 rounded-full border-CoolGray-600 w-24 h-24"
+                          @click="category = 'Hoodies'"
                         >
-                      </button>
-                    </div>
-                    <div
-                      class="addSomthing m-2 flex flex-col w-full h-40 justify-center item-center self-center align-center"
-                    >
-                      <div>
-                        <Adminastration
-                          ref="Adminastration"
-                          class="adminastration"
-                        />
+                          <v-icon x-large class="text-4xl" dark
+                            >mdi-sun-snowflake</v-icon
+                          >
+                        </button>
+                        <button
+                          :class="{
+                            'bg-Amber-500': category === 'Collections',
+                          }"
+                          class="border-2 transition bg-pink-700 rounded-full border-CoolGray-600 w-24 h-24"
+                          @click="category = 'Collections'"
+                        >
+                          <v-icon x-large class="text-4xl" dark
+                            >mdi-package</v-icon
+                          >
+                        </button>
+                        <button
+                          :class="{ 'bg-Amber-500': category === 'Matchboxes' }"
+                          class="border-2 transition bg-pink-700 rounded-full border-CoolGray-600 w-24 h-24"
+                          @click="category = 'Matchboxes'"
+                        >
+                          <v-icon x-large class="text-4xl" dark
+                            >mdi-toolbox</v-icon
+                          >
+                        </button>
+                      </div>
+                      <div
+                        class="addSomthing  transform sm:translate-y-8 p-0 m-0 flex flex-col w-full h-32 justify-center item-center self-center align-center"
+                      >
+                        <div class=" justify-center align-center">
+                          <Adminastration
+                            ref="Adminastration"
+                            class="adminastration"
+                          />
+                        </div>
                       </div>
                     </div>
 
                     <div
-                      class="w-full products rounded-lg p-2 shadow-2xl bg-white overflow-y-scroll h-80 text-gray-200"
+                      class="w-full products rounded-lg p-2 shadow-2xl bg-white overflow-y-scroll h-96 text-gray-200"
                     >
                       <div class="flex-justify-center align-center">
                         <h2 class="font-bold text-2xl border-b-2 my-2">
@@ -231,6 +250,7 @@ fa:
                         class=""
                       >
                         <div
+                          v-show="product.category === category"
                           id="products"
                           class="flex flex-row divide-y border-black text-black place-content-around"
                         >
@@ -501,7 +521,7 @@ export default {
   },
   data() {
     return {
-      category: 2,
+      category: 'Lighters',
 
       openTab: 1,
       orders: [],
@@ -808,7 +828,6 @@ input[type='number'] {
   color: #023047;
 }
 .addSomthing {
-  color: #0a1931;
   font-family: 'Yanone Kaffeesatz', 'Estedad';
 }
 

@@ -66,7 +66,7 @@ fa:
               reverse-transition="fade-transition"
               transition="fade-transition"
             >
-              <img :src="item" alt="" class="object-contain h-full w-full" />
+              <nuxt-img :src="item" alt="" class="object-contain h-full w-full" />
             </v-carousel-item>
           </v-carousel>
         </div>
