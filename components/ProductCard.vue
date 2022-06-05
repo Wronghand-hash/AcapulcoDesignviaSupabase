@@ -69,10 +69,7 @@ fa:
                 class="learnMore flex py-1 px-5 justify-center align-center bg-mainGreen rounded-full"
                 :product="Product"
               >
-                <span
-                  class="checkoutText text-mainBlue pl-2 text-2xl"
-                  @click="entrance"
-                >
+                <span class="checkoutText text-mainBlue pl-2 text-2xl">
                   {{ $t('learnMore') }}
                 </span>
                 <v-icon large class="blue--text text--darken-2"
