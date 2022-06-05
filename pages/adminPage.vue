@@ -240,10 +240,19 @@ fa:
                             >mdi-toolbox</v-icon
                           >
                         </button>
+                          <button
+                          :class="{ 'bg-Amber-500': category === 'Shorts' }"
+                          class="border-2 transition bg-pink-700 rounded-full border-CoolGray-600 xs:w-16 xs:h-16 w-24 h-24"
+                          @click="category = 'Shorts'"
+                        >
+                          <v-icon x-large class="text-4xl" dark
+                            >mdi-beach</v-icon
+                          >
+                        </button>
                       </div>
                       
                     <div
-                      class="w-full products rounded-lg p-2 shadow-2xl bg-white overflow-y-scroll h-96 text-gray-200"
+                      class="w-full products rounded-lg p-2 shadow-2xl bg-white overflow-y-scroll h-80 text-gray-200"
                     >
                       <div class="flex-justify-center align-center">
                         <h2 class="font-bold text-2xl border-b-2 my-2">
@@ -258,7 +267,7 @@ fa:
                         <div
                           v-show="product.category === category"
                           id="products"
-                          class="flex flex-row divide-y border-black text-black place-content-around"
+                          class="flex flex-row divide-y border-black text-black justify-evenly"
                         >
                           <div
                             class="bottomBorder flex flex-row place-content-between border-b-2 border-Indigo-500 w-full"
@@ -269,12 +278,8 @@ fa:
                             <div class="flex-justify-center">
                               <p>{{ product.price }}</p>
                             </div>
-                            <button class="" @click="deleteProduct(product.id)">
-                              <img
-                                class="kiskis"
-                                src="~/assets/images/x.png"
-                                alt=""
-                              />
+                            <button class="text-red-500" @click="deleteProduct(product.id)">
+                             <v-icon>mdi-delete</v-icon>
                             </button>
                           </div>
                         </div>
@@ -609,7 +614,6 @@ export default {
 
     async deleteProduct(id) {
       try {
-        this.deletingAnimation()
         const { error } = await this.$supabase
           .from('products')
           .delete()
