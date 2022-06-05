@@ -34,7 +34,15 @@ fa:
               <h2
                 class="p-4 flex font-mainFont text-mainBlue font-extrabold justify-center items-center space-x-1 lg:text-3xl text-2xl"
               >
-                <NuxtLink to="/productlist">
+                <NuxtLink v-if="$route.path.toString().includes('fa')" to="/fa">
+                  <span
+                    class="transform scale-125 span flex justify-center items-center"
+                    ><v-icon dark x-large color=""
+                      >mdi-chevron-double-left</v-icon
+                    ></span
+                  >
+                </NuxtLink>
+                <NuxtLink v-else to="/">
                   <span
                     class="transform scale-125 span flex justify-center items-center"
                     ><v-icon dark x-large color=""

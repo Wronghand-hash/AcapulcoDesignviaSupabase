@@ -49,7 +49,17 @@ fa:
       <div class="w-full h-2/4 flex justify-center align-center flex-col">
         <div class="w-full h-auto flex items-center bg-mainGreen lg:p-5 p-1">
           <h1 class="flex items-center">
-            <NuxtLink to="/productlist">
+            <NuxtLink
+              v-if="$route.path.toString().includes('fa')"
+              to="/fa/productlist"
+            >
+              <span class="span transform scale-125"
+                ><v-icon dark x-large color=""
+                  >mdi-chevron-double-left</v-icon
+                ></span
+              >
+            </NuxtLink>
+            <NuxtLink v-else to="/productlist">
               <span class="span transform scale-125"
                 ><v-icon dark x-large color=""
                   >mdi-chevron-double-left</v-icon
