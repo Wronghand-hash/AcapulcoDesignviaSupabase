@@ -179,7 +179,7 @@ fa:
       </div>
 
       <div class="w-full h-2/4 bg-Indigo-800">
-        <div class="w-full h-auto flex items-center bg-mainGreen lg:p-5 p-1">
+        <div class="w-full h-auto flex items-center bg-mainRed lg:p-5 p-1">
           <h1 class="flex items-center">
             <v-icon x-large dark>mdi-cart-arrow-right</v-icon>
             <span class="font-mainFont text-mainBlue font-extrabold text-4xl">

@@ -7,6 +7,8 @@ en:
   welcome: 'Welcome Back!'
   logout: 'Logout'
   signedOut: 'Successfully logged out'
+  profile: 'My Profile'
+
 fa:
   aboutus: 'درباره ی ما'
   home: 'خانه'
@@ -15,6 +17,7 @@ fa:
   welcome: 'خوش برگشتی'
   logout: 'لاگ آوت'
   signedOut: 'از حسابتون خارج شدید'
+  profile: 'پروفایل من'
 </i18n>
 <template>
   <!-- <v-app> -->
@@ -110,9 +113,15 @@ fa:
           <v-list dense class="space-y-4 p-4">
             <v-list-item>
               <v-list-item-icon>
-                <LazyHydrate :on-interaction="['click', 'focus']">
-                  <ProfilePageDialog />
-                </LazyHydrate>
+                <NuxtLink to="/profilepage">
+                  <v-btn light depressed color="transparent">
+                    <v-icon>mdi-account-check</v-icon>
+
+                    <span class="text-xl font-bold text-center ProfileText">{{
+                      $t('profile')
+                    }}</span>
+                  </v-btn>
+                </NuxtLink>
               </v-list-item-icon>
             </v-list-item>
             <v-list-item>
@@ -188,7 +197,6 @@ export default {
   components: {
     LazyHydrate,
     MenuBarDrawer: () => import('../components/MenuBarDrawer.vue'),
-    ProfilePageDialog: () => import('../components/ProfilePageDialog.vue'),
     LoginDialog: () => import('../components/LoginDialog.vue'),
     ShoppingCartDrawer,
   },
