@@ -9,8 +9,7 @@ en:
   showMe: 'Show Me!'
   acapulcoShirt: 'Acapulco Shirt'
   acapulcoMatchboxes: 'Custom Matchboxes'
-  comingSoon: 'Coming Soon...'
-  acapulcoShorts: 'Acapulco Shorts'
+   acapulcoShorts: 'Acapulco Shorts'
   acapulcoHoodies: 'Acapulco Hoodies'
   collections: 'Collections'
   weAreA: 'We are a'
@@ -28,8 +27,7 @@ fa:
   showMe: '!نشونم بده'
   acapulcoShirt: 'پیراهن آلکاپلکو'
   acapulcoMatchboxes: 'کبریت های آکاپلکو'
-  comingSoon: '...بزودی'
-  acapulcoHoodies: 'هودی های اکاپلکو'
+   acapulcoHoodies: 'هودی های اکاپلکو'
   acapulcoShorts: 'شلوارک های آکاپلکو'
   collections: 'کالکشن ها'
   weAreA: 'ما یک'
@@ -255,11 +253,7 @@ fa:
                 alt=""
               />
             </div>
-            <h1
-              class="font-mainFont self-start lg:hidden rounded-full py-1 lg:py-2 comingSoon px-8 text-mainBlue bg-goldie text-2xl lg:text-3xl font-bold"
-            >
-              {{ $t('comingSoon') }}
-            </h1>
+
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
                 <h3
@@ -342,11 +336,7 @@ fa:
                 alt=""
               />
             </div>
-            <h1
-              class="font-mainFont lg:hidden lg:ml-3 self-start lg:self-start rounded-full py-1 lg:py-2 comingSoon px-8 text-mainBlue bg-goldie text-2xl lg:text-3xl font-bold"
-            >
-              {{ $t('comingSoon') }}
-            </h1>
+
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
                 <h3
@@ -753,9 +743,6 @@ export default {
   font-weight: 600;
   font-family: 'Roboto Slab', 'Rezvan';
   color: #120129;
-}
-.comingSoon {
-  font-family: 'Yanone Kaffeesatz', 'Rezvan';
 }
 
 .learnMoreBtn {

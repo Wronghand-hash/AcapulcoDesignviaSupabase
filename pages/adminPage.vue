@@ -71,7 +71,7 @@ fa:
           <div class="w-20 h-20 bg-yellow-500 rounded-full"></div>
         </div>
         <div
-          class="flex flex-col align-center mb-8 lis w-full lg:w-2/3 flex flex-col justify-center align-center rounded-2xl justify-center"
+          class="align-center mb-8 lis w-full lg:w-2/3 flex flex-col align-center rounded-2xl justify-center"
         >
           <div
             class="buttonContainer shadow-2xl h-32 px-1 z-10 lg:p-10 w-10/12 flex justify-center align-center content-center rounded-2xl"
@@ -225,9 +225,9 @@ fa:
                         </button>
                       </div>
                       <div
-                        class="addSomthing  transform sm:translate-y-8 p-0 m-0 flex flex-col w-full h-32 justify-center item-center self-center align-center"
+                        class="addSomthing transform sm:translate-y-8 p-0 m-0 flex flex-col w-full h-32 justify-center item-center self-center align-center"
                       >
-                        <div class=" justify-center align-center">
+                        <div class="justify-center align-center">
                           <Adminastration
                             ref="Adminastration"
                             class="adminastration"
