@@ -46,7 +46,13 @@ fa:
       </v-btn>
     </div> -->
     <div class="hidden lg:flex">
-      <nuxt-link to="/aboutus">
+      <nuxt-link v-if="$route.path.toString().includes('fa')" to="/fa/aboutus">
+        <v-btn class="Btn" dark depressed rounded x-large color="transparent">
+          <v-icon class="" large>mdi-meditation</v-icon>
+          <span class="aboutUs text-xl lg:text-2xl"> {{ $t('aboutus') }} </span>
+        </v-btn>
+      </nuxt-link>
+      <nuxt-link v-else to="/aboutus">
         <v-btn class="Btn" dark depressed rounded x-large color="transparent">
           <v-icon class="" large>mdi-meditation</v-icon>
           <span class="aboutUs text-xl lg:text-2xl"> {{ $t('aboutus') }} </span>
@@ -56,7 +62,15 @@ fa:
 
     <div class="flex align-center justify-end px-2">
       <div class="hidden lg:flex">
-        <nuxt-link to="/">
+        <nuxt-link v-if="$route.path.toString().includes('fa')" to="/fa">
+          <v-btn class="Btn" depressed rounded x-large color="transparent">
+            <v-icon class="white--text" large>mdi-home</v-icon>
+            <span class="aboutUs white--text text-xl lg:text-2xl">
+              {{ $t('home') }}
+            </span>
+          </v-btn>
+        </nuxt-link>
+        <nuxt-link v-else to="/">
           <v-btn class="Btn" depressed rounded x-large color="transparent">
             <v-icon class="white--text" large>mdi-home</v-icon>
             <span class="aboutUs white--text text-xl lg:text-2xl">
@@ -66,7 +80,18 @@ fa:
         </nuxt-link>
       </div>
       <div class="hidden lg:flex">
-        <nuxt-link to="/productList">
+        <nuxt-link
+          v-if="$route.path.toString().includes('fa')"
+          to="/fa/productList"
+        >
+          <v-btn depressed x-large color="transparent" class="">
+            <v-icon medium class="white--text">mdi-shopping</v-icon>
+            <span class="white--text text-xl lg:text-2xl">
+              {{ $t('shop') }}
+            </span>
+          </v-btn>
+        </nuxt-link>
+        <nuxt-link v-else to="/productList">
           <v-btn depressed x-large color="transparent" class="">
             <v-icon medium class="white--text">mdi-shopping</v-icon>
             <span class="white--text text-xl lg:text-2xl">
@@ -113,7 +138,19 @@ fa:
           <v-list dense class="space-y-4 p-4">
             <v-list-item>
               <v-list-item-icon>
-                <NuxtLink to="/profilepage">
+                <NuxtLink
+                  v-if="$route.path.toString().includes('fa')"
+                  to="/fa/profilepage"
+                >
+                  <v-btn light depressed color="transparent">
+                    <v-icon>mdi-account-check</v-icon>
+
+                    <span class="text-xl font-bold text-center ProfileText">{{
+                      $t('profile')
+                    }}</span>
+                  </v-btn>
+                </NuxtLink>
+                <NuxtLink v-else to="/profilepage">
                   <v-btn light depressed color="transparent">
                     <v-icon>mdi-account-check</v-icon>
 

@@ -153,7 +153,24 @@ fa:
             </div>
           </div>
           <div class="h-1/3 w-full flex justify-center align-center">
-            <NuxtLink to="/checkoutpage">
+            <NuxtLink
+              v-if="$route.path.toString().includes('fa')"
+              to="/fa/checkoutpage"
+            >
+              <button
+                class="checkoutBtn p-4 lg:py-3 flex justify-center align-center"
+              >
+                <span
+                  class="pl-4 checkoutText font-mainFont text-2xl lg:text-4xl"
+                >
+                  {{ $t('checkout') }}
+                </span>
+                <v-icon x-large class="pink--text text--darken-2"
+                  >mdi-arrow-right-circle</v-icon
+                >
+              </button>
+            </NuxtLink>
+            <NuxtLink v-else to="/checkoutpage">
               <button
                 class="checkoutBtn p-4 lg:py-3 flex justify-center align-center"
               >
