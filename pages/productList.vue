@@ -241,16 +241,18 @@ fa:
                 </span>
               </div>
             </div>
-            <v-select
-              :items="items"
-              light
-              filled
-              item-color="blue darken-1"
-              class="bg-mainGreen bg-opacity-40 lg:self-start lg:w-auto w-full font-mainFont font-black text-mainBlue lg:justify-self-start text-4xl"
-              label="Filters"
-              outlined
-              @input="changeOrder"
-            ></v-select>
+            <LazyHydrate never on-click>
+              <v-select
+                :items="items"
+                light
+                filled
+                item-color="blue darken-1"
+                class="bg-mainGreen bg-opacity-40 lg:self-start lg:w-auto w-full font-mainFont font-black text-mainBlue lg:justify-self-start text-4xl"
+                label="Filters"
+                outlined
+                @input="changeOrder"
+              ></v-select>
+            </LazyHydrate>
 
             <!-- </div> -->
           </div>
@@ -538,7 +540,7 @@ export default {
         opacity: 0,
         y: 60,
         ease: 'power3.out',
-        duration: 0.5,
+        duration: 0.3,
 
         stagger: 0.3,
       })
@@ -593,7 +595,20 @@ export default {
   margin: 2px;
   padding: 4px 13px;
 }
-
+.checkoutBtn {
+  background-color: #63fdc2;
+  color: #120129;
+  border-radius: 35px;
+  transition: ease-in-out 0.2s;
+}
+.checkoutBtn:hover {
+  background-color: #120129;
+  color: #ff4a68;
+}
+.checkoutBtn:active {
+  transform: scale(1.05);
+  filter: brightness(0.5);
+}
 /* @keyframes animatedBackground {
   from {
     background-position: 0 0;

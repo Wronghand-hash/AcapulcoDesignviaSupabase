@@ -24,7 +24,6 @@ fa:
     <v-alert
       v-show="signedOut"
       transition="fade-transition"
-      border="bottom"
       color="green"
       type="success"
       class="text-4xl text-mainBlue items-center absolute justify-center"

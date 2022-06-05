@@ -5,6 +5,7 @@ en:
   shipping: 'Shipping'
   total: 'Total'
   delete: 'Delete'
+  checkout: 'Checkout'
 
 fa:
   shoppingCart: 'سبد خرید'
@@ -12,6 +13,7 @@ fa:
   shipping: 'هزینه ی ارسال'
   total: 'کل مبلغ پرداختی'
   delete: 'پاک کردن'
+  checkout: 'ادامه ی خرید'
 </i18n>
 
 <template>
@@ -50,7 +52,7 @@ fa:
       temporary
       scrollable
       app
-      class="drawer green accent-2"
+      class="drawer orange lighten-2"
       width="30%"
       bottom
     >
@@ -151,10 +153,20 @@ fa:
             </div>
           </div>
           <div class="h-1/3 w-full flex justify-center align-center">
-            <!-- <button class="py-2 editBtn">
-              <span class="px-12 font-mainFont text-2xl editText"> Edit </span>
-            </button> -->
-            <CheckoutDialog />
+            <NuxtLink to="/checkoutpage">
+              <button
+                class="checkoutBtn p-4 lg:py-3 flex justify-center align-center"
+              >
+                <span
+                  class="pl-4 checkoutText font-mainFont text-2xl lg:text-4xl"
+                >
+                  {{ $t('checkout') }}
+                </span>
+                <v-icon x-large class="pink--text text--darken-2"
+                  >mdi-arrow-right-circle</v-icon
+                >
+              </button>
+            </NuxtLink>
           </div>
         </div>
       </div>
@@ -163,10 +175,10 @@ fa:
 </template>
 
 <script>
-import CheckoutDialog from './CheckoutDialog'
+// import CheckoutDialog from './CheckoutDialog'
 export default {
   components: {
-    CheckoutDialog,
+    // CheckoutDialog,
   },
   data() {
     return {
@@ -233,6 +245,20 @@ export default {
   width: 70px;
   height: 70px;
 } */
+.checkoutBtn {
+  background-color: #44df8a;
+  color: #120129;
+  border-radius: 35px;
+  transition: ease-in-out 0.2s;
+}
+.checkoutBtn:hover {
+  background-color: #120129;
+  color: #ff4a68;
+}
+.checkoutBtn:active {
+  transform: scale(1.05);
+  filter: brightness(0.5);
+}
 .checkoutText,
 .editText {
   text-transform: capitalize;

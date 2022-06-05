@@ -4,12 +4,14 @@ en:
   outofStock: 'Item soon will be available'
   price: 'Tooman'
   comingSoon: 'coming soon...'
+  learnMore: 'learn more!'
 
 fa:
   addedtoCart: 'به سبد خرید اضافه شد'
   outofStock: 'محصول به زودی اضافه خواهد شد'
   price: 'تومان'
   comingSoon: '...بزودی'
+  learnMore: 'نشونم بده'
 </i18n>
 <template>
   <div>
@@ -62,9 +64,22 @@ fa:
               <span class="text-xl"> {{ $t('price') }} </span>
             </p>
 
-            <LazyHydrate never on-click>
-              <ProductDetail :product="Product" />
-            </LazyHydrate>
+            <nuxt-link to="/productdetailpage">
+              <button
+                class="learnMore flex py-1 px-5 justify-center align-center bg-mainGreen rounded-full"
+                :product="Product"
+              >
+                <span
+                  class="checkoutText text-mainBlue pl-2 text-2xl"
+                  @click="entrance"
+                >
+                  {{ $t('learnMore') }}
+                </span>
+                <v-icon large class="blue--text text--darken-2"
+                  >mdi-arrow-right-circle</v-icon
+                >
+              </button>
+            </nuxt-link>
           </div>
           <!-- <h3
             class="text-xl text-gray-600 font-thin text-center capitalize leading-tight"
@@ -119,13 +134,12 @@ fa:
 </template>
 
 <script>
-import LazyHydrate from 'vue-lazy-hydration'
+// import LazyHydrate from 'vue-lazy-hydration'
 
 export default {
   components: {
-    LazyHydrate,
-
-    ProductDetail: () => import('../components/ProductDetail.vue'),
+    // LazyHydrate,
+    // ProductDetail: () => import('../components/ProductDetail.vue'),
   },
   props: {
     // eslint-disable-next-line vue/require-default-prop
@@ -210,6 +224,20 @@ export default {
 }
 .shoppingBtn:active {
   filter: brightness(0.5);
+}
+.learnMore {
+  cursor: pointer;
+  transition: ease-in-out 0.3s;
+}
+
+.learnMore:hover {
+  transform: scale(1.05);
+  filter: brightness(0.8);
+}
+
+.learnMore:active {
+  transform: scale(0.97);
+  filter: brightness(1);
 }
 .cardBackground {
   /* backdrop-filter: saturate(180%);

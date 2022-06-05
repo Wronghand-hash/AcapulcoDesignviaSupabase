@@ -172,9 +172,7 @@ fa:
                   <div
                     class="h-ful flex flex-col align-center justify-between w-full"
                   >
-                    <div
-                      class="flex  flex-col w-full h-full space-y-8"
-                    >
+                    <div class="flex flex-col w-full h-full space-y-8">
                       <div
                         class="addSomthing p-2 m-0 flex flex-col w-full space-y-2 h-32 justify-center item-center self-center align-center"
                       >
@@ -240,7 +238,7 @@ fa:
                             >mdi-toolbox</v-icon
                           >
                         </button>
-                          <button
+                        <button
                           :class="{ 'bg-Amber-500': category === 'Shorts' }"
                           class="border-2 transition bg-pink-700 rounded-full border-CoolGray-600 xs:w-16 xs:h-16 w-24 h-24"
                           @click="category = 'Shorts'"
@@ -250,7 +248,7 @@ fa:
                           >
                         </button>
                       </div>
-                      <div
+                      <!-- <div
                         class="addSomthing transform sm:translate-y-8 p-0 m-0 flex flex-col w-full h-32 justify-center item-center self-center align-center"
                       >
                         <div class="justify-center align-center">
@@ -258,229 +256,224 @@ fa:
                             ref="Adminastration"
                             class="adminastration"
                           />
-                        </div>
-                      </div>
+                        </div> -->
                     </div>
+                  </div>
 
+                  <div
+                    class="w-full products rounded-lg p-2 shadow-2xl bg-white overflow-y-scroll h-80 text-gray-200"
+                  >
+                    <div class="flex-justify-center align-center">
+                      <h2 class="font-bold text-2xl border-b-2 my-2">stock:</h2>
+                    </div>
                     <div
-                      class="w-full products rounded-lg p-2 shadow-2xl bg-white overflow-y-scroll h-80 text-gray-200"
+                      v-for="product in products"
+                      :key="product.id"
+                      class="transition"
                     >
-                      <div class="flex-justify-center align-center">
-                        <h2 class="font-bold text-2xl border-b-2 my-2">
-                          stock:
-                        </h2>
-                      </div>
                       <div
-                        v-for="product in products"
-                        :key="product.id"
-                        class="transition"
+                        v-show="product.category === category"
+                        id="products"
+                        class="flex flex-row divide-y border-black text-black justify-evenly"
                       >
                         <div
-                          v-show="product.category === category"
-                          id="products"
-                          class="flex flex-row divide-y border-black text-black justify-evenly"
+                          class="bottomBorder flex flex-row place-content-between border-b-2 border-Indigo-500 w-full"
                         >
-                          <div
-                            class="bottomBorder flex flex-row place-content-between border-b-2 border-Indigo-500 w-full"
-                          >
-                            <div class="flex-justify-center">
-                              <h3 class="">{{ product.title }}</h3>
-                            </div>
-                            <div class="flex-justify-center">
-                              <p>{{ product.price }}</p>
-                            </div>
-                            <button class="text-red-500" @click="deleteProduct(product.id)">
-                             <v-icon>mdi-delete</v-icon>
-                            </button>
+                          <div class="flex-justify-center">
+                            <h3 class="">{{ product.title }}</h3>
                           </div>
+                          <div class="flex-justify-center">
+                            <p>{{ product.price }}</p>
+                          </div>
+                          <button
+                            class="text-red-500"
+                            @click="deleteProduct(product.id)"
+                          >
+                            <v-icon>mdi-delete</v-icon>
+                          </button>
                         </div>
                       </div>
                     </div>
-                    </div>
-
                   </div>
                 </div>
-                <div
-                  class="w-full h-full justify-center"
-                  :class="{ hidden: openTab !== 3, block: openTab === 3 }"
-                >
-                  <div class="orders w-full h-full">
-                    <div class="w-full h-full">
-                      <div
-                        class="w-full h-full"
-                        :class="{
-                          hidden: ordersTab !== 'List',
-                          block: ordersTab === 'List',
-                        }"
-                      >
-                        <div class="w-full h-full grid grid-rows-7">
-                          <div class="">
-                            <div
-                              class="List h-1/2 w-full flex flex-row justify-around align-center"
-                            >
-                              <button
-                                class="p-2 rounded px-3"
-                                :class="{
-                                  'bg-Lime-500': ordersTab === 'List',
-                                  'transform scale-125': ordersTab === 'List',
-                                  'bg-Amber-400': ordersTab !== 'List',
-                                }"
-                                @click="orderTab('List')"
-                              >
-                                {{ $t('list') }}
-                              </button>
-                              <button
-                                class="p-2 rounded px-3"
-                                :class="{
-                                  'bg-Lime-500': ordersTab === 'Detail',
-                                  'bg-Amber-400': ordersTab !== 'Detail',
-                                }"
-                                @click="detailAnime() & orderTab('Detail')"
-                              >
-                                {{ $t('detail') }}
-                              </button>
-                            </div>
-                          </div>
-                          <div
-                            class="orderBar w-full flex flex-row place-content-around align-center row-span-1"
+              </div>
+            </div>
+            <div
+              class="w-full h-full justify-center"
+              :class="{ hidden: openTab !== 3, block: openTab === 3 }"
+            >
+              <div class="orders w-full h-full">
+                <div class="w-full h-full">
+                  <div
+                    class="w-full h-full"
+                    :class="{
+                      hidden: ordersTab !== 'List',
+                      block: ordersTab === 'List',
+                    }"
+                  >
+                    <div class="w-full h-full grid grid-rows-7">
+                      <div class="">
+                        <div
+                          class="List h-1/2 w-full flex flex-row justify-around align-center"
+                        >
+                          <button
+                            class="p-2 rounded px-3"
+                            :class="{
+                              'bg-Lime-500': ordersTab === 'List',
+                              'transform scale-125': ordersTab === 'List',
+                              'bg-Amber-400': ordersTab !== 'List',
+                            }"
+                            @click="orderTab('List')"
                           >
-                            <h1
-                              class="headers text-2xl px-3 p-2 lg:text-3xl lg:px-12 border-2 border-blueGray-400 rounded-full shadow-xl"
-                            >
-                              {{ $t('name') }}
-                            </h1>
-                            <h1
-                              class="headers text-2xl px-3 p-2 lg:text-3xl lg:px-12 border-2 border-blueGray-400 rounded-full shadow-xl"
-                            >
-                              {{ $t('date') }}
-                            </h1>
-                            <h1
-                              class="headers text-2xl px-3 p-2 lg:text-3xl lg:px-12 border-2 border-blueGray-400 rounded-full shadow-xl"
-                            >
-                              {{ $t('status') }}
-                            </h1>
-                          </div>
-                          <div
-                            class="ordersList rounded border-r-2 border-b-2 border-l-2 border-Cyan-600 h-full row-span-5 overflow-y-scroll overflow-x-hidden"
+                            {{ $t('list') }}
+                          </button>
+                          <button
+                            class="p-2 rounded px-3"
+                            :class="{
+                              'bg-Lime-500': ordersTab === 'Detail',
+                              'bg-Amber-400': ordersTab !== 'Detail',
+                            }"
+                            @click="detailAnime() & orderTab('Detail')"
                           >
-                            <div
-                              v-for="order in orders"
-                              :key="order.id"
-                              class="listCard w-full shadow-xl flex flex-row rounded-full my-3 p-4 place-content-around"
-                            >
-                              <h1 class="m-1 text-xl lg:text-3xl">
-                                {{ order.FullName }}
-                              </h1>
-                              <h1 class="m-1 text-xl lg:text-3xl">
-                                {{ order.Date }}
-                              </h1>
-                              <h1 class="m-1 text-xl lg:text-3xl">
-                                {{ $t('canceled') }}
-                              </h1>
-                            </div>
-                          </div>
+                            {{ $t('detail') }}
+                          </button>
                         </div>
                       </div>
                       <div
-                        class="w-full h-full"
-                        :class="{
-                          hidden: ordersTab !== 'Detail',
-                          block: ordersTab === 'Detail',
-                        }"
+                        class="orderBar w-full flex flex-row place-content-around align-center row-span-1"
                       >
-                        <div class="grid grid-rows-7 w-full h-full">
+                        <h1
+                          class="headers text-2xl px-3 p-2 lg:text-3xl lg:px-12 border-2 border-blueGray-400 rounded-full shadow-xl"
+                        >
+                          {{ $t('name') }}
+                        </h1>
+                        <h1
+                          class="headers text-2xl px-3 p-2 lg:text-3xl lg:px-12 border-2 border-blueGray-400 rounded-full shadow-xl"
+                        >
+                          {{ $t('date') }}
+                        </h1>
+                        <h1
+                          class="headers text-2xl px-3 p-2 lg:text-3xl lg:px-12 border-2 border-blueGray-400 rounded-full shadow-xl"
+                        >
+                          {{ $t('status') }}
+                        </h1>
+                      </div>
+                      <div
+                        class="ordersList rounded border-r-2 border-b-2 border-l-2 border-Cyan-600 h-full row-span-5 overflow-y-scroll overflow-x-hidden"
+                      >
+                        <div
+                          v-for="order in orders"
+                          :key="order.id"
+                          class="listCard w-full shadow-xl flex flex-row rounded-full my-3 p-4 place-content-around"
+                        >
+                          <h1 class="m-1 text-xl lg:text-3xl">
+                            {{ order.FullName }}
+                          </h1>
+                          <h1 class="m-1 text-xl lg:text-3xl">
+                            {{ order.Date }}
+                          </h1>
+                          <h1 class="m-1 text-xl lg:text-3xl">
+                            {{ $t('canceled') }}
+                          </h1>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="w-full h-full"
+                    :class="{
+                      hidden: ordersTab !== 'Detail',
+                      block: ordersTab === 'Detail',
+                    }"
+                  >
+                    <div class="grid grid-rows-7 w-full h-full">
+                      <div
+                        class="List h-1/2 row-span-1 w-full flex flex-row justify-around align-center"
+                      >
+                        <button
+                          class="p-2 rounded px-3"
+                          :class="{
+                            'bg-Lime-500': ordersTab === 'List',
+                            'bg-Amber-400': ordersTab !== 'List',
+                          }"
+                          @click="listAnime() & orderTab('List')"
+                        >
+                          {{ $t('list') }}
+                        </button>
+                        <button
+                          class="p-2 rounded px-3"
+                          :class="{
+                            'bg-Lime-500': ordersTab === 'Detail',
+                            'transform scale-125': ordersTab === 'Detail',
+                            'bg-Amber-400': ordersTab !== 'Detail',
+                          }"
+                          @click="orderTab('Detail')"
+                        >
+                          {{ $t('detail') }}
+                        </button>
+                      </div>
+                      <div
+                        class="overflow-hidden w-full row-span-6 h-full p-2 border-r-2 border-b-2 border-l-2 border-Cyan-600 rounded"
+                      >
+                        <div
+                          class="orderDetail container grid grid-cols-1 lg:grid-cols-2 overflow-y-scroll p-2"
+                        >
                           <div
-                            class="List h-1/2 row-span-1 w-full flex flex-row justify-around align-center"
-                          >
-                            <button
-                              class="p-2 rounded px-3"
-                              :class="{
-                                'bg-Lime-500': ordersTab === 'List',
-                                'bg-Amber-400': ordersTab !== 'List',
-                              }"
-                              @click="listAnime() & orderTab('List')"
-                            >
-                              {{ $t('list') }}
-                            </button>
-                            <button
-                              class="p-2 rounded px-3"
-                              :class="{
-                                'bg-Lime-500': ordersTab === 'Detail',
-                                'transform scale-125': ordersTab === 'Detail',
-                                'bg-Amber-400': ordersTab !== 'Detail',
-                              }"
-                              @click="orderTab('Detail')"
-                            >
-                              {{ $t('detail') }}
-                            </button>
-                          </div>
-                          <div
-                            class="overflow-hidden w-full row-span-6 h-full p-2 border-r-2 border-b-2 border-l-2 border-Cyan-600 rounded"
+                            v-for="order in orders"
+                            :key="order.id"
+                            class="detailCards shadow-2xl border-2 p-8 my-1 mx-1 rounded-lg"
                           >
                             <div
-                              class="orderDetail container grid grid-cols-1 lg:grid-cols-2 overflow-y-scroll p-2"
+                              class="w-full flex flex-col-reverse lg:flex-row justify-between"
                             >
-                              <div
-                                v-for="order in orders"
-                                :key="order.id"
-                                class="detailCards shadow-2xl border-2 p-8 my-1 mx-1 rounded-lg"
-                              >
-                                <div
-                                  class="w-full flex flex-col-reverse lg:flex-row justify-between"
-                                >
-                                  <h1 class="self-center">
-                                    {{ $t('statusProcessing') }}
-                                  </h1>
-                                  <button
-                                    class=""
-                                    @click="deleteOrder(order.id)"
-                                  >
-                                    <!-- <img
+                              <h1 class="self-center">
+                                {{ $t('statusProcessing') }}
+                              </h1>
+                              <button class="" @click="deleteOrder(order.id)">
+                                <!-- <img
                                     class="p-1"
                                     src="~/assets/images/x1.png"
                                     alt=""
                                   /> -->
-                                  </button>
-                                </div>
-                                <h1 class="text-xl border-b-2 p-1">
-                                  {{ $t('fullName') }}:
-                                  {{ order.FullName }}
-                                </h1>
-                                <h1 class="text-xl border-b-2 p-1">
-                                  {{ $t('address') }}: {{ order.Address }}
-                                </h1>
-                                <h1 class="text-xl border-b-2 p-1">
-                                  {{ $t('phoneNumber') }}:
-                                  {{ order.PhoneNumber }}
-                                </h1>
-                                <h1 class="text-xl border-b-2 p-1">
-                                  {{ $t('city') }}: {{ order.City }}
-                                </h1>
-                                <h1 class="text-xl border-b-2 p-1">
-                                  {{ $t('province') }}:
-                                  {{ order.Province }}
-                                </h1>
+                              </button>
+                            </div>
+                            <h1 class="text-xl border-b-2 p-1">
+                              {{ $t('fullName') }}:
+                              {{ order.FullName }}
+                            </h1>
+                            <h1 class="text-xl border-b-2 p-1">
+                              {{ $t('address') }}: {{ order.Address }}
+                            </h1>
+                            <h1 class="text-xl border-b-2 p-1">
+                              {{ $t('phoneNumber') }}:
+                              {{ order.PhoneNumber }}
+                            </h1>
+                            <h1 class="text-xl border-b-2 p-1">
+                              {{ $t('city') }}: {{ order.City }}
+                            </h1>
+                            <h1 class="text-xl border-b-2 p-1">
+                              {{ $t('province') }}:
+                              {{ order.Province }}
+                            </h1>
 
-                                <h1 class="text-xl p-1">{{ $t('items') }}:</h1>
-                                <div
-                                  class="grid grid-cols-1 p-5 lg:bg-Amber-500 border-l-2 border-Amber-500 lg:shadow-2xl rounded-xl"
-                                >
-                                  <div
-                                    v-for="item in order.orderProduct"
-                                    :key="item.id"
-                                    class="flex flex-shirnk flex-col border-b-2 p-2 justify-center"
-                                  >
-                                    <h1 class="text-xl">
-                                      {{ $t('title') }}: {{ item.item.title }}
-                                    </h1>
-                                    <h1 class="text-xl">
-                                      {{ $t('price') }}: {{ item.item.price }}
-                                    </h1>
-                                    <h1 class="text-xl">
-                                      {{ $t('quantity') }}: {{ item.quantity }}
-                                    </h1>
-                                  </div>
-                                </div>
+                            <h1 class="text-xl p-1">{{ $t('items') }}:</h1>
+                            <div
+                              class="grid grid-cols-1 p-5 lg:bg-Amber-500 border-l-2 border-Amber-500 lg:shadow-2xl rounded-xl"
+                            >
+                              <div
+                                v-for="item in order.orderProduct"
+                                :key="item.id"
+                                class="flex flex-shirnk flex-col border-b-2 p-2 justify-center"
+                              >
+                                <h1 class="text-xl">
+                                  {{ $t('title') }}: {{ item.item.title }}
+                                </h1>
+                                <h1 class="text-xl">
+                                  {{ $t('price') }}: {{ item.item.price }}
+                                </h1>
+                                <h1 class="text-xl">
+                                  {{ $t('quantity') }}: {{ item.quantity }}
+                                </h1>
                               </div>
                             </div>
                           </div>

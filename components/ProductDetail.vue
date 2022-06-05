@@ -16,8 +16,8 @@ fa:
           v-on="on"
         >
           <span
-            @click="entrance"
             class="checkoutText text-mainBlue pl-2 text-2xl"
+            @click="entrance"
           >
             {{ $t('learnMore') }}
           </span>
@@ -99,22 +99,22 @@ fa:
               >
                 <p class="self-center">2xl</p>
               </div>
-               <div
+              <div
                 class="flex flex-col bg-gray-600 justify-center align-center text-white rounded hover:bg-gray-800"
               >
                 <p class="self-center">xl</p>
               </div>
-               <div
+              <div
                 class="flex flex-col bg-gray-600 justify-center align-center text-white rounded hover:bg-gray-800"
               >
                 <p class="self-center">lg</p>
               </div>
-               <div
+              <div
                 class="flex flex-col bg-gray-600 justify-center align-center text-white rounded hover:bg-gray-800"
               >
                 <p class="self-center">md</p>
               </div>
-               <div
+              <div
                 class="flex flex-col bg-gray-600 justify-center align-center text-white rounded hover:bg-gray-800"
               >
                 <p class="self-center">sm</p>
@@ -356,20 +356,7 @@ export default {
   color: #ff4a68;
 }
 
-.learnMore {
-  cursor: pointer;
-  transition: ease-in-out 0.3s;
-}
-
-.learnMore:hover {
-  transform: scale(1.05);
-  filter: brightness(0.5);
-}
-
-.learnMore:active {
-  transform: scale(0.97);
-  filter: brightness(1);
-} */
+ */
 .dialog {
   z-index: 300;
 }

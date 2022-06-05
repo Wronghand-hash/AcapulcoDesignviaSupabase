@@ -41,7 +41,7 @@ fa:
       transition="fade-transition"
       app
       full-width
-      class="drawer indigo darken-3"
+      class="drawer light-green"
     >
       <div class="w-full h-full p-6">
         <div class="align-center w-full h-3/6 flex flex-col">
@@ -58,6 +58,12 @@ fa:
               <span class="aboutUs text-2xl"> {{ $t('home') }} </span>
             </v-btn>
           </nuxt-link>
+          <nuxt-link to="/productList">
+            <v-btn depressed x-large dark color="transparent" class="">
+              <v-icon large>mdi-shopping</v-icon>
+              <span class="white--text text-2xl"> {{ $t('shop') }} </span>
+            </v-btn>
+          </nuxt-link>
           <nuxt-link to="/aboutUs">
             <v-btn
               class="Btn"
@@ -71,12 +77,7 @@ fa:
               <span class="aboutUs text-2xl"> {{ $t('aboutUs') }} </span>
             </v-btn>
           </nuxt-link>
-          <nuxt-link to="/productList">
-            <v-btn depressed x-large dark color="transparent" class="">
-              <v-icon large>mdi-shopping</v-icon>
-              <span class="white--text text-2xl"> {{ $t('shop') }} </span>
-            </v-btn>
-          </nuxt-link>
+
           <NuxtLink
             v-show="isAdmin === true"
             id="admin-link"
