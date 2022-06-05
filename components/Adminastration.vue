@@ -2,18 +2,20 @@
   <v-row justify="center">
     <v-dialog v-model="dialog" persistent max-height="600px" max-width="600px">
       <template #activator="{ on, attrs }">
-        <v-btn
-          height="80px"
-          width="280px"
-          color="pink darken-1"
-          dark
-          v-bind="attrs"
-          v-on="on"
-        >
-          <span class="font-mainFont font-semibold text-mainBlue text-4xl">
-            Add a Product
-          </span>
-        </v-btn>
+        <div class="m-0">
+          <v-btn
+            height="80px"
+            width="280px"
+            color="pink darken-1"
+            dark
+            v-bind="attrs"
+            v-on="on"
+          >
+            <span class="font-mainFont text-white font-semibold text-2xl">
+              Add a Product
+            </span>
+          </v-btn>
+        </div>
       </template>
       <v-card color="">
         <v-card-title color="yellow lighten-2">

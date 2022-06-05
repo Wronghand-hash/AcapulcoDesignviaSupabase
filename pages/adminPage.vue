@@ -74,7 +74,7 @@ fa:
           class="align-center mb-8 lis w-full lg:w-2/3 flex flex-col align-center rounded-2xl justify-center"
         >
           <div
-            class="buttonContainer shadow-2xl h-32 px-1 z-10 lg:p-10 w-10/12 flex justify-center align-center content-center rounded-2xl"
+            class="buttonContainer border-2 border-pink-500 shadow-2xl h-32 px-1 z-10 lg:p-10 w-10/12 flex justify-center align-center content-center rounded-2xl"
           >
             <div
               :class="{
@@ -113,7 +113,7 @@ fa:
             class="flex flex-cols justify-center align-center w-full h-full lg:p-4 col-span-4"
           >
             <div
-              class="admin bg-pink-200 shadow-2xl px-4 flex flex-row justify-center self-center w-full rounded h-full"
+              class="admin bg-pink-200 border-4 border-pink-700 shadow-2xl px-4 flex flex-row justify-center self-center w-full rounded h-full"
             >
               <div
                 class="tab-content h-full w-full place-items-center content-center justify-center flex self-center tab-space"
@@ -170,15 +170,32 @@ fa:
                   :class="{ hidden: openTab !== 2, block: openTab === 2 }"
                 >
                   <div
-                    class="h-full flex flex-col align-center justify-between w-full"
+                    class="h-ful flex flex-col align-center justify-between w-full"
                   >
-                    <div class="flex flex-col w-full h-full space-y-12">
+                    <div
+                      class="flex  flex-col w-full h-full space-y-8"
+                    >
                       <div
-                        class="catagories my-5 space-y-2 flex flex-wrap flex-row justify-around align-center h-32 w-full"
+                        class="addSomthing p-2 m-0 flex flex-col w-full space-y-2 h-32 justify-center item-center self-center align-center"
+                      >
+                        <div
+                          class="flex justify-center align-center font-bold text-3xl lg:text-5xl uppercase"
+                        >
+                          <h2>{{ category }}</h2>
+                        </div>
+                        <div class="justify-center align-center">
+                          <Adminastration
+                            ref="Adminastration"
+                            class="adminastration"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="catagories space-y-2 flex flex-wrap flex-row justify-around align-center h-32 w-full"
                       >
                         <button
                           :class="{ 'bg-Amber-500': category === 'Shirts' }"
-                          class="border-2 transition bg-pink-700 rounded-full border-CoolGray-600 w-24 h-24"
+                          class="border-2 transition bg-pink-700 rounded-full border-CoolGray-600 xs:w-16 xs:h-16 w-24 h-24"
                           @click="category = 'Shirts'"
                         >
                           <v-icon x-large class="text-4xl" dark
@@ -187,7 +204,7 @@ fa:
                         </button>
                         <button
                           :class="{ 'bg-Amber-500': category === 'Lighters' }"
-                          class="border-2 transition bg-pink-700 rounded-full border-CoolGray-600 w-24 h-24"
+                          class="border-2 transition bg-pink-700 rounded-full border-CoolGray-600 xs:w-16 xs:h-16 w-24 h-24"
                           @click="category = 'Lighters'"
                         >
                           <v-icon x-large class="text-4xl" dark
@@ -196,7 +213,7 @@ fa:
                         </button>
                         <button
                           :class="{ 'bg-Amber-500': category === 'Hoodies' }"
-                          class="border-2 transition bg-pink-700 rounded-full border-CoolGray-600 w-24 h-24"
+                          class="border-2 transition bg-pink-700 rounded-full border-CoolGray-600 xs:w-16 xs:h-16 w-24 h-24"
                           @click="category = 'Hoodies'"
                         >
                           <v-icon x-large class="text-4xl" dark
@@ -207,7 +224,7 @@ fa:
                           :class="{
                             'bg-Amber-500': category === 'Collections',
                           }"
-                          class="border-2 transition bg-pink-700 rounded-full border-CoolGray-600 w-24 h-24"
+                          class="border-2 transition bg-pink-700 rounded-full border-CoolGray-600 xs:w-16 xs:h-16 w-24 h-24"
                           @click="category = 'Collections'"
                         >
                           <v-icon x-large class="text-4xl" dark
@@ -216,11 +233,20 @@ fa:
                         </button>
                         <button
                           :class="{ 'bg-Amber-500': category === 'Matchboxes' }"
-                          class="border-2 transition bg-pink-700 rounded-full border-CoolGray-600 w-24 h-24"
+                          class="border-2 transition bg-pink-700 rounded-full border-CoolGray-600 xs:w-16 xs:h-16 w-24 h-24"
                           @click="category = 'Matchboxes'"
                         >
                           <v-icon x-large class="text-4xl" dark
                             >mdi-toolbox</v-icon
+                          >
+                        </button>
+                          <button
+                          :class="{ 'bg-Amber-500': category === 'Shorts' }"
+                          class="border-2 transition bg-pink-700 rounded-full border-CoolGray-600 xs:w-16 xs:h-16 w-24 h-24"
+                          @click="category = 'Shorts'"
+                        >
+                          <v-icon x-large class="text-4xl" dark
+                            >mdi-beach</v-icon
                           >
                         </button>
                       </div>
@@ -237,7 +263,7 @@ fa:
                     </div>
 
                     <div
-                      class="w-full products rounded-lg p-2 shadow-2xl bg-white overflow-y-scroll h-96 text-gray-200"
+                      class="w-full products rounded-lg p-2 shadow-2xl bg-white overflow-y-scroll h-80 text-gray-200"
                     >
                       <div class="flex-justify-center align-center">
                         <h2 class="font-bold text-2xl border-b-2 my-2">
@@ -247,12 +273,12 @@ fa:
                       <div
                         v-for="product in products"
                         :key="product.id"
-                        class=""
+                        class="transition"
                       >
                         <div
                           v-show="product.category === category"
                           id="products"
-                          class="flex flex-row divide-y border-black text-black place-content-around"
+                          class="flex flex-row divide-y border-black text-black justify-evenly"
                         >
                           <div
                             class="bottomBorder flex flex-row place-content-between border-b-2 border-Indigo-500 w-full"
@@ -263,17 +289,15 @@ fa:
                             <div class="flex-justify-center">
                               <p>{{ product.price }}</p>
                             </div>
-                            <button class="" @click="deleteProduct(product.id)">
-                              <img
-                                class="kiskis"
-                                src="~/assets/images/x.png"
-                                alt=""
-                              />
+                            <button class="text-red-500" @click="deleteProduct(product.id)">
+                             <v-icon>mdi-delete</v-icon>
                             </button>
                           </div>
                         </div>
                       </div>
                     </div>
+                    </div>
+
                   </div>
                 </div>
                 <div
@@ -601,7 +625,6 @@ export default {
 
     async deleteProduct(id) {
       try {
-        this.deletingAnimation()
         const { error } = await this.$supabase
           .from('products')
           .delete()

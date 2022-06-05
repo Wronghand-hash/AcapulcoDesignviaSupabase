@@ -6,7 +6,7 @@ fa:
   learnMore: 'نشونم بده'
 </i18n>
 <template>
-  <div>
+  <div class="">
     <v-dialog v-model="dialog" class="dialog" fullscreen>
       <template #activator="{ on, attrs }">
         <button
@@ -15,7 +15,10 @@ fa:
           @click="dialog = true"
           v-on="on"
         >
-          <span @click="entrance" class="checkoutText text-mainBlue pl-2 text-2xl">
+          <span
+            @click="entrance"
+            class="checkoutText text-mainBlue pl-2 text-2xl"
+          >
             {{ $t('learnMore') }}
           </span>
           <v-icon large class="blue--text text--darken-2"
@@ -25,7 +28,7 @@ fa:
       </template>
 
       <div
-        class="w-screen h-full bg-blue-300 p-2 space-y-4 lg:space-x-6 lg:space-y-0 productDetail flex lg:justify-evenly flex-col lg:flex-row"
+        class="w-screen h-11/12 lg:h-full bg-blue-300 p-2 space-y-4 lg:space-x-6 lg:space-y-0 productDetail flex lg:justify-evenly flex-col lg:flex-row"
       >
         <div
           class="absolute p-2 text-red-500 left-0 top-0"
@@ -34,7 +37,7 @@ fa:
           <v-icon class="text-red-500 text-2xl">mdi-close</v-icon>
         </div>
         <div
-          class="lg:w-full w-full lg:h-full h-32 flex justify-center items-center align-center flex-col p-2 rounded-lg bg-green-700"
+          class="lg:w-full w-full lg:h-full h-36 flex justify-center items-center align-center flex-col p-2 rounded-lg bg-green-700"
         >
           <!-- <InnerImageZoom src="../assets/images/Chao.webp" />
               <client-only> q
@@ -46,68 +49,100 @@ fa:
           <h2 class="font-black text-3xl lg:text-8xl text-white font-mainFont">
             {{ price }}
           </h2>
+          <div class="p-3">
+            <h2
+              class="font-white lg:text-2xl text-xl text-white font-mainFont leading-5"
+            >
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Laudantium asperiores fugiat repell
+            </h2>
+          </div>
 
           <button
-            class="bg-goldie p-5 font-mainFont text-2xl rounded-md cursor-pointer font-black transition ease-in duration-200 hover:bg-yellow-800"
+            class="bg-goldie p-3 font-mainFont text-2xl rounded-md cursor-pointer font-black transition ease-in duration-200 hover:bg-yellow-800"
           >
             Add to Cart
             <v-icon color="white" class="">mdi-basket-plus-outline</v-icon>
           </button>
         </div>
-        <div
-          class="lg:w-3/4 w-full lg:h-full lg:h-full h-full filter drop-shadow-2xl rounded-lg flex justify-center"
-        >
-          <v-carousel class="w-full h-full lg:h-full">
-            <v-carousel-item
-              v-for="(item, i) in items"
-              :key="i"
-              cycle
-              :src="item"
-              reverse-transition="fade-transition"
-              transition="fade-transition"
-            >
-              <img
-                v-lazy-load
-                :src="item"
-                alt=""
-                class="object-contain h-full w-full"
-              />
-            </v-carousel-item>
-          </v-carousel>
-        </div>
-
-        <div
-          class="w-full lg:h-full h-1/4 flex justify-start items-center flex-col p-6 rounded-lg bg-green-200"
-        >
-          <div class="flex justify-around w-full m-2 space-x-1">
-            <div
-              class="bg-yellow-500 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
-            ></div>
-            <div
-              class="bg-pink-500 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
-            ></div>
-            <div
-              class="bg-green-500 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
-            ></div>
-            <div
-              class="bg-red-500 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
-            ></div>
-            <div
-              class="bg-blue-500 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
-            ></div>
-            <div
-              class="bg-purple-500 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
-            ></div>
-            <div
-              class="bg-Cyan-500 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
-            ></div>
-          </div>
-          <h2
-            class="font-black text-2xl text-CoolGray-700 font-mainFont leading-5"
+        <div class="flex flex-col-reverse space-y-2 h-full w-full">
+          <div
+            class="w-full lg:h-full h-1/4 flex justify-start items-center flex-col p-6 rounded-lg bg-green-200"
           >
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium
-            asperiores fugiat repell
-          </h2>
+            <div class="flex justify-around w-full m-2 space-x-1">
+              <div
+                class="bg-yellow-500 hover:border-2 hover:border-gray-800 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
+              ></div>
+              <div
+                class="bg-pink-500 hover:border-2 hover:border-gray-800 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
+              ></div>
+              <div
+                class="bg-green-500 hover:border-2 hover:border-gray-800 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
+              ></div>
+              <div
+                class="bg-red-500 hover:border-2 hover:border-gray-800 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
+              ></div>
+              <div
+                class="bg-blue-500 hover:border-2 hover:border-gray-800 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
+              ></div>
+              <div
+                class="bg-purple-500 hover:border-2 hover:border-gray-800 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
+              ></div>
+              <div
+                class="bg-Cyan-500 hover:border-2 hover:border-gray-800 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
+              ></div>
+            </div>
+
+            <div class="flex justify-around space-x-1 h-14 p-2 w-full">
+              <div
+                class="flex flex-col bg-gray-600 justify-center align-center text-white rounded hover:bg-gray-800"
+              >
+                <p class="self-center">2xl</p>
+              </div>
+               <div
+                class="flex flex-col bg-gray-600 justify-center align-center text-white rounded hover:bg-gray-800"
+              >
+                <p class="self-center">xl</p>
+              </div>
+               <div
+                class="flex flex-col bg-gray-600 justify-center align-center text-white rounded hover:bg-gray-800"
+              >
+                <p class="self-center">lg</p>
+              </div>
+               <div
+                class="flex flex-col bg-gray-600 justify-center align-center text-white rounded hover:bg-gray-800"
+              >
+                <p class="self-center">md</p>
+              </div>
+               <div
+                class="flex flex-col bg-gray-600 justify-center align-center text-white rounded hover:bg-gray-800"
+              >
+                <p class="self-center">sm</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="mb-2 h-full align-center filter drop-shadow-2xl rounded-lg flex justify-center"
+          >
+            <v-carousel class="w-full h-full lg:h-full">
+              <v-carousel-item
+                v-for="(item, i) in items"
+                :key="i"
+                cycle
+                :src="item"
+                reverse-transition="fade-transition"
+                transition="fade-transition"
+              >
+                <img
+                  v-lazy-load
+                  :src="item"
+                  alt=""
+                  class="object-contain h-full w-full"
+                />
+              </v-carousel-item>
+            </v-carousel>
+          </div>
         </div>
 
         <!-- <v-icon light x-large class="m-7">mdi-chevron-double-left</v-icon> -->
