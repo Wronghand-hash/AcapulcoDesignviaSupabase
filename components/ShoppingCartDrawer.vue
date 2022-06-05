@@ -72,7 +72,7 @@ fa:
             >
               <img
                 class="float-left rounded-full w-24 h-24"
-                :src="item.item.image"
+                :src="item.image"
               />
               <div class="space-y-2 flex justify-end flex-col align-start">
                 <h1 class="font-mainFont font-extrabold text-2xl">
@@ -82,7 +82,7 @@ fa:
                   class="py-1 bg-Rose-300 border-2 border-pink-800 rounded-full"
                   @click.prevent="removeCartProduct(item)"
                 >
-                  <span class="px-5 font-mainFont text-2xl text-pink-800">
+                  <span class="px-5 font-mainFont text-xl text-pink-800">
                     {{ $t('delete') }}
                   </span>
                 </button>

@@ -38,16 +38,14 @@ fa:
           >
         </button>
       </template> -->
-  <div
-    class="flex h-screen w-screen flex-col justify-items-center justify-center"
-  >
+  <div class="flex w-screen h-full flex-col bg-Indigo-900 justify-center">
     <LazyHydrate on-interaction>
       <PaymentDialog ref="PaymentDialog" class="self-center m-10" />
     </LazyHydrate>
 
     <div class="w-full h-full backGround">
-      <div class="w-full h-2/4 flex justify-center align-center flex-col">
-        <div class="w-full h-auto flex items-center bg-mainGreen lg:p-5 p-1">
+      <div class="w-full flex justify-center align-center flex-col">
+        <div class="w-full h-auto flex items-center bg-mainGreen p-5">
           <h1 class="flex items-center">
             <NuxtLink
               v-if="$route.path.toString().includes('fa')"
@@ -73,7 +71,7 @@ fa:
           </h1>
         </div>
         <div
-          class="grid grid-cols-2 grid-rows-4 grid-flow-row w-full lg:h-3/4 h-4/5 bg-CoolGray-800 p-5 gap-4"
+          class="grid grid-cols-2 grid-rows-4 grid-flow-row w-full lg:h-3/4 h-4/5 bg-CoolGray-800 p-5 gap-2"
         >
           <div>
             <v-text-field
@@ -173,9 +171,9 @@ fa:
               filled
             ></v-text-field>
           </div>
-          <div>
+          <div class="col-span-2">
             <button
-              class="font-mainFont w-full text-3xl text-mainBlue font-bold rounded-full bg-Rose-400 transition ease-in duration-200 hover:bg-red-200 px-4 py-2"
+              class="font-mainFont w-full text-3xl text-mainBlue font-bold rounded-full bg-mainRed transition ease-in duration-200 hover:bg-red-200 px-4 py-2"
             >
               {{ $t('submit') }}
             </button>
@@ -188,8 +186,8 @@ fa:
         </div>
       </div>
 
-      <div class="w-full h-2/4 bg-Indigo-800">
-        <div class="w-full h-auto flex items-center bg-mainRed lg:p-5 p-1">
+      <div class="w-full h-2/4">
+        <div class="w-full h-auto flex items-center bg-mainRed p-5">
           <h1 class="flex items-center">
             <v-icon x-large dark>mdi-cart-arrow-right</v-icon>
             <span class="font-mainFont text-mainBlue font-extrabold text-4xl">
@@ -198,20 +196,20 @@ fa:
           </h1>
         </div>
 
-        <div class="h-full w-full bg-Indigo-800">
+        <div class="h-full w-full my-6">
           <div
             class="w-full h-3/4 overflow-y-scroll self-start lg:gap-2 grid grid-cols-2 lg:grid-cols-4"
           >
             <div
               v-for="item in cart"
               :key="item.id"
-              class="w-full h-full flex backGround flex-col justify-center align-center self-start"
+              class="w-full h-full flex backGround justify-center items-center text-center"
             >
               <div
-                class="w-2/3 h-full flex justify-center align-center space-x-3"
+                class="w-2/3 h-full flex flex-col items-center justify-center space-y-3"
               >
                 <img
-                  class="float-left rounded-full lg:w-24 lg:h-24 h-20 w-20"
+                  class="bg-mainGreen rounded-full mt-3 lg:w-24 lg:h-24 h-20 w-20"
                   :src="item.item.image"
                 />
                 <div class="space-y-2 flex justify-end flex-col align-start">
@@ -222,7 +220,7 @@ fa:
                     class="py-1 bg-Rose-300 border-2 border-pink-800 rounded-full"
                     @click.prevent="removeCartProduct(item)"
                   >
-                    <span class="px-5 font-mainFont text-2xl text-pink-800">
+                    <span class="px-5 font-mainFont text-lg text-pink-800">
                       {{ $t('delete') }}
                     </span>
                   </button>
@@ -231,7 +229,7 @@ fa:
             </div>
           </div>
           <div
-            class="w-screen h-1/4 p-3 space-x-4 flex items-center justify-center"
+            class="w-screen h-1/4 p-3 space-x-4 flex items-center justify-center my-7"
           >
             <h1
               class="font-mainFont text-center text-2xl flex justify-center items-center bg-white p-5 rounded-lg text-mainBlue font-semibold"
