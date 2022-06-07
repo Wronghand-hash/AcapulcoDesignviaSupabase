@@ -154,35 +154,19 @@ fa:
           </div>
 
           <div
-            class="h-screen w-screen flex flex-col lg:flex-row align-center justify-center space-y-6 p-14 lg:p-48 justify-self-stretch thirdContainer content"
+            class="h-screen w-screen flex flex-col lg:flex-row align-center justify-center space-y-2 p-14 lg:p-48 justify-self-stretch thirdContainer content"
           >
-            <div class="pictureDiv lg:order-first cursor-pointer shadow-2xl">
-              <!-- <h1
-                class="
-                  m-3
-                  font-mainFont
-                  rounded-full
-                  py-2
-                  px-8
-                  text-mainBlue
-                  bg-goldie
-                  text-2xl
-                  lg:text-3xl
-                  font-bold
-                "
-              >
-                Coming Soon...
-              </h1> -->
+            <div class="pictureDiv lg:order-first cursor-pointer bg-red-200">
               <img
                 src="~/assets/images/shirtacapulco.webp"
-                class="object-contain sm:w-96 h-full lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto pictureDivImages"
+                class="object-fill sm:w-96 sm:h-96 lg:max-w-lg md:max-w-2xl drop-shadow-2xl m-auto relative pictureDivImages"
                 alt=""
               />
             </div>
             <div class="textDiv flex flex-col order-last">
               <div class="flex-row-reverse align-center justify-center">
                 <h3
-                  class="p-5 text-center text-4xl lg:text-7xl sm:font-bold flex justify-center align-end"
+                  class="text-4xl sm:font-bold lg:text-7xl lg:p-5 text-center my-3 flex justify-center align-end"
                 >
                   {{ $t('acapulcoShirt') }}
                   <img

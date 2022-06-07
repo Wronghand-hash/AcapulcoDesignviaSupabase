@@ -51,7 +51,7 @@ fa:
                   >
                 </NuxtLink>
 
-                <span class="flex justify-center align-end">
+                <span class="flex justify-center items-center">
                   <v-icon x-large dark class="transform scale-125 mr-4"
                     >mdi-home-edit-outline</v-icon
                   >
@@ -94,7 +94,7 @@ fa:
             </div>
           </div>
           <div class="w-full h-3/6 ordersDiv">
-            <div class="w-full h-1/3 bg-mainRed">
+            <div class="w-full h-1/3 flex items-center bg-mainRed">
               <h1 class="p-5 items-center flex text-3xl">
                 <v-icon x-large dark>mdi-account-edit-outline</v-icon>
                 <span
@@ -155,7 +155,7 @@ fa:
           class="w-full h-1/4 flex space-x-2 align-center justify-center p-4"
         >
           <div
-            class="h-full w-full flex flex-col items-center justify-between Tabs"
+            class="h-full w-full flex flex-col items-center justify-around lg:justify-between Tabs"
             @click="toggleDialog('Processing')"
           >
             <img
@@ -170,7 +170,7 @@ fa:
             </h2>
           </div>
           <div
-            class="Tabs h-full w-full flex flex-col justify-between items-center"
+            class="Tabs h-full w-full flex flex-col justify-around lg:justify-between items-center"
             @click="toggleDialog('Order')"
           >
             <img
@@ -185,12 +185,12 @@ fa:
             </h2>
           </div>
           <div
-            class="Tabs h-full w-full flex flex-col items-center justify-between"
+            class="Tabs h-full w-full flex flex-col items-center justify-around lg:justify-between"
             @click="toggleDialog('Delivery')"
           >
             <img
               src="~/assets/images/arrived1.png"
-              class="w-20 h-24 object-contain"
+              class="w-20 h-20 object-contain"
               alt=""
             />
             <h2

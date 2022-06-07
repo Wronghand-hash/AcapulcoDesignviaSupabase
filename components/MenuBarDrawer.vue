@@ -45,7 +45,7 @@ fa:
     >
       <div class="w-full h-full p-6">
         <div class="align-center w-full h-3/6 flex flex-col">
-          <nuxt-link to="/">
+          <nuxt-link v-if="$route.path.toString().includes('fa')" to="/fa">
             <v-btn
               class="Btn"
               dark
@@ -58,13 +58,51 @@ fa:
               <span class="aboutUs text-2xl"> {{ $t('home') }} </span>
             </v-btn>
           </nuxt-link>
-          <nuxt-link to="/productList">
+          <nuxt-link v-else to="/">
+            <v-btn
+              class="Btn"
+              dark
+              depressed
+              rounded
+              x-large
+              color="transparent"
+            >
+              <v-icon class="" large>mdi-home</v-icon>
+              <span class="aboutUs text-2xl"> {{ $t('home') }} </span>
+            </v-btn>
+          </nuxt-link>
+          <nuxt-link
+            v-if="$route.path.toString().includes('fa')"
+            to="/fa/productList"
+          >
             <v-btn depressed x-large dark color="transparent" class="">
               <v-icon large>mdi-shopping</v-icon>
               <span class="white--text text-2xl"> {{ $t('shop') }} </span>
             </v-btn>
           </nuxt-link>
-          <nuxt-link to="/aboutUs">
+          <nuxt-link v-else to="/productList">
+            <v-btn depressed x-large dark color="transparent" class="">
+              <v-icon large>mdi-shopping</v-icon>
+              <span class="white--text text-2xl"> {{ $t('shop') }} </span>
+            </v-btn>
+          </nuxt-link>
+          <nuxt-link
+            v-if="$route.path.toString().includes('fa')"
+            to="/fa/aboutUs"
+          >
+            <v-btn
+              class="Btn"
+              dark
+              depressed
+              rounded
+              x-large
+              color="transparent"
+            >
+              <v-icon class="" large>mdi-meditation</v-icon>
+              <span class="aboutUs text-2xl"> {{ $t('aboutUs') }} </span>
+            </v-btn>
+          </nuxt-link>
+          <nuxt-link v-else to="/aboutUs">
             <v-btn
               class="Btn"
               dark
