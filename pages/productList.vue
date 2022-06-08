@@ -155,10 +155,10 @@ fa:
                 >
                   <h1
                     :class="{
-                      'bg-Amber-500 text-white':
+                      'bg-Indigo-700 text-white':
                         selectedCategory === 'Lighters',
                     }"
-                    class="lg:text-3xl text-2xl bg-green-500 lg:rounded-md rounded-t-md hover:bg-Amber-300 transition shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                    class="lg:text-3xl text-2xl bg-green-500 lg:rounded-md rounded-t-md hover:bg-Emerald-300 transition shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
                     {{ $t('lighters') }}
                     <img
@@ -174,9 +174,9 @@ fa:
                   "
                 >
                   <h1
-                    class="lg:text-3xl text-2xl bg-green-500 hover:bg-Amber-300 lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                    class="lg:text-3xl text-2xl bg-green-500 hover:bg-Emerald-300 lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                     :class="{
-                      'bg-Amber-500 text-white':
+                      'bg-Indigo-700 text-white':
                         selectedCategory === 'Collections',
                     }"
                   >
@@ -195,10 +195,10 @@ fa:
                 >
                   <h1
                     :class="{
-                      'bg-Amber-500 text-white':
+                      'bg-Indigo-700 text-white':
                         selectedCategory === 'Matchboxes',
                     }"
-                    class="lg:text-3xl text-2xl hover:bg-Amber-300 transition bg-green-500 rounded-b-md lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 text-center flex justify-center align-end sidebarText"
+                    class="lg:text-3xl text-2xl hover:bg-Emerald-300 transition bg-green-500 rounded-b-md lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 text-center flex justify-center align-end sidebarText"
                   >
                     {{ $t('acapulcoMatchboxes') }}
                     <img
@@ -215,9 +215,9 @@ fa:
                 >
                   <h1
                     :class="{
-                      'bg-Amber-500 text-white': selectedCategory === 'Shirts',
+                      'bg-Indigo-700 text-white': selectedCategory === 'Shirts',
                     }"
-                    class="lg:text-3xl text-2xl hover:bg-Amber-300 transition lg:rounded-md bg-green-500 rounded-t-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                    class="lg:text-3xl text-2xl hover:bg-Emerald-300 transition lg:rounded-md bg-green-500 rounded-t-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
                     {{ $t('acapulcoShirt') }}
                     <img
@@ -232,9 +232,9 @@ fa:
                 >
                   <h1
                     :class="{
-                      'bg-Amber-500 text-white': selectedCategory === 'Shorts',
+                      'bg-Indigo-700 text-white': selectedCategory === 'Shorts',
                     }"
-                    class="lg:text-3xl text-2xl bg-green-500 hover:bg-Amber-300 transition lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                    class="lg:text-3xl text-2xl bg-green-500 hover:bg-Emerald-300 transition lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
                     {{ $t('acapulcoShorts') }}
                     <img
@@ -249,9 +249,10 @@ fa:
                 >
                   <h1
                     :class="{
-                      'bg-Amber-500 text-white': selectedCategory === 'Hoodies',
+                      'bg-Indigo-700 text-white':
+                        selectedCategory === 'Hoodies',
                     }"
-                    class="lg:text-3xl text-2xl lg:rounded-md hover:bg-Amber-300 transition bg-green-500 rounded-b-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                    class="lg:text-3xl text-2xl lg:rounded-md hover:bg-Emerald-300 transition bg-green-500 rounded-b-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
                     {{ $t('acapulcoHoodies') }}
                     <img
