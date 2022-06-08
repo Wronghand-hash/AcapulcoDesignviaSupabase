@@ -149,12 +149,16 @@ fa:
               class="space-x-2 lg:my-5 px-1 text-center lg:text-left flex align-center justify-center"
             >
               <div class="lg:flex lg:space-x-5 font-bold">
-                <span
+                <div
                   class="cursor-pointer"
                   @click="category = 'Lighters' && selectCategory('Lighters')"
                 >
                   <h1
-                    class="lg:text-3xl text-2xl bg-green-500 lg:rounded-md rounded-t-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                    :class="{
+                      'bg-Amber-500 text-white':
+                        selectedCategory === 'Lighters',
+                    }"
+                    class="lg:text-3xl text-2xl bg-green-500 lg:rounded-md rounded-t-md hover:bg-Amber-300 transition shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
                     {{ $t('lighters') }}
                     <img
@@ -162,7 +166,7 @@ fa:
                       src="../assets/images/acapulcoLighterSmall.webp"
                     />
                   </h1>
-                </span>
+                </div>
                 <span
                   class="cursor-pointer"
                   @click="
@@ -170,7 +174,11 @@ fa:
                   "
                 >
                   <h1
-                    class="lg:text-3xl text-2xl bg-green-500 lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                    class="lg:text-3xl text-2xl bg-green-500 hover:bg-Amber-300 lg:rounded-md hover:bg-Emerald-300 transition shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                    :class="{
+                      'bg-Amber-500 text-white':
+                        selectedCategory === 'Collections',
+                    }"
                   >
                     {{ $t('collections') }}
                     <img
@@ -186,7 +194,11 @@ fa:
                   "
                 >
                   <h1
-                    class="lg:text-3xl text-2xl bg-green-500 rounded-b-md lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 text-center flex justify-center align-end sidebarText"
+                    :class="{
+                      'bg-Amber-500 text-white':
+                        selectedCategory === 'Matchboxes',
+                    }"
+                    class="lg:text-3xl text-2xl hover:bg-Amber-300 transition bg-green-500 hover:bg-Emerald-300 transition rounded-b-md lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 text-center flex justify-center align-end sidebarText"
                   >
                     {{ $t('acapulcoMatchboxes') }}
                     <img
@@ -202,7 +214,10 @@ fa:
                   @click="category = 'Shirts' && selectCategory('Shirts')"
                 >
                   <h1
-                    class="lg:text-3xl text-2xl lg:rounded-md bg-green-500 rounded-t-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                    :class="{
+                      'bg-Amber-500 text-white': selectedCategory === 'Shirts',
+                    }"
+                    class="lg:text-3xl text-2xl hover:bg-Amber-300 transition lg:rounded-md bg-green-500 rounded-t-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
                     {{ $t('acapulcoShirt') }}
                     <img
@@ -216,7 +231,10 @@ fa:
                   @click="category = 'Shorts' && selectCategory('Shorts')"
                 >
                   <h1
-                    class="lg:text-3xl text-2xl lg:rounded-md bg-green-500 shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                    :class="{
+                      'bg-Amber-500 text-white': selectedCategory === 'Shorts',
+                    }"
+                    class="lg:text-3xl text-2xl bg-green-500 hover:bg-Amber-300 transition lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
                     {{ $t('acapulcoShorts') }}
                     <img
@@ -230,7 +248,10 @@ fa:
                   @click="category = 'Hoodies' && selectCategory('Hoodies')"
                 >
                   <h1
-                    class="lg:text-3xl text-2xl lg:rounded-md bg-green-500 rounded-b-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                    :class="{
+                      'bg-Amber-500 text-white': selectedCategory === 'Hoodies',
+                    }"
+                    class="lg:text-3xl text-2xl lg:rounded-md hover:bg-Amber-300 transition bg-green-500 rounded-b-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                   >
                     {{ $t('acapulcoHoodies') }}
                     <img
@@ -341,7 +362,7 @@ export default {
       from: 1,
       to: 9,
       page: 1,
-      category: 'Shirts',
+      category: 'Lighters',
       products: [],
       SearchIndex: '',
       order: 'created_at',
@@ -361,9 +382,9 @@ export default {
     // products() {
     //   return this.$store.state.products
     // },
-    // category() {
-    //   return this.$store.state.category
-    // },
+    selectedCategory() {
+      return this.$store.state.category
+    },
   },
   watch: {
     SearchIndex() {
@@ -577,20 +598,6 @@ export default {
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
-.sidebarText {
-  transition: all 0.2s ease-in-out;
-  color: #001524;
-}
-
-.sidebarText:hover {
-  color: #001524;
-  background-color: #70d48f;
-}
-.sidebarText:active {
-  color: #001524;
-  background-color: #008028;
-  transform: scale(1.05);
-}
 .menu {
   margin: 2px;
   padding: 4px 13px;

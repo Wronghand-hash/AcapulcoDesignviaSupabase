@@ -6,126 +6,135 @@ fa:
   learnMore: 'نشونم بده'
 </i18n>
 <template>
-  <div
-    class="w-screen h-11/12 lg:h-full bg-blue-300 p-2 space-y-4 lg:space-x-6 lg:space-y-0 productDetail flex lg:justify-evenly flex-col lg:flex-row"
-  >
-    <div class="absolute p-2 text-red-500 left-0 top-0" @click="dialog = false">
-      <v-icon class="text-red-500 text-2xl">mdi-close</v-icon>
-    </div>
+  <v-app>
+    <LazyHydrate class="z-50" when-idle>
+      <Navbar
+        v-gsap.to="{
+          opacity: 1,
+          duration: 1.5,
+          delay: 1,
+          ease: 'circ.out',
+        }"
+        class="z-50"
+      />
+    </LazyHydrate>
     <div
-      class="lg:w-full w-full lg:h-full h-36 flex justify-center items-center align-center flex-col p-2 rounded-lg bg-green-700"
+      class="w-screen h-screen lg:h-full bg-blue-300 p-2 space-y-4 lg:space-x-6 lg:space-y-0 productDetail flex lg:justify-evenly flex-col lg:flex-row"
     >
-      <!-- <InnerImageZoom src="../assets/images/Chao.webp" />
+      <div
+        class="lg:w-full w-full lg:h-full h-36 flex justify-center items-center align-center flex-col p-2 rounded-lg bg-green-700"
+      >
+        <!-- <InnerImageZoom src="../assets/images/Chao.webp" />
               <client-only> q
                 <image-zoom regular-webp="../assets/images/Chao.webp"> </image-zoom>
               </client-only> -->
-      <h1 class="font-black text-4xl lg:text-9xl text-white font-mainFont">
-        {{ title }}
-      </h1>
-      <h2 class="font-black text-3xl lg:text-8xl text-white font-mainFont">
-        {{ price }}
-      </h2>
-      <div class="p-3">
-        <h2
-          class="font-white lg:text-2xl text-xl text-white font-mainFont leading-5"
-        >
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium
-          asperiores fugiat repell
+        <h1 class="font-black text-4xl lg:text-9xl text-white font-mainFont">
+          {{ product.title }}
+        </h1>
+        <h2 class="font-black text-3xl lg:text-8xl text-white font-mainFont">
+          {{ product.price }}
         </h2>
-      </div>
-
-      <button
-        class="bg-goldie p-3 font-mainFont text-2xl rounded-md cursor-pointer font-black transition ease-in duration-200 hover:bg-yellow-800"
-      >
-        Add to Cart
-        <v-icon color="white" class="">mdi-basket-plus-outline</v-icon>
-      </button>
-    </div>
-    <div class="flex flex-col-reverse space-y-2 h-full w-full">
-      <div
-        class="w-full lg:h-full h-1/4 flex justify-start items-center flex-col p-6 rounded-lg bg-green-200"
-      >
-        <div class="flex justify-around w-full m-2 space-x-1">
-          <div
-            class="bg-yellow-500 hover:border-2 hover:border-gray-800 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
-          ></div>
-          <div
-            class="bg-pink-500 hover:border-2 hover:border-gray-800 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
-          ></div>
-          <div
-            class="bg-green-500 hover:border-2 hover:border-gray-800 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
-          ></div>
-          <div
-            class="bg-red-500 hover:border-2 hover:border-gray-800 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
-          ></div>
-          <div
-            class="bg-blue-500 hover:border-2 hover:border-gray-800 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
-          ></div>
-          <div
-            class="bg-purple-500 hover:border-2 hover:border-gray-800 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
-          ></div>
-          <div
-            class="bg-Cyan-500 hover:border-2 hover:border-gray-800 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
-          ></div>
+        <div class="p-3">
+          <h2
+            class="font-white lg:text-2xl text-xl text-white font-mainFont leading-5"
+          >
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium
+            asperiores fugiat repell
+          </h2>
         </div>
 
-        <div class="flex justify-around space-x-1 h-14 p-2 w-full">
-          <div
-            class="flex flex-col bg-gray-600 justify-center align-center text-white rounded hover:bg-gray-800"
-          >
-            <p class="self-center">2xl</p>
+        <button
+          class="bg-goldie p-3 font-mainFont text-2xl rounded-md cursor-pointer font-black transition ease-in duration-200 hover:bg-yellow-800"
+        >
+          Add to Cart
+          <v-icon color="white" class="">mdi-basket-plus-outline</v-icon>
+        </button>
+      </div>
+      <div class="flex flex-col-reverse space-y-2 h-full w-full">
+        <div
+          class="w-full lg:h-full h-1/4 flex justify-start items-center flex-col p-6 rounded-lg bg-green-200"
+        >
+          <div class="flex justify-around w-full m-2 space-x-1">
+            <div
+              class="bg-yellow-500 hover:border-2 hover:border-gray-800 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
+            ></div>
+            <div
+              class="bg-pink-500 hover:border-2 hover:border-gray-800 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
+            ></div>
+            <div
+              class="bg-green-500 hover:border-2 hover:border-gray-800 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
+            ></div>
+            <div
+              class="bg-red-500 hover:border-2 hover:border-gray-800 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
+            ></div>
+            <div
+              class="bg-blue-500 hover:border-2 hover:border-gray-800 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
+            ></div>
+            <div
+              class="bg-purple-500 hover:border-2 hover:border-gray-800 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
+            ></div>
+            <div
+              class="bg-Cyan-500 hover:border-2 hover:border-gray-800 rounded-full border-2 w-5 h-5 lg:w-16 lg:h-16"
+            ></div>
           </div>
-          <div
-            class="flex flex-col bg-gray-600 justify-center align-center text-white rounded hover:bg-gray-800"
-          >
-            <p class="self-center">xl</p>
-          </div>
-          <div
-            class="flex flex-col bg-gray-600 justify-center align-center text-white rounded hover:bg-gray-800"
-          >
-            <p class="self-center">lg</p>
-          </div>
-          <div
-            class="flex flex-col bg-gray-600 justify-center align-center text-white rounded hover:bg-gray-800"
-          >
-            <p class="self-center">md</p>
-          </div>
-          <div
-            class="flex flex-col bg-gray-600 justify-center align-center text-white rounded hover:bg-gray-800"
-          >
-            <p class="self-center">sm</p>
+
+          <div class="flex justify-around space-x-1 h-14 p-2 w-full">
+            <div
+              class="flex flex-col bg-gray-600 justify-center align-center text-white rounded hover:bg-gray-800"
+            >
+              <p class="self-center">2xl</p>
+            </div>
+            <div
+              class="flex flex-col bg-gray-600 justify-center align-center text-white rounded hover:bg-gray-800"
+            >
+              <p class="self-center">xl</p>
+            </div>
+            <div
+              class="flex flex-col bg-gray-600 justify-center align-center text-white rounded hover:bg-gray-800"
+            >
+              <p class="self-center">lg</p>
+            </div>
+            <div
+              class="flex flex-col bg-gray-600 justify-center align-center text-white rounded hover:bg-gray-800"
+            >
+              <p class="self-center">md</p>
+            </div>
+            <div
+              class="flex flex-col bg-gray-600 justify-center align-center text-white rounded hover:bg-gray-800"
+            >
+              <p class="self-center">sm</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div
-        class="mb-2 h-full align-center filter drop-shadow-2xl rounded-lg flex justify-center"
-      >
-        <v-carousel class="w-full h-full lg:h-full">
-          <v-carousel-item
-            v-for="(item, i) in items"
-            :key="i"
-            cycle
-            :src="item"
-            reverse-transition="fade-transition"
-            transition="fade-transition"
-          >
-            <img
-              v-lazy-load
+        <div
+          class="mb-2 h-full align-center filter drop-shadow-2xl rounded-lg flex justify-center"
+        >
+          <v-carousel class="w-full h-full lg:h-full">
+            <v-carousel-item
+              v-for="(item, i) in items"
+              :key="i"
+              cycle
               :src="item"
-              alt=""
-              class="object-contain h-full w-full"
-            />
-          </v-carousel-item>
-        </v-carousel>
+              reverse-transition="fade-transition"
+              transition="fade-transition"
+            >
+              <img
+                v-lazy-load
+                :src="item"
+                alt=""
+                class="object-contain h-full w-full"
+              />
+            </v-carousel-item>
+          </v-carousel>
+        </div>
       </div>
-    </div>
 
-    <!-- <v-icon light x-large class="m-7">mdi-chevron-double-left</v-icon> -->
-    <!-- <div class="w-2/5 h-full bg-mainRed">
+      <!-- <v-icon light x-large class="m-7">mdi-chevron-double-left</v-icon> -->
+      <!-- <div class="w-2/5 h-full bg-mainRed">
           
         </div> -->
-    <!-- <div class="w-3/5 p-9 flex-col flex justify-around">
+      <!-- <div class="w-3/5 p-9 flex-col flex justify-around">
           <div class="flex justify-between flex-grow-0">
             <h1
               class="md:text-5xl text-4xl text-blueGray-900 font-bold font-mainFont"
@@ -205,22 +214,25 @@ fa:
             </button>
           </div>
         </div> -->
-  </div>
+    </div>
+  </v-app>
 </template>
 
 <script>
+import LazyHydrate from 'vue-lazy-hydration'
 // import 'vue-inner-image-zoom/lib/vue-inner-image-zoom.css'
 // import imageZoom from 'vue-image-zoomer'
 
 // import InnerImageZoom from 'vue-inner-image-zoom'
 export default {
   components: {
+    LazyHydrate,
+    Navbar: () => import('~/layouts/TheNavbar.vue'),
     // InnerImageZoom,
     // imageZoom,
   },
-  props: {
-    // eslint-disable-next-line vue/require-default-prop
-    product: Object,
+  validate({ params }) {
+    return /^\d+$/.test(params.id)
   },
   data() {
     return {
@@ -232,12 +244,10 @@ export default {
       price: 'loading',
       description: 'loading',
       Product: {
-        item: {
-          title: 'loading',
-          price: 'loading',
-        },
+        item: null,
         quantity: 1,
       },
+      product: 'loading',
     }
   },
 
@@ -247,24 +257,33 @@ export default {
     // },
   },
 
-  mounted() {},
+  mounted() {
+    this.getItem()
+    console.log(this.$route.params.id)
+  },
 
   methods: {
-    entrance() {
-      this.getImage()
-      this.getImage2()
-      setTimeout(() => {
-        this.title = this.product.item.title
-        this.price = this.product.item.price
-        this.description = this.product.item.description
-      }, 2000)
+    async getItem() {
+      try {
+        const { data, error } = await this.$supabase
+          .from('products')
+          .select()
+          .eq('id', this.$route.params.id)
+        if (error) throw error
+        this.product = data[0]
+        console.log(data[0])
+      } catch (error) {
+      } finally {
+        this.getImage()
+        this.getImage2()
+      }
     },
     async getImage() {
-      if (this.product.item.image_url) {
+      if (this.product.image_url) {
         try {
           const { data, error } = await this.$supabase.storage
             .from('product-images')
-            .download(this.product.item.image_url)
+            .download(this.product.image_url)
           if (error) throw error
           this.imgUrl = URL.createObjectURL(data)
         } catch (error) {
@@ -276,11 +295,11 @@ export default {
       }
     },
     async getImage2() {
-      if (this.product.item.img2) {
+      if (this.product.img2) {
         try {
           const { data, error } = await this.$supabase.storage
             .from('product-images')
-            .download(this.product.item.img2)
+            .download(this.product.img2)
           if (error) throw error
           this.imgUrl2 = URL.createObjectURL(data)
         } catch (error) {

@@ -64,7 +64,7 @@ fa:
               <span class="text-xl"> {{ $t('price') }} </span>
             </p>
 
-            <nuxt-link to="/productdetailpage">
+            <nuxt-link :to="'/productDetail/' + product.id">
               <button
                 class="learnMore flex py-1 px-5 justify-center align-center bg-mainGreen rounded-full"
                 :product="Product"
