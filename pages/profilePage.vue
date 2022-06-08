@@ -18,7 +18,7 @@ fa:
 <template>
   <div class="h-screen w-screen bg-Indigo-900">
     <div
-      class="flex flex-col justify-items-center justify-center align-center w-full h-screen"
+      class="flex flex-col absolute justify-items-center justify-center align-center w-full h-screen"
     >
       <LazyHydrate on-interaction>
         <Insights ref="Insights" />
