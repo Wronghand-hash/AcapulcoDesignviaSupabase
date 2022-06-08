@@ -18,7 +18,7 @@ fa:
 <template>
   <div class="h-screen w-screen bg-Indigo-900">
     <div
-      class="absolute flex flex-col justify-items-center justify-center align-center w-full h-screen"
+      class="flex flex-col justify-items-center justify-center align-center w-full h-screen"
     >
       <LazyHydrate on-interaction>
         <Insights ref="Insights" />
@@ -164,7 +164,7 @@ fa:
               alt=""
             />
             <h2
-              class="text-2xl lg:text-5xl font-mainFont text-mainBlue font-bold"
+              class="text-2xl lg:text-5xl text-center font-mainFont text-mainBlue font-bold"
             >
               {{ $t('proccessing') }}
             </h2>
@@ -179,7 +179,7 @@ fa:
               alt=""
             />
             <h2
-              class="text-2xl lg:text-5xl font-mainFont text-mainBlue font-bold"
+              class="text-2xl lg:text-5xl text-center font-mainFont text-mainBlue font-bold"
             >
               {{ $t('sent') }}
             </h2>
@@ -194,7 +194,7 @@ fa:
               alt=""
             />
             <h2
-              class="text-2xl lg:text-5xl font-mainFont text-mainBlue font-bold"
+              class="text-2xl lg:text-5xl text-center font-mainFont text-mainBlue font-bold"
             >
               {{ $t('delivered') }}
             </h2>

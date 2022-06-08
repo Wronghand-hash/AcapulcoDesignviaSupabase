@@ -384,7 +384,7 @@ fa:
             class="fixed right-0 bottom-0 cursor-pointer arrow"
             @click="toTop"
           >
-            <div class="h-20 w-12 mb-9 mr-5">
+            <div class="lg:h-20 lg:w-12 h-16 w-10 mb-9 mr-5">
               <img
                 src="~/assets/images/arrow.png"
                 class="object-contain"
