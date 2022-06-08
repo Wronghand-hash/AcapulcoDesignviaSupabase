@@ -174,7 +174,7 @@ fa:
                   "
                 >
                   <h1
-                    class="lg:text-3xl text-2xl bg-green-500 hover:bg-Amber-300 lg:rounded-md hover:bg-Emerald-300 transition shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
+                    class="lg:text-3xl text-2xl bg-green-500 hover:bg-Amber-300 lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 sidebarText text-center flex justify-center align-end"
                     :class="{
                       'bg-Amber-500 text-white':
                         selectedCategory === 'Collections',
@@ -198,7 +198,7 @@ fa:
                       'bg-Amber-500 text-white':
                         selectedCategory === 'Matchboxes',
                     }"
-                    class="lg:text-3xl text-2xl hover:bg-Amber-300 transition bg-green-500 hover:bg-Emerald-300 transition rounded-b-md lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 text-center flex justify-center align-end sidebarText"
+                    class="lg:text-3xl text-2xl hover:bg-Amber-300 transition bg-green-500 rounded-b-md lg:rounded-md shadow-2xl filter drop-shadow-xl px-12 py-2 text-center flex justify-center align-end sidebarText"
                   >
                     {{ $t('acapulcoMatchboxes') }}
                     <img
