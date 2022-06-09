@@ -31,10 +31,10 @@ fa:
               >
                 {{ $t('findUS') }}
               </h1>
-              <div class="flex items-center justify-center space-x-8">
+              <div class="flex items-center justify-center space-x-8 my-4">
                 <a href="https://t.me/acapulco_design" class="icon-3d">
                   <img
-                    class="object-contain w-11"
+                    class="object-contain w-12 pb-4"
                     src="~/assets/images/telegramIcon.webp"
                     alt=""
                   />
