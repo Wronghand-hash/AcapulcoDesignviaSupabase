@@ -16,235 +16,201 @@ fa:
 </i18n>
 
 <template>
-  <!-- <v-dialog
-      v-model="dialog"
-      fullscreen
-      transition="dialog-bottom-transition"
-      hide-overlay
-      class="dialog"
-    >
-      <template #activator="{ on, attrs }">
-        <button
-          class="checkoutBtn p-4 lg:py-3 flex justify-center align-center"
-          v-bind="attrs"
-          @click="dialog = true"
-          v-on="on"
-        >
-          <span class="pl-4 checkoutText font-mainFont text-2xl lg:text-4xl">
-            {{ $t('checkout') }}
-          </span>
-          <v-icon x-large class="pink--text text--darken-2"
-            >mdi-arrow-right-circle</v-icon
-          >
-        </button>
-      </template> -->
-  <div class="flex w-screen h-full flex-col bg-Indigo-900 justify-center">
+  <div
+    class="flex w-screen h-screen lg:h-screen flex-col bg-Indigo-900 justify-center"
+  >
     <LazyHydrate on-interaction>
       <PaymentDialog ref="PaymentDialog" class="self-center m-10" />
     </LazyHydrate>
 
-    <div class="w-full h-full backGround">
-      <div class="w-full flex justify-center align-center flex-col">
-        <div class="w-full h-auto flex items-center bg-mainGreen p-5">
-          <h1 class="flex items-center">
-            <NuxtLink
-              v-if="$route.path.toString().includes('fa')"
-              to="/fa/productlist"
+    <div class="w-full flex justify-center align-center flex-col">
+      <div class="w-full flex items-center bg-mainGreen p-5">
+        <h1 class="flex items-center">
+          <NuxtLink
+            v-if="$route.path.toString().includes('fa')"
+            to="/fa/productlist"
+          >
+            <span class="span transform scale-125"
+              ><v-icon dark x-large color=""
+                >mdi-chevron-double-left</v-icon
+              ></span
             >
-              <span class="span transform scale-125"
-                ><v-icon dark x-large color=""
-                  >mdi-chevron-double-left</v-icon
-                ></span
-              >
-            </NuxtLink>
-            <NuxtLink v-else to="/productlist">
-              <span class="span transform scale-125"
-                ><v-icon dark x-large color=""
-                  >mdi-chevron-double-left</v-icon
-                ></span
-              >
-            </NuxtLink>
-            <v-icon x-large dark>mdi-notebook-check</v-icon>
-            <span class="font-mainFont text-mainBlue font-extrabold text-4xl">
-              {{ $t('shippingDetail') }}
-            </span>
-          </h1>
+          </NuxtLink>
+          <NuxtLink v-else to="/productlist">
+            <span class="span transform scale-125"
+              ><v-icon dark x-large color=""
+                >mdi-chevron-double-left</v-icon
+              ></span
+            >
+          </NuxtLink>
+          <v-icon x-large dark>mdi-notebook-check</v-icon>
+          <span class="font-mainFont text-mainBlue font-extrabold text-4xl">
+            {{ $t('shippingDetail') }}
+          </span>
+        </h1>
+      </div>
+      <div
+        class="grid grid-cols-2 grid-rows-4 grid-flow-row w-full lg:h-3/4 h-4/5 bg-CoolGray-800 p-5 gap-2"
+      >
+        <div>
+          <v-text-field
+            v-model="order.FullName"
+            color="blue darken-4"
+            dark
+            label="Full Name"
+            class=""
+            required
+            rounded
+            dense
+            filled
+          ></v-text-field>
         </div>
-        <div
-          class="grid grid-cols-2 grid-rows-4 grid-flow-row w-full lg:h-3/4 h-4/5 bg-CoolGray-800 p-5 gap-2"
-        >
-          <div>
-            <v-text-field
-              v-model="order.FullName"
-              color="blue darken-4"
-              dark
-              label="Full Name"
-              class=""
-              required
-              rounded
-              dense
-              filled
-            ></v-text-field>
-          </div>
-          <!-- <div class="">
-                  <v-text-field
-                    v-model="order.lastName"
-                    color="red lighten-5"
-                    dark
-                    label="Last name"
-                    hint="example of helper text only on focus"
-                    rounded
-                    dense
-                    filled
-                  ></v-text-field>
-                </div> -->
-          <div>
-            <v-text-field
-              v-model="order.City"
-              color="red lighten-5"
-              dark
-              label="City"
-              required
-              rounded
-              dense
-              filled
-            ></v-text-field>
-          </div>
-          <div>
-            <v-text-field
-              v-model="order.Province"
-              color="red lighten-5"
-              dark
-              label="Province"
-              required
-              rounded
-              dense
-              filled
-            ></v-text-field>
-          </div>
-          <div>
-            <v-text-field
-              v-model="order.PhoneNumber"
-              color="red lighten-5"
-              dark
-              label="Phone Number"
-              required
-              rounded
-              dense
-              filled
-            ></v-text-field>
-          </div>
+        <div>
+          <v-text-field
+            v-model="order.City"
+            color="red lighten-5"
+            dark
+            label="City"
+            required
+            rounded
+            dense
+            filled
+          ></v-text-field>
+        </div>
+        <div>
+          <v-text-field
+            v-model="order.Province"
+            color="red lighten-5"
+            dark
+            label="Province"
+            required
+            rounded
+            dense
+            filled
+          ></v-text-field>
+        </div>
+        <div>
+          <v-text-field
+            v-model="order.PhoneNumber"
+            color="red lighten-5"
+            dark
+            label="Phone Number"
+            required
+            rounded
+            dense
+            filled
+          ></v-text-field>
+        </div>
 
-          <div>
-            <v-text-field
-              v-model="order.Email"
-              :rules="emailRules"
-              dark
-              dense
-              filled
-              rounded
-              label="E-mail"
-              required
-            />
-          </div>
-          <div>
-            <v-text-field
-              v-model="order.Password"
-              dark
-              dense
-              filled
-              rounded
-              required
-              label="Password"
-            />
-          </div>
+        <div>
+          <v-text-field
+            v-model="order.Email"
+            :rules="emailRules"
+            dark
+            dense
+            filled
+            rounded
+            label="E-mail"
+            required
+          />
+        </div>
+        <div>
+          <v-text-field
+            v-model="order.Password"
+            dark
+            dense
+            filled
+            rounded
+            required
+            label="Password"
+          />
+        </div>
 
-          <div class="col-span-2">
-            <v-text-field
-              v-model="order.Address"
-              color="red lighten-5"
-              dark
-              label="Address"
-              required
-              rounded
-              dense
-              filled
-            ></v-text-field>
-          </div>
-          <div class="col-span-2">
-            <button
-              class="font-mainFont w-full text-3xl text-mainBlue font-bold rounded-full bg-mainRed transition ease-in duration-200 hover:bg-red-200 px-4 py-2"
-            >
-              {{ $t('submit') }}
-            </button>
-          </div>
+        <div class="col-span-2">
+          <v-text-field
+            v-model="order.Address"
+            color="red lighten-5"
+            dark
+            label="Address"
+            required
+            rounded
+            dense
+            filled
+          ></v-text-field>
+        </div>
+        <div class="col-span-2">
+          <button
+            class="font-mainFont w-full text-3xl text-mainBlue font-bold rounded-full bg-mainRed transition ease-in duration-200 hover:bg-red-200 px-4 py-2"
+          >
+            {{ $t('submit') }}
+          </button>
+        </div>
 
-          <!-- <div>
+        <!-- <div>
                   <div class="mt-3 d-flex flex-column justify-end align-center">
                   </div>
                 </div> -->
-        </div>
+      </div>
+    </div>
+
+    <div class="w-full h-2/4">
+      <div class="w-full h-auto flex items-center bg-mainRed p-5">
+        <h1 class="flex items-center">
+          <v-icon x-large dark>mdi-cart-arrow-right</v-icon>
+          <span class="font-mainFont text-mainBlue font-extrabold text-4xl">
+            {{ $t('shoppingSummary') }}
+          </span>
+        </h1>
       </div>
 
-      <div class="w-full h-2/4">
-        <div class="w-full h-auto flex items-center bg-mainRed p-5">
-          <h1 class="flex items-center">
-            <v-icon x-large dark>mdi-cart-arrow-right</v-icon>
-            <span class="font-mainFont text-mainBlue font-extrabold text-4xl">
-              {{ $t('shoppingSummary') }}
-            </span>
-          </h1>
-        </div>
-
-        <div class="h-full w-full my-6">
+      <div class="w-full h-2/4 my-6">
+        <div
+          class="w-full h-3/4 overflow-y-scroll self-start lg:gap-2 grid grid-cols-2 lg:grid-cols-4"
+        >
           <div
-            class="w-full h-3/4 overflow-y-scroll self-start lg:gap-2 grid grid-cols-2 lg:grid-cols-4"
+            v-for="item in cart"
+            :key="item.id"
+            class="w-full h-full flex backGround justify-center items-center text-center"
           >
             <div
-              v-for="item in cart"
-              :key="item.id"
-              class="w-full h-full flex backGround justify-center items-center text-center"
+              class="w-2/3 h-full flex flex-col items-center justify-center space-y-3"
             >
-              <div
-                class="w-2/3 h-full flex flex-col items-center justify-center space-y-3"
-              >
-                <img
-                  class="bg-mainGreen rounded-full mt-3 lg:w-24 lg:h-24 h-20 w-20"
-                  :src="item.item.image"
-                />
-                <div class="space-y-2 flex justify-end flex-col align-start">
-                  <h1 class="font-mainFont font-extrabold text-2xl">
-                    {{ item.item.title }}
-                  </h1>
-                  <button
-                    class="py-1 bg-Rose-300 border-2 border-pink-800 rounded-full"
-                    @click.prevent="removeCartProduct(item)"
-                  >
-                    <span class="px-5 font-mainFont text-lg text-pink-800">
-                      {{ $t('delete') }}
-                    </span>
-                  </button>
-                </div>
+              <img
+                class="bg-mainGreen rounded-full mt-3 lg:w-24 lg:h-24 h-20 w-20"
+                :src="item.item.image"
+              />
+              <div class="space-y-2 flex justify-end flex-col align-start">
+                <h1 class="font-mainFont font-extrabold text-2xl">
+                  {{ item.item.title }}
+                </h1>
+                <button
+                  class="py-1 bg-Rose-300 border-2 border-pink-800 rounded-full"
+                  @click.prevent="removeCartProduct(item)"
+                >
+                  <span class="px-5 font-mainFont text-lg text-pink-800">
+                    {{ $t('delete') }}
+                  </span>
+                </button>
               </div>
             </div>
           </div>
-          <div
-            class="w-screen h-1/4 p-3 space-x-4 flex items-center justify-center my-7"
+        </div>
+        <div
+          class="w-screen h-1/4 p-3 space-x-4 flex items-center justify-center my-7"
+        >
+          <h1
+            class="font-mainFont text-center text-2xl flex justify-center items-center bg-white p-5 rounded-lg text-mainBlue font-semibold"
           >
-            <h1
-              class="font-mainFont text-center text-2xl flex justify-center items-center bg-white p-5 rounded-lg text-mainBlue font-semibold"
+            {{ $t('shoppingSum') }} : {{ total }} IRL
+          </h1>
+          <button class="checkoutBtn lg:p-4 p-2" @click="submitOrderDetail">
+            <span class="pl-4 checkoutText font-mainFont text-2xl">
+              {{ $t('checkout') }}
+            </span>
+            <v-icon x-large class="pink--text text--darken-2 sm:hidden"
+              >mdi-arrow-right-circle</v-icon
             >
-              {{ $t('shoppingSum') }} : {{ total }} IRL
-            </h1>
-            <button class="checkoutBtn lg:p-4 p-2" @click="submitOrderDetail">
-              <span class="pl-4 checkoutText font-mainFont text-2xl">
-                {{ $t('checkout') }}
-              </span>
-              <v-icon x-large class="pink--text text--darken-2 sm:hidden"
-                >mdi-arrow-right-circle</v-icon
-              >
-            </button>
-          </div>
+          </button>
         </div>
       </div>
     </div>
