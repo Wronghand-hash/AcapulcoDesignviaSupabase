@@ -41,10 +41,10 @@ fa:
       transition="fade-transition"
       app
       full-width
-      class="drawer light-green"
+      class="drawer indigo darken-2"
     >
       <div class="w-full h-full p-6">
-        <div class="align-center w-full h-3/6 flex flex-col">
+        <div class="align-center w-full h-3/6 flex flex-col space-y-7">
           <nuxt-link v-if="$route.path.toString().includes('fa')" to="/fa">
             <v-btn
               class="Btn"
@@ -52,10 +52,12 @@ fa:
               depressed
               rounded
               x-large
-              color="transparent"
+              color="indigo lighten-1"
             >
               <v-icon class="" large>mdi-home</v-icon>
-              <span class="aboutUs text-2xl"> {{ $t('home') }} </span>
+              <span class="aboutUs text-2xl">
+                {{ $t('home') }}
+              </span>
             </v-btn>
           </nuxt-link>
           <nuxt-link v-else to="/">
@@ -65,7 +67,7 @@ fa:
               depressed
               rounded
               x-large
-              color="transparent"
+              color="indigo lighten-1"
             >
               <v-icon class="" large>mdi-home</v-icon>
               <span class="aboutUs text-2xl"> {{ $t('home') }} </span>
@@ -75,13 +77,27 @@ fa:
             v-if="$route.path.toString().includes('fa')"
             to="/fa/productList"
           >
-            <v-btn depressed x-large dark color="transparent" class="">
+            <v-btn
+              depressed
+              x-large
+              dark
+              rounded
+              color="indigo lighten-1"
+              class=""
+            >
               <v-icon large>mdi-shopping</v-icon>
               <span class="white--text text-2xl"> {{ $t('shop') }} </span>
             </v-btn>
           </nuxt-link>
           <nuxt-link v-else to="/productList">
-            <v-btn depressed x-large dark color="transparent" class="">
+            <v-btn
+              depressed
+              x-large
+              dark
+              rounded
+              color="indigo lighten-1"
+              class=""
+            >
               <v-icon large>mdi-shopping</v-icon>
               <span class="white--text text-2xl"> {{ $t('shop') }} </span>
             </v-btn>
@@ -96,7 +112,7 @@ fa:
               depressed
               rounded
               x-large
-              color="transparent"
+              color="indigo lighten-1"
             >
               <v-icon class="" large>mdi-meditation</v-icon>
               <span class="aboutUs text-2xl"> {{ $t('aboutUs') }} </span>
@@ -109,7 +125,7 @@ fa:
               depressed
               rounded
               x-large
-              color="transparent"
+              color="indigo lighten-1"
             >
               <v-icon class="" large>mdi-meditation</v-icon>
               <span class="aboutUs text-2xl"> {{ $t('aboutUs') }} </span>
@@ -122,7 +138,14 @@ fa:
             class="flex"
             to="/adminPage"
           >
-            <v-btn depressed dark x-large color="transparent" class="">
+            <v-btn
+              depressed
+              rounded
+              dark
+              x-large
+              color="indigo lighten-1"
+              class=""
+            >
               <v-icon class="cowboy">mdi-account-cowboy-hat</v-icon>
               <span class="white--text text-2xl">{{ $t('admin') }}</span>
             </v-btn>
