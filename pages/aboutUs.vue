@@ -138,7 +138,7 @@ fa:
             class="flex flex-col ChaoDiv h-1/3 justify-center align-center space-y-2"
           >
             <a
-              href="https://instagram.com/comanche.chao/"
+              href="https://instagram.com/comanchechao/"
               class="flex flex-col justify-center align-center space-y-2 lg:space-y-4"
             >
               <img

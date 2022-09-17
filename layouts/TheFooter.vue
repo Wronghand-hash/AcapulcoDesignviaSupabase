@@ -80,7 +80,7 @@ fa:
             >
               {{ $t('developement') }}
               <a
-                href="https://www.instagram.com/comanche.chao/?hl=en"
+                href="https://www.instagram.com/comanchechao/?hl=en"
                 class="Chao"
                 >Comanche Chao🧙</a
               >
