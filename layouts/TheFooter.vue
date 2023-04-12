@@ -19,7 +19,7 @@ fa:
       class="seventhContainer w-screen bg-mainBlue flex flex-col overflow-hidden"
     >
       <div
-        class="flex justify-center flex-col w-screen align-center mt-16 h-screen lg:mt-24 lg:mb-80 mb-52"
+        class="flex justify-center flex-col w-screen align-center mt-16 h-auto lg:mt-24 lg:mb-80 mb-52"
       >
         <div
           class="h-14 z-40 flex-col flex align-center justify-center p-6 self-center"
@@ -92,7 +92,7 @@ fa:
               >
             </h1>
             <h1
-              class="flex flex-col self-center font-mainFont text-center space-y-2 font-thin capitalize text-3xl lg:text-4xl text-mainRed"
+              class="flex flex-col mb-14 self-center font-mainFont text-center space-y-2 font-thin capitalize text-3xl lg:text-4xl text-mainRed"
             >
               {{ $t('art') }}
               <a
@@ -104,7 +104,7 @@ fa:
           </div>
         </div>
         <img
-          class="lg:object-fill object-contain bottom-0 absolute lg:h-screen lg:w-screen w-full"
+          class="lg:object-fill mt-5 object-contain bottom-0 absolute lg:h-screen lg:w-screen w-full"
           src="~/assets/images/footerpic.webp"
           alt=""
         />
