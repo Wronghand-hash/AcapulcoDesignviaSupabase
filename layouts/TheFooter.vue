@@ -70,37 +70,7 @@ fa:
                 alt=""
               />
             </a>
-            <h1
-              class="lg:ml-4 font-mainFont font-bold capitalize text-3xl p-2 lg:text-5xl text-mainRed"
-            >
-              {{ $t('made') }} ❤️ {{ $t('iran') }}
-            </h1>
-            <h1
-              class="self-center flex flex-col font-mainFont space-y-2 font-thin capitalize text-center text-3xl lg:text-4xl text-mainRed"
-            >
-              {{ $t('developement') }}
-              <a
-                href="https://www.instagram.com/comanchechao/?hl=en"
-                class="Chao"
-                >Comanche Chao🧙</a
-              >
-              <a
-                href="https://www.instagram.com/just_greez/?hl=en"
-                class="Greez"
-              >
-                Greez🐻</a
-              >
-            </h1>
-            <h1
-              class="flex flex-col mb-14 self-center font-mainFont text-center space-y-2 font-thin capitalize text-3xl lg:text-4xl text-mainRed"
-            >
-              {{ $t('art') }}
-              <a
-                href="https://www.instagram.com/payamone/?hl=en"
-                class="payamone"
-                >PayamOne🌴</a
-              >
-            </h1>
+            <div class="flex items-center justify-center space-x-5"></div>
           </div>
         </div>
         <img
